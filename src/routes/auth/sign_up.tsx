@@ -137,7 +137,7 @@ export default function Home() {
   return (
     <PageContainer>
       <Title>Darcy - Registro</Title>
-      <ValidUserCheck redirectToIfLogged="/" navigate={navigate} />
+      <ValidUserCheck redirectToIfLogged="/" />
 
       <Style>
         {`

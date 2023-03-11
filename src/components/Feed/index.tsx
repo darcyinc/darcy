@@ -1,6 +1,14 @@
-import { createEffect, createSignal, onCleanup } from 'solid-js';
+import { createEffect, createSignal, For, onCleanup } from 'solid-js';
+import FeedPost from './FeedPost';
+import FeedSorter from './FeedSorter';
 import loadMoreObserver from './loadMoreObserver';
-import { FeedContainer, loadMore } from './styles';
+import {
+  FeedContainer,
+  FeedDivider,
+  loadMore,
+  MobileFeedHeader,
+} from './styles';
+import DarcyLogo from '~/assets/logo-cropped.png?webp&w=50&height=50&imagetools';
 
 export default function Feed() {
   // eslint-disable-next-line solid/reactivity
@@ -47,17 +55,53 @@ export default function Feed() {
     if (timeout) clearTimeout(timeout);
   });
 
+  const fakeArray = Array.from({ length: 30 });
+
   return (
-    <FeedContainer>
-      <span
-        class={loadMore}
-        onClick={loadMorePosts}
-        onKeyDown={loadMorePosts}
-        role="button"
-        tabIndex={0}
-      >
-        Clique para carregar mais posts
-      </span>
-    </FeedContainer>
+    <>
+      <MobileFeedHeader>
+        <img src={DarcyLogo} alt="Logo" />
+        <span>Darcy</span>
+      </MobileFeedHeader>
+
+      <FeedContainer>
+        <FeedSorter />
+
+        <For each={fakeArray}>
+          {(_) => (
+            <>
+              <FeedPost
+                content="hey!"
+                embeds={[]}
+                hasLiked={true}
+                hasReposted={true}
+                postURL="/#"
+                stats={{
+                  comments: 0,
+                  likes: 0,
+                  reposts: 0,
+                }}
+                user={{
+                  avatar: 'https://via.placeholder.com/150',
+                  handle: 'davipatricio',
+                  name: 'Davi Patricio',
+                }}
+              />
+              <FeedDivider />
+            </>
+          )}
+        </For>
+
+        <span
+          class={loadMore}
+          onClick={loadMorePosts}
+          onKeyDown={loadMorePosts}
+          role="button"
+          tabIndex={0}
+        >
+          Clique para carregar mais posts
+        </span>
+      </FeedContainer>
+    </>
   );
 }

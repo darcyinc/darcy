@@ -133,7 +133,6 @@ export const FormFieldContainer = styled.div`
   max-width: 360px;
 
   input {
-    // background-color: #d9d9d9;
     background-color: #2b3446;
     color: #fff;
     padding: 18px 16px;
@@ -143,7 +142,6 @@ export const FormFieldContainer = styled.div`
     height: 50px;
     &::placeholder {
       // 60% opacity
-      // color: #0009;
       color: #8b8b8b;
     }
   }

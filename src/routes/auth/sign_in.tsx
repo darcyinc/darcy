@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <PageContainer>
       <Title>Darcy - Login</Title>
-      <ValidUserCheck redirectToIfLogged="/" navigate={navigate} />
+      <ValidUserCheck redirectToIfLogged="/" />
 
       <Style>
         {`

@@ -1,11 +1,9 @@
-import type { Navigator } from '@solidjs/router';
 import { createEffect } from 'solid-js';
+import { useNavigate } from 'solid-start';
 import getUserFromToken from '~/api/getUserFromToken';
 import { useAccountStore } from '~/hooks/accountStore';
 
 export interface ValidUserCheckProps {
-  // without this, useNavigate() throws an error
-  navigate: Navigator;
   redirectToIfLogged?: string;
   redirectToIfNotLogged?: string;
 }
@@ -13,8 +11,8 @@ export interface ValidUserCheckProps {
 export default function ValidUserCheck({
   redirectToIfLogged,
   redirectToIfNotLogged,
-  navigate,
 }: ValidUserCheckProps) {
+  const navigate = useNavigate();
   const [account, setAccountData] = useAccountStore();
 
   let currentToken = '';
