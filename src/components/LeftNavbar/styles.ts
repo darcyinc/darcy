@@ -12,6 +12,7 @@ export const Container = styled.nav`
   border-right: 1px solid rgb(47, 51, 54);
   padding: 10px;
 
+  height: 100%;
   width: fit-content;
 
   @media (max-width: 600px) {

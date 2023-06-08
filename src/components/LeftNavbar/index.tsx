@@ -27,7 +27,7 @@ export default function LeftNavbar() {
         <HiSearch />
         <span>Explorar</span>
       </NavbarLink>
-      <NavbarLink href="/search">
+      <NavbarLink href="/notifications">
         <HiOutlineBell />
         <span>Notificações</span>
       </NavbarLink>

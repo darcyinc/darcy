@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '../lib/registry';
 import GlobalStyles from '@/styles/GlobalStyles';
+import LeftNavbar from '@/components/LeftNavbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +20,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <GlobalStyles />
+
+          <LeftNavbar />
           {children}
         </StyledComponentsRegistry>
       </body>
