@@ -14,7 +14,6 @@ export const Container = styled(Link)`
   justify-content: center;
 
   gap: 12px;
-  padding: 12px;
   margin-top: auto;
 
   &:hover {
@@ -35,6 +34,12 @@ export const Container = styled(Link)`
 
     > span {
       color: rgb(113, 118, 123);
+    }
+  }
+
+  @media (max-width: 600px) {
+    > div {
+      display: none;
     }
   }
 `;

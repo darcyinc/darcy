@@ -2,12 +2,12 @@ import Button from '../Button';
 import NavbarProfile from './NavbarProfile';
 import { Container, NavbarLink } from './styles';
 import {
-  HiBell,
   HiHome,
   HiOutlineBell,
   HiOutlineBookmark,
   HiOutlineMail,
   HiOutlineUser,
+  HiPencilAlt,
   HiSearch,
 } from 'react-icons/hi';
 import { MdEditNote } from 'react-icons/md';
@@ -45,7 +45,9 @@ export default function LeftNavbar() {
       </NavbarLink>
 
       <Button $variant="blue" $size="large">
-        Tweetar
+        <p>Tweetar</p>
+        {/* Only shown on mobile */}
+        <HiPencilAlt />
       </Button>
 
       <NavbarProfile />
