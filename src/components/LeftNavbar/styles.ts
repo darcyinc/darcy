@@ -10,17 +10,24 @@ export const Container = styled.nav`
   align-items: flex-start;
 
   border-right: 1px solid rgb(47, 51, 54);
-  padding: 10px;
+  padding: 20px;
+  padding-left: 40px;
 
   height: 100%;
   width: fit-content;
 
-  @media (max-width: 600px) {
-    align-items: center;
-  }
-
   @media (min-width: 1400px) {
     padding-left: 70px;
+  }
+
+  @media (max-width: 950px) {
+    padding-left: 20px;
+  }
+
+  @media (max-width: 740px) {
+    align-items: center;
+    gap: 2px;
+    padding: 10px;
   }
 
   /* Tweet button */
@@ -32,9 +39,9 @@ export const Container = styled.nav`
       display: none;
     }
 
-    @media (max-width: 600px) {
-      height: 46px;
-      width: 46px;
+    @media (max-width: 740px) {
+      height: 53px;
+      width: 53px;
 
       > svg {
         display: block;
@@ -75,7 +82,7 @@ export const NavbarLink = styled(Link)<{ $active?: boolean }>`
     background-color: rgba(231, 233, 234, 0.1);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 740px) {
     padding: 10px;
     width: fit-content;
 

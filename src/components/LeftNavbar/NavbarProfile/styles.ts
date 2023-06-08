@@ -14,7 +14,12 @@ export const Container = styled(Link)`
   justify-content: center;
 
   gap: 12px;
+  padding: 12px;
   margin-top: auto;
+
+  @media (max-width: 740px) {
+    padding: 0;
+  }
 
   &:hover {
     background-color: rgba(231, 233, 234, 0.1);
@@ -37,7 +42,7 @@ export const Container = styled(Link)`
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 740px) {
     > div {
       display: none;
     }
