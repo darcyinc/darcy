@@ -19,7 +19,7 @@ export const Container = styled.nav`
   }
 `;
 
-export const NavbarLink = styled(Link)<{ active?: boolean }>`
+export const NavbarLink = styled(Link)<{ $active?: boolean }>`
   ${maxRounded}
 
   display: flex;
@@ -32,7 +32,7 @@ export const NavbarLink = styled(Link)<{ active?: boolean }>`
 
   width: fit-content;
 
-  ${(props) => props.active && `font-weight: bold;`}
+  ${({ $active }) => $active && `font-weight: bold;`}
 
   > svg {
     height: 26px;

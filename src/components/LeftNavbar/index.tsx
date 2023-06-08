@@ -19,7 +19,7 @@ export default function LeftNavbar() {
         <MdEditNote />
       </NavbarLink>
 
-      <NavbarLink active href="/">
+      <NavbarLink $active href="/">
         <HiHome />
         <span>Início</span>
       </NavbarLink>
