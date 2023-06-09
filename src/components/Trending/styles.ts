@@ -12,7 +12,8 @@ export const Container = styled.section`
     display: none;
   }
 
-  > div {
+  > div,
+  > form {
     border-radius: 16px;
     background-color: rgb(22, 24, 28);
     padding: 20px;

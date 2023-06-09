@@ -2,7 +2,10 @@
 const nextConfig = {
   compiler: {
     styledComponents: true,
-    removeConsole: true
+    removeConsole: true,
+  },
+  experimental: {
+    serverActions: true,
   },
 };
 
