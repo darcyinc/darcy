@@ -2,6 +2,8 @@ import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from '../lib/registry';
 import GlobalStyles from '@/styles/GlobalStyles';
 import LeftNavbar from '@/components/LeftNavbar';
+import Trending from '@/components/Trending';
+import { MainWrapper } from './styles';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +24,11 @@ export default function RootLayout({
           <GlobalStyles />
 
           <LeftNavbar />
-          {children}
+
+          <MainWrapper>
+            {children}
+            <Trending />
+          </MainWrapper>
         </StyledComponentsRegistry>
       </body>
     </html>

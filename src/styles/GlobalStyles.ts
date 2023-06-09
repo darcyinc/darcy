@@ -9,6 +9,8 @@ export default createGlobalStyle`
   }
 
   body {
+    display: flex;
+    justify-content: center;
     background-color: #000;
   }
 

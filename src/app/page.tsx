@@ -1,5 +1,9 @@
-import LeftNavbar from '@/components/LeftNavbar';
+import Feed from '@/components/Feed';
 
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <Feed />
+    </>
+  );
 }

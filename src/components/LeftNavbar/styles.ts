@@ -24,9 +24,9 @@ export const Container = styled.nav`
     padding-left: 20px;
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 1240px) {
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     padding: 10px;
   }
 
@@ -39,7 +39,7 @@ export const Container = styled.nav`
       display: none;
     }
 
-    @media (max-width: 740px) {
+    @media (max-width: 1240px) {
       height: 53px;
       width: 53px;
 
@@ -82,7 +82,7 @@ export const NavbarLink = styled(Link)<{ $active?: boolean }>`
     background-color: rgba(231, 233, 234, 0.1);
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 1240px) {
     padding: 10px;
     width: fit-content;
 

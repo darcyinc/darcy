@@ -17,7 +17,7 @@ export const Container = styled(Link)`
   padding: 12px;
   margin-top: auto;
 
-  @media (max-width: 740px) {
+  @media (max-width: 1240px) {
     padding: 0;
   }
 
@@ -42,7 +42,7 @@ export const Container = styled(Link)`
     }
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 1240px) {
     > div {
       display: none;
     }
