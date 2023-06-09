@@ -5,7 +5,7 @@ export default function NavbarProfile() {
     <Container href="/davipatricio">
       <img src="https://via.placeholder.com/48" alt="Profile" />
 
-      <div>
+      <div className="profileInfo">
         <p>Davi Patricio</p>
         <span>@davipatricio</span>
       </div>

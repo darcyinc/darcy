@@ -21,6 +21,12 @@ export const Container = styled(Link)`
     padding: 0;
   }
 
+  @media (max-width: 1240px) {
+    > div.profileInfo {
+      display: none;
+    }
+  }
+
   &:hover {
     background-color: rgba(231, 233, 234, 0.1);
   }
@@ -31,7 +37,7 @@ export const Container = styled(Link)`
     width: 40px;
   }
 
-  > div {
+  > div.profileInfo {
     > p {
       color: #fff;
       font-weight: bold;
@@ -39,12 +45,6 @@ export const Container = styled(Link)`
 
     > span {
       color: rgb(113, 118, 123);
-    }
-  }
-
-  @media (max-width: 1240px) {
-    > div {
-      display: none;
     }
   }
 `;
