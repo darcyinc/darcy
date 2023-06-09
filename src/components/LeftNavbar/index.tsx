@@ -12,6 +12,15 @@ import {
 } from 'react-icons/hi';
 import { MdEditNote } from 'react-icons/md';
 
+const LINKS = [
+  { href: '/', icon: HiHome, label: 'Início', active: true },
+  { href: '/search', icon: HiSearch, label: 'Explorar' },
+  { href: '/notifications', icon: HiOutlineBell, label: 'Notificações' },
+  { href: '/messages', icon: HiOutlineMail, label: 'Mensagens' },
+  { href: '/bookmarks', icon: HiOutlineBookmark, label: 'Itens salvos' },
+  { href: '/davipatricio', icon: HiOutlineUser, label: 'Perfil' },
+];
+
 export default function LeftNavbar() {
   return (
     <Container>
@@ -19,34 +28,16 @@ export default function LeftNavbar() {
         <MdEditNote />
       </NavbarLink>
 
-      <NavbarLink $active href="/">
-        <HiHome />
-        <span>Início</span>
-      </NavbarLink>
-      <NavbarLink href="/search">
-        <HiSearch />
-        <span>Explorar</span>
-      </NavbarLink>
-      <NavbarLink href="/notifications">
-        <HiOutlineBell />
-        <span>Notificações</span>
-      </NavbarLink>
-      <NavbarLink href="/messages">
-        <HiOutlineMail />
-        <span>Mensagens</span>
-      </NavbarLink>
-      <NavbarLink href="/bookmarks">
-        <HiOutlineBookmark />
-        <span>Itens salvos</span>
-      </NavbarLink>
-      <NavbarLink href="/davipatricio">
-        <HiOutlineUser />
-        <span>Perfil</span>
-      </NavbarLink>
+      {LINKS.map(({ href, icon: Icon, label, active }) => (
+        <NavbarLink key={href} href={href} $active={active}>
+          <Icon />
+          <span>{label}</span>
+        </NavbarLink>
+      ))}
 
       <Button $variant="blue" $size="large">
         <p>Tweetar</p>
-        {/* Only shown on mobile */}
+        {/* Icon only shown on mobile */}
         <HiPencilAlt />
       </Button>
 
