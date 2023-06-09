@@ -3,7 +3,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding-top: 10px;
 
   width: 100%;
   max-width: 348px;
