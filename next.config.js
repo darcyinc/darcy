@@ -2,8 +2,7 @@
 const nextConfig = {
   compiler: {
     styledComponents: true,
-    removeConsole: true,
-    reactRemoveProperties: true,
+    removeConsole: true
   },
 };
 
