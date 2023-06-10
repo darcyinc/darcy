@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
+  border-bottom: 1px solid rgb(47, 51, 54);
   width: 100%;
 
   > h3 {

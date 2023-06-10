@@ -21,6 +21,7 @@ export default function TrendingSearch() {
         name="search"
         maxLength={255}
         required
+        autoComplete="off"
       />
       <button className="clear-icon" type="reset">
         <HiOutlineX />

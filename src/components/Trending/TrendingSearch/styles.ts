@@ -17,7 +17,7 @@ export const Container = styled.form`
 
   > input[type='text'] {
     appearance: none;
-    background-color: transparent;
+    background: none;
     border: none;
     outline: 0;
     font-size: 0.95rem;
