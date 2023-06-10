@@ -19,7 +19,7 @@ export const Container = styled.button<ButtonProps>`
   text-transform: capitalize;
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
   &[disabled] {

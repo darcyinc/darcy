@@ -10,8 +10,7 @@ export const Container = styled.nav`
   align-items: flex-start;
 
   border-right: 1px solid ${({ theme }) => theme.colors.grayBorder};
-  padding: 20px;
-  padding-left: 40px;
+  padding: 10px 20px 15px 40px;
 
   height: 100%;
   width: fit-content;

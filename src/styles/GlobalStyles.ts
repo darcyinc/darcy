@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   :root {
-    color-scheme: dark light;
+    color-scheme: dark;
     text-rendering: optimizeLegibility;
   }
 
