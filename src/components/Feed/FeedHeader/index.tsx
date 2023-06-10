@@ -22,7 +22,7 @@ export default function FeedHeader({
   const Divider = useCallback(
     ({ active }: { active: boolean }) => {
       if (!active) return null;
-      return <div className="active" style={{ width: `${dividerWidth}px` }} />;
+      return <div className="divider" style={{ width: `${dividerWidth}px` }} />;
     },
     [dividerWidth]
   );

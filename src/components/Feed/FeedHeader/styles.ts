@@ -28,20 +28,21 @@ export const Container = styled.header`
 
     color: rgb(113, 118, 123);
 
-    &:has(.active) {
+    &:has(.divider) {
       color: #fff;
       font-weight: bold;
+      font-size: 1.05rem;
     }
 
     &:hover {
       background-color: rgba(231, 233, 234, 0.1);
     }
 
-    .active {
+    .divider {
       display: block;
-      background-color: #fff;
+      background-color: rgb(29, 155, 240);
       border-radius: 2px;
-      height: 3px;
+      height: 4px;
 
       position: absolute;
       bottom: 0;
