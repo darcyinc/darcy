@@ -5,7 +5,7 @@ export const lightTheme: DefaultTheme = {
   colors: {
     blue: 'rgb(29, 155, 240)',
     darkGray: 'rgb(247, 249, 249)',
-    grayBorder: 'rgb(47, 51, 54)',
+    grayBorder: 'rgb(239, 243, 244)',
   },
   text: {
     primary: '#000',
