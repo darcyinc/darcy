@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { Container, PostContent, PostHeader } from './styles';
-import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 import { useRouter } from 'next/navigation';
+
+import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
+
+import { Container, PostContent, PostHeader } from './styles';
 
 export default function FeedPost() {
   const router = useRouter();

@@ -1,8 +1,10 @@
 'use client';
 
 import styled, { css } from 'styled-components';
-import { ButtonProps } from '.';
+
 import { maxRounded } from '@/styles/common/maxRounded';
+
+import { ButtonProps } from '.';
 
 export const Container = styled.button<ButtonProps>`
   ${maxRounded}

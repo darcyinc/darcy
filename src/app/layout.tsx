@@ -1,7 +1,9 @@
-import LeftNavbar from '@/components/LeftNavbar';
-import Trending from '@/components/Trending';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+
+import LeftNavbar from '@/components/LeftNavbar';
+import Trending from '@/components/Trending';
+
 import Providers from './providers';
 import { MainWrapper } from './styles';
 

@@ -1,5 +1,6 @@
-import Feed from '@/components/Feed';
 import { Metadata } from 'next';
+
+import Feed from '@/components/Feed';
 
 export const metadata: Metadata = {
   title: 'Search | Darcy',

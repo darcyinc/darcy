@@ -1,6 +1,7 @@
 import { HiOutlineX, HiSearch } from 'react-icons/hi';
-import { Container } from './styles';
 import { redirect } from 'next/navigation';
+
+import { Container } from './styles';
 
 export default function TrendingSearch() {
   async function handleSearch(e: FormData) {

@@ -9,6 +9,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "ignorePatterns": [
+    "node_modules/*",
+    ".next/*",
+    "*.js"
+  ],
   "plugins": [
     "unicorn",
     "jsx-a11y",
@@ -22,7 +27,33 @@
     }
   },
   "rules": {
+    "@next/next/no-img-element": "off",
     "prettier/prettier": "error",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "import/no-unused-modules": [
+      "error",
+      {
+        "missingExports": true,
+        "unusedExports": true,
+        "ignoreExports": [
+          "**/*.d.ts",
+          "**/+(layout|page).tsx"
+        ]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always"
+      }
+    ]
   }
 }

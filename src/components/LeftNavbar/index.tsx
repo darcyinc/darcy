@@ -1,6 +1,3 @@
-import Button from '../Button';
-import NavbarProfile from './NavbarProfile';
-import { Container, NavbarLink } from './styles';
 import {
   HiHome,
   HiOutlineBell,
@@ -11,6 +8,11 @@ import {
   HiSearch,
 } from 'react-icons/hi';
 import { MdEditNote } from 'react-icons/md';
+
+import Button from '../Button';
+
+import NavbarProfile from './NavbarProfile';
+import { Container, NavbarLink } from './styles';
 
 const LINKS = [
   { href: '/', icon: HiHome, label: 'Início', active: true },
