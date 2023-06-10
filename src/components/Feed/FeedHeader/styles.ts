@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  border-bottom: 1px solid rgb(47, 51, 54);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.grayBorder};
   width: 100%;
 
   > h3 {
@@ -26,21 +26,21 @@ export const Container = styled.header`
     height: 50px;
     width: 50%;
 
-    color: rgb(113, 118, 123);
+    color: ${({ theme }) => theme.text.secondary};
 
     &:has(.divider) {
-      color: #fff;
+      color: ${({ theme }) => theme.text.primary};
       font-weight: bold;
       font-size: 1.05rem;
     }
 
     &:hover {
-      background-color: rgba(231, 233, 234, 0.1);
+      background-color: ${({ theme }) => theme.effects.hover};
     }
 
     .divider {
       display: block;
-      background-color: rgb(29, 155, 240);
+      background-color: ${({ theme }) => theme.colors.blue};
       border-radius: 2px;
       height: 4px;
 

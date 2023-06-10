@@ -11,7 +11,7 @@ export const Container = styled.form`
   border-radius: 30px !important;
 
   > svg {
-    color: rgb(113, 118, 123);
+    color: ${({ theme }) => theme.text.secondary};
     font-size: 1.25rem;
   }
 
@@ -24,9 +24,9 @@ export const Container = styled.form`
     width: 100%;
   }
 
-  &:has(:focus-within) {
-    border: 1px solid rgb(29, 161, 242);
-    background-color: #000;
+  &:focus-within {
+    border: 1px solid ${({ theme }) => theme.colors.blue};
+    background-color: transparent;
   }
 
   &:has(input:not(:placeholder-shown)) {
@@ -47,7 +47,7 @@ export const Container = styled.form`
     visibility: hidden;
 
     appearance: none;
-    background-color: rgb(29, 161, 242);
+    background-color: ${({ theme }) => theme.colors.blue};
     border: none;
     border-radius: 50%;
 
@@ -61,7 +61,7 @@ export const Container = styled.form`
     }
 
     > svg {
-      color: #000;
+      color: ${({ theme }) => theme.text.primary};
       font-size: 1.1rem;
     }
   }

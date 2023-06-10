@@ -1,10 +1,9 @@
-import { Inter } from 'next/font/google';
-import StyledComponentsRegistry from '@/lib/registry';
-import GlobalStyles from '@/styles/GlobalStyles';
 import LeftNavbar from '@/components/LeftNavbar';
 import Trending from '@/components/Trending';
-import { MainWrapper } from './styles';
 import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import Providers from './providers';
+import { MainWrapper } from './styles';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,16 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
-
+        <Providers>
           <LeftNavbar />
 
           <MainWrapper>
             {children}
             <Trending />
           </MainWrapper>
-        </StyledComponentsRegistry>
+        </Providers>
       </body>
     </html>
   );

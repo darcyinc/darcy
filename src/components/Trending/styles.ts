@@ -9,6 +9,8 @@ export const Container = styled.section`
 
   padding-top: 10px;
 
+  color: ${({ theme }) => theme.text.primary};
+
   width: 100%;
   max-width: 348px;
 
@@ -19,7 +21,7 @@ export const Container = styled.section`
   > div,
   > form {
     border-radius: 16px;
-    background-color: rgb(22, 24, 28);
+    background-color: ${({ theme }) => theme.colors.darkGray};
     padding: 20px;
   }
 `;

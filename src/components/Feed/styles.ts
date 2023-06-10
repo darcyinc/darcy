@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  border-right: 1px solid rgb(47, 51, 54);
+  border-right: 1px solid ${({ theme }) => theme.colors.grayBorder};
 
   width: 100%;
   max-width: 600px;

@@ -27,8 +27,8 @@ export const Container = styled.button<ButtonProps>`
     cursor: not-allowed;
   }
 
-  background-color: ${({ $variant }) =>
-    $variant === 'blue' ? 'rgb(29, 155, 240)' : '#fff'};
+  background-color: ${({ theme, $variant }) =>
+    $variant === 'blue' ? theme.colors.blue : '#fff'};
   color: ${({ $variant }) => ($variant === 'blue' ? '#fff' : '#000')};
-  padding: ${({ $size }) => ($size === 'large' ? '15px 0' : '9px 0')};
+  padding: ${({ $size }) => ($size === 'large' ? '15px' : '9px')} 0;
 `;

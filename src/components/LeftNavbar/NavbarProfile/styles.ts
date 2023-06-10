@@ -28,7 +28,7 @@ export const Container = styled(Link)`
   }
 
   &:hover {
-    background-color: rgba(231, 233, 234, 0.1);
+    background-color: ${({ theme }) => theme.effects.hover};
   }
 
   > img {
@@ -44,7 +44,7 @@ export const Container = styled(Link)`
     }
 
     > span {
-      color: rgb(113, 118, 123);
+      color: ${({ theme }) => theme.text.secondary};
     }
   }
 `;

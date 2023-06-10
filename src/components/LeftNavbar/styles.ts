@@ -9,7 +9,7 @@ export const Container = styled.nav`
   flex-direction: column;
   align-items: flex-start;
 
-  border-right: 1px solid rgb(47, 51, 54);
+  border-right: 1px solid ${({ theme }) => theme.colors.grayBorder};
   padding: 20px;
   padding-left: 40px;
 
@@ -62,7 +62,7 @@ export const NavbarLink = styled(Link)<{ $active?: boolean }>`
   gap: 13px;
   padding: 16px;
 
-  color: #fff;
+  color: ${({ theme }) => theme.text.primary};
   text-decoration: none;
 
   width: fit-content;
@@ -79,7 +79,7 @@ export const NavbarLink = styled(Link)<{ $active?: boolean }>`
   }
 
   &:hover {
-    background-color: rgba(231, 233, 234, 0.1);
+    background-color: ${({ theme }) => theme.effects.hover};
   }
 
   @media (max-width: 1240px) {
