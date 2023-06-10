@@ -2,7 +2,7 @@
 
 import styled, { css } from 'styled-components';
 import { ButtonProps } from '.';
-import { maxRounded } from '@/styles/maxRounded';
+import { maxRounded } from '@/styles/common/maxRounded';
 
 export const Container = styled.button<ButtonProps>`
   ${maxRounded}

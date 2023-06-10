@@ -6,13 +6,14 @@ export const Container = styled.form`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px !important;
+  padding: 10px !important;
   border: 1px solid transparent;
   border-radius: 30px !important;
 
   > svg {
     color: ${({ theme }) => theme.text.secondary};
     font-size: 1.25rem;
+    margin-left: 8px;
   }
 
   > input[type='text'] {

@@ -1,6 +1,6 @@
 'use client';
 
-import { maxRounded } from '@/styles/maxRounded';
+import { maxRounded } from '@/styles/common/maxRounded';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -39,7 +39,7 @@ export const Container = styled(Link)`
 
   > div.profileInfo {
     > p {
-      color: #fff;
+      color: ${({ theme }) => theme.text.primary};
       font-weight: bold;
     }
 

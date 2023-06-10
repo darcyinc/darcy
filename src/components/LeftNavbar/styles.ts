@@ -1,6 +1,6 @@
 'use client';
 
-import { maxRounded } from '@/styles/maxRounded';
+import { maxRounded } from '@/styles/common/maxRounded';
 import Link from 'next/link';
 import styled from 'styled-components';
 

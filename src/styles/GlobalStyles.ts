@@ -11,7 +11,7 @@ export default createGlobalStyle`
   body {
     display: flex;
     justify-content: center;
-    background-color: #000;
+    background-color: ${({ theme }) => theme.background};
   }
 
   html, body {
