@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Container } from './styles';
 
@@ -5,13 +7,9 @@ type FilterOption = 'foryou' | 'newest';
 
 interface FeedHeaderProps {
   filter: FilterOption;
-  onChangeFilter: (filter: FilterOption) => void;
 }
 
-export default function FeedHeader({
-  filter,
-  onChangeFilter,
-}: FeedHeaderProps) {
+export default function FeedHeader({ filter }: FeedHeaderProps) {
   const [dividerWidth, setDividerWidth] = useState(0);
   const currentSort = useRef<HTMLSpanElement>(null);
 
@@ -27,10 +25,7 @@ export default function FeedHeader({
     [dividerWidth]
   );
 
-  const handleFilter = useCallback(
-    (newFilter: FilterOption) => onChangeFilter(newFilter),
-    [onChangeFilter]
-  );
+  const handleFilter = useCallback((newFilter: FilterOption) => {}, []);
 
   return (
     <Container>

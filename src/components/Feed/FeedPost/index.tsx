@@ -1,3 +1,61 @@
+'use client';
+
+import Link from 'next/link';
+import { Container, PostContent, PostHeader } from './styles';
+import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
+import { useRouter } from 'next/navigation';
+
 export default function FeedPost() {
-  return <></>;
+  const router = useRouter();
+
+  const handlePostClick = (e: EnterOrClickEvent) => {
+    if (!isEnterOrClick(e)) return;
+    e.stopPropagation();
+
+    router.push('/post/9041203120312');
+  };
+
+  const handleImageClick = (e: EnterOrClickEvent<HTMLButtonElement>) => {
+    if (!isEnterOrClick(e)) return;
+    e.stopPropagation();
+
+    router.push('/post/9041203120312');
+  };
+
+  return (
+    <Container
+      onClick={handlePostClick}
+      onKeyDown={handlePostClick}
+      tabIndex={0}
+      role="button"
+    >
+      <img src="https://via.placeholder.com/150" alt="User" />
+      <div>
+        <PostHeader>
+          <Link href="/davipatricio">
+            <p>Davi Patricio</p> <span>@davipatricio</span>{' '}
+          </Link>
+          <time dateTime="2023-05-12">2 de mai</time>
+        </PostHeader>
+
+        <PostContent>
+          <p>
+            Hello everyone! Please checkout my GitHub:{' '}
+            <a href="https://github.com/davipatricio" target="_blank">
+              https://github.com/davipatricio
+            </a>{' '}
+            and my LinkedIn:{' '}
+            <a href="https://www.linkedin.com/in/davipatricio/" target="_blank">
+              https://www.linkedin.com/in/davipatricio/
+            </a>
+            .
+          </p>
+          {/* TODO: transform this into a FeedPostMedia component */}
+          <button type="button" className="media" onClick={handleImageClick}>
+            <img src="https://via.placeholder.com/1500x2000" alt="Post" />
+          </button>
+        </PostContent>
+      </div>
+    </Container>
+  );
 }
