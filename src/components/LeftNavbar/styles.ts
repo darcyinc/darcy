@@ -16,6 +16,10 @@ export const Container = styled.nav`
   height: 100%;
   width: fit-content;
 
+  position: sticky;
+  top: 0;
+  left: 0;
+
   @media (min-width: 1400px) {
     padding-left: 70px;
   }

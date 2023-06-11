@@ -12,6 +12,7 @@ export default createGlobalStyle`
     color-scheme: ${({ theme }) => theme.colorScheme};
     text-rendering: optimizeLegibility;
     &, body {
+      overflow: auto;
       height: 100vh;
     }
   }
