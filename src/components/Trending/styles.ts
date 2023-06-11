@@ -12,10 +12,6 @@ export const Container = styled.section`
   width: 100%;
   max-width: 348px;
 
-  @media (max-width: 990px) {
-    display: none;
-  }
-
   > div,
   > form {
     border-radius: 16px;

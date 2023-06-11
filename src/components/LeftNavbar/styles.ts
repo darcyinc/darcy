@@ -24,10 +24,6 @@ export const Container = styled.nav`
     padding-left: 70px;
   }
 
-  @media (max-width: 500px) {
-    display: none;
-  }
-
   @media (max-width: 950px) {
     padding-left: 20px;
   }

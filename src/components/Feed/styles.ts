@@ -7,7 +7,7 @@ export const Container = styled.section`
 
   max-width: 600px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 680px) {
     border-right: none;
   }
 

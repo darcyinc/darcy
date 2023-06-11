@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 
 import LeftNavbar from '@/components/LeftNavbar';
 import Trending from '@/components/Trending';
+import ShowIfMediaQuery from '@/components/ShowIfMediaQuery';
 
 import Providers from './providers';
 import { MainWrapper } from './styles';
@@ -25,11 +26,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <LeftNavbar />
+          <ShowIfMediaQuery query="(min-width: 500px)">
+            <LeftNavbar />
+          </ShowIfMediaQuery>
 
           <MainWrapper>
             {children}
-            <Trending />
+
+            <ShowIfMediaQuery query="(min-width: 990px)">
+              <Trending />
+            </ShowIfMediaQuery>
           </MainWrapper>
         </Providers>
       </body>
