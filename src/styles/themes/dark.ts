@@ -2,14 +2,14 @@ import { DefaultTheme } from 'styled-components';
 
 export const darkTheme: DefaultTheme = {
   colorScheme: 'only dark',
-  background: '#000',
+  background: '#000000',
   colors: {
     blue: 'rgb(29, 155, 240)',
     darkGray: 'rgb(22, 24, 28)',
     grayBorder: 'rgb(47, 51, 54)',
   },
   text: {
-    primary: '#fff',
+    primary: '#ffffff',
     secondary: 'rgb(113, 118, 123)',
   },
   effects: {

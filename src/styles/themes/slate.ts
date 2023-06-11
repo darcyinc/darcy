@@ -9,7 +9,7 @@ export const slateTheme: DefaultTheme = {
     grayBorder: 'rgb(56, 68, 77)',
   },
   text: {
-    primary: '#fff',
+    primary: '#ffffff',
     secondary: 'rgb(139, 152, 165)',
   },
   effects: {

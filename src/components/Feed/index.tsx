@@ -7,6 +7,8 @@ export default function Feed() {
     <Container>
       <FeedHeader filter="foryou" />
       <FeedPost />
+      <FeedPost />
+      <FeedPost />
     </Container>
   );
 }

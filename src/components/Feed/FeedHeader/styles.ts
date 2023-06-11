@@ -7,7 +7,8 @@ export const Container = styled.header`
   width: 100%;
 
   > h3 {
-    padding: 10px;
+    padding: 15px 20px 15px;
+    user-select: none;
   }
 
   > button {
