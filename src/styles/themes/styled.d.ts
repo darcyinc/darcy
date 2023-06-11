@@ -2,6 +2,7 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    colorScheme: string;
     background: string;
     colors: {
       blue: string;

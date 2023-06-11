@@ -3,19 +3,23 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+  ::selection {
+    color: #fff;
+    background-color: ${({ theme }) => theme.colors.blue};
+  }
+
   :root {
-    color-scheme: dark;
+    color-scheme: ${({ theme }) => theme.colorScheme};
     text-rendering: optimizeLegibility;
+    &, body {
+      height: 100vh;
+    }
   }
 
   body {
     display: flex;
     justify-content: center;
     background-color: ${({ theme }) => theme.background};
-  }
-
-  html, body {
-    height: 100vh;
   }
 
   * {

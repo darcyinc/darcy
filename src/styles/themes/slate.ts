@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 export const slateTheme: DefaultTheme = {
+  colorScheme: 'only dark',
   background: 'rgb(21, 32, 43)',
   colors: {
     blue: 'rgb(29, 155, 240)',

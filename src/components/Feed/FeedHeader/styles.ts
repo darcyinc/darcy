@@ -7,7 +7,6 @@ export const Container = styled.header`
   width: 100%;
 
   > h3 {
-    color: ${({ theme }) => theme.text.primary};
     padding: 10px;
   }
 

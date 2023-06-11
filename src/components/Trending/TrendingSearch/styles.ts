@@ -62,7 +62,6 @@ export const Container = styled.form`
     }
 
     > svg {
-      color: ${({ theme }) => theme.text.primary};
       font-size: 1.1rem;
     }
   }

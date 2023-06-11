@@ -9,8 +9,6 @@ export const Container = styled.section`
 
   padding-top: 10px;
 
-  color: ${({ theme }) => theme.text.primary};
-
   width: 100%;
   max-width: 348px;
 

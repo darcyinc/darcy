@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 export const lightTheme: DefaultTheme = {
+  colorScheme: 'only light',
   background: '#fff',
   colors: {
     blue: 'rgb(29, 155, 240)',

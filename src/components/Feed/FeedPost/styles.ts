@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.article`
+  cursor: pointer;
   display: flex;
   gap: 7px;
   padding: 6px 16px;
