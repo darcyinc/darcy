@@ -9,6 +9,10 @@ export const Container = styled.article`
   border-bottom: 1px solid ${({ theme }) => theme.colors.grayBorder};
   width: 100%;
 
+  @media (max-width: 768px) {
+    padding: 6px 9px;
+  }
+
   > img {
     border-radius: 50%;
     height: 42px;
@@ -61,6 +65,7 @@ export const PostContent = styled.section`
 
   /* Post text */
   > p {
+    word-break: break-word;
     font-size: 15px;
 
     > a,
