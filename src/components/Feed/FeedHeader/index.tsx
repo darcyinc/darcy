@@ -26,7 +26,9 @@ export default function FeedHeader({ filter }: FeedHeaderProps) {
     [dividerWidth]
   );
 
-  const handleFilter = useCallback((newFilter: FilterOption) => {}, []);
+  const handleFilter = useCallback((_newFilter: FilterOption) => {
+    return null;
+  }, []);
 
   return (
     <Container>

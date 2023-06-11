@@ -9,10 +9,6 @@ export const metadata: Metadata = {
   keywords: ['social network', 'open source'],
 };
 
-export default async function Home() {
-  return (
-    <>
-      <Feed />
-    </>
-  );
+export default function Home() {
+  return <Feed />;
 }
