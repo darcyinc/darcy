@@ -26,7 +26,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          
           <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">
             <LeftNavbar />
           </ShowIfMediaQuery>
