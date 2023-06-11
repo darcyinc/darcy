@@ -7,7 +7,7 @@ export const Wrapper = styled.footer`
   align-items: center;
   justify-content: space-between;
 
-  padding: 8px 16px;
+  padding: 8px 25px;
   background-color: ${({ theme }) => colorToRgba(theme.background, 0.8)};
   backdrop-filter: blur(5px);
   border-top: 1px solid ${({ theme }) => theme.colors.grayBorder};
@@ -18,6 +18,10 @@ export const Wrapper = styled.footer`
 
   height: 48px;
   width: 100%;
+
+  @media (min-width: 768px) {
+    justify-content: space-around;
+  }
 
   > a {
     color: initial;

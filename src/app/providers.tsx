@@ -30,7 +30,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         <GlobalStyles />
         {children}
 
-        <ShowIfMediaQuery query="(max-width: 500px)">
+        <ShowIfMediaQuery query="(max-width: 500px), (max-height: 475px)">
           <MobileBottomNavbar />
         </ShowIfMediaQuery>
       </StyledComponentsRegistry>
