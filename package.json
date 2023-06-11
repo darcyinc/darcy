@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.4.5-canary.9",
+    "next": "13.4.5-canary.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.9.0",
@@ -17,14 +17,14 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
-    "@types/node": "20.2.5",
-    "@types/react": "18.2.9",
+    "@types/node": "20.3.0",
+    "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.59.9",
     "@typescript-eslint/parser": "^5.59.9",
     "eslint": "8.42.0",
-    "eslint-config-next": "13.4.4",
+    "eslint-config-next": "13.4.5",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-unicorn": "^47.0.0",
