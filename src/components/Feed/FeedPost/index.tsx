@@ -2,27 +2,45 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { HiOutlineChat, HiOutlineHeart, HiOutlineShare } from 'react-icons/hi';
+import { useCallback } from 'react';
 
 import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 
-import { Container, PostContent, PostHeader } from './styles';
+import { Container, PostContent, PostFooter, PostHeader } from './styles';
 
 export default function FeedPost() {
   const router = useRouter();
 
-  const handlePostClick = (e: EnterOrClickEvent) => {
-    if (!isEnterOrClick(e)) return;
-    e.stopPropagation();
+  const handlePostClick = useCallback(
+    (e: EnterOrClickEvent) => {
+      if (!isEnterOrClick(e)) return;
+      e.stopPropagation();
 
-    router.push('/post/9041203120312');
-  };
+      router.push('/post/9041203120312');
+    },
+    [router]
+  );
 
-  const handleImageClick = (e: EnterOrClickEvent<HTMLButtonElement>) => {
-    if (!isEnterOrClick(e)) return;
-    e.stopPropagation();
+  const handleImageClick = useCallback(
+    (e: EnterOrClickEvent<HTMLButtonElement>) => {
+      if (!isEnterOrClick(e)) return;
+      e.stopPropagation();
 
-    router.push('/post/9041203120312');
-  };
+      router.push('/post/9041203120312');
+    },
+    [router]
+  );
+
+  const handlePostInteraction = useCallback(
+    (e: EnterOrClickEvent, action: 'like' | 'retweet' | 'comment') => {
+      if (!isEnterOrClick(e)) return;
+      e.stopPropagation();
+
+      alert(`You ${action}d this post!`);
+    },
+    []
+  );
 
   return (
     <Container
@@ -57,6 +75,33 @@ export default function FeedPost() {
             <img src="https://via.placeholder.com/1500x2000" alt="Post" />
           </button>
         </PostContent>
+
+        <PostFooter>
+          <button
+            type="button"
+            className="comment"
+            onClick={(e) => handlePostInteraction(e, 'comment')}
+          >
+            <HiOutlineChat />
+            <span>1</span>
+          </button>
+          <button
+            type="button"
+            className="retweet retweeted"
+            onClick={(e) => handlePostInteraction(e, 'retweet')}
+          >
+            <HiOutlineShare />
+            <span>1</span>
+          </button>
+          <button
+            type="button"
+            className="like"
+            onClick={(e) => handlePostInteraction(e, 'like')}
+          >
+            <HiOutlineHeart />
+            <span>1</span>
+          </button>
+        </PostFooter>
       </div>
     </Container>
   );

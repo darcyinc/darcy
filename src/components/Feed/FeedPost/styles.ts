@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import colorToRgba from '@/lib/utils/colorToRgba';
+
 export const Container = styled.article`
   cursor: pointer;
   display: flex;
@@ -96,6 +98,74 @@ export const PostContent = styled.section`
       width: 100%;
       height: 100%;
       max-height: 512px;
+    }
+  }
+`;
+
+export const PostFooter = styled.footer`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+
+  margin-top: 10px;
+
+  > button {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 1px;
+
+    background: none;
+    border: none;
+    color: ${({ theme }) => theme.text.secondary};
+    transition: 0s;
+
+    svg {
+      font-size: 32px;
+      padding: 5px;
+      border-radius: 50%;
+    }
+
+    &.like {
+      &:hover {
+        color: ${({ theme }) => theme.colors.red};
+        > svg {
+          color: ${({ theme }) => theme.colors.red};
+          background-color: ${({ theme }) =>
+            colorToRgba(theme.colors.red, 0.1)};
+        }
+      }
+
+      &.liked {
+        color: ${({ theme }) => theme.colors.red};
+        > svg {
+          fill: ${({ theme }) => theme.colors.red};
+        }
+      }
+    }
+
+    &.retweet {
+      &:hover {
+        color: ${({ theme }) => theme.colors.green};
+        > svg {
+          color: ${({ theme }) => theme.colors.green};
+          background-color: ${({ theme }) =>
+            colorToRgba(theme.colors.green, 0.1)};
+        }
+      }
+
+      &.retweeted {
+        color: ${({ theme }) => theme.colors.green};
+      }
+    }
+
+    &.comment:hover {
+      color: ${({ theme }) => theme.colors.blue};
+      > svg {
+        color: ${({ theme }) => theme.colors.blue};
+        background-color: ${({ theme }) => colorToRgba(theme.colors.blue, 0.1)};
+      }
     }
   }
 `;

@@ -7,6 +7,8 @@ export const darkTheme: DefaultTheme = {
     blue: 'rgb(29, 155, 240)',
     darkGray: 'rgb(22, 24, 28)',
     grayBorder: 'rgb(47, 51, 54)',
+    red: 'rgb(249, 24, 128)',
+    green: 'rgb(0, 186, 124)',
   },
   text: {
     primary: '#ffffff',

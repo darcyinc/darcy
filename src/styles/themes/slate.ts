@@ -7,6 +7,8 @@ export const slateTheme: DefaultTheme = {
     blue: 'rgb(29, 155, 240)',
     darkGray: 'rgb(30, 39, 50)',
     grayBorder: 'rgb(56, 68, 77)',
+    red: 'rgb(249, 24, 128)',
+    green: 'rgb(0, 186, 124)',
   },
   text: {
     primary: '#ffffff',
