@@ -10,6 +10,7 @@
     ],
     "module": "esnext",
     "moduleResolution": "node",
+    "importHelpers": false,
     "paths": {
       "@/*": [
         "./src/*"
