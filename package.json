@@ -1,33 +1,22 @@
 {
-  "name": "darcy",
-  "version": "0.1.0",
+  "name": "@darcy/monorepo",
+  "version": "0.0.1",
   "private": true,
+  "author": "Davi Patricio <davipatricio@protonmail.com>",
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "13.4.5-canary.12",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.9.0",
-    "styled-components": "6.0.0-rc.3",
-    "zustand": "^4.3.8"
+    "build": "pnpm --filter '*' --parallel build",
+    "start": "pnpm --filter '*' --parallel start",
+    "dev": "pnpm --filter '*' --parallel dev"
   },
   "devDependencies": {
     "@types/node": "20.3.0",
-    "@types/react": "18.2.11",
-    "@types/react-dom": "18.2.4",
-    "@types/styled-components": "^5.1.26",
-    "@typescript-eslint/eslint-plugin": "^5.59.9",
-    "@typescript-eslint/parser": "^5.59.9",
+    "@typescript-eslint/eslint-plugin": "5.59.11",
+    "@typescript-eslint/parser": "5.59.11",
     "eslint": "8.42.0",
-    "eslint-config-next": "13.4.5",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-unicorn": "^47.0.0",
-    "prettier": "^2.8.8"
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-unicorn": "47.0.0",
+    "prettier": "2.8.8"
   }
 }

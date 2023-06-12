@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "../../.eslintrc.json",
+    "next/core-web-vitals",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "jsx-a11y"
+  ],
+  "rules": {
+    "@next/next/no-img-element": "off"
+  }
+}

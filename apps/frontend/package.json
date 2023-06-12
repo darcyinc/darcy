@@ -1,0 +1,27 @@
+{
+  "name": "@darcy/darcy",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Davi Patricio <davipatricio@protonmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "13.4.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "4.9.0",
+    "styled-components": "6.0.0-rc.3",
+    "zustand": "4.3.8"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.12",
+    "@types/react-dom": "18.2.5",
+    "@types/styled-components": "5.1.26",
+    "eslint-config-next": "13.4.5"
+  }
+}
