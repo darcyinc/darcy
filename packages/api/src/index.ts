@@ -2,6 +2,10 @@ import path from 'node:path';
 
 import fastify from 'fastify';
 import AutoLoad from '@fastify/autoload';
+import { PrismaClient } from '@prisma/client';
+
+global.prisma = new PrismaClient();
+void global.prisma.$connect();
 
 const app = fastify({
   logger: process.env.NODE_ENV === 'development',
