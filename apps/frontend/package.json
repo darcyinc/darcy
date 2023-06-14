@@ -11,7 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.4.5",
+    "next": "13.4.6-canary.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4.9.0",
@@ -22,6 +22,7 @@
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "@types/styled-components": "5.1.26",
-    "eslint-config-next": "13.4.5"
+    "eslint-config-next": "13.4.5",
+    "eslint-plugin-jsx-a11y": "6.7.1"
   }
 }

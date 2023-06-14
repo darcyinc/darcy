@@ -1,7 +1,11 @@
 {
-  "extends": ["../../tsconfig.json"],
+  "extends": [
+    "../../tsconfig.json"
+  ],
   "compilerOptions": {
     "allowJs": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
     "jsx": "preserve",
     "lib": [
       "dom",
@@ -22,12 +26,18 @@
       }
     ],
     "resolveJsonModule": true,
-    "target": "es5"
+    "target": "es5",
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true
   },
   "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
     ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
