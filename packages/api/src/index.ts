@@ -12,9 +12,9 @@ async function main() {
     dir: path.join(__dirname, 'routes'),
   });
 
-  app.listen({ port: Number(process.env.PORT) || 3001 }, (err, address) => {
-    if (err) {
-      app.log.error(err);
+  app.listen({ port: Number(process.env.PORT) || 3001 }, (error, address) => {
+    if (error) {
+      app.log.error(error);
       process.exit(1);
     }
 

@@ -23,6 +23,7 @@
     "@types/react-dom": "18.2.5",
     "@types/styled-components": "5.1.26",
     "eslint-config-next": "13.4.5",
-    "eslint-plugin-jsx-a11y": "6.7.1"
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-styled-components-a11y": "2.0.1"
   }
 }

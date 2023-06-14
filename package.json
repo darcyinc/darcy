@@ -8,7 +8,7 @@
     "build": "pnpm --filter '*' --parallel build",
     "start": "pnpm --filter '*' --parallel start",
     "dev": "pnpm --filter '*' --parallel dev",
-    "lint": "pnpm --filter '*' --parallel lint"
+    "lint": "eslint . --cache"
   },
   "devDependencies": {
     "@types/node": "20.3.0",

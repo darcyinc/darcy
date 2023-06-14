@@ -4,7 +4,10 @@ export interface RouteOptions {
   prefix: string | undefined;
 }
 
-export default async function (fastify: FastifyInstance, _opts: RouteOptions) {
+export default async function (
+  fastify: FastifyInstance,
+  _options: RouteOptions
+) {
   fastify.get('/', async function (_request, _reply) {
     return { hello: 'world' };
   });

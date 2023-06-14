@@ -1,5 +1,5 @@
 export default function colorToRgba(color: string, opacity: number) {
-  const hexRegex = /^#([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
+  const hexRegex = /^#([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i;
   const rgbRegex = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/;
   const hslRegex = /^hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)$/;
 
@@ -9,10 +9,10 @@ export default function colorToRgba(color: string, opacity: number) {
 
   if (hex) {
     const [, r, g, b] = hex;
-    return `rgba(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(
-      b,
+    return `rgba(${Number.parseInt(r, 16)}, ${Number.parseInt(
+      g,
       16
-    )}, ${opacity})`;
+    )}, ${Number.parseInt(b, 16)}, ${opacity})`;
   }
 
   if (rgb) {

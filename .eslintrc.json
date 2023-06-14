@@ -4,7 +4,8 @@
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:unicorn/recommended"
     ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -59,6 +60,16 @@
       {
         "varsIgnorePattern": "^_",
         "argsIgnorePattern": "^_"
+      }
+    ],
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
       }
     ]
   }

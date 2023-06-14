@@ -28,5 +28,5 @@ export default function ShowIfMediaQuery({
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
   }, [query, handleMediaQueryChange]);
 
-  return matches ? children : null;
+  return matches ? children : undefined;
 }

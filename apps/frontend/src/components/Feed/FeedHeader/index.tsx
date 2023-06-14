@@ -6,11 +6,11 @@ import { Container } from './styles';
 
 type FilterOption = 'foryou' | 'newest';
 
-interface FeedHeaderProps {
+interface FeedHeaderProperties {
   filter: FilterOption;
 }
 
-export default function FeedHeader({ filter }: FeedHeaderProps) {
+export default function FeedHeader({ filter }: FeedHeaderProperties) {
   const [dividerWidth, setDividerWidth] = useState(0);
   const currentSort = useRef<HTMLSpanElement>(null);
 
@@ -20,14 +20,14 @@ export default function FeedHeader({ filter }: FeedHeaderProps) {
 
   const Divider = useCallback(
     ({ active }: { active: boolean }) => {
-      if (!active) return null;
+      if (!active) return;
       return <div className="divider" style={{ width: `${dividerWidth}px` }} />;
     },
     [dividerWidth]
   );
 
   const handleFilter = useCallback((_newFilter: FilterOption) => {
-    return null;
+    return;
   }, []);
 
   return (
