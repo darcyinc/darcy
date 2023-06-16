@@ -2,6 +2,7 @@ import path from 'node:path';
 
 import fastify from 'fastify';
 import AutoLoad from '@fastify/autoload';
+import cors from '@fastify/cors';
 import { PrismaClient } from '@prisma/client';
 
 global.prisma = new PrismaClient();
@@ -14,6 +15,12 @@ const app = fastify({
 async function main() {
   await app.register(AutoLoad, {
     dir: path.join(__dirname, 'routes'),
+  });
+
+  await app.register(cors, {
+    origin:
+      process.env.NODE_ENV === 'development' ? '*' : 'https://example.com',
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH', 'OPTIONS'],
   });
 
   app.listen({ port: Number(process.env.PORT) || 3001 }, (error, address) => {

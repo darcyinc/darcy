@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { HiOutlineChat, HiOutlineHeart, HiOutlineShare } from 'react-icons/hi';
 import { useCallback } from 'react';
+import { HiOutlineChat, HiOutlineHeart, HiOutlineShare } from 'react-icons/hi';
 
 import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
+import { getUser } from '@/api/users/getUser';
 
 import { Container, PostContent, PostFooter, PostHeader } from './styles';
 
@@ -33,11 +34,13 @@ export default function FeedPost() {
   );
 
   const handlePostInteraction = useCallback(
-    (e: EnterOrClickEvent, action: 'like' | 'retweet' | 'comment') => {
+    async (e: EnterOrClickEvent, action: 'like' | 'retweet' | 'comment') => {
       if (!isEnterOrClick(e)) return;
       e.stopPropagation();
 
       alert(`You ${action}d this post!`);
+
+      await getUser('davipatricio');
     },
     []
   );

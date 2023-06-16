@@ -22,7 +22,9 @@
     "node_modules/",
     "**/.next/*",
     "**/dist/*",
-    "*.js"
+    "*.js",
+    "*.cjs",
+    "*.mjs"
   ],
   "settings": {
     "import/resolver": {
