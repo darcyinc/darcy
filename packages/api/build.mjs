@@ -1,4 +1,4 @@
-import { exec } from "child_process";
+import { spawn } from "child_process";
 import chokidar from "chokidar";
 import * as esbuild from "esbuild";
 import fastGlob from "fast-glob";
@@ -19,9 +19,10 @@ await cleanupDist();
 // if cmdline has --watch, then watch for changes
 if (process.argv.includes("--watch")) {
   console.log("compiling...");
+
   await ctx.rebuild();
 
-  let process = startServer();
+  let serverProcess = startServer();
 
   console.log("starting server & watching for changes...");
 
@@ -29,11 +30,12 @@ if (process.argv.includes("--watch")) {
     console.log("change detected - restarting server");
     ctx.rebuild().then(() => {
       copyDotEnv()
-      if (process) process.kill();
+      if (serverProcess) serverProcess.kill('SIGINT');
 
-      process = startServer();
+      serverProcess = startServer();
     });
   });
+  
 } else {
   await ctx.rebuild();
   copyDotEnv()
@@ -41,12 +43,7 @@ if (process.argv.includes("--watch")) {
 }
 
 function startServer() {
-  return exec("node dist/index.js", (error, stdout, stderr) => {
-    if (error) return;
-
-    if (stderr) console.error(stderr);
-    else console.log(stdout);
-  });
+  return spawn("node",  ['dist/index.js'], { stdio: "inherit" })
 }
 
 function cleanupDist() {
