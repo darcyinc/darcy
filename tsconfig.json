@@ -5,7 +5,6 @@
     "declaration": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "importHelpers": true,
     "importsNotUsedAsValues": "remove",
     "incremental": true,
     "isolatedModules": true,

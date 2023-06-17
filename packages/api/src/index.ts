@@ -34,3 +34,5 @@ async function main() {
 }
 
 void main();
+
+export * from '@prisma/client';

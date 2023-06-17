@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
-  "types": "src/types/exports.d.ts",
+  "types": "src/types/module.d.ts",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "node build.mjs --watch",
