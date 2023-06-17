@@ -31,7 +31,12 @@ export default function LeftNavbar() {
       </NavbarLink>
 
       {LINKS.map(({ href, icon: Icon, label, active }) => (
-        <NavbarLink key={href} href={href} $active={active}>
+        <NavbarLink
+          key={href}
+          href={href}
+          $active={active}
+          aria-label={`Ir para ${label}`}
+        >
           <Icon />
           <span>{label}</span>
         </NavbarLink>
