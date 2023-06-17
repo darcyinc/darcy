@@ -6,7 +6,7 @@ import Trending from '@/components/Trending';
 
 const Providers = dynamic(() => import('./providers'));
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Your Feed | Darcy',
