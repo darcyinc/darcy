@@ -1,15 +1,13 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import dynamic from 'next/dynamic';
 
-import { useTheme } from '@/hooks/useTheme';
-import { darkTheme } from '@/styles/themes/dark';
-import { lightTheme } from '@/styles/themes/light';
-import { slateTheme } from '@/styles/themes/slate';
 import LeftNavbar from '@/components/LeftNavbar';
 import MobileBottomNavbar from '@/components/LeftNavbar/MobileBottomNavbar';
+import { useTheme } from '@/hooks/useTheme';
+import { darkTheme } from '@/styles/themes/dark';
 
 const GlobalStyles = dynamic(() => import('@/styles/GlobalStyles'));
 const StyledComponentsRegistry = dynamic(() => import('@/lib/registry'));
@@ -19,11 +17,15 @@ const MainWrapper = dynamic(() =>
   import('./styles').then((mod) => mod.MainWrapper)
 );
 
-const themes = {
-  dark: darkTheme,
-  light: lightTheme,
-  slate: slateTheme,
-};
+async function getTheme(theme: 'dark' | 'light' | 'slate') {
+  const themes = {
+    dark: darkTheme,
+    light: await import('@/styles/themes/light').then((mod) => mod.lightTheme),
+    slate: await import('@/styles/themes/slate').then((mod) => mod.slateTheme),
+  };
+
+  return themes[theme];
+}
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -37,7 +39,14 @@ export default function Providers({
   const [theme, setTheme] = useState(darkTheme);
   const { theme: userTheme } = useTheme();
 
-  useEffect(() => setTheme(themes[userTheme]), [userTheme]);
+  useEffect(() => {
+    async function loadTheme() {
+      setTheme(await getTheme(userTheme || 'dark'));
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    loadTheme().catch(() => {});
+  }, [userTheme]);
 
   return (
     <ThemeProvider theme={theme}>
