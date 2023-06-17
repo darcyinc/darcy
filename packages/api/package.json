@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "node build.mjs --watch",
-    "build": "node build.mjs",
+    "build": "pnpm prisma generate && node build.mjs",
     "lint": "eslint . --ext .ts"
   },
   "author": "Davi Patricio <davipatricio@protonmail.com>",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/node": "20.3.1",
     "chokidar": "3.5.3",
-    "esbuild": "0.18.3",
+    "esbuild": "0.18.4",
     "fast-glob": "3.2.12",
     "prisma": "4.15.0"
   }
