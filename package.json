@@ -5,7 +5,7 @@
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm --filter '*' --parallel build",
+    "build": "pnpm -r --parallel build",
     "start": "pnpm --filter '*' --parallel start",
     "dev": "pnpm --filter '*' --parallel dev",
     "lint": "eslint . --cache"

@@ -37,12 +37,12 @@ importers:
 
   apps/frontend:
     dependencies:
+      '@darcy/api':
+        specifier: workspace:*
+        version: link:../../packages/api
       axios:
         specifier: 1.4.0
         version: 1.4.0
-      darcy-api-types:
-        specifier: link:../../packages/api
-        version: link:../../packages/api
       next:
         specifier: 13.4.6
         version: 13.4.6(@babel/core@7.22.5)(react-dom@18.2.0)(react@18.2.0)

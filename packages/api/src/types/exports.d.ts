@@ -1,3 +1,3 @@
-declare module 'darcy-api-types' {
+declare module '@darcy/api' {
   export * from '@prisma/client';
 }

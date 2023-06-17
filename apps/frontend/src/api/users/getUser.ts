@@ -1,4 +1,4 @@
-import type { User } from 'darcy-api-types';
+import type { User } from '@darcy/api';
 
 import { api } from '../base';
 

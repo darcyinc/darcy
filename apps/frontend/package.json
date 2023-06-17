@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "axios": "1.4.0",
-    "darcy-api-types": "link:../../packages/api",
+    "@darcy/api": "workspace:*",
     "next": "13.4.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
