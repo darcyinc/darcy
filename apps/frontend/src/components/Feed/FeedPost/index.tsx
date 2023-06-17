@@ -52,7 +52,7 @@ export default function FeedPost() {
       tabIndex={0}
       role="button"
     >
-      <img src="https://via.placeholder.com/150" alt="User" />
+      <img src="https://via.placeholder.com/42" alt="User" />
       <div>
         <PostHeader>
           <Link href="/davipatricio">
@@ -75,7 +75,7 @@ export default function FeedPost() {
           </p>
           {/* TODO: transform this into a FeedPostMedia component */}
           <button type="button" className="media" onClick={handleImageClick}>
-            <img src="https://via.placeholder.com/1500x2000" alt="Post" />
+            <img src="https://via.placeholder.com/480x280.webp" alt="Post" />
           </button>
         </PostContent>
 
