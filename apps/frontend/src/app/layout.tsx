@@ -1,12 +1,10 @@
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 
-import LeftNavbar from '@/components/LeftNavbar';
 import Trending from '@/components/Trending';
-import ShowIfMediaQuery from '@/components/ShowIfMediaQuery';
 
-import Providers from './providers';
-import { MainWrapper } from './styles';
+const Providers = dynamic(() => import('./providers'));
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,19 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">
-            <LeftNavbar />
-          </ShowIfMediaQuery>
-
-          <MainWrapper>
-            {children}
-
-            <ShowIfMediaQuery query="(min-width: 990px)">
-              <Trending />
-            </ShowIfMediaQuery>
-          </MainWrapper>
-        </Providers>
+        <Providers trendingComponent={<Trending />}>{children}</Providers>
       </body>
     </html>
   );

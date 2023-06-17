@@ -1,3 +1,5 @@
+'use client';
+
 import styled from 'styled-components';
 
 import colorToRgba from '@/lib/utils/colorToRgba';

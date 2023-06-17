@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { HiHome, HiOutlineBell, HiOutlineMail, HiSearch } from 'react-icons/hi';
 
