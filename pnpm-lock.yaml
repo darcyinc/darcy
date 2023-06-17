@@ -38,7 +38,7 @@ importers:
   apps/frontend:
     dependencies:
       '@darcy/api':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/api
       axios:
         specifier: 1.4.0
