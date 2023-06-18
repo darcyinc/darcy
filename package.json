@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r --parallel build",
-    "start": "pnpm -r--parallel start",
+    "start": "pnpm -r --parallel start",
     "dev": "pnpm -r --parallel dev",
     "lint": "eslint . --cache"
   },
