@@ -44,7 +44,6 @@ export default function Providers({
       setTheme(await getTheme(userTheme || 'dark'));
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     loadTheme().catch(() => {});
   }, [userTheme]);
 
