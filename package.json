@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r --parallel build",
-    "start": "pnpm --filter '*' --parallel start",
-    "dev": "pnpm --filter '*' --parallel dev",
+    "start": "pnpm -r--parallel start",
+    "dev": "pnpm -r --parallel dev",
     "lint": "eslint . --cache"
   },
   "devDependencies": {

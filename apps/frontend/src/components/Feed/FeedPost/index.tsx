@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
 import { HiOutlineChat, HiOutlineHeart, HiOutlineShare } from 'react-icons/hi';
 
-import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 import { getUser } from '@/api/users/getUser';
+import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 
 import { Container, PostContent, PostFooter, PostHeader } from './styles';
 

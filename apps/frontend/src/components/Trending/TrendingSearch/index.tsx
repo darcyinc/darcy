@@ -1,5 +1,5 @@
-import { HiOutlineX, HiSearch } from 'react-icons/hi';
 import { redirect } from 'next/navigation';
+import { HiOutlineX, HiSearch } from 'react-icons/hi';
 
 import { Container } from './styles';
 

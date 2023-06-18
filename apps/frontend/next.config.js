@@ -5,7 +5,7 @@ const nextConfig = {
     removeConsole: true,
   },
   experimental: {
-    serverActions: true,
+    serverActions: true
   },
 };
 

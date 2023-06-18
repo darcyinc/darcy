@@ -1,5 +1,5 @@
-import TrendingSearch from './TrendingSearch';
 import { Container } from './styles';
+import TrendingSearch from './TrendingSearch';
 
 export default function Trending() {
   return (

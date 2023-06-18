@@ -1,9 +1,9 @@
 import path from 'node:path';
 
-import fastify from 'fastify';
 import AutoLoad from '@fastify/autoload';
 import cors from '@fastify/cors';
 import { PrismaClient } from '@prisma/client';
+import fastify from 'fastify';
 
 global.prisma = new PrismaClient();
 void global.prisma.$connect();
