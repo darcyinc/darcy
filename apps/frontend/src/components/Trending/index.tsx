@@ -1,5 +1,8 @@
+import dynamic from 'next/dynamic';
+
 import { Container } from './styles';
-import TrendingSearch from './TrendingSearch';
+
+const TrendingSearch = dynamic(() => import('./TrendingSearch'));
 
 export default function Trending() {
   return (

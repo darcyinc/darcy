@@ -1,20 +1,30 @@
-import { redirect } from 'next/navigation';
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useCallback, useState } from 'react';
 import { HiOutlineX, HiSearch } from 'react-icons/hi';
 
 import { Container } from './styles';
 
 export default function TrendingSearch() {
-  async function handleSearch(e: FormData) {
-    'use server';
+  const router = useRouter();
+  const [search, setSearch] = useState('');
 
-    const search = (e.get('search') as string)?.trim() ?? '';
-    if (search.length === 0 || search.length > 255) return;
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  }, []);
 
-    redirect(`/search?q=${encodeURIComponent(search)}`);
-  }
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+
+      router.push(`/search?q=${encodeURIComponent(search.trim())}`);
+    },
+    [search, router]
+  );
 
   return (
-    <Container action={handleSearch}>
+    <Container onSubmit={handleSubmit} onReset={() => setSearch('')}>
       <HiSearch />
       <input
         type="text"
@@ -23,6 +33,8 @@ export default function TrendingSearch() {
         maxLength={255}
         required
         autoComplete="off"
+        value={search}
+        onChange={handleChange}
       />
       <button className="clear-icon" type="reset">
         <HiOutlineX />
