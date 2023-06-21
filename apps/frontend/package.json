@@ -13,7 +13,7 @@
   "dependencies": {
     "@darcy/api": "workspace:*",
     "axios": "1.4.0",
-    "next": "13.4.6",
+    "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4.9.0",
@@ -24,7 +24,7 @@
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
     "@types/styled-components": "5.1.26",
-    "eslint-config-next": "13.4.6",
+    "eslint-config-next": "13.4.7",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-styled-components-a11y": "2.1.0"
   }
