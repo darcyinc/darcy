@@ -1,6 +1,6 @@
 import path from 'node:path';
 
-import AutoLoad from '@fastify/autoload';
+import autoload from '@fastify/autoload';
 import cors from '@fastify/cors';
 import { PrismaClient } from '@prisma/client';
 import fastify from 'fastify';
@@ -13,7 +13,12 @@ const app = fastify({
 });
 
 async function main() {
-  await app.register(AutoLoad, {
+  await app.register(autoload, {
+    dir: path.join(__dirname, 'middlewares'),
+    encapsulate: false,
+  });
+
+  await app.register(autoload, {
     dir: path.join(__dirname, 'routes'),
   });
 
