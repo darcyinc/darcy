@@ -8,6 +8,7 @@ import { maxRounded } from '@/styles/common/maxRounded';
 export const Container = styled(Link)`
   ${maxRounded}
   cursor: pointer;
+  text-decoration: none !important;
 
   display: flex;
   align-items: center;

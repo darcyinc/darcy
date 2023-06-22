@@ -34,19 +34,16 @@ export default createGlobalStyle`
     font-family: inherit;
   }
 
-  a {
-    text-decoration: none;
-  }
+  body {
+    a {
+      color: ${({ theme }) => theme.colors.blue};
+      text-decoration: none;
 
-  a,
-  a:visited {
-    color: ${({ theme }) => theme.colors.blue};
-    text-decoration: none;
-
-    &:hover,
-    &:focus-visible {
-      text-decoration: underline;
-      outline: none;
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+        outline: none;
+      }
     }
   }
 `;

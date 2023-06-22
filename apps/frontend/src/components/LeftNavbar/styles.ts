@@ -60,6 +60,7 @@ export const Container = styled.nav`
 
 export const NavbarLink = styled(Link)<{ $active?: boolean }>`
   ${maxRounded}
+  text-decoration: none !important;
 
   display: flex;
   align-items: center;
