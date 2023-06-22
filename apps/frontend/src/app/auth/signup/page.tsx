@@ -7,7 +7,7 @@ import Divider from '@/components/Divider';
 import { Form } from '../styles';
 
 export const metadata: Metadata = {
-  title: 'Sign in | Darcy',
+  title: 'Sign up | Darcy',
 };
 
 // const _EMAIL_REGEX =
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 export default function SignInPage() {
   return (
     <Form>
-      <h1>Bem-vindo(a) de volta!</h1>
+      <h1>Olá! Bem-vindo(a).</h1>
       <p>
-        Insira seus dados para se autenticar na Darcy.{' '}
-        <Link href="/auth/signup">Ainda não tem uma conta?</Link>
+        Você está prestes a criar uma conta na Darcy.{' '}
+        <Link href="/auth/signin">Já possui uma conta?</Link>
       </p>
 
       <label>
