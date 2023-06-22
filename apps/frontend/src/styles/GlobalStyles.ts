@@ -33,4 +33,20 @@ export default createGlobalStyle`
   button, input, textarea {
     font-family: inherit;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  a,
+  a:visited {
+    color: ${({ theme }) => theme.colors.blue};
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+  }
 `;

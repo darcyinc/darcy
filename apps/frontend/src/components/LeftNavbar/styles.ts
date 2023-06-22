@@ -67,7 +67,6 @@ export const NavbarLink = styled(Link)<{ $active?: boolean }>`
   padding: 16px;
 
   color: ${({ theme }) => theme.text.primary};
-  text-decoration: none;
 
   width: fit-content;
 

@@ -32,10 +32,6 @@ export const PostHeader = styled.header`
   padding-top: 1px;
   font-size: 15px;
 
-  > a {
-    text-decoration: none;
-  }
-
   /* User name */
   p {
     color: ${({ theme }) => theme.text.primary};
@@ -69,18 +65,6 @@ export const PostContent = styled.section`
   > p {
     word-break: break-word;
     font-size: 15px;
-
-    > a,
-    > a:visited {
-      color: ${({ theme }) => theme.colors.blue};
-      text-decoration: none;
-
-      &:hover,
-      &:focus-visible {
-        text-decoration: underline;
-        outline: none;
-      }
-    }
   }
 
   > button.media {
