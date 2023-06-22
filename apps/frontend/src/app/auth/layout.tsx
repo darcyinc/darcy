@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import AuthSideImage from './assets/auth_sideimage.jpg';
+import AuthSideImage from './assets/auth_side_image.jpg';
 import { Container } from './styles';
 
 export default function RootLayout({
