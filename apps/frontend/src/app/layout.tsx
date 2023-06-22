@@ -2,8 +2,6 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 
-import Trending from '@/components/Trending';
-
 const Providers = dynamic(() => import('./providers'));
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
@@ -23,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers trendingComponent={<Trending />}>{children}</Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

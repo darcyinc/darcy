@@ -29,4 +29,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
     transition: all 0.2s;
   }
+
+  button, input, textarea {
+    font-family: inherit;
+  }
 `;
