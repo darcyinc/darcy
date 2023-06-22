@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import {
   HiHome,
   HiOutlineBell,
@@ -14,16 +15,18 @@ import Button from '../Button';
 import NavbarProfile from './NavbarProfile';
 import { Container, NavbarLink } from './styles';
 
-const LINKS = [
-  { href: '/', icon: HiHome, label: 'Início', active: true },
-  { href: '/search', icon: HiSearch, label: 'Explorar' },
-  { href: '/notifications', icon: HiOutlineBell, label: 'Notificações' },
-  { href: '/messages', icon: HiOutlineMail, label: 'Mensagens' },
-  { href: '/bookmarks', icon: HiOutlineBookmark, label: 'Itens salvos' },
-  { href: '/davipatricio', icon: HiOutlineUser, label: 'Perfil' },
-];
-
 export default function LeftNavbar() {
+  const t = useTranslations('Navbar');
+
+  const LINKS = [
+    { href: '/', icon: HiHome, active: true, label: t('home') },
+    { href: '/search', icon: HiSearch, label: t('explore') },
+    { href: '/notifications', icon: HiOutlineBell, label: t('notifications') },
+    { href: '/messages', icon: HiOutlineMail, label: t('messages') },
+    { href: '/bookmarks', icon: HiOutlineBookmark, label: t('bookmarks') },
+    { href: '/davipatricio', icon: HiOutlineUser, label: t('profile') },
+  ];
+
   return (
     <Container>
       <NavbarLink href="/">
@@ -43,7 +46,7 @@ export default function LeftNavbar() {
       ))}
 
       <Button $variant="blue" $size="large">
-        <p>Tweetar</p>
+        <p>{t('publish')}</p>
         {/* Icon only shown on mobile */}
         <HiPencilAlt />
       </Button>

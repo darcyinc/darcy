@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 
-import LeftNavbar from '@/components/LeftNavbar';
 import MobileBottomNavbar from '@/components/LeftNavbar/MobileBottomNavbar';
 
 const ShowIfMediaQuery = dynamic(() => import('@/components/ShowIfMediaQuery'));
@@ -14,16 +13,18 @@ const MainWrapper = dynamic(() =>
 interface ProvidersProps {
   children: React.ReactNode;
   trendingComponent: React.ReactNode;
+  leftNavbarComponent: React.ReactNode;
 }
 
 export default function Providers({
   children,
   trendingComponent,
+  leftNavbarComponent,
 }: ProvidersProps) {
   return (
     <>
       <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">
-        <LeftNavbar />
+        {leftNavbarComponent}
       </ShowIfMediaQuery>
 
       <MainWrapper>{children}</MainWrapper>

@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
+import { notFound } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 const Providers = dynamic(() => import('./providers'));
 
@@ -15,9 +17,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
+  const locale = useLocale();
+
+  // Show a 404 error if the user requests an unknown locale
+  if (params.locale !== locale) {
+    notFound();
+  }
+
   return (
     <html lang="en">
       <body className={inter.className}>

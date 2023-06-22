@@ -1,0 +1,16 @@
+{
+  "FeedHeader": {
+    "home": "Home",
+    "foryou": "For you",
+    "following": "Following"
+  },
+  "Navbar": {
+    "home": "Home",
+    "explore": "Explore",
+    "notifications": "Notifications",
+    "messages": "Messages",
+    "bookmarks": "Bookmarks",
+    "profile": "Profile",
+    "publish": "Publish"
+  }
+}
