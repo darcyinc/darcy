@@ -6,6 +6,10 @@
       "home": "Home"
     }
   },
+  "Trending": {
+    "searchPlaceholder": "Search Darcy",
+    "trending": "Trending"
+  },
   "Navbar": {
     "home": "Home",
     "explore": "Explore",

@@ -6,6 +6,10 @@
       "home": "Página inicial"
     }
   },
+  "Trending": {
+    "searchPlaceholder": "Buscar na Darcy",
+    "trending": "Em alta"
+  },
   "Navbar": {
     "home": "Início",
     "explore": "Explorar",

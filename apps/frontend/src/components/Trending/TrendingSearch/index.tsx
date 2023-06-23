@@ -6,7 +6,13 @@ import { HiOutlineX, HiSearch } from 'react-icons/hi';
 
 import { Container } from './styles';
 
-export default function TrendingSearch() {
+interface TrendingSearchProps {
+  i18nSearchPlaceholder: string;
+}
+
+export default function TrendingSearch({
+  i18nSearchPlaceholder,
+}: TrendingSearchProps) {
   const router = useRouter();
   const [search, setSearch] = useState('');
 
@@ -28,7 +34,7 @@ export default function TrendingSearch() {
       <HiSearch />
       <input
         type="text"
-        placeholder="Buscar na Darcy"
+        placeholder={i18nSearchPlaceholder}
         name="search"
         maxLength={255}
         required
