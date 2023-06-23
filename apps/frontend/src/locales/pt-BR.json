@@ -1,8 +1,10 @@
 {
   "FeedHeader": {
-    "home": "Página inicial",
-    "foryou": "Para você",
-    "following": "Seguindo"
+    "forYou": "Para você",
+    "following": "Seguindo",
+    "titles": {
+      "home": "Página inicial"
+    }
   },
   "Navbar": {
     "home": "Início",

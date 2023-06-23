@@ -8,9 +8,17 @@ type FilterOption = 'foryou' | 'newest';
 
 interface FeedHeaderProperties {
   filter: FilterOption;
+  i18nTitle: string;
+  i18nForYou: string;
+  i18nFollowing: string;
 }
 
-export default function FeedHeader({ filter }: FeedHeaderProperties) {
+export default function FeedHeader({
+  filter,
+  i18nTitle,
+  i18nForYou,
+  i18nFollowing,
+}: FeedHeaderProperties) {
   const [dividerWidth, setDividerWidth] = useState(0);
   const currentSort = useRef<HTMLSpanElement>(null);
 
@@ -32,12 +40,12 @@ export default function FeedHeader({ filter }: FeedHeaderProperties) {
 
   return (
     <Container>
-      <h3>Página inicial</h3>
+      <h3>{i18nTitle}</h3>
 
       {['foryou', 'newest'].map((item) => (
         <button key={item} onClick={() => handleFilter(item as FilterOption)}>
           <span ref={filter === item ? currentSort : undefined}>
-            {item === 'foryou' ? 'Para você' : 'Seguindo'}
+            {item === 'foryou' ? i18nForYou : i18nFollowing}
           </span>
           <Divider active={filter === item} />
         </button>
