@@ -9,7 +9,7 @@ const COMMON_WORDS_SIGN_UP = new Set(['sign_up', 'register', 'create', 'join']);
 
 interface PageProps {
   params: {
-    redirect: string;
+    redirect: string[];
   };
 }
 
@@ -17,11 +17,11 @@ export default function Page({ params }: PageProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (COMMON_WORDS_SIGN_IN.has(params.redirect)) {
+    if (COMMON_WORDS_SIGN_IN.has(params.redirect[0])) {
       router.replace('/auth/signin');
     }
 
-    if (COMMON_WORDS_SIGN_UP.has(params.redirect)) {
+    if (COMMON_WORDS_SIGN_UP.has(params.redirect[0])) {
       router.replace('/auth/signup');
     }
 

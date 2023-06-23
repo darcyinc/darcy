@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import { getServerSession } from 'next-auth/next';
 import { useLocale } from 'next-intl';
 
 const Providers = dynamic(() => import('./providers'));
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   keywords: ['social network', 'open source'],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers session={await getServerSession()}>{children}</Providers>
       </body>
     </html>
   );

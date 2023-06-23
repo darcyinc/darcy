@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import Button from '@/components/Button';
 import Divider from '@/components/Divider';
+import SignInButton from '@/components/SignInButton';
 
 import { Form } from '../styles';
 
@@ -36,6 +37,9 @@ export default function SignInPage() {
       </Button>
 
       <Divider text="ou entre com" />
+
+      <SignInButton provider="github" />
+      <SignInButton provider="google" />
     </Form>
   );
 }
