@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Container = styled.main`
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 70% auto;
 
   height: 100vh;
   width: 100%;
@@ -27,17 +27,22 @@ export const Container = styled.main`
       display: none;
     }
   }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 55% auto;
+  }
 `;
 
 export const Form = styled.form`
+  animation: fadeIn 1.3s ease-in-out;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
-  padding: 0 15px;
-  animation: fadeIn 1.3s ease-in-out;
-
-  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  max-width: 450px;
 
   @keyframes fadeIn {
     from {
