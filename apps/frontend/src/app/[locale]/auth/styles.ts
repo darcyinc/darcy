@@ -35,8 +35,19 @@ export const Form = styled.form`
   gap: 10px;
   justify-content: center;
   padding: 0 15px;
+  animation: fadeIn 1.3s ease-in-out;
 
   max-width: 400px;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 
   > h1 {
     font-weight: bold;
