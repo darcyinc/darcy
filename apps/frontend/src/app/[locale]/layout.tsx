@@ -30,10 +30,13 @@ export default async function RootLayout({
     notFound();
   }
 
+  // eslint-disable-next-line unicorn/no-null
+  const session = await getServerSession().catch(() => null);
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers session={await getServerSession()}>{children}</Providers>
+        <Providers session={session}>{children}</Providers>
       </body>
     </html>
   );
