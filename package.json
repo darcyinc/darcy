@@ -16,7 +16,7 @@
     "@typescript-eslint/parser": "5.60.0",
     "eslint": "8.43.0",
     "eslint-import-resolver-typescript": "3.5.5",
-    "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-2",
+    "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-3",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-unicorn": "47.0.0",
     "prettier": "2.8.8",
