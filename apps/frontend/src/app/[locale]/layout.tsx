@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
+import { useLocale } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import { getServerSession } from 'next-auth/next';
-import { useLocale } from 'next-intl';
 
 const Providers = dynamic(() => import('./providers'));
 
@@ -31,12 +30,12 @@ export default async function RootLayout({
   }
 
   // eslint-disable-next-line unicorn/no-null
-  const session = await getServerSession().catch(() => null);
+  // const session = await getServerSession().catch(() => null);
 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers session={session}>{children}</Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

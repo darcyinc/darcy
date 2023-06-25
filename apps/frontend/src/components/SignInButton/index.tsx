@@ -33,7 +33,7 @@ export default function SignInButton({
     <>
       Not signed in {provider}
       <br />
-      <SignInButton onClick={() => signIn()}>Sign in</SignInButton>
+      <SignInButton onClick={() => signIn(provider)}>Sign in</SignInButton>
     </>
   );
 }

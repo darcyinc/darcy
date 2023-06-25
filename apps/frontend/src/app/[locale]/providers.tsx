@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
@@ -24,10 +23,9 @@ async function getTheme(theme: 'dark' | 'light' | 'slate') {
 
 interface ProvidersProps {
   children: React.ReactNode;
-  session: Session | null;
 }
 
-export default function Providers({ children, session }: ProvidersProps) {
+export default function Providers({ children }: ProvidersProps) {
   const [theme, setTheme] = useState(darkTheme);
   const { theme: userTheme } = useTheme();
 
@@ -40,11 +38,7 @@ export default function Providers({ children, session }: ProvidersProps) {
   }, [userTheme]);
 
   return (
-    <SessionProvider
-      refetchInterval={5 * 60}
-      refetchOnWindowFocus={true}
-      session={session}
-    >
+    <SessionProvider refetchInterval={5 * 60} refetchOnWindowFocus={true}>
       <ThemeProvider theme={theme}>
         <StyledComponentsRegistry>
           <GlobalStyles />

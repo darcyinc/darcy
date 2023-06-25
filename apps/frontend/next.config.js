@@ -7,7 +7,6 @@ const withNextIntl = require('next-intl/plugin')(
 const nextConfig = {
   compiler: {
     styledComponents: true,
-    removeConsole: true,
   },
   experimental: {
     serverActions: true
