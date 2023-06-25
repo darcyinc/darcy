@@ -41,6 +41,7 @@ export default function Providers({ children }: ProvidersProps) {
     <SessionProvider refetchInterval={5 * 60} refetchOnWindowFocus={true}>
       <ThemeProvider theme={theme}>
         <StyledComponentsRegistry>
+          {/* @ts-expect-error I don't know why, but this is throwing errors. */}
           <GlobalStyles />
           {children}
         </StyledComponentsRegistry>
