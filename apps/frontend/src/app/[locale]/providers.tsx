@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { SessionProvider } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -38,14 +37,11 @@ export default function Providers({ children }: ProvidersProps) {
   }, [userTheme]);
 
   return (
-    <SessionProvider refetchInterval={5 * 60} refetchOnWindowFocus={true}>
-      <ThemeProvider theme={theme}>
-        <StyledComponentsRegistry>
-          {/* @ts-expect-error I don't know why, but this is throwing errors. */}
-          <GlobalStyles />
-          {children}
-        </StyledComponentsRegistry>
-      </ThemeProvider>
-    </SessionProvider>
+    <ThemeProvider theme={theme}>
+      <StyledComponentsRegistry>
+        <GlobalStyles />
+        {children}
+      </StyledComponentsRegistry>
+    </ThemeProvider>
   );
 }

@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import { useLocale } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 const Providers = dynamic(() => import('./providers'));
 
