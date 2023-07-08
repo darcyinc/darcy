@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback } from 'react';
 
 import { Container } from './styles';
 
@@ -17,23 +17,8 @@ export default function FeedHeader({
   filter,
   i18nTitle,
   i18nForYou,
-  i18nFollowing,
+  i18nFollowing
 }: FeedHeaderProperties) {
-  const [dividerWidth, setDividerWidth] = useState(0);
-  const currentSort = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (currentSort.current) setDividerWidth(currentSort.current.offsetWidth);
-  }, []);
-
-  const Divider = useCallback(
-    ({ active }: { active: boolean }) => {
-      if (!active) return;
-      return <div className="divider" style={{ width: `${dividerWidth}px` }} />;
-    },
-    [dividerWidth]
-  );
-
   const handleFilter = useCallback((_newFilter: FilterOption) => {
     return;
   }, []);
@@ -44,10 +29,12 @@ export default function FeedHeader({
 
       {['foryou', 'newest'].map((item) => (
         <button key={item} onClick={() => handleFilter(item as FilterOption)}>
-          <span ref={filter === item ? currentSort : undefined}>
-            {item === 'foryou' ? i18nForYou : i18nFollowing}
-          </span>
-          <Divider active={filter === item} />
+          <div>
+            <span>
+              {item === 'foryou' ? i18nForYou : i18nFollowing}
+            </span>
+            {filter === item && <div className="divider" />}
+          </div>
         </button>
       ))}
     </Container>
