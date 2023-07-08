@@ -1,4 +1,7 @@
 {
+  "ProfileHeader": {
+    "posts": "{posts, plural, =0 {Nenhuma publicação} =1 {1 publicação} other {# publicações}}"
+  },
   "FeedHeader": {
     "forYou": "Para você",
     "following": "Seguindo",

@@ -10,6 +10,7 @@ const MainWrapper = dynamic(() =>
   import('./styles').then((mod) => mod.MainWrapper)
 );
 
+// We can't import RSC in Client Components
 interface ProvidersProps {
   children: React.ReactNode;
   trendingComponent: React.ReactNode;

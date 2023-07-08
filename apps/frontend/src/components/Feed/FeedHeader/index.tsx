@@ -17,7 +17,7 @@ export default function FeedHeader({
   filter,
   i18nTitle,
   i18nForYou,
-  i18nFollowing
+  i18nFollowing,
 }: FeedHeaderProperties) {
   const handleFilter = useCallback((_newFilter: FilterOption) => {
     return;
@@ -30,9 +30,7 @@ export default function FeedHeader({
       {['foryou', 'newest'].map((item) => (
         <button key={item} onClick={() => handleFilter(item as FilterOption)}>
           <div>
-            <span>
-              {item === 'foryou' ? i18nForYou : i18nFollowing}
-            </span>
+            <span>{item === 'foryou' ? i18nForYou : i18nFollowing}</span>
             {filter === item && <div className="divider" />}
           </div>
         </button>
