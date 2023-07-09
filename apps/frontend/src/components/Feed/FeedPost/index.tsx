@@ -42,7 +42,7 @@ export default function FeedPost() {
 
   return (
     <div
-      className="border-gray-border flex w-full cursor-pointer gap-2 border-b p-2 py-[6px] hover:bg-hoverEffect focus:bg-hoverEffect focus-visible:bg-hoverEffect md:px-4"
+      className="flex w-full cursor-pointer gap-2 border-b border-grayBorder p-2 py-[6px] hover:bg-hoverEffect focus:bg-hoverEffect focus-visible:bg-hoverEffect md:px-4"
       role="button"
       tabIndex={0}
       onClick={handlePostClick}
