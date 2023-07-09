@@ -32,7 +32,9 @@ export default function FeedHeader({ filter, i18nTitle, i18nForYou, i18nFollowin
           onClick={() => handleFilter(item as FilterOption)}
         >
           <div className="text-secondary m-auto w-fit">
-            <span className="leading-10">{item === 'foryou' ? i18nForYou : i18nFollowing}</span>
+            <span className={clsx('leading-10', filter === item ? 'font-bold text-textPrimary' : 'text-textSecondary')}>
+              {item === 'foryou' ? i18nForYou : i18nFollowing}
+            </span>
             {filter === item && <div className="h-1 rounded-sm bg-blue" />}
           </div>
         </button>
