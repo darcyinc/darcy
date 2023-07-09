@@ -34,18 +34,13 @@ export default function LeftNavbar() {
       </NavbarLink>
 
       {LINKS.map(({ href, icon: Icon, label, active }) => (
-        <NavbarLink
-          key={href}
-          href={href}
-          $active={active}
-          aria-label={`Ir para ${label}`}
-        >
+        <NavbarLink $active={active} aria-label={`Ir para ${label}`} href={href} key={href}>
           <Icon />
           <span>{label}</span>
         </NavbarLink>
       ))}
 
-      <Button $variant="blue" $size="large">
+      <Button $size="large" $variant="blue">
         <p>{t('publish')}</p>
         {/* Icon only shown on mobile */}
         <HiPencilAlt />

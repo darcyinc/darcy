@@ -34,8 +34,7 @@ export default function Providers({ children }: ProvidersProps) {
 
     // Automatically update the token when it changes in another tab
     window.addEventListener('storage', (event) => {
-      if (event.storageArea === localStorage && event.key === 'token')
-        updateToken(event.newValue);
+      if (event.storageArea === localStorage && event.key === 'token') updateToken(event.newValue);
     });
   }
 

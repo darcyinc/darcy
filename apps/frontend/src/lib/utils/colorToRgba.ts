@@ -9,10 +9,7 @@ export default function colorToRgba(color: string, opacity: number) {
 
   if (hex) {
     const [, r, g, b] = hex;
-    return `rgba(${Number.parseInt(r, 16)}, ${Number.parseInt(
-      g,
-      16,
-    )}, ${Number.parseInt(b, 16)}, ${opacity})`;
+    return `rgba(${Number.parseInt(r, 16)}, ${Number.parseInt(g, 16)}, ${Number.parseInt(b, 16)}, ${opacity})`;
   }
 
   if (rgb) {

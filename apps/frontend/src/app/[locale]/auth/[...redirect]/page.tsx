@@ -30,8 +30,7 @@ export default function Page({ params }: PageProps) {
 
   return (
     <p>
-      Redirecting to authentication page. Click{' '}
-      <Link href="/auth/signin">here</Link> if you are not redirected.
+      Redirecting to authentication page. Click <Link href="/auth/signin">here</Link> if you are not redirected.
     </p>
   );
 }

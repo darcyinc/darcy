@@ -1,9 +1,6 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
-export default async function (
-  fastify: FastifyInstance,
-  _options: RouteOptions,
-) {
+export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Params: {
       handle: string;

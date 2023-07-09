@@ -13,9 +13,9 @@ export default function Feed() {
     <Container>
       <FeedHeader
         filter="foryou"
-        i18nTitle={t('titles.home')}
         i18nFollowing={t('following')}
         i18nForYou={t('forYou')}
+        i18nTitle={t('titles.home')}
       />
       <FeedPost />
       <FeedPost />

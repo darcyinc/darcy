@@ -22,7 +22,7 @@ export default function OAuth2Button({
 
       window.location.href = oauthLink;
     },
-    [link, service],
+    [link, service]
   );
 
   return (

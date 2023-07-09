@@ -36,11 +36,7 @@ export async function getDiscordToken(code: string) {
 
   console.log(data.scope);
 
-  if (
-    data.error ||
-    !data.scope.includes('identify') ||
-    !data.scope.includes('email')
-  ) {
+  if (data.error || !data.scope.includes('identify') || !data.scope.includes('email')) {
     throw new Error('Invalid scope or an error ocurred.');
   }
 

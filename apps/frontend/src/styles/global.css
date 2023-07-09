@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html[data-theme='default'],
+  html {
+    --color-blue: 29 155 240;
+    --color-dark-gray: 22 24 28;
+    --color-gray-border: 47 51 54;
+    --color-red: 249 24 128;
+    --color-green: 0 186 124;
+
+    --color-hover-effect: rgba(231, 233, 234, 0.1);
+    
+    --text-primary: 255 255 255;
+    --text-secondary: 113 118 123;
+  }
+}

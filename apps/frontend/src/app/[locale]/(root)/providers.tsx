@@ -6,9 +6,7 @@ import MobileBottomNavbar from '@/components/LeftNavbar/MobileBottomNavbar';
 
 const ShowIfMediaQuery = dynamic(() => import('@/components/ShowIfMediaQuery'));
 
-const MainWrapper = dynamic(() =>
-  import('./styles').then((mod) => mod.MainWrapper),
-);
+const MainWrapper = dynamic(() => import('./styles').then((mod) => mod.MainWrapper));
 
 // We can't import RSC in Client Components
 interface ProvidersProps {
@@ -17,16 +15,10 @@ interface ProvidersProps {
   leftNavbarComponent: React.ReactNode;
 }
 
-export default function Providers({
-  children,
-  trendingComponent,
-  leftNavbarComponent,
-}: ProvidersProps) {
+export default function Providers({ children, trendingComponent, leftNavbarComponent }: ProvidersProps) {
   return (
     <>
-      <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">
-        {leftNavbarComponent}
-      </ShowIfMediaQuery>
+      <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">{leftNavbarComponent}</ShowIfMediaQuery>
 
       <MainWrapper>{children}</MainWrapper>
 
@@ -34,9 +26,7 @@ export default function Providers({
         <MobileBottomNavbar />
       </ShowIfMediaQuery>
 
-      <ShowIfMediaQuery query="(min-width: 990px)">
-        {trendingComponent}
-      </ShowIfMediaQuery>
+      <ShowIfMediaQuery query="(min-width: 990px)">{trendingComponent}</ShowIfMediaQuery>
     </>
   );
 }

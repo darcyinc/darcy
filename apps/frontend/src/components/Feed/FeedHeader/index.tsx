@@ -28,7 +28,11 @@ export default function FeedHeader({
       <h3>{i18nTitle}</h3>
 
       {['foryou', 'newest'].map((item) => (
-        <button key={item} onClick={() => handleFilter(item as FilterOption)}>
+        <button
+          key={item}
+          type="button"
+          onClick={() => handleFilter(item as FilterOption)}
+        >
           <div>
             <span>{item === 'foryou' ? i18nForYou : i18nFollowing}</span>
             {filter === item && <div className="divider" />}

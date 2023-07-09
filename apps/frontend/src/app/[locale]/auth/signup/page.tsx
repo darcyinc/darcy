@@ -18,20 +18,14 @@ export default function SignInPage() {
     <Form>
       <h1>Olá! Bem-vindo(a).</h1>
       <p>
-        Você está prestes a criar uma conta na Darcy.{' '}
-        <Link href="/auth/signin">Já possui uma conta?</Link>
+        Você está prestes a criar uma conta na Darcy. <Link href="/auth/signin">Já possui uma conta?</Link>
       </p>
 
       <label>
-        <input
-          type="email"
-          placeholder="E-mail"
-          autoComplete="on"
-          maxLength={255}
-        />
+        <input autoComplete="on" maxLength={255} placeholder="E-mail" type="email" />
       </label>
 
-      <Button type="submit" $size="large" $variant="blue">
+      <Button $size="large" $variant="blue" type="submit">
         Enviar link de autenticação
       </Button>
 

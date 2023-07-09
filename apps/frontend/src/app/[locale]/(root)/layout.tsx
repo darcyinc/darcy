@@ -5,16 +5,9 @@ import Trending from '@/components/Trending';
 
 const Providers = dynamic(() => import('./providers'));
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Providers
-      trendingComponent={<Trending />}
-      leftNavbarComponent={<LeftNavbar />}
-    >
+    <Providers leftNavbarComponent={<LeftNavbar />} trendingComponent={<Trending />}>
       {children}
     </Providers>
   );

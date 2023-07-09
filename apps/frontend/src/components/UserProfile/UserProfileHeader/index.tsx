@@ -11,14 +11,7 @@ interface UserProfileHeaderProps {
   avatar: string;
 }
 
-export default function UserProfileHeader({
-  username,
-  posts,
-  handle,
-  bio,
-  banner,
-  avatar,
-}: UserProfileHeaderProps) {
+export default function UserProfileHeader({ username, posts, handle, bio, banner, avatar }: UserProfileHeaderProps) {
   const t = useTranslations('ProfileHeader');
 
   return (

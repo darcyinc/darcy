@@ -14,12 +14,7 @@ export default function MobileBottomNavbar() {
   return (
     <Wrapper>
       {LINKS.map(({ href, icon: Icon, active, label }) => (
-        <Link
-          href={href}
-          key={href}
-          data-active={active}
-          aria-label={`Ir para ${label}`}
-        >
+        <Link aria-label={`Ir para ${label}`} data-active={active} href={href} key={href}>
           <Icon />
         </Link>
       ))}

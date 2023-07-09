@@ -29,8 +29,7 @@ export const Container = styled.button<ButtonProps>`
     cursor: not-allowed;
   }
 
-  background-color: ${({ theme, $variant }) =>
-    $variant === 'blue' ? theme.colors.blue : '#fff'};
+  background-color: ${({ theme, $variant }) => ($variant === 'blue' ? theme.colors.blue : '#fff')};
   color: ${({ $variant }) => ($variant === 'blue' ? '#fff' : '#000')};
   padding: ${({ $size }) => ($size === 'large' ? '15px' : '9px')} 0;
 `;

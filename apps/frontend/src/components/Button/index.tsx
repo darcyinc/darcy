@@ -1,7 +1,6 @@
 import { Container } from './styles';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   $variant: 'blue' | 'white';
   $size: 'small' | 'large';
 }

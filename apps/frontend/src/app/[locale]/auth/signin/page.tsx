@@ -20,29 +20,20 @@ export default function SignInPage() {
     <Form>
       <h1>Bem-vindo(a) de volta!</h1>
       <p>
-        Insira seus dados para se autenticar na Darcy.{' '}
-        <Link href="/auth/signup">Ainda não tem uma conta?</Link>
+        Insira seus dados para se autenticar na Darcy. <Link href="/auth/signup">Ainda não tem uma conta?</Link>
       </p>
 
       <label>
-        <input
-          type="email"
-          placeholder="E-mail"
-          autoComplete="on"
-          maxLength={255}
-        />
+        <input autoComplete="on" maxLength={255} placeholder="E-mail" type="email" />
       </label>
 
-      <Button type="submit" $size="large" $variant="blue">
+      <Button $size="large" $variant="blue" type="submit">
         Enviar link de autenticação
       </Button>
 
       <Divider text="ou entre com" />
 
-      <OAuth2Button
-        link={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL!}
-        service="discord"
-      >
+      <OAuth2Button link={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL!} service="discord">
         Entrar com Discord
       </OAuth2Button>
     </Form>

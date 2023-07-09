@@ -1,14 +1,8 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
-import {
-  getDiscordToken,
-  getDiscordUserData,
-} from '../../utils/oauth2/discord';
+import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
-export default async function (
-  fastify: FastifyInstance,
-  _options: RouteOptions,
-) {
+export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Querystring: {
       code: string;

@@ -3,22 +3,18 @@ import Image from 'next/image';
 import AuthSideImage from './assets/auth_side_image.jpg';
 import { Container } from './styles';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <Container>
       <Image
-        src={AuthSideImage}
         alt="Blue sky"
         decoding="async"
-        loading="lazy"
-        quality={100}
         draggable={false}
+        loading="lazy"
         placeholder="blur"
+        quality={100}
         sizes="70%"
+        src={AuthSideImage}
       />
 
       {children}

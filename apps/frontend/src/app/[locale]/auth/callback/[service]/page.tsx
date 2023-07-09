@@ -23,8 +23,7 @@ export default function CallbackPage({
     async function auth() {
       const oauth2State = sessionStorage.getItem(`oauth2-state:${service}`);
 
-      if (!['discord'].includes(service) || !code || !state)
-        return router.replace('/auth/signin');
+      if (!['discord'].includes(service) || !code || !state) return router.replace('/auth/signin');
 
       if (state !== oauth2State) return router.replace('/auth/signin');
 
