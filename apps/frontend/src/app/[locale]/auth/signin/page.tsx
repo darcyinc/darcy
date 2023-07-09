@@ -36,6 +36,10 @@ export default function SignInPage() {
       </Button>
 
       <Divider text="ou entre com" />
+
+      <a href={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL}>
+        Entrar com Discord
+      </a>
     </Form>
   );
 }

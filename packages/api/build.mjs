@@ -1,55 +1,57 @@
-import { spawn } from "child_process";
-import chokidar from "chokidar";
-import * as esbuild from "esbuild";
-import fastGlob from "fast-glob";
-import fs from "fs/promises";
+import { spawn } from 'child_process';
+import { watch } from 'chokidar';
+import * as esbuild from 'esbuild';
+import fastGlob from 'fast-glob';
+import { copyFile, rm, rmdir } from 'fs/promises';
 
 const ctx = await esbuild.context({
-  entryPoints: [...await fastGlob("src/**/*.ts")],
-  outdir: "dist",
-  target: "node20",
-  platform: "node",
+  entryPoints: [...(await fastGlob('src/**/*.ts'))],
+  outdir: 'dist',
+  target: 'node20',
+  platform: 'node',
   minify: true,
   sourcemap: false,
-  format: "cjs",
+  format: 'cjs',
 });
 
 await cleanupDist();
 
 // if cmdline has --watch, then watch for changes
-if (process.argv.includes("--watch")) {
-  console.log("compiling...");
+if (process.argv.includes('--watch')) {
+  console.log('compiling...');
 
   await ctx.rebuild();
 
   let serverProcess = startServer();
 
-  console.log("starting server & watching for changes...");
+  console.log('starting server & watching for changes...');
 
-  chokidar.watch("src").on("change", () => {
-    console.log("change detected - restarting server");
-    ctx.rebuild().then(() => {
-      copyDotEnv()
-      if (serverProcess) serverProcess.kill('SIGINT');
+  watch(['src', '.env']).on('change', async () => {
+    console.log('change detected - restarting server');
+
+    serverProcess?.kill('SIGINT');
+    await cleanupDist();
+
+    ctx.rebuild().then(async () => {
+      await copyDotEnv();
 
       serverProcess = startServer();
-    });
+    }).catch(() => {});
   });
-  
 } else {
   await ctx.rebuild();
-  copyDotEnv()
+  await copyDotEnv();
   process.exit(0);
 }
 
 function startServer() {
-  return spawn("node",  ['dist/index.js'], { stdio: "inherit" })
+  return spawn('node', ['dist/index.js'], { stdio: 'inherit' });
 }
 
-function cleanupDist() {
-  return fs.rm("dist", { recursive: true, force: true });
+async function cleanupDist() {
+  return rmdir('dist', { recursive: true }).catch(() => {});
 }
 
-function copyDotEnv() {
-  return fs.copyFile(".env", "dist/.env");
+async function copyDotEnv() {
+  return copyFile('.env', 'dist/.env');
 }
