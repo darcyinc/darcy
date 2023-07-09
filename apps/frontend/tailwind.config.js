@@ -13,6 +13,8 @@ module.exports = {
       textSecondary: 'rgb(var(--text-secondary) / <alpha-value>)',
 
       hoverEffect: 'var(--color-hover-effect)',
+
+      transparent: 'transparent',
     },
     extend: {},
   },
