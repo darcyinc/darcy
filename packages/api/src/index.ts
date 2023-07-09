@@ -23,9 +23,9 @@ async function main() {
   });
 
   await app.register(cors, {
-    origin:
-      process.env.NODE_ENV === 'development' ? '*' : 'https://example.com',
+    origin: process.env.WEBSITE_URL,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH', 'OPTIONS'],
+    credentials: true,
   });
 
   app.listen({ port: Number(process.env.PORT) || 3001 }, (error, address) => {

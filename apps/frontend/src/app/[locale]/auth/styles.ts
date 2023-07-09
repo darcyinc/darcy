@@ -9,10 +9,16 @@ export const Container = styled.main`
   height: 100vh;
   width: 100%;
 
+  > p#auth {
+    margin: auto;
+    font-size: 1.2rem;
+  }
+
   > img {
     border-radius: 0 5px 5px 0;
 
     object-fit: cover;
+    height: 100%;
     max-height: 100vh;
     width: 100%;
   }

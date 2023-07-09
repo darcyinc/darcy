@@ -2,7 +2,7 @@ import { spawn } from 'child_process';
 import { watch } from 'chokidar';
 import * as esbuild from 'esbuild';
 import fastGlob from 'fast-glob';
-import { copyFile, rm, rmdir } from 'fs/promises';
+import { copyFile, rm } from 'fs/promises';
 
 const ctx = await esbuild.context({
   entryPoints: [...(await fastGlob('src/**/*.ts'))],
@@ -49,7 +49,7 @@ function startServer() {
 }
 
 async function cleanupDist() {
-  return rmdir('dist', { recursive: true }).catch(() => {});
+  return rm('dist', { recursive: true }).catch(() => {});
 }
 
 async function copyDotEnv() {

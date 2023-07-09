@@ -5,6 +5,7 @@ import Button from '@/components/Button';
 import Divider from '@/components/Divider';
 
 import { Form } from '../styles';
+import OAuth2Button from '@/components/OAuth2Button';
 
 export const metadata: Metadata = {
   title: 'Sign in | Darcy',
@@ -37,9 +38,9 @@ export default function SignInPage() {
 
       <Divider text="ou entre com" />
 
-      <a href={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL}>
+      <OAuth2Button link={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL!} service="discord">
         Entrar com Discord
-      </a>
+      </OAuth2Button>
     </Form>
   );
 }

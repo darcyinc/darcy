@@ -1,6 +1,5 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 import {
-  DISCORD_AUTH_URL,
   getDiscordToken,
   getDiscordUserData,
 } from '../../utils/oauth2/discord';
@@ -15,7 +14,7 @@ export default async function (
       state: string;
     };
   }>({
-    method: 'GET',
+    method: 'POST',
     url: '/discord/callback',
     config: {
       requiresAuth: false,
@@ -23,15 +22,23 @@ export default async function (
     handler: async (request, reply) => {
       const { code } = request.query;
 
-      if (!code) return reply.redirect(DISCORD_AUTH_URL);
-
       try {
         const token = await getDiscordToken(code);
         const userData = await getDiscordUserData(token);
 
-        reply.send(userData);
+        if (!userData.email) {
+          return reply.send(400).send({
+            error: 'The user does not have an email address',
+          });
+        }
+
+        reply.send({
+          token: 'FAKE-TOKEN',
+          // TODO: remove
+          userData,
+        });
       } catch {
-        return reply.redirect(DISCORD_AUTH_URL);
+        return reply.send(500);
       }
     },
   });
