@@ -1,44 +1,17 @@
-'use client';
-
-import styled, { css } from 'styled-components';
-
-interface BaseDividerProps {
-  $addMargin: boolean;
-}
-
-const BaseDivider = styled.span<BaseDividerProps>`
-  display: flex;
-  align-items: center;
-  text-align: center;
-  padding: 0 2px;
-  user-select: none;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    flex-grow: 1;
-    height: 1px;
-    background-color: ${({ theme }) => theme.colors.grayBorder};
-  }
-
-  ${({ $addMargin }) =>
-    $addMargin &&
-    css`
-      &::before {
-        margin-right: 8px;
-      }
-
-      &::after {
-        margin-left: 8px;
-      }
-    `}
-`;
+import clsx from 'clsx';
 
 interface DividerProps {
   text?: string;
 }
 
 export default function Divider({ text }: DividerProps) {
-  return <BaseDivider $addMargin={Boolean(text)}>{text}</BaseDivider>;
+  const addMargin = Boolean(text);
+
+  return (
+    <span className={clsx('flex w-full select-none items-center px-0.5 text-center')}>
+      <div className="h-px flex-grow bg-grayBorder content-['']" />
+      {addMargin && <span className="mx-2">{text}</span>}
+      <div className="h-px flex-grow bg-grayBorder content-['']" />
+    </span>
+  );
 }
