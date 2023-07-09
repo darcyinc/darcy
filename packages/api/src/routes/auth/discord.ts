@@ -27,7 +27,7 @@ export default async function (
         const token = await getDiscordToken(code);
         const userData = await getDiscordUserData(token);
 
-        if (!userData.email) {
+        if (!userData.email || !userData.verified) {
           return reply.send(400).send({
             error: 'no_email_associated',
           });
