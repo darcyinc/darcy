@@ -15,7 +15,7 @@ async function getTheme(theme: 'dark' | 'light' | 'slate') {
   const themes = {
     dark: darkTheme,
     light: await import('@/styles/themes/light').then((mod) => mod.lightTheme),
-    slate: await import('@/styles/themes/slate').then((mod) => mod.slateTheme),
+    slate: await import('@/styles/themes/slate').then((mod) => mod.slateTheme)
   };
 
   return themes[theme];

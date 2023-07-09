@@ -9,7 +9,7 @@ import OAuth2Button from '@/components/OAuth2Button';
 import { Form } from '../styles';
 
 export const metadata: Metadata = {
-  title: 'Sign in | Darcy',
+  title: 'Sign in | Darcy'
 };
 
 // const _EMAIL_REGEX =

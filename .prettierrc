@@ -5,6 +5,7 @@
   "singleQuote": true,
   "printWidth": 140,
   "endOfLine": "lf",
+  "trailingComma": "none",
   "plugins": ["prettier-plugin-tailwindcss"],
   "pluginSearchDirs": false,
   "tailwindConfig": "./apps/frontend/tailwind.config.js"

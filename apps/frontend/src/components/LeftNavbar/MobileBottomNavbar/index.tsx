@@ -7,7 +7,7 @@ const LINKS = [
   { href: '/', icon: HiHome, active: true, label: 'Início' },
   { href: '/search', icon: HiSearch, label: 'Explorar' },
   { href: '/notifications', icon: HiOutlineBell, label: 'Notificações' },
-  { href: '/messages', icon: HiOutlineMail, label: 'Mensagens' },
+  { href: '/messages', icon: HiOutlineMail, label: 'Mensagens' }
 ];
 
 export default function MobileBottomNavbar() {

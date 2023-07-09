@@ -13,10 +13,10 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
         auth: {
           create: {
             email: 'test@test.com',
-            passwordHash: 'test',
-          },
-        },
-      },
+            passwordHash: 'test'
+          }
+        }
+      }
     });
     return user;
   });

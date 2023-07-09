@@ -8,7 +8,7 @@ import { authWithService } from '@/api/users/authWithService';
 
 export default function CallbackPage({
   params,
-  searchParams,
+  searchParams
 }: {
   params: { service: string };
   searchParams: { code: string; state: string };
@@ -29,7 +29,7 @@ export default function CallbackPage({
 
       const { error, redirect, token } = await authWithService({
         code,
-        service,
+        service
       });
 
       if (redirect) return router.replace('/auth/signin');

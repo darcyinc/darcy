@@ -9,26 +9,26 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
     method: 'GET',
     url: '/:handle',
     config: {
-      requiresAuth: false,
+      requiresAuth: false
     },
     handler: async (request, reply) => {
       const user = await prisma.user.findFirst({
         where: {
-          handle: request.params.handle,
+          handle: request.params.handle
         },
         include: {
           auth: false,
-          posts: false,
-        },
+          posts: false
+        }
       });
 
       if (!user) {
         return reply.status(404).send({
-          error: 'User not found',
+          error: 'User not found'
         });
       }
 
       return user;
-    },
+    }
   });
 }

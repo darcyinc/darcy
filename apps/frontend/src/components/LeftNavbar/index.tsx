@@ -1,13 +1,5 @@
 import { useTranslations } from 'next-intl';
-import {
-  HiHome,
-  HiOutlineBell,
-  HiOutlineBookmark,
-  HiOutlineMail,
-  HiOutlineUser,
-  HiPencilAlt,
-  HiSearch,
-} from 'react-icons/hi';
+import { HiHome, HiOutlineBell, HiOutlineBookmark, HiOutlineMail, HiOutlineUser, HiPencilAlt, HiSearch } from 'react-icons/hi';
 import { MdEditNote } from 'react-icons/md';
 
 import Button from '../Button';
@@ -24,7 +16,7 @@ export default function LeftNavbar() {
     { href: '/notifications', icon: HiOutlineBell, label: t('notifications') },
     { href: '/messages', icon: HiOutlineMail, label: t('messages') },
     { href: '/bookmarks', icon: HiOutlineBookmark, label: t('bookmarks') },
-    { href: '/davipatricio', icon: HiOutlineUser, label: t('profile') },
+    { href: '/davipatricio', icon: HiOutlineUser, label: t('profile') }
   ];
 
   return (

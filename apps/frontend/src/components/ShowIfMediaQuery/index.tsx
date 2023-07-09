@@ -10,10 +10,7 @@ interface ShowIfMediaQueryProps {
 export default function ShowIfMediaQuery({ query, children }: ShowIfMediaQueryProps) {
   const [matches, setMatches] = useState(false);
 
-  const handleMediaQueryChange = useCallback(
-    (mediaQuery: MediaQueryListEvent | MediaQueryList) => setMatches(mediaQuery.matches),
-    []
-  );
+  const handleMediaQueryChange = useCallback((mediaQuery: MediaQueryListEvent | MediaQueryList) => setMatches(mediaQuery.matches), []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(query);

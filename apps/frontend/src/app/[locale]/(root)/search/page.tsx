@@ -4,9 +4,8 @@ import Feed from '@/components/Feed';
 
 export const metadata: Metadata = {
   title: 'Search | Darcy',
-  description:
-    'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
-  keywords: ['social network', 'open source'],
+  description: 'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
+  keywords: ['social network', 'open source']
 };
 
 export default function Home() {

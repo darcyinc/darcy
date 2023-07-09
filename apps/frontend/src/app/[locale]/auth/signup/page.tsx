@@ -7,7 +7,7 @@ import Divider from '@/components/Divider';
 import { Form } from '../styles';
 
 export const metadata: Metadata = {
-  title: 'Sign up | Darcy',
+  title: 'Sign up | Darcy'
 };
 
 // const _EMAIL_REGEX =

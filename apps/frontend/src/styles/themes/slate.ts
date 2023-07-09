@@ -8,13 +8,13 @@ export const slateTheme: DefaultTheme = {
     darkGray: 'rgb(30, 39, 50)',
     grayBorder: 'rgb(56, 68, 77)',
     red: 'rgb(249, 24, 128)',
-    green: 'rgb(0, 186, 124)',
+    green: 'rgb(0, 186, 124)'
   },
   text: {
     primary: '#ffffff',
-    secondary: 'rgb(139, 152, 165)',
+    secondary: 'rgb(139, 152, 165)'
   },
   effects: {
-    hover: 'rgba(247, 249, 249, 0.1)',
-  },
+    hover: 'rgba(247, 249, 249, 0.1)'
+  }
 };

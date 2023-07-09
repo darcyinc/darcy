@@ -13,7 +13,7 @@ const generateAuthParams = (code: string) =>
     client_secret: DISCORD_CLIENT_SECRET,
     redirect_uri: DISCORD_CALLBACK_URL,
     grant_type: 'authorization_code',
-    code,
+    code
   });
 
 export interface DiscordTokenResponse {
@@ -28,9 +28,9 @@ export async function getDiscordToken(code: string) {
   const request = await fetch('https://discord.com/api/oauth2/token', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
-    body: generateAuthParams(code),
+    body: generateAuthParams(code)
   });
   const data = (await request.json()) as DiscordTokenResponse;
 
@@ -46,8 +46,8 @@ export async function getDiscordToken(code: string) {
 export async function getDiscordUserData(token: string) {
   const request = await fetch('https://discord.com/api/users/@me', {
     headers: {
-      Authorization: `Bearer ${token}`,
-    },
+      Authorization: `Bearer ${token}`
+    }
   });
   const data = (await request.json()) as Record<string, unknown>;
 

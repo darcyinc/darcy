@@ -13,12 +13,7 @@ interface FeedHeaderProperties {
   i18nFollowing: string;
 }
 
-export default function FeedHeader({
-  filter,
-  i18nTitle,
-  i18nForYou,
-  i18nFollowing,
-}: FeedHeaderProperties) {
+export default function FeedHeader({ filter, i18nTitle, i18nForYou, i18nFollowing }: FeedHeaderProperties) {
   const handleFilter = useCallback((_newFilter: FilterOption) => {
     return;
   }, []);
@@ -28,11 +23,7 @@ export default function FeedHeader({
       <h3>{i18nTitle}</h3>
 
       {['foryou', 'newest'].map((item) => (
-        <button
-          key={item}
-          type="button"
-          onClick={() => handleFilter(item as FilterOption)}
-        >
+        <button key={item} type="button" onClick={() => handleFilter(item as FilterOption)}>
           <div>
             <span>{item === 'foryou' ? i18nForYou : i18nFollowing}</span>
             {filter === item && <div className="divider" />}

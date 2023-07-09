@@ -12,9 +12,8 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Your Feed | Darcy',
-  description:
-    'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
-  keywords: ['social network', 'open source'],
+  description: 'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
+  keywords: ['social network', 'open source']
 };
 
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { locale: string } }) {

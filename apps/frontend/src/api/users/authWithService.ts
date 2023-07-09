@@ -15,7 +15,7 @@ export const authWithService = async ({ code, service }: AuthWithServiceOptions)
     return data.error == 'no_email_associated'
       ? {
           error: 'Você ainda não possui um e-mail cadastrado no serviço escolhido.',
-          redirect: false,
+          redirect: false
         }
       : { error: 'Unknown error.', redirect: true };
   }
