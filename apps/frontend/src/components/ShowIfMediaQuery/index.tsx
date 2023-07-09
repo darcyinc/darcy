@@ -16,7 +16,7 @@ export default function ShowIfMediaQuery({
   const handleMediaQueryChange = useCallback(
     (mediaQuery: MediaQueryListEvent | MediaQueryList) =>
       setMatches(mediaQuery.matches),
-    []
+    [],
   );
 
   useEffect(() => {

@@ -7,7 +7,7 @@ import MobileBottomNavbar from '@/components/LeftNavbar/MobileBottomNavbar';
 const ShowIfMediaQuery = dynamic(() => import('@/components/ShowIfMediaQuery'));
 
 const MainWrapper = dynamic(() =>
-  import('./styles').then((mod) => mod.MainWrapper)
+  import('./styles').then((mod) => mod.MainWrapper),
 );
 
 // We can't import RSC in Client Components

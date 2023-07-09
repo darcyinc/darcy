@@ -1,4 +1,5 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
+
 import {
   getDiscordToken,
   getDiscordUserData,
@@ -28,7 +29,7 @@ export default async function (
 
         if (!userData.email) {
           return reply.send(400).send({
-            error: 'The user does not have an email address',
+            error: 'no_email_associated',
           });
         }
 

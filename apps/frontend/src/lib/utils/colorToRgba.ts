@@ -11,7 +11,7 @@ export default function colorToRgba(color: string, opacity: number) {
     const [, r, g, b] = hex;
     return `rgba(${Number.parseInt(r, 16)}, ${Number.parseInt(
       g,
-      16
+      16,
     )}, ${Number.parseInt(b, 16)}, ${opacity})`;
   }
 

@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+
 import { ProfileHeader } from './styles';
 
 interface UserProfileHeaderProps {

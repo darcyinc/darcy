@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Metadata } from 'next';
 import Link from 'next/link';
 
 import Button from '@/components/Button';
 import Divider from '@/components/Divider';
+import OAuth2Button from '@/components/OAuth2Button';
 
 import { Form } from '../styles';
-import OAuth2Button from '@/components/OAuth2Button';
 
 export const metadata: Metadata = {
   title: 'Sign in | Darcy',
@@ -38,7 +39,10 @@ export default function SignInPage() {
 
       <Divider text="ou entre com" />
 
-      <OAuth2Button link={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL!} service="discord">
+      <OAuth2Button
+        link={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL!}
+        service="discord"
+      >
         Entrar com Discord
       </OAuth2Button>
     </Form>

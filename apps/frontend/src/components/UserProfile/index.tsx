@@ -1,5 +1,5 @@
-import UserProfileHeader from './UserProfileHeader';
 import { UserProfileWrapper } from './styles';
+import UserProfileHeader from './UserProfileHeader';
 
 export default function UserProfile() {
   return (

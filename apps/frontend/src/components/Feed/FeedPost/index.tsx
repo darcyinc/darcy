@@ -20,7 +20,7 @@ export default function FeedPost() {
 
       router.push('/post/9041203120312');
     },
-    [router]
+    [router],
   );
 
   const handleImageClick = useCallback(
@@ -30,7 +30,7 @@ export default function FeedPost() {
 
       router.push('/post/9041203120312');
     },
-    [router]
+    [router],
   );
 
   const handlePostInteraction = useCallback(
@@ -42,7 +42,7 @@ export default function FeedPost() {
 
       await getUser('davipatricio');
     },
-    []
+    [],
   );
 
   return (

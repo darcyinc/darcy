@@ -2,7 +2,7 @@ import { FastifyInstance, RouteOptions } from 'fastify';
 
 export default async function (
   fastify: FastifyInstance,
-  _options: RouteOptions
+  _options: RouteOptions,
 ) {
   // if the route has config.requiresAuth = true, then check if the user is Authorization header is present
   fastify.addHook('onRequest', async (request, reply) => {

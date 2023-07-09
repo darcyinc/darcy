@@ -26,7 +26,7 @@ export default function TrendingSearch({
 
       router.push(`/search?q=${encodeURIComponent(search.trim())}`);
     },
-    [search, router]
+    [search, router],
   );
 
   return (

@@ -11,13 +11,13 @@
     "lint": "eslint . --cache"
   },
   "devDependencies": {
-    "@types/node": "20.4.0",
+    "@types/node": "20.4.1",
     "@typescript-eslint/eslint-plugin": "5.61.0",
     "@typescript-eslint/parser": "5.61.0",
     "eslint": "8.44.0",
     "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
-    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-prettier": "5.0.0-alpha.0",
     "eslint-plugin-unicorn": "47.0.0",
     "prettier": "3.0.0",
     "typescript": "5.1.6"
@@ -26,5 +26,5 @@
     "node": ">=18.0.0",
     "pnpm": ">=8.0.0"
   },
-  "packageManager": "pnpm@8.0.0"
+  "packageManager": "^pnpm@8.0.0"
 }

@@ -12,7 +12,7 @@ export default function OAuth2Button({
   children: React.ReactNode;
 }) {
   const handleRedirect = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>) => {
+    (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
 
       const randomString = Math.random().toString(36);
@@ -22,12 +22,12 @@ export default function OAuth2Button({
 
       window.location.href = oauthLink;
     },
-    [],
+    [link, service],
   );
 
   return (
-    <a href="#" onClick={handleRedirect}>
+    <button type="button" onClick={handleRedirect}>
       {children}
-    </a>
+    </button>
   );
 }

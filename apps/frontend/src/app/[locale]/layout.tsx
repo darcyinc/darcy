@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords: ['social network', 'open source'],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params,
 }: {
@@ -28,9 +28,6 @@ export default async function RootLayout({
   if (params.locale !== locale) {
     notFound();
   }
-
-  // eslint-disable-next-line unicorn/no-null
-  // const session = await getServerSession().catch(() => null);
 
   return (
     <html lang="en">

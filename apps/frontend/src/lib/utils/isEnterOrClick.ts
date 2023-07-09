@@ -3,7 +3,7 @@ export type EnterOrClickEvent<T = any> =
   | React.MouseEvent<T>;
 
 export default function isEnterOrClick(
-  event: React.KeyboardEvent<unknown> | React.MouseEvent<unknown>
+  event: React.KeyboardEvent<unknown> | React.MouseEvent<unknown>,
 ) {
   if (event.type === 'click') return true;
 
