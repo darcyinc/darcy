@@ -13,6 +13,7 @@
   "dependencies": {
     "@darcy/api": "workspace:*",
     "axios": "1.4.0",
+    "clsx": "1.2.1",
     "next": "13.4.9",
     "next-intl": "3.0.0-beta.7",
     "react": "18.2.0",
