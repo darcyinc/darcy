@@ -1,15 +1,18 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': 'http://localhost:3000',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    'Access-Control-Allow-Credentials': 'true',
   },
+  validateStatus: () => true,
+  withCredentials: true,
+  responseType: 'json',
 });
 
-// const updateToken = (token: string) => {
-//   api.defaults.headers.Authorization = `Bearer ${token}`;
-// };
+export const updateToken = (token: string | null) => {
+  api.defaults.headers.Authorization = `Bearer ${token ?? ''}`;
+};

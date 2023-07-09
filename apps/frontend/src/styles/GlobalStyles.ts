@@ -27,7 +27,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.2s;
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
   }
 
   button, input, textarea {

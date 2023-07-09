@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import { updateToken } from '@/api/base';
 import { useTheme } from '@/hooks/useTheme';
 import { darkTheme } from '@/styles/themes/dark';
 
@@ -27,6 +28,16 @@ interface ProvidersProps {
 export default function Providers({ children }: ProvidersProps) {
   const [theme, setTheme] = useState(darkTheme);
   const { theme: userTheme } = useTheme();
+
+  if (typeof window !== 'undefined') {
+    updateToken(localStorage.getItem('token'));
+
+    // Automatically update the token when it changes in another tab
+    window.addEventListener('storage', (event) => {
+      if (event.storageArea === localStorage && event.key === 'token')
+        updateToken(event.newValue);
+    });
+  }
 
   useEffect(() => {
     async function loadTheme() {
