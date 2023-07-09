@@ -27,7 +27,7 @@ export default function SignInPage() {
         <input autoComplete="on" maxLength={255} placeholder="E-mail" type="email" />
       </label>
 
-      <Button $size="large" $variant="blue" type="submit">
+      <Button size="large" type="submit" variant="blue">
         Enviar link de autenticação
       </Button>
 

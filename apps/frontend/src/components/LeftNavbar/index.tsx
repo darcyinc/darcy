@@ -32,7 +32,7 @@ export default function LeftNavbar() {
         </NavbarLink>
       ))}
 
-      <Button $size="large" $variant="blue">
+      <Button size="large" variant="blue">
         <p>{t('publish')}</p>
         {/* Icon only shown on mobile */}
         <HiPencilAlt />
