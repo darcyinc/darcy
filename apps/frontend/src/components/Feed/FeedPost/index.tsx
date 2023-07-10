@@ -58,19 +58,19 @@ export default function FeedPost() {
       />
 
       <div>
-        <header className="flex gap-1 text-sm">
-          <Link className="flex w-fit gap-1 hover:no-underline" href="/davipatricio">
-            <p className="font-bold text-textPrimary hover:underline">Davi Patricio</p>
-            <p className="text-textSecondary hover:underline">@davipatricio</p>
+        <header className="w-fit break-words text-sm">
+          <Link className="flex-wrap hover:no-underline" href="/davipatricio">
+            <p className="inline font-bold text-textPrimary hover:underline">Davi Patricio</p>
+            <p className="ml-1 inline text-textSecondary hover:underline">@davipatricio</p>
           </Link>
 
-          <time className="text-textSecondary before:mr-1 before:content-['•']" dateTime="2023-05-12">
+          <time className="ml-1 text-textSecondary before:mr-1 before:content-['•']" dateTime="2023-05-12">
             2 de mai
           </time>
         </header>
 
         <section>
-          <p className="whitespace-normal break-all text-sm text-textPrimary">
+          <p className="break-all text-sm text-textPrimary sm:break-keep">
             Hello everyone! Please checkout my GitHub:{' '}
             <a href="https://github.com/davipatricio" target="_blank">
               https://github.com/davipatricio
