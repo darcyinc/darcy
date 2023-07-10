@@ -1,20 +1,21 @@
 import dynamic from 'next/dynamic';
 
+import LeftNavbar from '@/components/LeftNavbar';
 import MobileBottomNavbar from '@/components/LeftNavbar/MobileBottomNavbar';
+import Trending from '@/components/Trending';
 
 const ShowIfMediaQuery = dynamic(() => import('@/components/ShowIfMediaQuery'));
 
-// We can't import RSC in Client Components
 interface ProvidersProps {
   children: React.ReactNode;
-  trendingComponent: React.ReactNode;
-  leftNavbarComponent: React.ReactNode;
 }
 
-export default function Providers({ children, trendingComponent, leftNavbarComponent }: ProvidersProps) {
+export default function Providers({ children }: ProvidersProps) {
   return (
     <>
-      <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">{leftNavbarComponent}</ShowIfMediaQuery>
+      <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">
+        <LeftNavbar />
+      </ShowIfMediaQuery>
 
       <main className="grid grid-cols-[minmax(auto,600px)] gap-[2vw] md:grid-cols-[minmax(auto,600px)_1fr]">{children}</main>
 
@@ -22,7 +23,9 @@ export default function Providers({ children, trendingComponent, leftNavbarCompo
         <MobileBottomNavbar />
       </ShowIfMediaQuery>
 
-      <ShowIfMediaQuery query="(min-width: 990px)">{trendingComponent}</ShowIfMediaQuery>
+      <ShowIfMediaQuery query="(min-width: 990px)">
+        <Trending />
+      </ShowIfMediaQuery>
     </>
   );
 }
