@@ -4,6 +4,7 @@ import { HiLockClosed, HiOutlineArrowLeft } from 'react-icons/hi';
 
 import Button from '@/components/Button';
 
+import UserBannerAvatar from './UserBannerAvatar';
 import UserProfileHighlights from './UserHighlights';
 
 interface UserProfileHeaderProps {
@@ -36,19 +37,7 @@ export default function UserProfileHeader({ username, isPrivate, posts, handle, 
       </header>
 
       <section>
-        <div className="relative">
-          <img alt="User banner" className="max-h-52 w-full object-cover" decoding="async" draggable={false} loading="lazy" src={banner} />
-
-          {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-          <img
-            alt="User profile picture"
-            className="absolute -bottom-[50px] ml-5 h-20 w-20 rounded-full border border-background object-cover sm:h-32 sm:w-32"
-            decoding="async"
-            draggable={false}
-            loading="lazy"
-            src={avatar}
-          />
-        </div>
+        <UserBannerAvatar avatar={avatar} banner={banner} />
 
         <div className="ml-auto w-fit">
           {/* TODO: also become follow button */}
