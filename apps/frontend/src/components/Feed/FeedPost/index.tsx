@@ -40,24 +40,35 @@ export default function FeedPost({ user, content, media, stats }: FeedPostProps)
     [router]
   );
 
+  const handleUserClick = useCallback(
+    (e: EnterOrClickEvent) => {
+      if (!isEnterOrClick(e)) return;
+      e.stopPropagation();
+
+      router.push('/davipatricio');
+    },
+    [router]
+  );
+
   return (
     <div
-      className="flex w-full cursor-pointer gap-2 border-b border-grayBorder p-4 py-1.5 hover:bg-hoverEffect focus:bg-hoverEffect focus-visible:bg-hoverEffect md:px-4"
+      className="flex w-full cursor-pointer gap-2 border-b border-grayBorder p-4 py-1.5 hover:bg-hoverEffect focus-visible:bg-hoverEffect active:bg-hoverEffect md:px-4"
       role="button"
       tabIndex={0}
       onClick={handlePostClick}
       onKeyDown={handlePostClick}
     >
-      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-      <img
-        alt="User profile picture (avatar)"
-        className="h-11 w-11 rounded-full"
-        decoding="async"
-        height={40}
-        loading="lazy"
-        src={user.avatar}
-        width={40}
-      />
+      <div className="h-fit w-fit" role="button" tabIndex={0} onClick={handleUserClick} onKeyDown={handleUserClick}>
+        <img
+          alt="User profile avatar"
+          className="h-11 w-11 rounded-full"
+          decoding="async"
+          height={40}
+          loading="lazy"
+          src={user.avatar}
+          width={40}
+        />
+      </div>
 
       <div>
         <header className="w-fit break-words text-sm">
@@ -72,7 +83,10 @@ export default function FeedPost({ user, content, media, stats }: FeedPostProps)
         </header>
 
         <section>
-          <p className="break-all text-sm text-textPrimary sm:break-keep">{content}</p>
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+          <article className="break-all text-sm text-textPrimary sm:break-keep" onClick={handlePostClick}>
+            {content}
+          </article>
 
           {media && <FeedPostMedia media={media} />}
         </section>
