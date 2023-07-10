@@ -53,7 +53,7 @@ export default function UserProfileHeader({ username, isPrivate, posts, handle, 
         <div className="ml-auto w-fit">
           {/* TODO: also become follow button */}
           <Button className="mr-3 mt-3 px-5" size="small" variant="transparent">
-            Editar perfil
+            {t('editProfile')}
           </Button>
         </div>
 
@@ -71,12 +71,13 @@ export default function UserProfileHeader({ username, isPrivate, posts, handle, 
           <UserProfileHighlights />
 
           <div className="mt-3 flex gap-4 text-sm">
-            <a className="text-textSecondary decoration-darkGray hover:underline" href="#followers">
-              <span className="mr-1 font-bold text-textPrimary">1</span>Seguindo
+            <a className="text-textSecondary decoration-darkGray hover:underline" href="#following">
+              <span className="mr-1 font-bold text-textPrimary">1</span>
+              {t('following')}
             </a>
             <a className="text-textSecondary decoration-darkGray hover:underline" href="#followers">
               <span className="mr-1 font-bold text-textPrimary">1</span>
-              Seguidores
+              {t('followers')}
             </a>
           </div>
         </section>

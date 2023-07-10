@@ -4,7 +4,10 @@
     "authenticating": "Autenticando..."
   },
   "ProfileHeader": {
-    "posts": "{posts, plural, =0 {Nenhuma publicação} =1 {1 publicação} other {# publicações}}"
+    "posts": "{posts, plural, =0 {Nenhuma publicação} =1 {1 publicação} other {# publicações}}",
+    "editProfile": "Editar perfil",
+    "followers": "Seguidores",
+    "following": "Seguindo"
   },
   "FeedHeader": {
     "forYou": "Para você",
