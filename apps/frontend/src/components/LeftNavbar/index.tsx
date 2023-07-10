@@ -23,19 +23,24 @@ export default function LeftNavbar() {
   return (
     <nav
       className={clsx(
-        'sticky left-0 top-0 flex h-full w-fit flex-col items-center border-r border-grayBorder pb-4 pl-5 pr-5 pt-2.5',
+        'sticky left-0 top-0 flex h-full w-fit flex-col items-center border-r border-grayBorder px-5 pb-4 pt-2.5',
         'md:items-start md:gap-0.5 md:p-2.5',
         'xl:w-fit-content xl:pl-16'
       )}
     >
-      <Link className={clsx('flex w-fit items-center gap-3 rounded-full p-2 text-textPrimary hover:bg-hoverEffect xl:p-4')} href="/">
+      <Link
+        className={clsx(
+          'flex w-fit items-center gap-3 rounded-full p-2 text-textPrimary hover:bg-hoverEffect focus:bg-hoverEffect focus:ring-1 xl:p-4'
+        )}
+        href="/"
+      >
         <MdEditNote className="text-2xl" />
       </Link>
 
       {LINKS.map(({ href, icon: Icon, label, active }) => (
         <Link
           className={clsx(
-            'flex w-fit items-center gap-3 rounded-full p-2 text-textPrimary hover:bg-hoverEffect hover:no-underline xl:p-4',
+            'flex w-fit items-center gap-3 rounded-full p-2 text-textPrimary hover:bg-hoverEffect hover:no-underline focus:bg-hoverEffect focus:ring-1 xl:p-4',
             active && 'font-bold'
           )}
           aria-label={`Ir para ${label}`}
