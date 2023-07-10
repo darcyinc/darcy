@@ -1,31 +1,15 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { useEffect } from 'react';
 
 import { updateToken } from '@/api/base';
 import { useTheme } from '@/hooks/useTheme';
-import { darkTheme } from '@/styles/themes/dark';
-
-const StyledComponentsRegistry = dynamic(() => import('@/lib/registry'));
-
-async function getTheme(theme: 'dark' | 'light' | 'slate') {
-  const themes = {
-    dark: darkTheme,
-    light: await import('@/styles/themes/light').then((mod) => mod.lightTheme),
-    slate: await import('@/styles/themes/slate').then((mod) => mod.slateTheme)
-  };
-
-  return themes[theme];
-}
 
 interface ProvidersProps {
   children: React.ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {
-  const [theme, setTheme] = useState(darkTheme);
   const { theme: userTheme } = useTheme();
 
   if (typeof window !== 'undefined') {
@@ -39,15 +23,11 @@ export default function Providers({ children }: ProvidersProps) {
 
   useEffect(() => {
     async function loadTheme() {
-      setTheme(await getTheme(userTheme || 'dark'));
+      document.documentElement.dataset.theme = userTheme || 'dark';
     }
 
     loadTheme().catch(() => {});
   }, [userTheme]);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-    </ThemeProvider>
-  );
+  return children;
 }

@@ -16,9 +16,19 @@ module.exports = {
 
       hoverEffect: 'var(--color-hover-effect)',
 
-      transparent: 'transparent',
+      transparent: 'transparent'
     },
-    extend: {},
+    extend: {
+      animation: {
+        'fade-in': 'fadeIn 1.3s ease-in-out'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 }
+        }
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };

@@ -47,11 +47,11 @@ export default function CallbackPage({
   }, [code, router, service, state]);
 
   return error ? (
-    <p id="auth">
+    <p className="m-auto text-xl">
       {error}
       <Link href="/auth/signin">Voltar</Link>
     </p>
   ) : (
-    <p id="auth">Autenticando...</p>
+    <p className="m-auto text-xl">Autenticando...</p>
   );
 }
