@@ -21,7 +21,7 @@
     "fastify-plugin": "4.5.0"
   },
   "devDependencies": {
-    "@types/node": "20.4.0",
+    "@types/node": "20.4.1",
     "chokidar": "3.5.3",
     "esbuild": "0.18.11",
     "fast-glob": "3.3.0",
