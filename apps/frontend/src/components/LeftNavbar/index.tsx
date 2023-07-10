@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { HiHome, HiOutlineBell, HiOutlineBookmark, HiOutlineMail, HiOutlineUser, HiPencilAlt, HiSearch } from 'react-icons/hi';
 import { MdEditNote } from 'react-icons/md';
@@ -5,7 +7,6 @@ import { MdEditNote } from 'react-icons/md';
 import Button from '../Button';
 
 import NavbarProfile from './NavbarProfile';
-import { Container, NavbarLink } from './styles';
 
 export default function LeftNavbar() {
   const t = useTranslations('Navbar');
@@ -20,25 +21,38 @@ export default function LeftNavbar() {
   ];
 
   return (
-    <Container>
-      <NavbarLink href="/">
-        <MdEditNote />
-      </NavbarLink>
+    <nav
+      className={clsx(
+        'sticky left-0 top-0 flex h-full w-fit flex-col items-center border-r border-grayBorder pb-4 pl-5 pr-5 pt-2.5',
+        'md:items-start md:gap-0.5 md:p-2.5',
+        'xl:w-fit-content xl:pl-16'
+      )}
+    >
+      <Link className={clsx('flex w-fit items-center gap-3 rounded-full p-2 text-textPrimary hover:bg-hoverEffect xl:p-4')} href="/">
+        <MdEditNote className="text-2xl" />
+      </Link>
 
       {LINKS.map(({ href, icon: Icon, label, active }) => (
-        <NavbarLink $active={active} aria-label={`Ir para ${label}`} href={href} key={href}>
-          <Icon />
-          <span>{label}</span>
-        </NavbarLink>
+        <Link
+          className={clsx(
+            'flex w-fit items-center gap-3 rounded-full p-2 text-textPrimary hover:bg-hoverEffect hover:no-underline xl:p-4',
+            active && 'font-bold'
+          )}
+          aria-label={`Ir para ${label}`}
+          href={href}
+          key={href}
+        >
+          <Icon className="text-2xl" />
+          <span className="hidden text-xl xl:block">{label}</span>
+        </Link>
       ))}
 
-      <Button size="large" variant="blue">
-        <p>{t('publish')}</p>
-        {/* Icon only shown on mobile */}
-        <HiPencilAlt />
+      <Button className="mt-4 h-[53px] w-[53px] xl:w-full" size="large" variant="blue">
+        <p className="hidden xl:block">{t('publish')}</p>
+        <HiPencilAlt className="block xl:hidden" />
       </Button>
 
       <NavbarProfile />
-    </Container>
+    </nav>
   );
 }
