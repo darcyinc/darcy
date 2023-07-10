@@ -42,7 +42,7 @@ export default function FeedPost() {
 
   return (
     <div
-      className="flex w-full cursor-pointer gap-2 border-b border-grayBorder p-2 py-[6px] hover:bg-hoverEffect focus:bg-hoverEffect focus-visible:bg-hoverEffect md:px-4"
+      className="flex w-full cursor-pointer gap-2 border-b border-grayBorder p-4 py-1.5 hover:bg-hoverEffect focus:bg-hoverEffect focus-visible:bg-hoverEffect md:px-4"
       role="button"
       tabIndex={0}
       onClick={handlePostClick}
@@ -86,10 +86,12 @@ export default function FeedPost() {
           <button className="mt-3 cursor-pointer rounded-2xl border-none bg-none" type="button" onClick={handleImageClick}>
             <img
               alt="Post"
-              className="h-full max-h-[512px] w-full rounded-2xl"
+              className="h-full max-h-[512px] w-full rounded-2xl border border-grayBorder"
               decoding="async"
+              height={250}
               loading="lazy"
-              src="https://via.placeholder.com/66.webp"
+              src="https://via.placeholder.com/250x320.webp"
+              width={320}
             />
           </button>
         </section>
