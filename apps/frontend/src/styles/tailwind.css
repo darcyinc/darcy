@@ -17,7 +17,7 @@
     --text-secondary: 113 118 123;
 
     --color-scheme: only dark;
-    --theme-background: #000000;
+    --theme-background: 0 0 0;
   }
 
   html[data-theme='light'] {
@@ -30,7 +30,7 @@
     --text-secondary: 83 100 113;
 
     --color-scheme: only light;
-    --theme-background: #ffffff;
+    --theme-background: 255 255 255;
   }
 
   html[data-theme='slate'] {
@@ -43,6 +43,6 @@
     --text-secondary: 139 152 165;
 
     --color-scheme: only dark;
-    --theme-background: rgb(21, 32, 43);
+    --theme-background: 21 32 43;
   }
 }
