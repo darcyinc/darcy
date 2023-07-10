@@ -1,7 +1,6 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 import { HiHome, HiOutlineBell, HiOutlineMail, HiSearch } from 'react-icons/hi';
-
-import { Wrapper } from './styles';
 
 const LINKS = [
   { href: '/', icon: HiHome, active: true, label: 'Início' },
@@ -12,12 +11,12 @@ const LINKS = [
 
 export default function MobileBottomNavbar() {
   return (
-    <Wrapper>
+    <footer className="fixed bottom-0 left-0 flex h-12 w-full items-center justify-around border-t border-grayBorder bg-background/80 px-6 py-2 backdrop-blur-sm md:justify-between">
       {LINKS.map(({ href, icon: Icon, active, label }) => (
-        <Link aria-label={`Ir para ${label}`} data-active={active} href={href} key={href}>
-          <Icon />
+        <Link aria-label={`Ir para ${label}`} className="text-textPrimary" href={href} key={href}>
+          <Icon className={clsx('h-6 w-6', active && 'fill-blue')} />
         </Link>
       ))}
-    </Wrapper>
+    </footer>
   );
 }

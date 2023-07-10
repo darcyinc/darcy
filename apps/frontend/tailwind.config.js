@@ -9,6 +9,8 @@ module.exports = {
       red: 'rgb(var(--color-red) / <alpha-value>)',
       green: 'rgb(var(--color-green) / <alpha-value>)',
 
+      background: 'rgb(var(--background) / <alpha-value>)',
+
       textPrimary: 'rgb(var(--text-primary) / <alpha-value>)',
       textSecondary: 'rgb(var(--text-secondary) / <alpha-value>)',
 
