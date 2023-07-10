@@ -32,13 +32,6 @@ body {
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   transition: color 0.2s ease-out, background-color 0.2s ease-out;
-}
-
-button, input, textarea {
-  font-family: inherit;
 }
 
