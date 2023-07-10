@@ -30,7 +30,7 @@ export default function TrendingSearch({ i18nSearchPlaceholder }: TrendingSearch
     <form
       className={clsx(
         'group flex items-center gap-2 rounded-[30px] border border-solid border-transparent bg-darkGray p-3 focus-within:border-blue focus-within:bg-transparent',
-        search.length > 0 && 'bg-transparent transition-colors duration-1000 ease-in-out'
+        search.length > 0 && 'border-blue bg-transparent transition-colors duration-1000 ease-in-out'
       )}
       onReset={() => setSearch('')}
       onSubmit={handleSubmit}
