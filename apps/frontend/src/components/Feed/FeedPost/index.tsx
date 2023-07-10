@@ -8,8 +8,6 @@ import { HiOutlineChat, HiOutlineHeart, HiOutlineShare } from 'react-icons/hi';
 import { getUser } from '@/api/users/getUser';
 import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 
-import { Container, PostContent, PostFooter, PostHeader } from './styles';
-
 export default function FeedPost() {
   const router = useRouter();
 
@@ -20,7 +18,7 @@ export default function FeedPost() {
 
       router.push('/post/9041203120312');
     },
-    [router],
+    [router]
   );
 
   const handleImageClick = useCallback(
@@ -30,44 +28,49 @@ export default function FeedPost() {
 
       router.push('/post/9041203120312');
     },
-    [router],
+    [router]
   );
 
-  const handlePostInteraction = useCallback(
-    async (e: EnterOrClickEvent, action: 'like' | 'retweet' | 'comment') => {
-      if (!isEnterOrClick(e)) return;
-      e.stopPropagation();
+  const handlePostInteraction = useCallback(async (e: EnterOrClickEvent, action: 'like' | 'repost' | 'comment') => {
+    if (!isEnterOrClick(e)) return;
+    e.stopPropagation();
 
-      alert(`You ${action}d this post!`);
+    alert(`You ${action}d this post!`);
 
-      await getUser('davipatricio');
-    },
-    [],
-  );
+    await getUser('davipatricio');
+  }, []);
 
   return (
-    <Container
+    <div
+      className="flex w-full cursor-pointer gap-2 border-b border-grayBorder p-2 py-[6px] hover:bg-hoverEffect focus:bg-hoverEffect focus-visible:bg-hoverEffect md:px-4"
+      role="button"
+      tabIndex={0}
       onClick={handlePostClick}
       onKeyDown={handlePostClick}
-      tabIndex={0}
-      role="button"
     >
+      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
       <img
-        src="https://via.placeholder.com/42"
-        alt="User"
+        alt="User profile picture (avatar)"
+        className="h-11 w-11 rounded-full"
         decoding="async"
         loading="lazy"
+        src="https://via.placeholder.com/42"
       />
-      <div>
-        <PostHeader>
-          <Link href="/davipatricio">
-            <p>Davi Patricio</p> <span>@davipatricio</span>{' '}
-          </Link>
-          <time dateTime="2023-05-12">2 de mai</time>
-        </PostHeader>
 
-        <PostContent>
-          <p>
+      <div>
+        <header className="w-fit break-words text-sm">
+          <Link className="flex-wrap hover:no-underline" href="/davipatricio">
+            <p className="inline font-bold text-textPrimary hover:underline">Davi Patricio</p>
+            <p className="ml-1 inline text-textSecondary hover:underline">@davipatricio</p>
+          </Link>
+
+          <time className="ml-1 text-textSecondary before:mr-1 before:content-['•']" dateTime="2023-05-12">
+            2 de mai
+          </time>
+        </header>
+
+        <section>
+          <p className="break-all text-sm text-textPrimary sm:break-keep">
             Hello everyone! Please checkout my GitHub:{' '}
             <a href="https://github.com/davipatricio" target="_blank">
               https://github.com/davipatricio
@@ -78,44 +81,48 @@ export default function FeedPost() {
             </a>
             .
           </p>
+
           {/* TODO: transform this into a FeedPostMedia component */}
-          <button type="button" className="media" onClick={handleImageClick}>
+          <button className="mt-3 cursor-pointer rounded-2xl border-none bg-none" type="button" onClick={handleImageClick}>
             <img
-              src="https://via.placeholder.com/480x280.webp"
               alt="Post"
+              className="h-full max-h-[512px] w-full rounded-2xl"
               decoding="async"
               loading="lazy"
+              src="https://via.placeholder.com/480x280.webp"
             />
           </button>
-        </PostContent>
+        </section>
 
-        <PostFooter>
+        <footer className="mt-2 flex items-start justify-around">
           <button
+            className="flex cursor-pointer items-center gap-[1px] border-none bg-none text-textSecondary hover:text-blue [&>svg]:hover:bg-blue/[0.1]"
             type="button"
-            className="comment"
             onClick={(e) => handlePostInteraction(e, 'comment')}
           >
-            <HiOutlineChat />
+            <HiOutlineChat className="rounded-full p-1 text-3xl" />
             <span>1</span>
           </button>
+
           <button
+            className="reposted group flex cursor-pointer items-center gap-[1px] border-none bg-none text-textSecondary hover:text-green [&.reposted]:text-green [&>svg]:hover:bg-green/[0.1]"
             type="button"
-            className="retweet retweeted"
-            onClick={(e) => handlePostInteraction(e, 'retweet')}
+            onClick={(e) => handlePostInteraction(e, 'repost')}
           >
-            <HiOutlineShare />
+            <HiOutlineShare className="rounded-full p-1 text-3xl" />
             <span>1</span>
           </button>
+
           <button
+            className="liked group flex cursor-pointer items-center gap-[1px] border-none bg-none text-textSecondary hover:text-red [&.liked]:text-red [&>svg]:hover:bg-red/[0.1]"
             type="button"
-            className="like"
             onClick={(e) => handlePostInteraction(e, 'like')}
           >
-            <HiOutlineHeart />
+            <HiOutlineHeart className="rounded-full p-1 text-3xl group-[.liked]:fill-red" />
             <span>1</span>
           </button>
-        </PostFooter>
+        </footer>
       </div>
-    </Container>
+    </div>
   );
 }

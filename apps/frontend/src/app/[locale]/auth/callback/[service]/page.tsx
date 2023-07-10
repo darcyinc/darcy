@@ -8,7 +8,7 @@ import { authWithService } from '@/api/users/authWithService';
 
 export default function CallbackPage({
   params,
-  searchParams,
+  searchParams
 }: {
   params: { service: string };
   searchParams: { code: string; state: string };
@@ -23,14 +23,13 @@ export default function CallbackPage({
     async function auth() {
       const oauth2State = sessionStorage.getItem(`oauth2-state:${service}`);
 
-      if (!['discord'].includes(service) || !code || !state)
-        return router.replace('/auth/signin');
+      if (!['discord'].includes(service) || !code || !state) return router.replace('/auth/signin');
 
       if (state !== oauth2State) return router.replace('/auth/signin');
 
       const { error, redirect, token } = await authWithService({
         code,
-        service,
+        service
       });
 
       if (redirect) return router.replace('/auth/signin');
@@ -48,11 +47,11 @@ export default function CallbackPage({
   }, [code, router, service, state]);
 
   return error ? (
-    <p id="auth">
+    <p className="m-auto text-xl">
       {error}
       <Link href="/auth/signin">Voltar</Link>
     </p>
   ) : (
-    <p id="auth">Autenticando...</p>
+    <p className="m-auto text-xl">Autenticando...</p>
   );
 }

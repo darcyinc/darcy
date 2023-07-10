@@ -4,24 +4,20 @@ import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { useLocale } from 'next-intl';
 
+import '@/styles/tailwind.css';
+import '@/styles/global.scss';
+
 const Providers = dynamic(() => import('./providers'));
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Your Feed | Darcy',
-  description:
-    'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
-  keywords: ['social network', 'open source'],
+  description: 'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
+  keywords: ['social network', 'open source']
 };
 
-export default function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+export default function RootLayout({ children, params }: { children: React.ReactNode; params: { locale: string } }) {
   const locale = useLocale();
 
   // Show a 404 error if the user requests an unknown locale

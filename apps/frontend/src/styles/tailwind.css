@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  html[data-theme='dark'] {
+    --color-blue: 29 155 240;
+    --color-dark-gray: 22 24 28;
+    --color-gray-border: 47 51 54;
+    --color-red: 249 24 128;
+    --color-green: 0 186 124;
+
+    --color-hover-effect: rgba(231, 233, 234, 0.1);
+
+    --text-primary: 255 255 255;
+    --text-secondary: 113 118 123;
+
+    --color-scheme: only dark;
+    --theme-background: 0 0 0;
+  }
+
+  html[data-theme='light'] {
+    --color-dark-gray: 247 249 249;
+    --color-gray-border: 239 243 244;
+
+    --color-hover-effect: rgba(15, 20, 25, 0.1);
+
+    --text-primary: 0 0 0;
+    --text-secondary: 83 100 113;
+
+    --color-scheme: only light;
+    --theme-background: 255 255 255;
+  }
+
+  html[data-theme='slate'] {
+    --color-dark-gray: 30 39 50;
+    --color-gray-border: 56 68 77;
+
+    --color-hover-effect: rgba(247, 249, 249, 0.1);
+
+    --text-primary: 255 255 255;
+    --text-secondary: 139 152 165;
+
+    --color-scheme: only dark;
+    --theme-background: 21 32 43;
+  }
+}

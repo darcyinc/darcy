@@ -5,10 +5,7 @@ interface AuthWithServiceOptions {
   service: string;
 }
 
-export const authWithService = async ({
-  code,
-  service,
-}: AuthWithServiceOptions) => {
+export const authWithService = async ({ code, service }: AuthWithServiceOptions) => {
   const { data, status } = await api.post<{
     token: string;
     error?: string;
@@ -17,9 +14,8 @@ export const authWithService = async ({
   if (status !== 200) {
     return data.error == 'no_email_associated'
       ? {
-          error:
-            'Você ainda não possui um e-mail cadastrado no serviço escolhido.',
-          redirect: false,
+          error: 'Você ainda não possui um e-mail cadastrado no serviço escolhido.',
+          redirect: false
         }
       : { error: 'Unknown error.', redirect: true };
   }

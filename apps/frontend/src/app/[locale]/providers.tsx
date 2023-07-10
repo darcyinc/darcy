@@ -1,32 +1,15 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { useEffect } from 'react';
 
 import { updateToken } from '@/api/base';
 import { useTheme } from '@/hooks/useTheme';
-import { darkTheme } from '@/styles/themes/dark';
-
-const GlobalStyles = dynamic(() => import('@/styles/GlobalStyles'));
-const StyledComponentsRegistry = dynamic(() => import('@/lib/registry'));
-
-async function getTheme(theme: 'dark' | 'light' | 'slate') {
-  const themes = {
-    dark: darkTheme,
-    light: await import('@/styles/themes/light').then((mod) => mod.lightTheme),
-    slate: await import('@/styles/themes/slate').then((mod) => mod.slateTheme),
-  };
-
-  return themes[theme];
-}
 
 interface ProvidersProps {
   children: React.ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {
-  const [theme, setTheme] = useState(darkTheme);
   const { theme: userTheme } = useTheme();
 
   if (typeof window !== 'undefined') {
@@ -34,25 +17,13 @@ export default function Providers({ children }: ProvidersProps) {
 
     // Automatically update the token when it changes in another tab
     window.addEventListener('storage', (event) => {
-      if (event.storageArea === localStorage && event.key === 'token')
-        updateToken(event.newValue);
+      if (event.storageArea === localStorage && event.key === 'token') updateToken(event.newValue);
     });
   }
 
   useEffect(() => {
-    async function loadTheme() {
-      setTheme(await getTheme(userTheme || 'dark'));
-    }
-
-    loadTheme().catch(() => {});
+    document.documentElement.dataset.theme = userTheme || 'dark';
   }, [userTheme]);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <StyledComponentsRegistry>
-        <GlobalStyles />
-        {children}
-      </StyledComponentsRegistry>
-    </ThemeProvider>
-  );
+  return children;
 }

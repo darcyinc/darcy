@@ -4,10 +4,7 @@ export interface RouteOptions {
   prefix: string | undefined;
 }
 
-export default async function (
-  fastify: FastifyInstance,
-  _options: RouteOptions,
-) {
+export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.get('/', async function (_request, _reply) {
     const user = await prisma.user.create({
       data: {
@@ -16,10 +13,10 @@ export default async function (
         auth: {
           create: {
             email: 'test@test.com',
-            passwordHash: 'test',
-          },
-        },
-      },
+            passwordHash: 'test'
+          }
+        }
+      }
     });
     return user;
   });

@@ -10,11 +10,11 @@ export const useTheme = create(
   persist<ITheme>(
     (set) => ({
       theme: 'dark',
-      setTheme: (theme) => set({ theme }),
+      setTheme: (theme) => set({ theme })
     }),
     {
       name: 'theme',
-      storage: createJSONStorage(() => localStorage),
-    },
-  ),
+      storage: createJSONStorage(() => localStorage)
+    }
+  )
 );

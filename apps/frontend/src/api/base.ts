@@ -6,11 +6,11 @@ export const api = axios.create({
     Accept: 'application/json',
     'Access-Control-Allow-Origin': 'http://localhost:3000',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Credentials': 'true'
   },
   validateStatus: () => true,
   withCredentials: true,
-  responseType: 'json',
+  responseType: 'json'
 });
 
 export const updateToken = (token: string | null) => {

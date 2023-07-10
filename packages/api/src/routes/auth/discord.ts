@@ -1,14 +1,8 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
-import {
-  getDiscordToken,
-  getDiscordUserData,
-} from '../../utils/oauth2/discord';
+import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
-export default async function (
-  fastify: FastifyInstance,
-  _options: RouteOptions,
-) {
+export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Querystring: {
       code: string;
@@ -18,7 +12,7 @@ export default async function (
     method: 'POST',
     url: '/discord/callback',
     config: {
-      requiresAuth: false,
+      requiresAuth: false
     },
     handler: async (request, reply) => {
       const { code } = request.query;
@@ -29,18 +23,18 @@ export default async function (
 
         if (!userData.email || !userData.verified) {
           return reply.send(400).send({
-            error: 'no_email_associated',
+            error: 'no_email_associated'
           });
         }
 
         reply.send({
           token: 'FAKE-TOKEN',
           // TODO: remove
-          userData,
+          userData
         });
       } catch {
         return reply.send(500);
       }
-    },
+    }
   });
 }

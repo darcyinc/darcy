@@ -1,27 +1,28 @@
 import Image from 'next/image';
 
 import AuthSideImage from './assets/auth_side_image.jpg';
-import { Container } from './styles';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Container>
+    <main
+      className="flex flex-col items-center justify-center
+    md:grid md:h-[100vh] md:w-full md:grid-cols-[70%_auto]
+    xl:grid-cols-[55%_auto]
+    "
+    >
       <Image
-        src={AuthSideImage}
         alt="Blue sky"
+        className="m-h-[100vh] hidden h-full w-full rounded-br rounded-tr md:block"
         decoding="async"
-        loading="lazy"
-        quality={100}
         draggable={false}
+        loading="lazy"
         placeholder="blur"
+        quality={100}
         sizes="70%"
+        src={AuthSideImage}
       />
 
       {children}
-    </Container>
+    </main>
   );
 }
