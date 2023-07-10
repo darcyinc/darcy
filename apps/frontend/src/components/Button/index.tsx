@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: 'blue' | 'white';
+  variant: 'blue' | 'white' | 'transparent';
   size: 'small' | 'large';
 }
 
@@ -9,10 +9,11 @@ export default function Button({ variant, children, size, ...props }: ButtonProp
   return (
     <button
       className={clsx(
-        'flex cursor-pointer appearance-none  items-center justify-center rounded-full border-none text-lg font-bold capitalize hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70',
-        variant === 'blue' && 'bg-blue text-[#fff]',
-        variant === 'white' && 'bg-white text-blue',
-        size === 'small' ? 'p-2' : 'p-2.5',
+        'flex cursor-pointer appearance-none items-center justify-center rounded-full text-lg font-bold hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70',
+        variant === 'blue' && 'border-none bg-blue text-[#fff]',
+        variant === 'white' && 'border-none bg-white text-blue',
+        variant === 'transparent' && 'border border-grayBorder bg-transparent text-textPrimary hover:bg-hoverEffect',
+        size === 'small' ? 'p-2 text-sm' : 'p-2.5',
         props.className
       )}
       type="button"
