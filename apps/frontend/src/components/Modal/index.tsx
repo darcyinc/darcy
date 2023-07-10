@@ -33,6 +33,7 @@ export default function Modal(props: ModalProps) {
           className="absolute left-3 top-4 text-textPrimary hover:text-textSecondary focus:text-textSecondary"
           title="Close modal"
           type="button"
+          onClick={props.onClose}
         >
           <HiX className="h-6 w-6 sm:h-8 sm:w-8" />
         </button>
