@@ -8,6 +8,7 @@ export default function UserProfile() {
         banner="https://via.placeholder.com/150"
         bio="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
         handle="davipatricio"
+        isPrivate={true}
         posts={10}
         username="Davi Patricio"
       />

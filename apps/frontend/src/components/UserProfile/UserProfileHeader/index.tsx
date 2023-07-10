@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { HiOutlineArrowLeft } from 'react-icons/hi';
+import { HiLockClosed, HiOutlineArrowLeft } from 'react-icons/hi';
 
 import Button from '@/components/Button';
 
@@ -13,9 +13,10 @@ interface UserProfileHeaderProps {
   bio: string;
   banner: string;
   avatar: string;
+  isPrivate: boolean;
 }
 
-export default function UserProfileHeader({ username, posts, handle, bio, banner, avatar }: UserProfileHeaderProps) {
+export default function UserProfileHeader({ username, isPrivate, posts, handle, bio, banner, avatar }: UserProfileHeaderProps) {
   const t = useTranslations('ProfileHeader');
 
   return (
@@ -58,7 +59,10 @@ export default function UserProfileHeader({ username, posts, handle, bio, banner
 
         <section className="px-5 py-1">
           <div>
-            <h1 className="text-xl font-bold text-textPrimary">{username}</h1>
+            <h1 className="text-xl font-bold text-textPrimary">
+              {username}
+              {isPrivate && <HiLockClosed className="ml-1 inline-block" />}
+            </h1>
             <p className="text-base text-textSecondary">@{handle}</p>
 
             <p className="mt-1">{bio}</p>
