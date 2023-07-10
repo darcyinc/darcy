@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // const _EMAIL_REGEX =
 //   /^[\w!#$%&'*+./=?^`{|}~-]+@[\dA-Za-z](?:[\dA-Za-z-]{0,61}[\dA-Za-z])?(?:\.[\dA-Za-z](?:[\dA-Za-z-]{0,61}[\dA-Za-z])?)*$/;
 
-export default function SignInPage() {
+export default function SignUpPage() {
   return (
     <form className="m-auto flex max-w-md animate-fade-in flex-col justify-center gap-2 p-5">
       <h1 className="text-3xl font-bold">Olá! Bem-vindo(a).</h1>
@@ -24,14 +24,14 @@ export default function SignInPage() {
       <label className="mt-1 w-full">
         <input
           autoComplete="on"
-          className="w-full appearance-none rounded-2xl border border-grayBorder bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary focus:border-blue"
+          className="w-full rounded-2xl border border-grayBorder bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary focus:border-blue"
           maxLength={255}
           placeholder="E-mail"
           type="email"
         />
       </label>
 
-      <Button className="my-2.5 normal-case" size="large" type="submit" variant="blue">
+      <Button className="my-2.5" size="large" type="submit" variant="blue">
         Enviar link de autenticação
       </Button>
 

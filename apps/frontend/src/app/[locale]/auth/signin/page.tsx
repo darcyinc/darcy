@@ -31,7 +31,7 @@ export default function SignInPage() {
         />
       </label>
 
-      <Button className="my-2.5 normal-case" size="large" type="submit" variant="blue">
+      <Button className="my-2.5" size="large" type="submit" variant="blue">
         Enviar link de autenticação
       </Button>
 
