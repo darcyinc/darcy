@@ -19,7 +19,7 @@ export default function FeedHeader({ filter, i18nTitle, i18nForYou, i18nFollowin
 
   return (
     <header className="w-full border-b border-grayBorder">
-      <h3 className="select-none px-5 py-4 font-bold">{i18nTitle}</h3>
+      <h3 className="select-none p-1 px-5 text-lg font-bold">{i18nTitle}</h3>
 
       {['foryou', 'newest'].map((item) => (
         <button
