@@ -54,7 +54,7 @@ importers:
         version: 1.2.1
       next:
         specifier: 13.4.9
-        version: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
+        version: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
       next-intl:
         specifier: 3.0.0-beta.7
         version: 3.0.0-beta.7(next@13.4.9)(react@18.2.0)
@@ -67,6 +67,9 @@ importers:
       react-icons:
         specifier: 4.10.1
         version: 4.10.1(react@18.2.0)
+      sass:
+        specifier: 1.63.6
+        version: 1.63.6
       sharp:
         specifier: 0.32.1
         version: 0.32.1
@@ -4032,6 +4035,10 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immutable@4.3.0:
+    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
+    dev: false
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -4557,13 +4564,13 @@ packages:
     dependencies:
       '@formatjs/intl-localematcher': 0.2.32
       negotiator: 0.6.3
-      next: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)
+      next: 13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
       react: 18.2.0
       server-only: 0.0.1
       use-intl: 2.17.5(react@18.2.0)
     dev: false
 
-  /next@13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0):
+  /next@13.4.9(@babel/core@7.22.8)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6):
     resolution: {integrity: sha512-vtefFm/BWIi/eWOqf1GsmKG3cjKw1k3LjuefKRcL3iiLl3zWzFdPG3as6xtxrGO6gwTzzaO1ktL4oiHt/uvTjA==}
     engines: {node: '>=16.8.0'}
     hasBin: true
@@ -4588,6 +4595,7 @@ packages:
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+      sass: 1.63.6
       styled-jsx: 5.1.1(@babel/core@7.22.8)(react@18.2.0)
       watchpack: 2.4.0
       zod: 3.21.4
@@ -5721,6 +5729,16 @@ packages:
   /safe-stable-stringify@2.4.3:
     resolution: {integrity: sha512-e2bDA2WJT0wxseVd4lsDP4+3ONX6HpMXQa1ZhFQ7SU+GjvORCmShbCMltrtIDfkYhVHrOcPtj+KhmDBdPdZD1g==}
     engines: {node: '>=10'}
+    dev: false
+
+  /sass@1.63.6:
+    resolution: {integrity: sha512-MJuxGMHzaOW7ipp+1KdELtqKbfAWbH7OLIdoSMnVe3EXPMTmxTmlaZDCTsgIpPCs3w99lLo9/zDKkOrJuT5byw==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.0
+      source-map-js: 1.0.2
     dev: false
 
   /scheduler@0.23.0:

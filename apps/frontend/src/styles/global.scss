@@ -1,0 +1,44 @@
+::selection {
+  color: #fff;
+  background-color: rgb(var(--color-blue));
+}
+
+html {
+  color-scheme: var(--color-scheme);
+  text-rendering: optimizeLegibility;
+
+  &,
+  body {
+    overflow: auto;
+    height: 100vh;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--theme-background);
+
+  a {
+    color: rgb(var(--color-blue));
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+button, input, textarea {
+  font-family: inherit;
+}
+

@@ -4,7 +4,8 @@ import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { useLocale } from 'next-intl';
 
-import '@/styles/global.css';
+import '@/styles/tailwind.css';
+import '@/styles/global.scss';
 
 const Providers = dynamic(() => import('./providers'));
 

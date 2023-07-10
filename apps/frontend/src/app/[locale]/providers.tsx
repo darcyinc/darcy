@@ -8,7 +8,6 @@ import { updateToken } from '@/api/base';
 import { useTheme } from '@/hooks/useTheme';
 import { darkTheme } from '@/styles/themes/dark';
 
-const GlobalStyles = dynamic(() => import('@/styles/GlobalStyles'));
 const StyledComponentsRegistry = dynamic(() => import('@/lib/registry'));
 
 async function getTheme(theme: 'dark' | 'light' | 'slate') {
@@ -48,10 +47,7 @@ export default function Providers({ children }: ProvidersProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledComponentsRegistry>
-        <GlobalStyles />
-        {children}
-      </StyledComponentsRegistry>
+      <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
     </ThemeProvider>
   );
 }

@@ -109,7 +109,7 @@ export default function FeedPost() {
             type="button"
             onClick={(e) => handlePostInteraction(e, 'repost')}
           >
-            <HiOutlineShare className="rounded-full p-1 text-3xl group-[.reposted]:fill-green" />
+            <HiOutlineShare className="rounded-full p-1 text-3xl" />
             <span>1</span>
           </button>
 
