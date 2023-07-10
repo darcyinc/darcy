@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { HiOutlineArrowLeft, HiOutlineCalendar, HiOutlineIdentification, HiOutlineLink, HiOutlineLocationMarker } from 'react-icons/hi';
+import { HiOutlineArrowLeft } from 'react-icons/hi';
 
 import Button from '@/components/Button';
+
+import UserProfileHighlights from './UserHighlights';
 
 interface UserProfileHeaderProps {
   username: string;
@@ -48,6 +50,7 @@ export default function UserProfileHeader({ username, posts, handle, bio, banner
         </div>
 
         <div className="ml-auto w-fit">
+          {/* TODO: also become follow button */}
           <Button className="mr-3 mt-3 px-5" size="small" variant="transparent">
             Editar perfil
           </Button>
@@ -61,26 +64,7 @@ export default function UserProfileHeader({ username, posts, handle, bio, banner
             <p className="mt-1">{bio}</p>
           </div>
 
-          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-            <div className="flex cursor-default items-center gap-1 text-sm text-textSecondary">
-              <HiOutlineIdentification className="text-xl" />
-              <span>Programador</span>
-            </div>
-            <div className="flex cursor-default items-center gap-1 text-sm text-textSecondary">
-              <HiOutlineLocationMarker className="text-xl" />
-              <span>São Paulo, Brasil</span>
-            </div>
-            <div className="flex cursor-default items-center gap-1 text-sm text-textSecondary">
-              <HiOutlineCalendar className="text-xl" />
-              <span>Entrou em 1 de julho de 2023</span>
-            </div>
-            <div className="flex cursor-default items-center gap-1 text-sm text-textSecondary">
-              <HiOutlineLink className="text-xl" />
-              <Link className="max-w-[165px] overflow-hidden overflow-ellipsis whitespace-nowrap" href="https://google.com">
-                extremely-large-website.com
-              </Link>
-            </div>
-          </div>
+          <UserProfileHighlights />
 
           <div className="mt-3 flex gap-4 text-sm">
             <a className="text-textSecondary decoration-darkGray hover:underline" href="#followers">
