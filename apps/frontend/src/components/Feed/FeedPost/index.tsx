@@ -89,7 +89,7 @@ export default function FeedPost() {
               className="h-full max-h-[512px] w-full rounded-2xl"
               decoding="async"
               loading="lazy"
-              src="https://via.placeholder.com/480x280.webp"
+              src="https://via.placeholder.com/66.webp"
             />
           </button>
         </section>
