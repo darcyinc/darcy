@@ -10,9 +10,23 @@ export default function Feed() {
   return (
     <section className="max-w-[600px] pb-14 sm:border-r sm:border-grayBorder sm:pb-0">
       <FeedHeader filter="foryou" i18nFollowing={t('following')} i18nForYou={t('forYou')} i18nTitle={t('titles.home')} />
-      <FeedPost />
-      <FeedPost />
-      <FeedPost />
+
+      <FeedPost
+        stats={{
+          comments: 54,
+          likes: 594,
+          reposts: 2,
+          views: '1.2k',
+          hasLiked: true,
+          hasReposted: false
+        }}
+        user={{
+          avatar: 'https://via.placeholder.com/40',
+          handle: 'johndoe',
+          username: 'John Doe'
+        }}
+        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+      />
     </section>
   );
 }
