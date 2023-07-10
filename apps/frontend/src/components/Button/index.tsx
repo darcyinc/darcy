@@ -9,7 +9,7 @@ export default function Button({ variant, children, size, ...props }: ButtonProp
   return (
     <button
       className={clsx(
-        'flex cursor-pointer appearance-none items-center justify-center rounded-full text-lg font-bold hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70',
+        'flex cursor-pointer items-center justify-center rounded-full text-lg font-bold hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70',
         variant === 'blue' && 'border-none bg-blue text-[#fff]',
         variant === 'white' && 'border-none bg-white text-blue',
         variant === 'transparent' && 'border border-grayBorder bg-transparent text-textPrimary hover:bg-hoverEffect',

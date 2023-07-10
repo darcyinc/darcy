@@ -23,19 +23,17 @@ export default function FeedHeader({ filter, i18nTitle, i18nForYou, i18nFollowin
 
       {['foryou', 'newest'].map((item) => (
         <button
-          className={clsx(
-            'h-10 w-2/4 cursor-pointer border-none bg-none text-base hover:bg-hoverEffect',
-            filter === item ? 'text-primary font-bold' : 'h-11'
-          )}
+          className={clsx('h-10 w-2/4 cursor-pointer hover:bg-hoverEffect')}
           key={item}
           type="button"
           onClick={() => handleFilter(item as FilterOption)}
         >
           <div className="text-secondary m-auto w-fit">
-            <span className={clsx('leading-10', filter === item ? 'font-bold text-textPrimary' : 'text-textSecondary')}>
+            <span className={clsx(filter === item ? 'font-bold leading-9 text-textPrimary' : 'text-textSecondary')}>
               {item === 'foryou' ? i18nForYou : i18nFollowing}
             </span>
-            {filter === item && <div className="h-1 rounded-sm bg-blue" />}
+
+            <div className={clsx('h-1 rounded-sm', filter === item && 'bg-blue')} />
           </div>
         </button>
       ))}

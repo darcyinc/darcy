@@ -29,8 +29,8 @@ export default function TrendingSearch({ i18nSearchPlaceholder }: TrendingSearch
   return (
     <form
       className={clsx(
-        'group flex items-center gap-2 rounded-[30px] border border-solid border-transparent bg-darkGray p-3 focus-within:border-blue focus-within:bg-transparent',
-        search.length > 0 && 'border-blue bg-transparent transition-colors duration-1000 ease-in-out'
+        'flex items-center gap-2 rounded-full border border-solid bg-darkGray p-3 focus-within:border-blue focus-within:bg-transparent',
+        search.length > 0 ? 'border-blue bg-transparent transition-colors duration-1000 ease-in-out' : 'border-transparent'
       )}
       onReset={() => setSearch('')}
       onSubmit={handleSubmit}
@@ -40,7 +40,7 @@ export default function TrendingSearch({ i18nSearchPlaceholder }: TrendingSearch
       <input
         required
         autoComplete="off"
-        className="w-full appearance-none border-none bg-transparent text-[15px] outline-none placeholder:text-textSecondary"
+        className="w-full bg-transparent text-[15px] outline-none placeholder:text-textSecondary"
         maxLength={255}
         name="search"
         placeholder={i18nSearchPlaceholder}
@@ -51,8 +51,8 @@ export default function TrendingSearch({ i18nSearchPlaceholder }: TrendingSearch
 
       <button
         className={clsx(
-          'visible flex h-5 w-5 cursor-pointer appearance-none items-center justify-center rounded-full border-none bg-blue p-[2px] opacity-100 transition-opacity duration-200 ease-in-out hover:opacity-80',
-          search.length === 0 && 'hidden cursor-default opacity-0 hover:opacity-0'
+          'flex h-5 w-5 cursor-pointer items-center justify-center rounded-full bg-blue p-[2px] opacity-100 transition-opacity duration-200 ease-in-out hover:opacity-80',
+          search.length === 0 && 'hidden'
         )}
         type="reset"
       >

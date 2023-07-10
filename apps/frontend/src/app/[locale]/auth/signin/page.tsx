@@ -24,7 +24,7 @@ export default function SignInPage() {
       <label className="mt-1 w-full">
         <input
           autoComplete="on"
-          className="w-full appearance-none rounded-2xl border border-grayBorder bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary focus:border-blue"
+          className="w-full rounded-2xl border border-grayBorder bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary focus:border-blue"
           maxLength={255}
           placeholder="E-mail"
           type="email"

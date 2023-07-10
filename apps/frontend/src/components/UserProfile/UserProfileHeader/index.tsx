@@ -52,8 +52,8 @@ export default function UserProfileHeader({ username, isPrivate, posts, handle, 
               {username}
               {isPrivate && <HiLockClosed className="ml-1 inline-block" />}
             </h1>
-            <p className="text-base text-textSecondary">@{handle}</p>
 
+            <p className="text-textSecondary">@{handle}</p>
             <p className="mt-1">{bio}</p>
           </div>
 

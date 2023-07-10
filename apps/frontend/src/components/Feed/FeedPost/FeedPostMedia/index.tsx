@@ -23,7 +23,7 @@ export default function FeedPostMedia({ media }: FeedPostMediaProps) {
   );
 
   return (
-    <button className="mt-3 cursor-pointer rounded-2xl border-none bg-none" type="button" onClick={handleImageClick}>
+    <button className="mt-3 cursor-pointer rounded-2xl" type="button" onClick={handleImageClick}>
       {media?.map((mediaItem) => {
         if (mediaItem.endsWith('png') || mediaItem.endsWith('jpg') || mediaItem.endsWith('jpeg') || mediaItem.endsWith('webp')) {
           return (
