@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
-
 import { updateToken } from '@/api/base';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -10,9 +8,11 @@ interface ProvidersProps {
 }
 
 export default function Providers({ children }: ProvidersProps) {
-  const { theme: userTheme } = useTheme();
+  const { theme } = useTheme();
 
   if (typeof window !== 'undefined') {
+    document.documentElement.dataset.theme = theme;
+
     updateToken(localStorage.getItem('token'));
 
     // Automatically update the token when it changes in another tab
@@ -20,10 +20,6 @@ export default function Providers({ children }: ProvidersProps) {
       if (event.storageArea === localStorage && event.key === 'token') updateToken(event.newValue);
     });
   }
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = userTheme || 'dark';
-  }, [userTheme]);
 
   return children;
 }
