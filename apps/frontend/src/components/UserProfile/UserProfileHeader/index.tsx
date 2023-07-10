@@ -31,7 +31,7 @@ export default function UserProfileHeader({ username, isPrivate, posts, handle, 
         </Link>
 
         <div>
-          <h3 className="text-lg font-bold text-textPrimary">{username}</h3>
+          <h3 className="text-lg font-bold">{username}</h3>
           <p className="text-sm text-textSecondary">{t('posts', { posts })}</p>
         </div>
       </header>
@@ -39,16 +39,16 @@ export default function UserProfileHeader({ username, isPrivate, posts, handle, 
       <section>
         <UserBannerAvatar avatar={avatar} banner={banner} />
 
-        <div className="ml-auto w-fit">
+        <div className="ml-auto mr-3 mt-3 w-fit">
           {/* TODO: also become follow button */}
-          <Button className="mr-3 mt-3 px-5" size="small" variant="transparent">
+          <Button className="px-5" size="small" variant="transparent">
             {t('editProfile')}
           </Button>
         </div>
 
         <section className="px-5 py-1">
           <div>
-            <h1 className="text-xl font-bold text-textPrimary">
+            <h1 className="text-xl font-bold">
               {username}
               {isPrivate && <HiLockClosed className="ml-1 inline-block" />}
             </h1>

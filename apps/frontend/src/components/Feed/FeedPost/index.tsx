@@ -84,7 +84,7 @@ export default function FeedPost({ user, content, media, stats }: FeedPostProps)
 
         <section>
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-          <article className="break-all text-sm text-textPrimary sm:break-keep" onClick={handlePostClick}>
+          <article className="break-all text-sm sm:break-keep" onClick={handlePostClick}>
             {content}
           </article>
 

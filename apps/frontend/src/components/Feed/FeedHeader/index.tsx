@@ -28,8 +28,8 @@ export default function FeedHeader({ filter, i18nTitle, i18nForYou, i18nFollowin
           type="button"
           onClick={() => handleFilter(item as FilterOption)}
         >
-          <div className="text-secondary m-auto w-fit">
-            <span className={clsx(filter === item ? 'font-bold leading-9 text-textPrimary' : 'text-textSecondary')}>
+          <div className="m-auto w-fit">
+            <span className={clsx(filter === item ? 'font-bold leading-9' : 'text-textSecondary')}>
               {item === 'foryou' ? i18nForYou : i18nFollowing}
             </span>
 
