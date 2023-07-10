@@ -1,8 +1,9 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 
-import Modal from '@/components/Modal';
+const Modal = dynamic(() => import('@/components/Modal'));
 
 interface UserBannerAvatar {
   avatar: string;
@@ -10,7 +11,7 @@ interface UserBannerAvatar {
 }
 
 export default function UserBannerAvatar({ avatar, banner }: UserBannerAvatar) {
-  const [avatarModalOpen, setAvatarModalOpen] = useState(true);
+  const [avatarModalOpen, setAvatarModalOpen] = useState(false);
 
   return (
     <div className="relative">

@@ -12,7 +12,7 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function Modal(props: ModalProps) {
   const handleClose = useCallback(
     (event: React.MouseEvent<HTMLDivElement>) => {
-      if (event.target === event.currentTarget) props.onClose?.();
+      if (event.target === event.currentTarget) props.onClose();
     },
     [props]
   );
