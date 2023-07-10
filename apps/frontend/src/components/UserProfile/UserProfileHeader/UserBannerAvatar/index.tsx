@@ -29,7 +29,7 @@ export default function UserBannerAvatar({ avatar, banner }: UserBannerAvatar) {
         {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
         <img
           alt="User profile picture"
-          className="absolute -bottom-[50px] ml-5 h-20 w-20 rounded-full border border-background object-cover sm:h-32 sm:w-32"
+          className="absolute -bottom-[15%] ml-5 h-28 w-28 rounded-full border border-background object-cover sm:-bottom-[50px] sm:h-32 sm:w-32"
           decoding="async"
           draggable={false}
           loading="lazy"
