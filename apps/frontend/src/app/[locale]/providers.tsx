@@ -22,11 +22,7 @@ export default function Providers({ children }: ProvidersProps) {
   }
 
   useEffect(() => {
-    async function loadTheme() {
-      document.documentElement.dataset.theme = userTheme || 'dark';
-    }
-
-    loadTheme().catch(() => {});
+    document.documentElement.dataset.theme = userTheme || 'dark';
   }, [userTheme]);
 
   return children;
