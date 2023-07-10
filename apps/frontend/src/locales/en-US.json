@@ -1,4 +1,8 @@
 {
+  "AuthCallback": {
+    "goBack": "Go back",
+    "authenticating": "Authenticating..."
+  },
   "ProfileHeader": {
     "posts": "{posts, plural, =0 {No posts} =1 {1 post} other {# posts}}"
   },
