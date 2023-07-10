@@ -72,7 +72,7 @@ export default function FeedPost({ user, content, media, stats }: FeedPostProps)
 
       <div>
         <header className="w-fit break-words text-sm">
-          <Link className="flex-wrap hover:no-underline" href="/davipatricio">
+          <Link className="flex-wrap hover:no-underline" href="/davipatricio" onClick={handleUserClick} onKeyDown={handleUserClick}>
             <p className="inline font-bold text-textPrimary hover:underline">{user.username}</p>
             <p className="ml-1 inline text-textSecondary hover:underline">@{user.handle}</p>
           </Link>
