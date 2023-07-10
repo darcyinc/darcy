@@ -52,7 +52,7 @@ export default function FeedPost({ user, content, media, stats }: FeedPostProps)
 
   return (
     <div
-      className="flex w-full cursor-pointer gap-2 border-b border-grayBorder p-4 py-1.5 hover:bg-hoverEffect focus-visible:bg-hoverEffect active:bg-hoverEffect md:px-4"
+      className="flex w-full gap-2 border-b border-grayBorder p-4 py-1.5 hover:bg-hoverEffect focus-visible:bg-hoverEffect active:bg-hoverEffect md:px-4"
       role="button"
       tabIndex={0}
       onClick={handlePostClick}
