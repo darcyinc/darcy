@@ -23,7 +23,7 @@ export default function FeedHeader({ filter, i18nTitle, i18nForYou, i18nFollowin
 
       {['foryou', 'newest'].map((item) => (
         <button
-          className={clsx('h-10 w-2/4 cursor-pointer hover:bg-hoverEffect')}
+          className={clsx('h-10 w-2/4 hover:bg-hoverEffect')}
           key={item}
           type="button"
           onClick={() => handleFilter(item as FilterOption)}

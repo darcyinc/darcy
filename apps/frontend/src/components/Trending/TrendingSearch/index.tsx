@@ -51,7 +51,7 @@ export default function TrendingSearch({ i18nSearchPlaceholder }: TrendingSearch
 
       <button
         className={clsx(
-          'flex h-5 w-5 cursor-pointer items-center justify-center rounded-full bg-blue p-[2px] opacity-100 transition-opacity duration-200 ease-in-out hover:opacity-80',
+          'flex h-5 w-5 items-center justify-center rounded-full bg-blue p-[2px] opacity-100 transition-opacity duration-200 ease-in-out hover:opacity-80',
           search.length === 0 && 'hidden'
         )}
         type="reset"

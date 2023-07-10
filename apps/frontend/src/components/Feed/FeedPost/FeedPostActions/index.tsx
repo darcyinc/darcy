@@ -24,7 +24,7 @@ export default function FeedPostActions({ likes, reposts, comments, views, hasLi
   return (
     <footer className="mt-2 flex items-start justify-around text-sm text-textSecondary">
       <button
-        className="flex cursor-pointer items-center gap-[1px] hover:text-blue [&>svg]:hover:bg-blue/[0.1]"
+        className="flex items-center gap-px hover:text-blue [&>svg]:hover:bg-blue/[0.1]"
         type="button"
         onClick={(e) => handlePostInteraction(e, 'comment')}
       >
@@ -33,10 +33,7 @@ export default function FeedPostActions({ likes, reposts, comments, views, hasLi
       </button>
 
       <button
-        className={clsx(
-          'group flex cursor-pointer items-center gap-[1px] hover:text-green [&.reposted]:text-green [&>svg]:hover:bg-green/[0.1]',
-          hasReposted && 'reposted'
-        )}
+        className={clsx('flex items-center gap-px hover:text-green [&>svg]:hover:bg-green/[0.1]', hasReposted && 'text-green')}
         type="button"
         onClick={(e) => handlePostInteraction(e, 'repost')}
       >
@@ -45,19 +42,16 @@ export default function FeedPostActions({ likes, reposts, comments, views, hasLi
       </button>
 
       <button
-        className={clsx(
-          'group flex cursor-pointer items-center gap-[1px] hover:text-red [&.liked]:text-red [&>svg]:hover:bg-red/[0.1]',
-          hasLiked && 'liked'
-        )}
+        className={clsx('flex items-center gap-px hover:text-red [&>svg]:hover:bg-red/[0.1]', hasLiked && 'text-red')}
         type="button"
         onClick={(e) => handlePostInteraction(e, 'like')}
       >
-        <HiOutlineHeart className="rounded-full p-1 text-3xl group-[.liked]:fill-red" />
+        <HiOutlineHeart className={clsx('rounded-full p-1 text-3xl', hasLiked && 'fill-red')} />
         <span>{likes}</span>
       </button>
 
       <button
-        className={clsx('group flex cursor-pointer items-center gap-[1px] hover:text-green [&>svg]:hover:bg-green/[0.1]')}
+        className={clsx('flex items-center gap-px hover:text-stone-500 [&>svg]:hover:bg-stone-500/[0.1]')}
         type="button"
         onClick={(e) => handlePostInteraction(e, 'about_views')}
       >
