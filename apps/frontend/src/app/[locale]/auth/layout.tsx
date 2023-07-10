@@ -4,15 +4,10 @@ import AuthSideImage from './assets/auth_side_image.jpg';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main
-      className="flex flex-col items-center justify-center
-    md:grid md:h-[100vh] md:w-full md:grid-cols-[70%_auto]
-    xl:grid-cols-[55%_auto]
-    "
-    >
+    <main className="flex w-full flex-col items-center justify-center md:grid md:h-[100vh] md:grid-cols-[55%_auto] md:justify-start xl:grid-cols-[70%_auto]">
       <Image
         alt="Blue sky"
-        className="m-h-[100vh] hidden h-full w-full rounded-br rounded-tr md:block"
+        className="hidden h-full max-h-[100vh] w-full rounded-br rounded-tr object-cover md:block"
         decoding="async"
         draggable={false}
         loading="lazy"

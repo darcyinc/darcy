@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function SignInPage() {
   return (
     <form className="m-auto flex max-w-md animate-fade-in flex-col justify-center gap-2 p-5">
-      <h1 className="text-xl font-bold">Bem-vindo(a) de volta!</h1>
+      <h1 className="text-3xl font-bold">Bem-vindo(a) de volta!</h1>
       <p>
         Insira seus dados para se autenticar na Darcy. <Link href="/auth/signup">Ainda não tem uma conta?</Link>
       </p>
@@ -24,7 +24,7 @@ export default function SignInPage() {
       <label className="mt-1 w-full">
         <input
           autoComplete="on"
-          className="w-full appearance-none rounded-sm border border-grayBorder bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary focus:border-blue"
+          className="w-full appearance-none rounded-2xl border border-grayBorder bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary focus:border-blue"
           maxLength={255}
           placeholder="E-mail"
           type="email"
