@@ -18,7 +18,7 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
         },
         include: {
           auth: false,
-          posts: false
+          posts: true
         }
       });
 
@@ -28,7 +28,7 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
         });
       }
 
-      return user;
+      return { ...user, posts: user.posts.length };
     }
   });
 }

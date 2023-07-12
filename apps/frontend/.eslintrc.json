@@ -19,7 +19,7 @@
         "unusedExports": true,
         "ignoreExports": [
           "**/*.d.ts",
-          "**/+(layout|page).tsx"
+          "**/+(layout|page|not-found|template).tsx"
         ]
       }
     ],
@@ -33,6 +33,16 @@
         "multiline": "first"
       }
     ],
-    "react/button-has-type": "error"
+    "react/button-has-type": "error",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true,
+          "kebabCase": true
+        }
+      }
+    ]
   }
 }
