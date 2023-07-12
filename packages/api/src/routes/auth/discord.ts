@@ -1,39 +1,36 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
+import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
 import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
-export default async function (fastify: FastifyInstance, _options: RouteOptions) {
+export default function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
-    Querystring: {
-      code: string;
-      state: string;
-    };
+    Body: Pick<APIUserOauthAuthCreatePayload, 'code'>;
   }>({
     method: 'POST',
     url: '/discord/callback',
     config: {
       requiresAuth: false
     },
-    handler: async (request, reply) => {
-      const { code } = request.query;
+    handler: async (req, res): Promise<APIUserOauthAuthCreate> => {
+      const { code } = req.body;
 
       try {
         const token = await getDiscordToken(code);
         const userData = await getDiscordUserData(token);
 
         if (!userData.email || !userData.verified) {
-          return reply.send(400).send({
-            error: 'no_email_associated'
-          });
+          res.status(400);
+
+          return { error: 'no_email_associated' };
         }
 
-        reply.send({
-          token: 'FAKE-TOKEN',
-          // TODO: remove
-          userData
-        });
+        res.status(200);
+
+        return { token: 'FAKE-TOKEN' };
       } catch {
-        return reply.send(500);
+        res.status(500);
+        return { error: 'unknown_error' };
       }
     }
   });

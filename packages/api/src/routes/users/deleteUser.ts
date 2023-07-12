@@ -1,36 +1,34 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 import { verify } from 'jsonwebtoken';
 
-export default async function (fastify: FastifyInstance, _options: RouteOptions) {
+import { APIUserDelete, APIUserDeletePayload } from '../../types';
+
+export default function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
-    Body: {
-      email: string;
-    };
+    Body: APIUserDeletePayload;
   }>({
     method: 'DELETE',
     url: '/@me',
     config: {
       requiresAuth: true
     },
-    handler: async (request) => {
-      const decryptedUserId = verify(request.headers.authorization?.split(' ')[1] ?? '', 'test') as string;
+    handler: async (req, res): Promise<APIUserDelete> => {
+      // TODO: promisify this
+      const id = verify(req.headers.authorization?.split(' ')[1] ?? '', 'test') as string;
 
-      const user = await prisma.user.findFirst({
-        where: { id: decryptedUserId }
-      });
+      const user = await prisma.user.findFirst({ where: { id } });
 
       if (!user) {
+        res.status(404);
         return { done: false };
       }
 
-      await prisma.userAuth.delete({
-        where: { userId: decryptedUserId }
-      });
+      const deleteAuthPromise = prisma.userAuth.delete({ where: { userId: id } });
+      const deleteUserPromise = prisma.user.delete({ where: { id } });
 
-      await prisma.user.delete({
-        where: { id: decryptedUserId }
-      });
+      await Promise.all([deleteAuthPromise, deleteUserPromise]);
 
+      res.status(200);
       return { done: true };
     }
   });

@@ -1,3 +1,4 @@
+import { APIUserOauthAuthCreate } from './auth';
 import { APIBaseEntity } from './entity';
 import { APIError } from './errors';
 import { APIPost } from './post';
@@ -25,7 +26,25 @@ export interface APIUser extends APIBaseEntity {
   posts: APIPost[];
 }
 
+export interface APIGetUserPayload {
+  handle: string;
+}
+
 export type APIGetBasicUser = Omit<APIUser, 'posts' | 'followers' | 'following'> | APIError;
+
+export interface APIUserCreatePayload {
+  email: string;
+  name?: string;
+}
+
+export type APIUserCreate = APIUserOauthAuthCreate;
+
+export interface APIUserDeletePayload {
+  email: string;
+}
+
+export type APIUserDelete = APIError | { done: boolean };
+
 export type APIUserUpdate = Partial<APIUser> | APIError;
 
 export type APIGetUserPosts = APIPost[] | APIError;

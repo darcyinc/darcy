@@ -1,26 +1,23 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
-import jwt, { sign } from 'jsonwebtoken';
+import { sign } from 'jsonwebtoken';
 
-export default async function (fastify: FastifyInstance, _options: RouteOptions) {
+import { APIUserCreatePayload, APIUserOauthAuthCreate } from '../../types';
+
+export default function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
-    Body: {
-      email: string;
-      // If user was authenticated with oauth, we'll have a name
-      name?: string;
-    };
+    Body: APIUserCreatePayload;
   }>({
     method: 'PUT',
     url: '/:handle',
     config: {
       requiresAuth: false
     },
-    handler: async (request, reply) => {
-      const { name, email } = request.body;
+    handler: async (req, res): Promise<APIUserOauthAuthCreate> => {
+      const { name, email } = req.body;
 
       if (!email) {
-        return reply.status(400).send({
-          error: 'Missing email'
-        });
+        res.status(400);
+        return { error: 'Missing email' };
       }
 
       const user = await prisma.userAuth.findFirst({
@@ -28,9 +25,8 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
       });
 
       if (user) {
-        return reply.status(400).send({
-          error: 'User with that email already exists'
-        });
+        res.status(400);
+        return { error: 'User with that email already exists' };
       }
 
       const newUser = await prisma.user.create({
@@ -45,11 +41,11 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
         }
       });
 
+      // TODO: promisify this
       const token = sign(newUser.id, 'test');
 
-      return reply.status(200).send({
-        token
-      });
+      res.status(200);
+      return { token };
     }
   });
 }
