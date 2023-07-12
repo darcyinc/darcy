@@ -44,7 +44,7 @@ async function build() {
   await cleanupDist();
 
   await ctx.rebuild();
-  await copyDotEnv();
+  await copyDotEnv().catch(() => {});
 
   // generate types
   await spawn('pnpm', ['tsc']);
