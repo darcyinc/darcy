@@ -7,8 +7,16 @@ export interface APIUserAuth extends APIBaseEntity {
   email: string;
 }
 
-export interface APIUserAuthCreate {
-  email: string;
-}
-
+export type APIUserAuthCreate = Pick<APIUserAuth, 'email'> | APIError;
 export type APIUserAuthUpdate = APIUserAuthCreate | APIError;
+
+export type APIUserOauthAuthCreate =
+  | APIError
+  | {
+      token: string;
+    };
+
+export interface APIUserOauthAuthCreatePayload {
+  code: string;
+  service: string;
+}

@@ -25,5 +25,10 @@ export interface APIUser extends APIBaseEntity {
   posts: APIPost[];
 }
 
-export type APIGetUser = APIUser | APIError;
-export type APIUserUpdate = Partial<APIUser>;
+export type APIGetBasicUser = Omit<APIUser, 'posts' | 'followers' | 'following'> | APIError;
+export type APIUserUpdate = Partial<APIUser> | APIError;
+
+export type APIGetUserPosts = APIPost[] | APIError;
+
+export type APIGetUserFollowers = APIUser[] | APIError;
+export type APIGetUserFollowing = APIUser[] | APIError;

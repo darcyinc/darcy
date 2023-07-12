@@ -13,6 +13,7 @@ const ctx = await esbuild.context({
   format: 'cjs'
 });
 
+await cleanupDist();
 await build();
 
 // if cmdline has --watch, then watch for changes
@@ -41,10 +42,8 @@ function startServer() {
 }
 
 async function build() {
-  await cleanupDist();
-
   await ctx.rebuild();
-  await copyDotEnv().catch(() => {});
+  copyDotEnv();
 
   // generate types
   await spawn('pnpm', ['tsc']);
@@ -55,5 +54,5 @@ async function cleanupDist() {
 }
 
 async function copyDotEnv() {
-  return copyFile('.env', 'dist/.env');
+  return copyFile('.env', 'dist/.env').catch(() => {});
 }
