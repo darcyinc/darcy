@@ -1,7 +1,7 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
-import { sign } from 'jsonwebtoken';
 
 import { APIUserCreatePayload, APIUserOauthAuthCreate } from '../../types';
+import { sign } from '../../utils/asyncJwt';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
@@ -42,7 +42,7 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
       });
 
       // TODO: promisify this
-      const token = sign(newUser.id, 'test');
+      const token = await sign(newUser.id);
 
       res.status(200);
       return { token };

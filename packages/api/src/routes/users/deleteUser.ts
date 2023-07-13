@@ -1,7 +1,7 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
-import { verify } from 'jsonwebtoken';
 
 import { APIUserDelete, APIUserDeletePayload } from '../../types';
+import { verify } from '../../utils/asyncJwt';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
@@ -13,8 +13,7 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
       requiresAuth: true
     },
     handler: async (req, res): Promise<APIUserDelete> => {
-      // TODO: promisify this
-      const id = verify(req.headers.authorization?.split(' ')[1] ?? '', 'test') as string;
+      const id = await verify(req.headers.authorization?.split(' ')[1] ?? '');
 
       const user = await prisma.user.findFirst({ where: { id } });
 
