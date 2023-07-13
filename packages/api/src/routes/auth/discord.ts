@@ -4,7 +4,7 @@ import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../typ
 import generateNameFromEmail from '../../utils/generateNameFromEmail';
 import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
-export default function (fastify: FastifyInstance, _options: RouteOptions) {
+export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Body: Pick<APIUserOauthAuthCreatePayload, 'code'>;
   }>({

@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken';
 
 import { APIUserDelete, APIUserDeletePayload } from '../../types';
 
-export default function (fastify: FastifyInstance, _options: RouteOptions) {
+export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Body: APIUserDeletePayload;
   }>({

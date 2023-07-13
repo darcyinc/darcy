@@ -2,7 +2,7 @@ import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIGetBasicUser, APIGetUserPayload } from '../../types';
 
-export default function (fastify: FastifyInstance, _options: RouteOptions) {
+export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Params: APIGetUserPayload;
   }>({
