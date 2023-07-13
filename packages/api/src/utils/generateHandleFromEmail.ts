@@ -1,4 +1,4 @@
-export default function generateNameFromEmail(email: string) {
+export default function generateHandleFromEmail(email: string) {
   const [name] = email.split('@');
   const random = Math.random().toString(36).slice(2, 7);
 

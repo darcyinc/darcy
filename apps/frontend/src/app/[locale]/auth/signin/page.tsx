@@ -40,6 +40,10 @@ export default function SignInPage() {
       <OAuth2Button link={process.env.NEXT_PUBLIC_DISCORD_AUTH_URL!} service="discord">
         Entrar com Discord
       </OAuth2Button>
+
+      <OAuth2Button link={process.env.NEXT_PUBLIC_GITHUB_AUTH_URL!} service="github">
+        Entrar com GitHub
+      </OAuth2Button>
     </form>
   );
 }

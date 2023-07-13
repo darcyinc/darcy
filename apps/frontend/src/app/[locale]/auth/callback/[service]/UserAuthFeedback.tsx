@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { client } from '@/api/base';
+import { AUTH_SERVICES_CALLBACK } from '@/util/constants';
 
 interface UserAuthFeedbackProps {
   service: string;
@@ -33,7 +34,7 @@ export default function UserAuthFeedback({ service, code, state, i18n }: UserAut
     const auth = async () => {
       const oauth2State = sessionStorage.getItem(`oauth2-state:${service}`);
 
-      if (!['discord'].includes(service) || !code || !state) return router.replace('/auth/signin');
+      if (!AUTH_SERVICES_CALLBACK.includes(service) || !code || !state) return router.replace('/auth/signin');
 
       if (state !== oauth2State) return router.replace('/auth/signin');
 

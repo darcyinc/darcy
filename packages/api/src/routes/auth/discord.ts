@@ -1,7 +1,7 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
-import generateNameFromEmail from '../../utils/generateNameFromEmail';
+import generateHandleFromEmail from '../../utils/generateHandleFromEmail';
 import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
@@ -45,7 +45,7 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
               }
             },
             displayName: userData.username as string,
-            handle: generateNameFromEmail(userData.email as string)
+            handle: generateHandleFromEmail(userData.email as string)
           },
           include: {
             auth: true
