@@ -5,11 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import { HiOutlineX, HiSearch } from 'react-icons/hi';
 
-interface TrendingSearchProps {
-  i18nSearchPlaceholder: string;
-}
-
-export default function TrendingSearch({ i18nSearchPlaceholder }: TrendingSearchProps) {
+export default function TrendingSearch({ i18nSearchPlaceholder }: { i18nSearchPlaceholder: string }) {
   const router = useRouter();
   const [search, setSearch] = useState('');
 

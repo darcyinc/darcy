@@ -1,13 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 
-interface ShowIfMediaQueryProps {
-  query: string;
-  children: React.ReactNode;
-}
-
-export default function ShowIfMediaQuery({ query, children }: ShowIfMediaQueryProps) {
+export default function ShowIfMediaQuery({ query, children }: PropsWithChildren<{ query: string }>) {
   const [matches, setMatches] = useState(false);
 
   const handleMediaQueryChange = useCallback((mediaQuery: MediaQueryListEvent | MediaQueryList) => setMatches(mediaQuery.matches), []);

@@ -5,12 +5,7 @@ import { useState } from 'react';
 
 const Modal = dynamic(() => import('@/components/Modal'));
 
-interface UserBannerAvatar {
-  avatar: string;
-  banner: string;
-}
-
-export default function UserBannerAvatar({ avatar, banner }: UserBannerAvatar) {
+export default function UserBannerAvatar({ avatar, banner }: { avatar: string; banner: string }) {
   const [avatarModalOpen, setAvatarModalOpen] = useState(false);
 
   return (

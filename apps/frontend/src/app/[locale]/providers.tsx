@@ -2,12 +2,9 @@
 
 import { updateToken } from '@/api/base';
 import { useTheme } from '@/hooks/useTheme';
+import { PropsWithChildren } from 'react';
 
-interface ProvidersProps {
-  children: React.ReactNode;
-}
-
-export default function Providers({ children }: ProvidersProps) {
+export default function Providers({ children }: PropsWithChildren) {
   const { theme } = useTheme();
 
   if (typeof window !== 'undefined') {

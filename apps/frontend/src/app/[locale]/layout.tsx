@@ -6,6 +6,11 @@ import { useLocale } from 'next-intl';
 
 import '@/styles/tailwind.css';
 import '@/styles/global.scss';
+import { PropsWithChildren } from 'react';
+
+interface LocaleRouteParams {
+  locale: string;
+}
 
 const Providers = dynamic(() => import('./providers'));
 
@@ -17,7 +22,7 @@ export const metadata: Metadata = {
   keywords: ['social network', 'open source']
 };
 
-export default function RootLayout({ children, params }: { children: React.ReactNode; params: { locale: string } }) {
+export default function RootLayout({ children, params }: PropsWithChildren<{ params: LocaleRouteParams }>) {
   const locale = useLocale();
 
   // Show a 404 error if the user requests an unknown locale
