@@ -1,6 +1,7 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
+import generateNameFromEmail from '../../utils/generateNameFromEmail';
 import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
 export default function (fastify: FastifyInstance, _options: RouteOptions) {
@@ -25,8 +26,35 @@ export default function (fastify: FastifyInstance, _options: RouteOptions) {
           return { error: 'no_email_associated' };
         }
 
-        res.status(200);
+        const existingUser = await prisma.userAuth.findFirst({
+          where: {
+            email: userData.email as string
+          }
+        });
 
+        if (existingUser) {
+          res.status(200);
+          return { token: 'FAKE-TOKEN' };
+        }
+
+        const user = await prisma.user.create({
+          data: {
+            auth: {
+              create: {
+                email: userData.email as string
+              }
+            },
+            displayName: userData.username as string,
+            handle: generateNameFromEmail(userData.email as string)
+          },
+          include: {
+            auth: true
+          }
+        });
+
+        console.log(user);
+
+        res.status(200);
         return { token: 'FAKE-TOKEN' };
       } catch {
         res.status(500);
