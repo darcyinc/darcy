@@ -1,32 +1,25 @@
 {
-  "name": "@darcy/api",
+  "name": "@darcy/api-wrapper",
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
-	"types": "./dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "node build.mjs --watch",
     "build": "node build.mjs",
-    "lint": "eslint . --ext .ts",
-    "postinstall": "prisma generate"
+    "lint": "eslint . --ext .ts"
   },
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@fastify/autoload": "5.7.1",
-    "@fastify/cors": "8.3.0",
-    "@prisma/client": "5.0.0",
-    "fastify": "4.19.2",
-    "fastify-plugin": "4.5.0",
-    "jsonwebtoken": "9.0.1"
+    "@darcy/api": "workspace:*",
+    "axios": "1.4.0"
   },
   "devDependencies": {
-    "@types/jsonwebtoken": "9.0.2",
     "@types/node": "20.4.1",
     "chokidar": "3.5.3",
     "esbuild": "0.18.11",
     "fast-glob": "3.3.0",
-    "prisma": "5.0.0"
+    "typescript": "5.1.6"
   }
 }

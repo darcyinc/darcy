@@ -2,7 +2,6 @@ import { spawn } from 'child_process';
 import { watch } from 'chokidar';
 import * as esbuild from 'esbuild';
 import fastGlob from 'fast-glob';
-import { copyFile, rm } from 'fs/promises';
 
 const ctx = await esbuild.context({
   entryPoints: await fastGlob('src/**/*.ts'),
@@ -10,10 +9,10 @@ const ctx = await esbuild.context({
   target: 'node20',
   platform: 'node',
   minify: true,
+  sourcemap: false,
   format: 'cjs'
 });
 
-await cleanupDist();
 await build();
 
 // if cmdline has --watch, then watch for changes
@@ -25,34 +24,21 @@ if (process.argv.includes('--watch')) {
   console.log('starting server & watching for changes...');
 
   watch(['src', '.env']).on('change', async () => {
-    console.log('change detected - restarting server');
+    console.log('change detected - building');
 
     serverProcess?.kill('SIGINT');
+    await build().catch(() => {});
 
-    build()
-      .then(async () => {
-        serverProcess = startServer();
-      })
-      .catch(() => {});
+    serverProcess = startServer();
   });
 } else process.exit(0);
 
-function startServer() {
-  return spawn('node', ['dist/index.js'], { stdio: 'inherit' });
-}
-
 async function build() {
   await ctx.rebuild();
-  copyDotEnv();
-
   // generate types
   await spawn('pnpm', ['tsc']);
 }
 
-async function cleanupDist() {
-  return rm('dist', { recursive: true }).catch(() => {});
-}
-
-async function copyDotEnv() {
-  return copyFile('.env', 'dist/.env').catch(() => {});
+function startServer() {
+  return spawn('node', ['dist/index.js'], { stdio: 'inherit' });
 }

@@ -6,7 +6,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "remove",
-    "incremental": true,
     "isolatedModules": true,
     "module": "commonjs",
     "target": "ESNext",
@@ -20,9 +19,13 @@
     "skipLibCheck": true,
     "strict": true,
     "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "tsBuildInfoFile": ".tsbuildinfo"
+    "strictNullChecks": true
   },
-  "include": ["packages", "apps"],
-  "exclude": ["node_modules"]
+  "include": [
+    "packages",
+    "apps"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

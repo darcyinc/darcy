@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "../../.eslintrc.json"
+  ],
+  "rules": {
+    "import/no-unused-modules": "off",
+    "unicorn/prefer-module": "off",
+    "unicorn/prefer-top-level-await": "off",
+    "unicorn/no-process-exit": "off"
+  }
+}

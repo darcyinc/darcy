@@ -1,34 +1,35 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
+import { APIGetBasicUser, APIGetUserPayload } from '../../types';
+
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
-    Params: {
-      handle: string;
-    };
+    Params: APIGetUserPayload;
   }>({
     method: 'GET',
     url: '/:handle',
     config: {
       requiresAuth: false
     },
-    handler: async (request, reply) => {
+    handler: async (req, res): Promise<APIGetBasicUser> => {
       const user = await prisma.user.findFirst({
         where: {
-          handle: request.params.handle
+          handle: req.params.handle
         },
         include: {
           auth: false,
-          posts: false
+          posts: true
         }
       });
 
       if (!user) {
-        return reply.status(404).send({
-          error: 'User not found'
-        });
+        res.status(404);
+
+        return { error: 'User not found' };
       }
 
-      return user;
+      // TODO: this is a hack
+      return { ...user, postsCount: 0, followingCount: 0, followersCount: 0 } as unknown as APIGetBasicUser;
     }
   });
 }

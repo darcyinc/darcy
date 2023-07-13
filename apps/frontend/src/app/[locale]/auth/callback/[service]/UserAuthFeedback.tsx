@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { authWithService } from '@/api/users/authWithService';
+import { client } from '@/api/base';
 
 interface UserAuthFeedbackProps {
   service: string;
@@ -37,7 +37,7 @@ export default function UserAuthFeedback({ service, code, state, i18n }: UserAut
 
       if (state !== oauth2State) return router.replace('/auth/signin');
 
-      const { error, redirect, token } = await authWithService({
+      const { error, redirect, token } = await client.auth.withService({
         code,
         service
       });
