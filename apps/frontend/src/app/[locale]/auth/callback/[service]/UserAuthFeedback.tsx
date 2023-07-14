@@ -7,14 +7,16 @@ import { useState } from 'react';
 import { client } from '@/api/base';
 import { AUTH_SERVICES_CALLBACK } from '@/util/constants';
 
+interface i18nProps {
+  goBack: string;
+  authenticating: string;
+}
+
 interface UserAuthFeedbackProps {
   service: string;
   code: string;
   state: string;
-  i18n: {
-    goBack: string;
-    authenticating: string;
-  };
+  i18n: i18nProps;
 }
 
 export default function UserAuthFeedback({ service, code, state, i18n }: UserAuthFeedbackProps) {

@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
+import { PropsWithChildren } from 'react';
 
 import LeftNavbar from '@/components/LeftNavbar';
 import MobileBottomNavbar from '@/components/LeftNavbar/MobileBottomNavbar';
 import Trending from '@/components/Trending';
-import { PropsWithChildren } from 'react';
 
 const ShowIfMediaQuery = dynamic(() => import('@/components/ShowIfMediaQuery'));
 

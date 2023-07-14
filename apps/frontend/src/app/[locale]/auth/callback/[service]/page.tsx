@@ -11,7 +11,12 @@ interface CallbackPageSearchParams {
   state: string;
 }
 
-export default function CallbackPage({ params, searchParams }: { params: CallbackPageParams; searchParams: CallbackPageSearchParams }) {
+interface CallbackPageProps {
+  params: CallbackPageParams;
+  searchParams: CallbackPageSearchParams;
+}
+
+export default function CallbackPage({ params, searchParams }: CallbackPageProps) {
   const t = useTranslations('AuthCallback');
   const { service } = params;
   const { code, state } = searchParams;

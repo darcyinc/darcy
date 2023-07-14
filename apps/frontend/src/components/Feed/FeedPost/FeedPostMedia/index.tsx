@@ -5,11 +5,7 @@ import { useCallback } from 'react';
 
 import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 
-interface FeedPostMediaProps {
-  media: string[];
-}
-
-export default function FeedPostMedia({ media }: FeedPostMediaProps) {
+export default function FeedPostMedia({ media }: { media: string[] }) {
   const router = useRouter();
 
   const handleImageClick = useCallback(

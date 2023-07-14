@@ -2,7 +2,12 @@
 
 import { PropsWithChildren, useCallback } from 'react';
 
-export default function OAuth2Button({ link, service, children }: PropsWithChildren<{ link: string; service: string }>) {
+interface OAuth2ButtonProps {
+  link: string;
+  service: string;
+}
+
+export default function OAuth2Button({ link, service, children }: PropsWithChildren<OAuth2ButtonProps>) {
   const handleRedirect = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();

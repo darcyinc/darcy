@@ -2,11 +2,12 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import { PropsWithChildren } from 'react';
+import { DESCRIPTION } from '@/util/constants';
 import { useLocale } from 'next-intl';
 
 import '@/styles/tailwind.css';
 import '@/styles/global.scss';
-import { PropsWithChildren } from 'react';
 
 interface LocaleRouteParams {
   locale: string;
@@ -18,7 +19,7 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Your Feed | Darcy',
-  description: 'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
+  description: DESCRIPTION,
   keywords: ['social network', 'open source']
 };
 
