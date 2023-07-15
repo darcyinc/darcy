@@ -43,7 +43,7 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
               email: userData.email as string
             }
           },
-          avatar: (userData.avatar_url as string) ?? null,
+          avatar: userData.avatar_url as string,
           displayName: (userData.name ?? userData.login) as string,
           handle: generateHandleFromEmail(userData.email as string)
         },

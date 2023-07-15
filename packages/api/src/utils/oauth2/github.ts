@@ -35,9 +35,7 @@ export async function getGithubToken(code: string) {
 
   const data = (await request.json()) as GitHubTokenResponse;
 
-  const scopes = data.scope.split(',');
-
-  if (!scopes.includes('user:email')) {
+  if (!data.scope.includes('user:email')) {
     throw new Error('Invalid scope or an error ocurred.');
   }
 
