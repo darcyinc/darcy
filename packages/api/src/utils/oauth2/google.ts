@@ -36,9 +36,9 @@ export async function getGoogleToken(code: string) {
   });
   const data = (await request.json()) as GoogleTokenResponse;
 
-  // if (!data.scope.includes('')) {
-  //   throw new Error('Invalid scope or an error ocurred.');
-  // }
+  if (!data.scope.includes('openid') || !data.scope.includes('userinfo.profile') || !data.scope.includes('userinfo.email')) {
+    throw new Error('Invalid scope or an error ocurred.');
+  }
 
   return data.access_token;
 }
