@@ -45,10 +45,22 @@ export async function getGithubUserData(token: string) {
   const request = await fetch('https://api.github.com/user', {
     headers: {
       Authorization: `Bearer ${token}`,
-      Accept: 'application/json'
+      Accept: 'application/vnd.github+json'
     }
   });
   const data = (await request.json()) as Record<string, unknown>;
 
   return data;
+}
+
+export async function userEmailIsVerified(token: string, email: string) {
+  const request = await fetch('https://api.github.com/user/emails', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/vnd.github+json'
+    }
+  });
+  const data = (await request.json()) as Record<string, unknown>[];
+
+  return data.some((emailData) => emailData.email === email && emailData.verified);
 }
