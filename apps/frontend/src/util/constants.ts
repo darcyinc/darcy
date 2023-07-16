@@ -4,6 +4,9 @@ export const DESCRIPTION = 'Darcy is an open source social network where you can
 
 export const AUTH_SERVICES_CALLBACK = ['discord', 'github', 'google'];
 
+export const COMMON_WORDS_SIGN_IN = new Set(['sign', 'sign_in', 'login', 'log_in']);
+export const COMMON_WORDS_SIGN_UP = new Set(['sign_up', 'register', 'create', 'join']);
+
 export const LINKS = [
   { href: '/', icon: HiHome, active: true, label: 'Início' },
   { href: '/search', icon: HiSearch, label: 'Explorar' },
