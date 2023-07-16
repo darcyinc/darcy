@@ -1,3 +1,5 @@
+import { URLSearchParams } from 'node:url';
+
 const { DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, WEBSITE_URL } = process.env;
 
 if (!DISCORD_CLIENT_ID || !DISCORD_CLIENT_SECRET || !WEBSITE_URL) {
@@ -33,8 +35,6 @@ export async function getDiscordToken(code: string) {
     body: generateAuthParams(code)
   });
   const data = (await request.json()) as DiscordTokenResponse;
-
-  console.log(data.scope);
 
   if (data.error || !data.scope.includes('identify') || !data.scope.includes('email')) {
     throw new Error('Invalid scope or an error ocurred.');

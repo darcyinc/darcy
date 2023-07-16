@@ -37,7 +37,7 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
           return { token: 'FAKE-TOKEN' };
         }
 
-        const user = await prisma.user.create({
+        await prisma.user.create({
           data: {
             auth: {
               create: {
@@ -51,8 +51,6 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
             auth: true
           }
         });
-
-        console.log(user);
 
         res.status(200);
         return { token: 'FAKE-TOKEN' };

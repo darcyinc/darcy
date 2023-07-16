@@ -1,4 +1,4 @@
-import { URLSearchParams } from 'url';
+import { URLSearchParams } from 'node:url';
 
 const { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, WEBSITE_URL } = process.env;
 
@@ -32,7 +32,6 @@ export async function getGithubToken(code: string) {
     },
     body: generateAuthParams(code)
   });
-
   const data = (await request.json()) as GitHubTokenResponse;
 
   if (!data.scope.includes('user:email')) {
@@ -44,7 +43,6 @@ export async function getGithubToken(code: string) {
 
 export async function getGithubUserData(token: string) {
   const request = await fetch('https://api.github.com/user', {
-    method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: 'application/json'

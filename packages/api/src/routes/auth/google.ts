@@ -1,7 +1,7 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
-import { getGithubToken, getGithubUserData } from '../../utils/oauth2/github';
+import { getGoogleToken, getGoogleUserData } from '../../utils/oauth2/google';
 import generateHandleFromEmail from '../../utils/generateHandleFromEmail';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
@@ -9,17 +9,17 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
     Body: Pick<APIUserOauthAuthCreatePayload, 'code'>;
   }>({
     method: 'POST',
-    url: '/github/callback',
+    url: '/google/callback',
     config: {
       requiresAuth: false
     },
     handler: async (req, res): Promise<APIUserOauthAuthCreate> => {
       const { code } = req.body;
 
-      const token = await getGithubToken(code);
-      const userData = await getGithubUserData(token);
+      const token = await getGoogleToken(code);
+      const userData = await getGoogleUserData(token);
 
-      if (!userData.email) {
+      if (!userData.email || !userData.email_verified) {
         res.status(400);
 
         return { error: 'no_email_associated' };
@@ -43,8 +43,8 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
               email: userData.email as string
             }
           },
-          avatar: userData.avatar_url as string,
-          displayName: (userData.name ?? userData.login) as string,
+          avatar: userData.picture as string,
+          displayName: userData.name as string,
           handle: generateHandleFromEmail(userData.email as string)
         },
         include: {

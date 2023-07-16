@@ -41,6 +41,10 @@ export default function SignUpPage() {
         Entrar com Discord
       </OAuth2Button>
 
+      <OAuth2Button link={process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL!} service="google">
+        Entrar com Google
+      </OAuth2Button>
+
       <OAuth2Button link={process.env.NEXT_PUBLIC_GITHUB_AUTH_URL!} service="github">
         Entrar com GitHub
       </OAuth2Button>

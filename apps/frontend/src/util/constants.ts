@@ -2,7 +2,7 @@ import { HiHome, HiOutlineBell, HiOutlineMail, HiSearch } from 'react-icons/hi';
 
 export const DESCRIPTION = 'Darcy is an open source social network where you can share your thoughts and opinions with other people.';
 
-export const AUTH_SERVICES_CALLBACK = ['discord', 'github'];
+export const AUTH_SERVICES_CALLBACK = ['discord', 'github', 'google'];
 
 export const LINKS = [
   { href: '/', icon: HiHome, active: true, label: 'Início' },
