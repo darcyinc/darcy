@@ -36,7 +36,7 @@ if (process.argv.includes('--watch')) {
 async function build() {
   await ctx.rebuild();
   // generate types
-  await spawn('pnpm', ['tsc']);
+  await spawn(/^win/.test(process.platform) ? 'pnpm.cmd' : 'pnpm', ['tsc']);
 }
 
 function startServer() {
