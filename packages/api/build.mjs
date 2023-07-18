@@ -46,7 +46,7 @@ async function build() {
   copyDotEnv();
 
   // generate types
-  await spawn('pnpm', ['tsc']);
+  await spawn(/^win/.test(process.platform) ? 'pnpm.cmd' : 'pnpm', ['tsc']);
 }
 
 async function cleanupDist() {
