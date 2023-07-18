@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "main": "dist/index.js",
-	"types": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "node build.mjs --watch",
@@ -17,15 +17,15 @@
     "@fastify/autoload": "5.7.1",
     "@fastify/cors": "8.3.0",
     "@prisma/client": "5.0.0",
-    "fastify": "4.19.2",
-    "fastify-plugin": "4.5.0",
+    "fastify": "4.20.0",
+    "fastify-plugin": "4.5.1",
     "jsonwebtoken": "9.0.1"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "9.0.2",
-    "@types/node": "20.4.1",
+    "@types/node": "20.4.2",
     "chokidar": "3.5.3",
-    "esbuild": "0.18.11",
+    "esbuild": "0.18.14",
     "fast-glob": "3.3.0",
     "prisma": "5.0.0"
   }
