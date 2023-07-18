@@ -9,7 +9,12 @@ global.prisma = new PrismaClient();
 void global.prisma.$connect();
 
 const app = fastify({
-  logger: process.env.NODE_ENV === 'development'
+  logger: {
+    enabled: process.env.NODE_ENV !== 'production',
+    transport: {
+      target: 'pino-pretty'
+    }
+  }
 });
 
 async function main() {
@@ -28,7 +33,7 @@ async function main() {
     credentials: true
   });
 
-  app.listen({ port: Number(process.env.PORT) || 3001 }, (error, address) => {
+  app.listen({ port: Number(process.env.PORT) || 3001, host: '0.0.0.0' }, (error, address) => {
     if (error) {
       app.log.error(error);
       process.exit(1);

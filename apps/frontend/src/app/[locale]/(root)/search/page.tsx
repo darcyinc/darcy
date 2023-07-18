@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
+import { DESCRIPTION } from '@/util/constants';
 
 import Feed from '@/components/Feed';
 
 export const metadata: Metadata = {
   title: 'Search | Darcy',
-  description: 'Darcy is an open source social network where you can share your thoughts and opinions with other people.',
+  description: DESCRIPTION,
   keywords: ['social network', 'open source']
 };
 

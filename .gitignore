@@ -32,3 +32,6 @@ next-env.d.ts
 
 # eslint
 .eslintcache
+
+# vscode
+.vscode/*

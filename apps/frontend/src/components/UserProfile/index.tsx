@@ -4,11 +4,7 @@ import { client } from '@/api/base';
 
 import UserProfileHeader from './UserProfileHeader';
 
-interface UserProfileProps {
-  handle: string;
-}
-
-export default async function UserProfile({ handle }: UserProfileProps) {
+export default async function UserProfile({ handle }: { handle: string }) {
   const data = await client.users.get(handle);
 
   if (data.error) {

@@ -1,8 +1,9 @@
 import Image from 'next/image';
 
 import AuthSideImage from './assets/auth_side_image.jpg';
+import { PropsWithChildren } from 'react';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <main className="flex w-full flex-col items-center justify-center md:grid md:h-[100vh] md:grid-cols-[55%_1fr] md:justify-start xl:grid-cols-[70%_1fr]">
       <Image

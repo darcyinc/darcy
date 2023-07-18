@@ -1,13 +1,6 @@
+import { LINKS } from '@/util/constants';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { HiHome, HiOutlineBell, HiOutlineMail, HiSearch } from 'react-icons/hi';
-
-const LINKS = [
-  { href: '/', icon: HiHome, active: true, label: 'Início' },
-  { href: '/search', icon: HiSearch, label: 'Explorar' },
-  { href: '/notifications', icon: HiOutlineBell, label: 'Notificações' },
-  { href: '/messages', icon: HiOutlineMail, label: 'Mensagens' }
-];
 
 export default function MobileBottomNavbar() {
   return (

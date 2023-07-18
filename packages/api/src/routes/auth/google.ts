@@ -1,15 +1,15 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
+import { getGoogleToken, getGoogleUserData } from '../../utils/oauth2/google';
 import generateHandleFromEmail from '../../utils/generateHandleFromEmail';
-import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Body: Pick<APIUserOauthAuthCreatePayload, 'code'>;
   }>({
     method: 'POST',
-    url: '/discord/callback',
+    url: '/google/callback',
     config: {
       requiresAuth: false
     },
@@ -17,10 +17,10 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
       const { code } = req.body;
 
       try {
-        const token = await getDiscordToken(code);
-        const userData = await getDiscordUserData(token);
+        const token = await getGoogleToken(code);
+        const userData = await getGoogleUserData(token);
 
-        if (!userData.email || !userData.verified) {
+        if (!userData.email || !userData.email_verified) {
           res.status(400);
 
           return { error: 'no_email_associated' };
@@ -44,7 +44,8 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
                 email: userData.email as string
               }
             },
-            displayName: userData.username as string,
+            avatar: userData.picture as string,
+            displayName: userData.name as string,
             handle: generateHandleFromEmail(userData.email as string)
           },
           include: {

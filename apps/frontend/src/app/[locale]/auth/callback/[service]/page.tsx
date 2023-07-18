@@ -2,13 +2,21 @@ import { useTranslations } from 'next-intl';
 
 import UserAuthFeedback from './UserAuthFeedback';
 
-export default function CallbackPage({
-  params,
-  searchParams
-}: {
-  params: { service: string };
-  searchParams: { code: string; state: string };
-}) {
+interface CallbackPageParams {
+  service: string;
+}
+
+interface CallbackPageSearchParams {
+  code: string;
+  state: string;
+}
+
+interface CallbackPageProps {
+  params: CallbackPageParams;
+  searchParams: CallbackPageSearchParams;
+}
+
+export default function CallbackPage({ params, searchParams }: CallbackPageProps) {
   const t = useTranslations('AuthCallback');
   const { service } = params;
   const { code, state } = searchParams;

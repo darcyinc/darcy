@@ -3,17 +3,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { COMMON_WORDS_SIGN_IN, COMMON_WORDS_SIGN_UP } from '@/util/constants';
 
-const COMMON_WORDS_SIGN_IN = new Set(['sign', 'sign_in', 'login', 'log_in']);
-const COMMON_WORDS_SIGN_UP = new Set(['sign_up', 'register', 'create', 'join']);
-
-interface PageProps {
-  params: {
-    redirect: string[];
-  };
+interface RedirectRouteParams {
+  redirect: string[];
 }
 
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: RedirectRouteParams }) {
   const router = useRouter();
 
   useEffect(() => {

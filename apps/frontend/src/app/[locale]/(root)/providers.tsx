@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { PropsWithChildren } from 'react';
 
 import LeftNavbar from '@/components/LeftNavbar';
 import MobileBottomNavbar from '@/components/LeftNavbar/MobileBottomNavbar';
@@ -6,11 +7,7 @@ import Trending from '@/components/Trending';
 
 const ShowIfMediaQuery = dynamic(() => import('@/components/ShowIfMediaQuery'));
 
-interface ProvidersProps {
-  children: React.ReactNode;
-}
-
-export default function Providers({ children }: ProvidersProps) {
+export default function Providers({ children }: PropsWithChildren) {
   return (
     <>
       <ShowIfMediaQuery query="(min-width: 500px) and (min-height: 475px)">

@@ -1,8 +1,4 @@
-interface DividerProps {
-  text?: string;
-}
-
-export default function Divider({ text }: DividerProps) {
+export default function Divider({ text }: { text?: string }) {
   const addMargin = Boolean(text);
 
   return (

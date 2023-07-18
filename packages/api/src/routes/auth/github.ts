@@ -1,15 +1,15 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
+import { getGithubToken, getGithubUserData, userEmailIsVerified } from '../../utils/oauth2/github';
 import generateHandleFromEmail from '../../utils/generateHandleFromEmail';
-import { getDiscordToken, getDiscordUserData } from '../../utils/oauth2/discord';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{
     Body: Pick<APIUserOauthAuthCreatePayload, 'code'>;
   }>({
     method: 'POST',
-    url: '/discord/callback',
+    url: '/github/callback',
     config: {
       requiresAuth: false
     },
@@ -17,10 +17,12 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
       const { code } = req.body;
 
       try {
-        const token = await getDiscordToken(code);
-        const userData = await getDiscordUserData(token);
+        const token = await getGithubToken(code);
+        const userData = await getGithubUserData(token);
 
-        if (!userData.email || !userData.verified) {
+        const emailIsVerified = await userEmailIsVerified(token, userData.email as string);
+
+        if (!userData.email || !emailIsVerified) {
           res.status(400);
 
           return { error: 'no_email_associated' };
@@ -44,7 +46,8 @@ export default async function (fastify: FastifyInstance, _options: RouteOptions)
                 email: userData.email as string
               }
             },
-            displayName: userData.username as string,
+            avatar: userData.avatar_url as string,
+            displayName: (userData.name ?? userData.login) as string,
             handle: generateHandleFromEmail(userData.email as string)
           },
           include: {
