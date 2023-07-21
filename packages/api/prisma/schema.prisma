@@ -3,6 +3,8 @@
 
 generator client {
   provider = "prisma-client-js"
+  // Prisma sometimes uses the monorepo's node_modules folder as the output directory
+  output = "../node_modules/.prisma/client"
 }
 
 datasource db {
