@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { PropsWithChildren } from 'react';
 import { useLocale } from 'next-intl';
+import { PropsWithChildren } from 'react';
 
 interface LocaleRouteParams {
   locale: string;

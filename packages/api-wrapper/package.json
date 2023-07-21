@@ -12,11 +12,11 @@
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@darcy/api": "workspace:*",
     "axios": "1.4.0"
   },
   "devDependencies": {
-    "@darcy/api": "workspace:*",
-    "@types/node": "20.4.2",
+    "@types/node": "20.4.3",
     "tsup": "7.1.0",
     "typescript": "5.1.6"
   }

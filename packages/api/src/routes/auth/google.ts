@@ -1,8 +1,8 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
-import { getGoogleToken, getGoogleUserData } from '../../utils/oauth2/google';
 import generateHandleFromEmail from '../../utils/generateHandleFromEmail';
+import { getGoogleToken, getGoogleUserData } from '../../utils/oauth2/google';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{

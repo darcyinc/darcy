@@ -1,6 +1,7 @@
-import { LINKS } from '@/util/constants';
 import clsx from 'clsx';
 import Link from 'next/link';
+
+import { LINKS } from '@/util/constants';
 
 export default function MobileBottomNavbar() {
   return (

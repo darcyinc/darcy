@@ -1,16 +1,5 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "emitDeclarationOnly": true,
-    "noEmit": false
-  },
-  "include": [
-    "src/**/*.ts"
-  ],
   "exclude": [
     "dist"
   ]

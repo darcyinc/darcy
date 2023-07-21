@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { PropsWithChildren } from 'react';
+
 import { DESCRIPTION } from '@/util/constants';
 
 import '@/styles/tailwind.css';

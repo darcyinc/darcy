@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+
 import { COMMON_WORDS_SIGN_IN, COMMON_WORDS_SIGN_UP } from '@/util/constants';
 
 interface RedirectRouteParams {

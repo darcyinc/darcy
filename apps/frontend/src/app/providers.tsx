@@ -1,8 +1,9 @@
 'use client';
 
+import { PropsWithChildren } from 'react';
+
 import { updateToken } from '@/api/base';
 import { useTheme } from '@/hooks/useTheme';
-import { PropsWithChildren } from 'react';
 
 export default function Providers({ children }: PropsWithChildren) {
   const { theme } = useTheme();

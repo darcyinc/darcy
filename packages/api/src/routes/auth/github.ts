@@ -1,8 +1,8 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
 
 import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '../../types';
-import { getGithubToken, getGithubUserData, userEmailIsVerified } from '../../utils/oauth2/github';
 import generateHandleFromEmail from '../../utils/generateHandleFromEmail';
+import { getGithubToken, getGithubUserData, userEmailIsVerified } from '../../utils/oauth2/github';
 
 export default async function (fastify: FastifyInstance, _options: RouteOptions) {
   fastify.route<{

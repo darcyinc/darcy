@@ -1,7 +1,7 @@
 import Image from 'next/image';
+import { PropsWithChildren } from 'react';
 
 import AuthSideImage from './assets/auth_side_image.jpg';
-import { PropsWithChildren } from 'react';
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (

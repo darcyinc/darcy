@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/jsonwebtoken": "9.0.2",
-    "@types/node": "20.4.2",
+    "@types/node": "20.4.3",
     "pino-pretty": "10.1.0",
     "prisma": "5.0.0",
     "tsup": "7.1.0"
