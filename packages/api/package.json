@@ -6,8 +6,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "node build.mjs --watch",
-    "build": "node build.mjs",
+    "dev": "tsup --watch",
+    "build": "tsup",
     "lint": "eslint . --ext .ts",
     "postinstall": "prisma generate"
   },
@@ -25,11 +25,9 @@
   "devDependencies": {
     "@types/jsonwebtoken": "9.0.2",
     "@types/node": "20.4.2",
-    "chokidar": "3.5.3",
-    "esbuild": "0.18.15",
-    "fast-glob": "3.3.0",
     "pino-pretty": "10.1.0",
-    "prisma": "5.0.0"
+    "prisma": "5.0.0",
+    "tsup": "7.1.0"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
