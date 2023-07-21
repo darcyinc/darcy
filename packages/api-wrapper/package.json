@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/node": "20.4.2",
     "chokidar": "3.5.3",
-    "esbuild": "0.18.14",
+    "esbuild": "0.18.15",
     "fast-glob": "3.3.0",
     "typescript": "5.1.6"
   }
