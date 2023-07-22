@@ -4,7 +4,21 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'apps/**'
+      - 'packages/**'
+      - 'pnpm-lock.yaml'
+      - '.eslintrc.json'
+      - '.prettierrc.json'
+      - 'tsconfig.json'
   pull_request:
+    paths:
+      - 'apps/**'
+      - 'packages/**'
+      - 'pnpm-lock.yaml'
+      - '.eslintrc.json'
+      - '.prettierrc.json'
+      - 'tsconfig.json'
 
 jobs:
   build:
