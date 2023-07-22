@@ -2,8 +2,7 @@
 
 Welcome to Darcy, a beautiful and engaging social network that allows you to connect with friends, share your thoughts, and explore a world of possibilities.
 
-This repository is a monorepo containing all the necessary components to run Darcy, including the frontend, API, API wrapper, and more. 
-
+This repository is a monorepo containing all the necessary components to run Darcy, including the frontend, API, API wrapper, and more.
 
 ## Table of Contents
 
@@ -24,9 +23,11 @@ To get started with Darcy, follow these steps:
 5. Open http://localhost:3000 in your browser to view the website. The API will be running on http://localhost:3001.
 
 ## Setting Up the API
+
 The Darcy API, built with Fastify and TypeScript, is located in the `packages/api` directory. Before using the API, you need to set up the required environment variables. Create a .env file in the packages/api directory and fill in the values.
 
 ## NPM Scripts
+
 Darcy comes with the following npm scripts:
 
 `build`: Builds the frontend, API and API Wrapper.
@@ -35,6 +36,7 @@ Darcy comes with the following npm scripts:
 `lint`: Lints the codebase using ESLint and Prettier.
 
 ## License
+
 Darcy is released under the MIT License. For more details, see the LICENSE file.
 
 ---
