@@ -1,4 +1,0 @@
-{
-  "framework": "nextjs",
-  "buildCommand": "pnpm -w build"
-}
