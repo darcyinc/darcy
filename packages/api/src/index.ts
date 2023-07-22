@@ -11,7 +11,7 @@ config({
 });
 
 global.prisma = new PrismaClient();
-void global.prisma.$connect();
+global.prisma.$connect();
 
 const app = fastify({
   logger: {
@@ -39,15 +39,12 @@ async function main() {
   });
 
   app.listen({ port: Number(process.env.PORT) || 3001, host: '0.0.0.0' }, (error, address) => {
-    if (error) {
-      app.log.error(error);
-      process.exit(1);
-    }
+    if (error) throw error;
 
     app.log.info(`Server listening at ${address}`);
   });
 }
 
-void main();
+main();
 
 export * from './types';

@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { useCallback } from 'react';
 import { HiChartSquareBar, HiChatAlt2, HiOutlineHeart, HiOutlineShare } from 'react-icons/hi';
 
-import { client } from '@/api/base';
 import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 
 import { FeedPostProps } from '..';
@@ -16,9 +15,7 @@ export default function FeedPostActions({ likes, reposts, comments, views, hasLi
     if (!isEnterOrClick(e)) return;
     e.stopPropagation();
 
-    alert(`You ${action}d this post!`);
-
-    await client.users.get('davipatricio');
+    console.log(`You ${action}d this post!`);
   }, []);
 
   return (

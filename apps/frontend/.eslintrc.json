@@ -34,6 +34,10 @@
       }
     ],
     "react/button-has-type": "error",
+    "react/jsx-boolean-value": [
+      "error",
+      "never"
+    ],
     "unicorn/filename-case": [
       "error",
       {
