@@ -16,7 +16,7 @@
     "axios": "1.4.0"
   },
   "devDependencies": {
-    "@types/node": "20.4.3",
+    "@types/node": "20.4.4",
     "tsup": "7.1.0"
   }
 }
