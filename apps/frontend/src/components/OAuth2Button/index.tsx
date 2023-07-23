@@ -13,7 +13,7 @@ export default function OAuth2Button({ link, service, children }: PropsWithChild
       e.preventDefault();
 
       const randomString = Math.random().toString(36);
-      const oauthLink = link + `&state=${randomString}`;
+      const oauthLink = `${link}&state=${randomString}`;
 
       sessionStorage.setItem(`oauth2-state:${service}`, randomString);
 
