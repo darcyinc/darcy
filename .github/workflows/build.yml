@@ -1,9 +1,7 @@
-name: Build and run linter
+name: Build project and run linter
 
 on:
   push:
-    branches:
-      - main
     paths:
       - 'apps/**'
       - 'packages/**'
