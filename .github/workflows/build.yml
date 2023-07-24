@@ -2,7 +2,8 @@ name: Build project and run linter
 
 on:
   push:
-    - main
+    branches:
+      - main
   pull_request:
 
 concurrency:
