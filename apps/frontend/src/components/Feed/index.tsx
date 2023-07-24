@@ -26,6 +26,7 @@ export default function Feed() {
           username: 'John Doe'
         }}
         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        media={['https://via.placeholder.com/600x600.png']}
       />
     </section>
   );

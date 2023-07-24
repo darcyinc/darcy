@@ -5,7 +5,11 @@ import { useCallback } from 'react';
 
 import isEnterOrClick, { EnterOrClickEvent } from '@/lib/utils/isEnterOrClick';
 
-export default function FeedPostMedia({ media }: { media: string[] }) {
+interface FeedPostMediaProps {
+  media: string[];
+}
+
+export default function FeedPostMedia({ media }: FeedPostMediaProps) {
   const router = useRouter();
 
   const handleImageClick = useCallback(
@@ -19,36 +23,25 @@ export default function FeedPostMedia({ media }: { media: string[] }) {
   );
 
   return (
-    <button className="mt-3 rounded-2xl" type="button" onClick={handleImageClick}>
-      {media?.map((mediaItem) => {
-        if (mediaItem.endsWith('png') || mediaItem.endsWith('jpg') || mediaItem.endsWith('jpeg') || mediaItem.endsWith('webp')) {
-          return (
-            <img
-              alt="Post"
-              className="h-full max-h-[512px] w-full rounded-2xl border border-grayBorder"
-              decoding="async"
-              height={250}
-              key={mediaItem}
-              loading="lazy"
-              src={mediaItem}
-              width={320}
-            />
-          );
-        }
-
-        return (
-          <img
-            alt="Post"
-            className="h-full max-h-[512px] w-full rounded-2xl border border-grayBorder"
-            decoding="async"
-            height={250}
+    <div>
+      <div className="grid grid-cols-2 gap-0.5">
+        {media.map((mediaItem) => (
+          <button
+            className="overflow-hidden rounded-md"
             key={mediaItem}
-            loading="lazy"
-            src="https://via.placeholder.com/250x320.webp"
-            width={320}
-          />
-        );
-      })}
-    </button>
+            type="button"
+            onClick={handleImageClick}
+            onKeyDown={handleImageClick}
+          >
+            {mediaItem.endsWith('png') || mediaItem.endsWith('jpg') || mediaItem.endsWith('jpeg') || mediaItem.endsWith('webp') ? (
+              <img alt="test" src={mediaItem} />
+            ) : (
+              // eslint-disable-next-line jsx-a11y/media-has-caption
+              <video src={mediaItem} />
+            )}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
