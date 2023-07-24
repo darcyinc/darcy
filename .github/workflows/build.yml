@@ -2,23 +2,11 @@ name: Build project and run linter
 
 on:
   push:
-    paths:
-      - 'apps/**'
-      - 'packages/**'
-      - 'pnpm-lock.yaml'
-      - '.eslintrc.json'
-      - 'package.json
-      - '.prettierrc.json'
-      - 'tsconfig.json'
   pull_request:
-    paths:
-      - 'apps/**'
-      - 'packages/**'
-      - 'pnpm-lock.yaml'
-      - '.eslintrc.json'
-      - 'package.json'
-      - '.prettierrc.json'
-      - 'tsconfig.json'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   build:
