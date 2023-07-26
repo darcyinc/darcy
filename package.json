@@ -19,7 +19,7 @@
     "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5-4",
     "eslint-plugin-prettier": "5.0.0",
-    "eslint-plugin-unicorn": "48.0.0",
+    "eslint-plugin-unicorn": "48.0.1",
     "prettier": "3.0.0",
     "prettier-plugin-tailwindcss": "0.4.1",
     "typescript": "5.1.6"
