@@ -20,7 +20,7 @@
     "react-dom": "18.2.0",
     "react-icons": "4.10.1",
     "sass": "1.64.2",
-    "zustand": "4.3.9"
+    "zustand": "4.4.0"
   },
   "devDependencies": {
     "@types/react": "18.2.18",
