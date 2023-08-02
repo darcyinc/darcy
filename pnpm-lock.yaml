@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@types/node':
-        specifier: 20.4.5
-        version: 20.4.5
+        specifier: 20.4.6
+        version: 20.4.6
       '@typescript-eslint/eslint-plugin':
         specifier: 6.2.1
         version: 6.2.1(@typescript-eslint/parser@6.2.1)(eslint@8.46.0)(typescript@5.1.6)
@@ -137,8 +137,8 @@ importers:
         specifier: 9.0.2
         version: 9.0.2
       '@types/node':
-        specifier: 20.4.5
-        version: 20.4.5
+        specifier: 20.4.6
+        version: 20.4.6
       pino-pretty:
         specifier: 10.2.0
         version: 10.2.0
@@ -159,8 +159,8 @@ importers:
         version: 1.4.0
     devDependencies:
       '@types/node':
-        specifier: 20.4.5
-        version: 20.4.5
+        specifier: 20.4.6
+        version: 20.4.6
       tsup:
         specifier: 7.2.0
         version: 7.2.0(typescript@5.1.6)
@@ -754,11 +754,11 @@ packages:
   /@types/jsonwebtoken@9.0.2:
     resolution: {integrity: sha512-drE6uz7QBKq1fYqqoFKTDRdFCPHd5TCub75BM+D+cMx7NU9hUz7SESLfC2fSCXVFMO5Yj8sOWHuGqPgjc+fz0Q==}
     dependencies:
-      '@types/node': 20.4.5
+      '@types/node': 20.4.6
     dev: true
 
-  /@types/node@20.4.5:
-    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
+  /@types/node@20.4.6:
+    resolution: {integrity: sha512-q0RkvNgMweWWIvSMDiXhflGUKMdIxBo2M2tYM/0kEGDueQByFzK4KZAgu5YHGFNxziTlppNpTIBcqHQAxlfHdA==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
