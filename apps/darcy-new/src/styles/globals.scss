@@ -21,13 +21,6 @@ body {
 
   a {
     color: rgb(var(--color-blue));
-    text-decoration: none;
-
-    &:hover,
-    &:focus-visible {
-      text-decoration: underline;
-      outline: none;
-    }
   }
 }
 
