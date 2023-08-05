@@ -58,19 +58,11 @@ export default function FeedPost({ user, content, media, stats }: FeedPostProps)
       onClick={handlePostClick}
       onKeyDown={handlePostClick}
     >
-      <div className="h-fit w-fit" role="button" tabIndex={0} onClick={handleUserClick} onKeyDown={handleUserClick}>
-        <img
-          alt="User profile avatar"
-          className="h-11 w-11 rounded-full"
-          decoding="async"
-          height={40}
-          loading="lazy"
-          src={user.avatar}
-          width={40}
-        />
+      <div className="h-11 w-11" role="button" tabIndex={0} onClick={handleUserClick} onKeyDown={handleUserClick}>
+        <img alt="User profile avatar" className="rounded-full" decoding="async" loading="lazy" src={user.avatar} />
       </div>
 
-      <div>
+      <div className="w-full">
         <header className="w-fit break-words text-sm">
           <Link className="flex-wrap hover:no-underline" href="/davipatricio" onClick={handleUserClick} onKeyDown={handleUserClick}>
             <p className="inline font-bold text-textPrimary hover:underline">{user.username}</p>
