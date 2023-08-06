@@ -26,13 +26,13 @@ body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+// enable animations if user don't prefer reduced motion
+@media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: auto;
   }
 
   * {
-
     transition: color 0.2s ease-out, background-color 0.2s ease-out;
   }
 
