@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, RpcException } from '@nestjs/microservices';
-import { CreateUserDto } from '../../../shared/dtos/user.dto';
+import { CreateUserDto } from '../../shared/dtos/user.dto';
 import { UsersService } from './users.service';
 
 @Controller()

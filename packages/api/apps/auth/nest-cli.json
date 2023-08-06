@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "teste": {
+      "type": "library",
+      "root": "libs/teste",
+      "entryFile": "index",
+      "sourceRoot": "libs/teste/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/teste/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
