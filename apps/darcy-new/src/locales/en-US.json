@@ -1,1 +1,9 @@
-{}
+{
+  "Navbar": {
+    "home": "Home",
+    "explore": "Explore",
+    "notifications": "Notifications",
+    "messages": "Messages",
+    "publish": "Publish"
+  }
+}
