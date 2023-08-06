@@ -8,6 +8,51 @@ datasource db {
 }
 
 model User {
-  id   Int     @id @default(autoincrement())
-  name String?
+  id           String    @id @default(uuid())
+  displayName  String    @default("")
+  handle       String    @unique
+  bio          String    @default("")
+  private      Boolean   @default(false)
+  avatar       String?
+  banner       String?
+  posts        Post[]
+  auth         UserAuth?
+  followers    User[]    @relation("Followers")
+  following    User[]    @relation("Following")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  // Relations
+  PostLikes    Post?     @relation("PostLikes", fields: [postLikesId], references: [id]) @ignore
+  postLikesId  String?   @ignore
+  PostReposts  Post?     @relation("PostReposts", fields: [postRepostId], references: [id]) @ignore
+  postRepostId String?   @ignore
+  Followers    User?     @relation("Followers", fields: [followersId], references: [id]) @ignore
+  followersId  String?   @ignore
+  Following    User?     @relation("Following", fields: [followingId], references: [id]) @ignore
+  followingId  String?   @ignore
+}
+
+model UserAuth {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @unique
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id             String   @id @default(uuid())
+  author         User?    @relation(fields: [authorId], references: [id])
+  authorId       String?
+  content        String?
+  media          String[]
+  likes          User[]   @relation("PostLikes")
+  reposts        User[]   @relation("PostReposts")
+  comments       Post[]   @relation("PostComments")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  // Relations
+  PostComments   Post?    @relation("PostComments", fields: [postCommentsId], references: [id]) @ignore
+  postCommentsId String?  @ignore
 }

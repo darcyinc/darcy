@@ -1,20 +1,25 @@
-import { Controller, Post, Body, UseGuards, Get, Param } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
+import { MessagePattern, RpcException } from '@nestjs/microservices';
+import { CreateUserDto } from '../../../shared/dtos/user.dto';
 import { UsersService } from './users.service';
-import { CreateUserDto } from './user.dto';
-import { AuthGuard } from 'apps/shared/guards/auth.guard';
 
-@Controller('users')
+@Controller()
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  @UseGuards(AuthGuard)
-  async createUser(@Body() createUserDto: CreateUserDto) {
+  @MessagePattern('createUser')
+  async createUser(createUserDto: CreateUserDto) {
     return this.usersService.createUser(createUserDto);
   }
 
-  @Get(':id')
-  async getUser(@Param('id') id: number) {
-    return this.usersService.getUser(id);
+  @MessagePattern('getUser')
+  async getUser(handle: string) {
+    const user = await this.usersService.getUser(handle);
+
+    if (!user) {
+      throw new RpcException('User not found');
+    }
+
+    return user;
   }
 }
