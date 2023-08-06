@@ -1,5 +1,6 @@
-import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '@darcy/api';
 import { AxiosInstance } from 'axios';
+
+import { APIUserOauthAuthCreatePayload, APIUserOauthAuthCreate } from '../types/auth';
 
 export default class AuthStructure {
   constructor(private axios: AxiosInstance) {}
@@ -7,8 +8,8 @@ export default class AuthStructure {
   async withService({ code, service }: APIUserOauthAuthCreatePayload & { service: string }) {
     const { data } = await this.axios.post<APIUserOauthAuthCreate>(`/auth/${service}/callback`, { code });
 
-    if ('error' in data) {
-      if (data.error === 'no_email_associated')
+    if ('message' in data) {
+      if (data.message === 'no_email_associated')
         return {
           error: 'Você ainda não possui um e-mail cadastrado no serviço escolhido.',
           redirect: false

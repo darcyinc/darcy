@@ -1,5 +1,6 @@
-import { APIGetBasicPost, APIGetPostLikes, APIGetPostReplies, APIGetPostReposts } from '@darcy/api';
 import { AxiosInstance } from 'axios';
+
+import { APIGetBasicPost, APIGetPostLikes, APIGetPostReposts, APIGetPostReplies } from '../types/post';
 
 export default class PostStructure {
   constructor(private axios: AxiosInstance) {}
@@ -12,8 +13,8 @@ export default class PostStructure {
   async get(id: string) {
     const req = await this.axios.get<APIGetBasicPost>(`/posts/${id}`);
 
-    if ('error' in req.data) {
-      throw new Error(req.data.error);
+    if ('message' in req.data) {
+      throw new Error(req.data.message);
     }
 
     return req.data;
@@ -28,8 +29,8 @@ export default class PostStructure {
   async getLikes(id: string, page = 1) {
     const req = await this.axios.get<APIGetPostLikes>(`/posts/${id}/likes?page=${page}`);
 
-    if ('error' in req.data) {
-      throw new Error(req.data.error);
+    if ('message' in req.data) {
+      throw new Error(req.data.message);
     }
 
     return req.data;
@@ -44,8 +45,8 @@ export default class PostStructure {
   async getReposts(id: string, page = 1) {
     const req = await this.axios.get<APIGetPostReposts>(`/posts/${id}/reposts?page=${page}`);
 
-    if ('error' in req.data) {
-      throw new Error(req.data.error);
+    if ('message' in req.data) {
+      throw new Error(req.data.message);
     }
 
     return req.data;
@@ -60,8 +61,8 @@ export default class PostStructure {
   async getReplies(id: string, page = 1) {
     const req = await this.axios.get<APIGetPostReplies>(`/posts/${id}/replies?page=${page}`);
 
-    if ('error' in req.data) {
-      throw new Error(req.data.error);
+    if ('message' in req.data) {
+      throw new Error(req.data.message);
     }
 
     return req.data;
