@@ -12,7 +12,6 @@
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@darcy/api": "workspace:*",
     "axios": "1.4.0"
   },
   "devDependencies": {
