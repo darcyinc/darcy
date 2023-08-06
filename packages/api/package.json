@@ -13,7 +13,8 @@
     "start:dev": "concurrently \"nest start root --watch\" \"nest start users --watch\"",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/root/main",
-    "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
+    "postinstall": "pnpm prisma generate"
   },
   "dependencies": {
     "@fastify/compress": "^6.4.0",
