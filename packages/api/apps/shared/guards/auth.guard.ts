@@ -1,5 +1,4 @@
-import { Injectable, CanActivate, ExecutionContext, HttpException, HttpStatus } from '@nestjs/common';
-import { RpcException } from '@nestjs/microservices';
+import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -9,7 +8,7 @@ export class AuthGuard implements CanActivate {
 
     if (!authorizationHeader || !authorizationHeader.startsWith('Bearer ')) {
       // TODO: query the database for the user associated with the token
-      throw new RpcException('Invalid or missing Authorization header');
+      throw new UnauthorizedException('Invalid or missing Authorization header');
     }
 
     return true;

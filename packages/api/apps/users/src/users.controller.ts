@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, NotFoundException } from '@nestjs/common';
 import { MessagePattern, RpcException } from '@nestjs/microservices';
 import { CreateUserDto } from '../../shared/dtos/user.dto';
 import { UsersService } from './users.service';
@@ -17,7 +17,7 @@ export class UsersController {
     const user = await this.usersService.getUser(handle);
 
     if (!user) {
-      throw new RpcException('User not found');
+      throw new RpcException(new NotFoundException('User not found'));
     }
 
     return user;

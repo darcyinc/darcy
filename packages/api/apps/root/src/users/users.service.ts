@@ -1,8 +1,8 @@
 import { HttpException, Inject, Injectable } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { User } from '@prisma/client';
 import { CreateUserDto } from 'apps/shared/dtos/user.dto';
-import { firstValueFrom } from 'rxjs';
+import { catchError, firstValueFrom, throwError } from 'rxjs';
 
 @Injectable()
 export class UsersService {
@@ -18,11 +18,12 @@ export class UsersService {
   }
 
   async getUser(handle: string) {
-    try {
-      const user: User = await firstValueFrom(this.client.send('getUser', handle));
-      return user;
-    } catch {
-      throw new HttpException('User not found.', 404);
-    }
+    // try {
+    //   const user: User = await firstValueFrom(this.client.send('getUser', handle));
+    //   return user;
+    // } catch {
+    //   throw new HttpException('User not found.', 404);
+    // }
+    return this.client.send('getUser', handle).pipe(catchError((error) => throwError(() => new RpcException(error.response))));
   }
 }
