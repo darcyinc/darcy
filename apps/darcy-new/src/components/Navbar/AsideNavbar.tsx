@@ -5,7 +5,7 @@ import { MdCreate } from 'react-icons/md';
 
 import Button from '../Button';
 
-import { DesktopNavbarLinks } from './NavbarLinks';
+import { NavbarLinks } from './NavbarLinks';
 
 export default function AsideNavbar() {
   const t = useTranslations('Navbar');
@@ -19,7 +19,7 @@ export default function AsideNavbar() {
 
       {/* Links */}
       <nav className="flex flex-col items-center xl:items-start">
-        <DesktopNavbarLinks />
+        <NavbarLinks.Desktop />
 
         <Button className="mt-2 w-fit !p-4 xl:mt-5 xl:w-full xl:p-5" color="blue" size="lg">
           <MdCreate className="block text-2xl xl:mr-2 xl:hidden" />
