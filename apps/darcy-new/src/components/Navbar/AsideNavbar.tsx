@@ -11,7 +11,7 @@ export default function AsideNavbar() {
   const t = useTranslations('Navbar');
 
   return (
-    <div className="hidden w-fit max-w-[275px] flex-col items-center gap-2 px-1 sm:flex xl:items-start">
+    <div className="hidden w-fit max-w-[275px] flex-col items-center gap-2 border-r border-r-grayBorder px-1 sm:flex xl:items-start">
       {/* Logo */}
       <Link className="rounded-full p-2 text-textPrimary hover:bg-hoverEffect" href="/">
         <AiOutlineAlignLeft className="text-4xl" />
@@ -28,7 +28,15 @@ export default function AsideNavbar() {
       </nav>
 
       {/* User Profile */}
-      <div></div>
+      <Link className="mb-5 mt-auto w-full rounded-full p-3 hover:bg-hoverEffect" href="/davipatricio">
+        <div className="flex items-center gap-2">
+          <img alt="Your profile avatar." className="h-12 w-12 rounded-full" src="https://picsum.photos/48.webp" />
+          <div className="hidden w-full flex-col overflow-hidden xl:flex">
+            <p className="truncate font-bold text-textPrimary">Davi PatricioaPatricioaPatricioaPatricioa </p>
+            <p className="text-textSecondary">@davipatricio</p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }
