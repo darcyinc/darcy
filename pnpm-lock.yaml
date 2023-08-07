@@ -45,7 +45,7 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
 
-  apps/darcy-new:
+  apps/darcy:
     dependencies:
       clsx:
         specifier: ^2.0.0
