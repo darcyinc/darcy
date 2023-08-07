@@ -25,7 +25,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
   const relativeTime = useRelativeTime({ locale, time: createdAt });
 
   return (
-    <div className="flex h-fit w-full max-w-xl gap-2 border-b border-b-grayBorder px-3 py-2 hover:bg-hoverEffect">
+    <div className="flex w-full gap-2 border-b border-b-grayBorder px-3 py-2 hover:bg-hoverEffect">
       <div className="h-11 w-11">
         <img alt={username} className="rounded-full" draggable={false} src={avatar} />
       </div>
