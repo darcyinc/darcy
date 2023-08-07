@@ -18,6 +18,7 @@ import { useLocale } from 'next-intl';
 
 import useRelativeTime from '@/hooks/useRelativeTime';
 
+import ClickablePost from './ClickablePost';
 import FeedPostActions from './FeedPostActions';
 
 export default function FeedPost({ content, avatar, username, handle, createdAt, ...props }: FeedPostProps) {
@@ -25,7 +26,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
   const relativeTime = useRelativeTime({ locale, time: createdAt });
 
   return (
-    <div className="flex w-full gap-2 border-b border-b-grayBorder px-3 py-2 hover:bg-hoverEffect">
+    <ClickablePost>
       <div className="h-11 w-11">
         <img alt={username} className="rounded-full" draggable={false} src={avatar} />
       </div>
@@ -45,14 +46,12 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
           </p>
         </header>
 
-        <article>
-          <p className="break-words">{content}</p>
-        </article>
+        <article className="break-words">{content}</article>
 
         <footer className="mt-2 flex justify-evenly">
           <FeedPostActions {...props} />
         </footer>
       </div>
-    </div>
+    </ClickablePost>
   );
 }
