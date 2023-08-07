@@ -32,7 +32,7 @@ export default function AsideNavbar() {
         <div className="flex items-center gap-2">
           <img alt="Your profile avatar." className="h-12 w-12 rounded-full" src="https://picsum.photos/48.webp" />
           <div className="hidden w-full flex-col overflow-hidden xl:flex">
-            <p className="truncate font-bold text-textPrimary">Davi PatricioaPatricioaPatricioaPatricioa </p>
+            <p className="truncate font-bold text-textPrimary">Davi Patricio</p>
             <p className="text-textSecondary">@davipatricio</p>
           </div>
         </div>
