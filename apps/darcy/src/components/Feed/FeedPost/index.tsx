@@ -8,14 +8,19 @@ interface FeedPostProps {
   comments: number;
   reposts: number;
   views: number;
+  postId: string;
+  hasLiked: boolean;
+  hasReposted: boolean;
 }
 
+import Link from 'next/link';
 import { useLocale } from 'next-intl';
-import { MdOutlineFavoriteBorder, MdOutlineRestartAlt, MdOutlineSpeakerNotes, MdViewKanban } from 'react-icons/md';
 
 import useRelativeTime from '@/hooks/useRelativeTime';
 
-export default function FeedPost({ content, avatar, username, handle, createdAt, likes, comments, reposts, views }: FeedPostProps) {
+import FeedPostActions from './FeedPostActions';
+
+export default function FeedPost({ content, avatar, username, handle, createdAt, ...props }: FeedPostProps) {
   const locale = useLocale();
   const relativeTime = useRelativeTime({ locale, time: createdAt });
 
@@ -26,15 +31,18 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
       </div>
 
       <div className="flex flex-col">
-        <header className="flex flex-col">
-          <div className="flex gap-1">
-            <span className="font-bold">{username}</span>
-            <p className="flex gap-1 text-textSecondary">
-              <span>@{handle}</span>
-              <span className="select-none">·</span>
-              <time>{relativeTime}</time>
-            </p>
-          </div>
+        <header className="flex gap-1">
+          <Link className="font-bold text-textPrimary hover:underline" href={`/${handle}`}>
+            {username}
+          </Link>
+
+          <p className="flex gap-1 text-textSecondary">
+            <Link className="text-inherit hover:underline" href={`/${handle}`}>
+              @{handle}
+            </Link>
+            <span className="select-none">·</span>
+            <time>{relativeTime}</time>
+          </p>
         </header>
 
         <article>
@@ -42,25 +50,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
         </article>
 
         <footer className="mt-2 flex justify-evenly">
-          <div className="group flex select-none items-center gap-2 hover:text-blue">
-            <MdOutlineSpeakerNotes className="h-7 w-7 rounded-full p-1 group-hover:bg-blue/40" />
-            <span>{comments}</span>
-          </div>
-
-          <div data-reposted className="group flex select-none items-center gap-2 hover:text-green data-[reposted='true']:text-green">
-            <MdOutlineRestartAlt className="h-7 w-7 rounded-full p-1 group-hover:bg-green/40" />
-            <span>{reposts}</span>
-          </div>
-
-          <div data-liked className="group flex select-none items-center gap-2 hover:text-red data-[liked='true']:text-red">
-            <MdOutlineFavoriteBorder className="h-7 w-7 rounded-full p-1 group-hover:bg-red/40" />
-            <span>{likes}</span>
-          </div>
-
-          <div className="group flex select-none items-center gap-2 hover:text-blue">
-            <MdViewKanban className="h-7 w-7 rounded-full p-1 group-hover:bg-blue/40" />
-            <span>{views}</span>
-          </div>
+          <FeedPostActions {...props} />
         </footer>
       </div>
     </div>
