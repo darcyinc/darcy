@@ -1,10 +1,15 @@
 import Feed from '@/components/Feed';
+import FeedHeader from '@/components/Feed/FeedHeader';
 import FeedPost from '@/components/Feed/FeedPost';
 
 export default function Home() {
   return (
     <>
       <Feed>
+        <FeedHeader>
+          <p>Página inicial</p>
+        </FeedHeader>
+
         <FeedPost
           hasLiked
           hasReposted
