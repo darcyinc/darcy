@@ -11,7 +11,7 @@ export default function AsideNavbar() {
   const t = useTranslations('Navbar');
 
   return (
-    <div className="hidden w-fit max-w-[275px] flex-col items-center gap-2 border-r border-r-grayBorder px-1 sm:flex xl:items-start">
+    <div className="hidden w-fit max-w-[275px] flex-col items-center gap-2 border-r border-r-grayBorder px-1 sm:flex xl:items-start xl:pr-4">
       {/* Logo */}
       <Link className="rounded-full p-2 text-textPrimary hover:bg-hoverEffect" href="/">
         <AiOutlineAlignLeft className="text-4xl" />
