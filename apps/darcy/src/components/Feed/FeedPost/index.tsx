@@ -32,7 +32,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
       </div>
 
       <div className="flex flex-col">
-        <header className="flex flex-col gap-x-2 sm:flex-row">
+        <header className="flex flex-col gap-x-1 sm:flex-row">
           <Link className="truncate font-bold text-textPrimary hover:underline" href={`/${handle}`}>
             {username}
           </Link>
