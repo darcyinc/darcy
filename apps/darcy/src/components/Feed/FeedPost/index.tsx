@@ -1,3 +1,11 @@
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
+
+import useRelativeTime from '@/hooks/useRelativeTime';
+
+import ClickablePost from './ClickablePost';
+import FeedPostActions from './FeedPostActions';
+
 interface FeedPostProps {
   content: string;
   username: string;
@@ -13,17 +21,9 @@ interface FeedPostProps {
   hasReposted: boolean;
 }
 
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
-
-import useRelativeTime from '@/hooks/useRelativeTime';
-
-import ClickablePost from './ClickablePost';
-import FeedPostActions from './FeedPostActions';
-
-export default function FeedPost({ content, avatar, username, handle, createdAt, ...props }: FeedPostProps) {
+export default function FeedPost({ content, avatar, username, handle, createdAt: time, ...props }: FeedPostProps) {
   const locale = useLocale();
-  const relativeTime = useRelativeTime({ locale, time: createdAt });
+  const relativeTime = useRelativeTime({ locale, time });
 
   return (
     <ClickablePost>
