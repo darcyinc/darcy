@@ -6,9 +6,10 @@ import MobileNavbar from '@/components/Navbar/MobileNavbar';
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <>
-      <AsideNavbar />
-      {children}
       <MobileNavbar />
+      <AsideNavbar />
+
+      <main>{children}</main>
     </>
   );
 }

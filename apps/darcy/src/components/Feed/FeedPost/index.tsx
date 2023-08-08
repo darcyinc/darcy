@@ -27,22 +27,23 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
 
   return (
     <ClickablePost>
-      <div className="h-11 w-11">
+      <div className="h-10 w-10 flex-shrink-0">
         <img alt={username} className="rounded-full" draggable={false} src={avatar} />
       </div>
 
       <div className="flex flex-col">
-        <header className="flex gap-1">
-          <Link className="font-bold text-textPrimary hover:underline" href={`/${handle}`}>
+        <header className="flex flex-col gap-x-2 sm:flex-row">
+          <Link className="truncate font-bold text-textPrimary hover:underline" href={`/${handle}`}>
             {username}
           </Link>
 
           <p className="flex gap-1 text-textSecondary">
-            <Link className="text-inherit hover:underline" href={`/${handle}`}>
+            <Link className="truncate text-textSecondary hover:underline" href={`/${handle}`}>
               @{handle}
             </Link>
+
             <span className="select-none">·</span>
-            <time>{relativeTime}</time>
+            <time className="truncate">{relativeTime}</time>
           </p>
         </header>
 
