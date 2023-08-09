@@ -8,7 +8,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <main className="flex w-full flex-col items-center justify-center md:grid md:h-screen md:grid-cols-[55%_1fr] md:justify-start xl:grid-cols-[70%_1fr]">
       <Image
         alt="Blue sky"
-        className="hidden h-full max-h-screen w-full rounded-br rounded-tr object-cover md:block"
+        className="hidden h-full max-h-screen w-full rounded-r object-cover md:block"
         decoding="async"
         draggable={false}
         loading="lazy"

@@ -16,12 +16,12 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4.10.1",
-    "sass": "1.64.2",
+    "sass": "1.65.0",
     "zustand": "4.4.1"
   },
   "devDependencies": {
     "@types/node": "20.4.9",
-    "@types/react": "18.2.19",
+    "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "eslint": "8.46.0",
