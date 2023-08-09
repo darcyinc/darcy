@@ -6,7 +6,7 @@ export default function Trending() {
   const t = useTranslations('Trending');
 
   return (
-    <aside className="ml-[1.5%] flex w-full max-w-[348px] flex-col gap-4 pt-3">
+    <aside className="ml-[1.5%] hidden w-full max-w-[348px] flex-col gap-4 pt-3 lg:flex">
       <TrendingSearch />
 
       <div className="rounded-2xl bg-darkGray p-5">
