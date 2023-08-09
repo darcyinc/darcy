@@ -2,6 +2,7 @@ import Feed from '@/components/Feed';
 import FeedFilter from '@/components/Feed/FeedFilter';
 import FeedHeader from '@/components/Feed/FeedHeader';
 import FeedPost from '@/components/Feed/FeedPost';
+import FeedPostComposer from '@/components/Feed/FeedPostComposer';
 
 export default function Home() {
   return (
@@ -11,6 +12,8 @@ export default function Home() {
           <p className="p-4">Página inicial</p>
           <FeedFilter currentFilter="foryou" />
         </FeedHeader>
+
+        <FeedPostComposer />
 
         <FeedPost
           hasLiked

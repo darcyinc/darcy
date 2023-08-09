@@ -3,6 +3,9 @@
     "FeedFilter": {
       "foryou": "Para você",
       "following": "Seguindo"
+    },
+    "PostComposer": {
+      "publish": "Publicar"
     }
   },
   "Trending": {
