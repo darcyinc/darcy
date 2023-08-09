@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Feed>
         <FeedHeader>
-          <p className="p-4">Página inicial</p>
+          <p className="p-4 text-xl font-bold">Página inicial</p>
           <FeedFilter currentFilter="foryou" />
         </FeedHeader>
 
