@@ -1,4 +1,8 @@
 {
+  "AuthCallback": {
+    "goBack": "Voltar",
+    "authenticating": "Autenticando..."
+  },
   "Feed": {
     "FeedFilter": {
       "foryou": "Para você",
