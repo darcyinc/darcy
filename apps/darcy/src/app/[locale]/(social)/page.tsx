@@ -1,4 +1,5 @@
 import Feed from '@/components/Feed';
+import FeedFilter from '@/components/Feed/FeedFilter';
 import FeedHeader from '@/components/Feed/FeedHeader';
 import FeedPost from '@/components/Feed/FeedPost';
 
@@ -7,7 +8,8 @@ export default function Home() {
     <>
       <Feed>
         <FeedHeader>
-          <p>Página inicial</p>
+          <p className="p-4">Página inicial</p>
+          <FeedFilter currentFilter="foryou" />
         </FeedHeader>
 
         <FeedPost

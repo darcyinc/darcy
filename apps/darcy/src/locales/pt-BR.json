@@ -1,4 +1,10 @@
 {
+  "Feed": {
+    "FeedFilter": {
+      "foryou": "Para você",
+      "following": "Seguindo"
+    }
+  },
   "Trending": {
     "searchPlaceholder": "Buscar na Darcy",
     "trending": "O que está acontecendo"
