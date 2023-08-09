@@ -30,7 +30,7 @@ export default function OAuth2Button({ service, children }: PropsWithChildren<OA
   );
 
   return (
-    <Button className="rounded-md" color="blue" size="lg" type="button" onClick={handleRedirect}>
+    <Button className="rounded-md !text-lg" color="blue" size="lg" type="button" onClick={handleRedirect}>
       {children}
     </Button>
   );
