@@ -10,7 +10,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <MobileNavbar />
       <AsideNavbar />
 
-      <main>{children}</main>
+      <main className="w-full max-w-[600px]">{children}</main>
 
       <Trending />
     </>
