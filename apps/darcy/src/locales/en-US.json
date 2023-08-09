@@ -1,4 +1,8 @@
 {
+  "Trending": {
+    "searchPlaceholder": "Search Darcy",
+    "trending": "What's happening"
+  },
   "Navbar": {
     "home": "Home",
     "explore": "Explore",

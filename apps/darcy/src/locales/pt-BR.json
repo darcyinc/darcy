@@ -1,4 +1,8 @@
 {
+  "Trending": {
+    "searchPlaceholder": "Buscar na Darcy",
+    "trending": "O que está acontecendo"
+  },
   "Navbar": {
     "home": "Página inicial",
     "explore": "Explorar",
