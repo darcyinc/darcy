@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
+import { client } from '@/api/client';
 import { AUTH_SERVICES_CALLBACK } from '@/utils/constants';
 
 interface CallbackPageParams {
@@ -48,14 +49,10 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
 
       if (state !== oauth2State) return router.replace('/auth/signin');
 
-      // const { error, redirect, token } = await client.auth.withService({
-      //   code,
-      //   service
-      // });
-
-      const token = '',
-        error = '',
-        redirect = false;
+      const { error, redirect, token } = await client.auth.withService({
+        code,
+        service
+      });
 
       if (redirect) return router.replace('/auth/signin');
       if (error) return setError(error);

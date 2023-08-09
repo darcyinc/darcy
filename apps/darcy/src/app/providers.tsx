@@ -2,11 +2,8 @@
 
 import { PropsWithChildren, useEffect } from 'react';
 
+import { updateToken } from '@/api/client';
 import { useTheme } from '@/hooks/theme';
-
-const updateToken_stub = (token: string) => {
-  return token;
-};
 
 export default function Providers({ children }: PropsWithChildren) {
   const { theme } = useTheme();
@@ -14,11 +11,11 @@ export default function Providers({ children }: PropsWithChildren) {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
 
-    updateToken_stub(localStorage.getItem('token')!);
+    updateToken(localStorage.getItem('token')!);
 
     // Automatically update the token when it changes in another tab
     window.addEventListener('storage', (event) => {
-      if (event.storageArea === localStorage && event.key === 'token') updateToken_stub(event.newValue!);
+      if (event.storageArea === localStorage && event.key === 'token') updateToken(event.newValue!);
     });
   }, [theme]);
 

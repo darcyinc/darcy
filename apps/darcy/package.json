@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@darcy/api-wrapper": "workspace:^",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.9",
     "next": "13.4.13",
