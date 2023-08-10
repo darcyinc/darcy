@@ -43,7 +43,9 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
             </Link>
 
             <span className="select-none">·</span>
-            <time className="truncate">{relativeTime}</time>
+            <time className="truncate" dateTime={new Date(time).toISOString()}>
+              {relativeTime}
+            </time>
           </p>
         </header>
 
