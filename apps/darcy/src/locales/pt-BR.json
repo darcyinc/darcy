@@ -3,6 +3,11 @@
     "goBack": "Voltar",
     "authenticating": "Autenticando..."
   },
+  "UserProfile": {
+    "Information": {
+      "joinedAt": "Entrou em {date}"
+    }
+  },
   "Feed": {
     "FeedFilter": {
       "foryou": "Para você",

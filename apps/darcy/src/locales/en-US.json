@@ -3,6 +3,11 @@
     "goBack": "Go back",
     "authenticating": "Authenticating..."
   },
+  "UserProfile": {
+    "Information": {
+      "joinedAt": "Joined at {date}"
+    }
+  },
   "Feed": {
     "FeedFilter": {
       "foryou": "For you",
