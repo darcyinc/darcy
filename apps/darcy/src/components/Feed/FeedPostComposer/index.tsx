@@ -12,7 +12,6 @@ export default function FeedPostComposer() {
   const handleChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
 
-    event.target.style.height = 'inherit';
     event.target.style.height = `${event.target.scrollHeight}px`;
   }, []);
 
