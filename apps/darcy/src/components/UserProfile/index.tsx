@@ -1,5 +1,6 @@
 import Button from '../Button';
 
+import UserAvatarBanner from './UserAvatarBanner';
 import UserFollowStats from './UserFollowStats';
 import UserProfileInformation from './UserProfileInformation';
 
@@ -19,11 +20,7 @@ export default function UserProfile({ name, avatarUrl, bannerUrl, bio }: UserPro
     <div>
       {/* User avatar & banner */}
       <section className="relative">
-        <img alt="Banner" className="h-52 object-cover" draggable={false} src={bannerUrl} />
-
-        <div className="absolute -bottom-10 left-4 flex items-end justify-center sm:-bottom-16 md:left-5">
-          <img alt="Avatar" className="h-20 w-20 rounded-full border-2 border-black sm:h-32 sm:w-32" draggable={false} src={avatarUrl} />
-        </div>
+        <UserAvatarBanner avatarUrl={avatarUrl} bannerUrl={bannerUrl} />
 
         {/* TODO: Edit profile button, unfollow */}
         <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">
