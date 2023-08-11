@@ -4,6 +4,10 @@
     "authenticating": "Authenticating..."
   },
   "UserProfile": {
+    "FollowStats": {
+      "followers": "Followers",
+      "following": "Following"
+    },
     "Information": {
       "joinedAt": "Joined at {date}"
     }

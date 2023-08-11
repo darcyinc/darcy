@@ -1,5 +1,6 @@
 import Button from '../Button';
 
+import UserFollowStats from './UserFollowStats';
 import UserProfileInformation from './UserProfileInformation';
 
 interface UserProfileProps {
@@ -43,6 +44,9 @@ export default function UserProfile({ name, avatarUrl, bannerUrl, bio }: UserPro
           location="São Paulo, Brasil"
           website="https://davipatricio.vercel.appdavipatricio.vercel.appdavipatricio.vercel.appdavipatricio.vercel.app"
         />
+
+        {/* Following & followers */}
+        <UserFollowStats followers={12} following={32} />
       </section>
     </div>
   );
