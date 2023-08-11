@@ -37,6 +37,7 @@
       "error",
       "never"
     ],
+    "react/jsx-no-useless-fragment": "error",
     "unicorn/filename-case": [
       "error",
       {
