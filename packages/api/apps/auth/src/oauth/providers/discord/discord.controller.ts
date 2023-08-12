@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { AuthDto } from 'apps/shared/dtos/auth.dto';
 import { DiscordService } from './discord.service';
+import { AuthDto } from '@/lib/shared/dtos/auth.dto';
 
 @Controller('discord')
 export class DiscordController {

@@ -1,7 +1,7 @@
 import { HttpException, Inject, Injectable } from '@nestjs/common';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { User } from '@prisma/client';
-import { CreateUserDto } from 'apps/shared/dtos/user.dto';
+import { CreateUserDto } from '@/lib/shared/dtos/user.dto';
 import { catchError, firstValueFrom, throwError } from 'rxjs';
 
 @Injectable()

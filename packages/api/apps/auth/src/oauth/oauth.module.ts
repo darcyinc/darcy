@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { PrismaService } from 'apps/shared/services/prisma.service';
 import { DiscordController } from './providers/discord/discord.controller';
 import { DiscordService } from './providers/discord/discord.service';
+import { PrismaService } from '@/lib/shared/services/prisma.service';
 
 @Module({
   imports: [

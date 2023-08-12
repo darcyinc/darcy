@@ -1,9 +1,10 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
+import { FastifyRequest } from 'fastify';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {
-    const request = context.switchToHttp().getRequest();
+    const request = context.switchToHttp().getRequest<FastifyRequest>();
     const authorizationHeader = request.headers['authorization'];
 
     if (!authorizationHeader || !authorizationHeader.startsWith('Bearer ')) {

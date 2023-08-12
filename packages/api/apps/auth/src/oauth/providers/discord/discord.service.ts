@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { RpcException } from '@nestjs/microservices';
-import { AuthDto } from 'apps/shared/dtos/auth.dto';
-import { PrismaService } from 'apps/shared/services/prisma.service';
 import { DiscordTokenResponse, generateDiscordAuthParams } from './discord.utils';
+import { AuthDto } from '@/lib/shared/dtos/auth.dto';
+import { PrismaService } from '@/lib/shared/services/prisma.service';
 
 @Injectable()
 export class DiscordService {
