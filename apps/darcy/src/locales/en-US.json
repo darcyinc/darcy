@@ -1,0 +1,35 @@
+{
+  "AuthCallback": {
+    "goBack": "Go back",
+    "authenticating": "Authenticating..."
+  },
+  "UserProfile": {
+    "FollowStats": {
+      "followers": "Followers",
+      "following": "Following"
+    },
+    "Information": {
+      "joinedAt": "Joined at {date}"
+    }
+  },
+  "Feed": {
+    "FeedFilter": {
+      "foryou": "For you",
+      "following": "Following"
+    },
+    "PostComposer": {
+      "publish": "Publish"
+    }
+  },
+  "Trending": {
+    "searchPlaceholder": "Search Darcy",
+    "trending": "What's happening"
+  },
+  "Navbar": {
+    "home": "Home",
+    "explore": "Explore",
+    "notifications": "Notifications",
+    "messages": "Messages",
+    "publish": "Publish"
+  }
+}

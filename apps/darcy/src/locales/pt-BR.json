@@ -1,0 +1,35 @@
+{
+  "AuthCallback": {
+    "goBack": "Voltar",
+    "authenticating": "Autenticando..."
+  },
+  "UserProfile": {
+    "FollowStats": {
+      "followers": "Seguidores",
+      "following": "Seguindo"
+    },
+    "Information": {
+      "joinedAt": "Entrou em {date}"
+    }
+  },
+  "Feed": {
+    "FeedFilter": {
+      "foryou": "Para você",
+      "following": "Seguindo"
+    },
+    "PostComposer": {
+      "publish": "Publicar"
+    }
+  },
+  "Trending": {
+    "searchPlaceholder": "Buscar na Darcy",
+    "trending": "O que está acontecendo"
+  },
+  "Navbar": {
+    "home": "Página inicial",
+    "explore": "Explorar",
+    "notifications": "Notificações",
+    "messages": "Mensagens",
+    "publish": "Publicar"
+  }
+}

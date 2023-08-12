@@ -1,0 +1,35 @@
+{
+  "name": "@darcy/darcy",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@darcy/api-wrapper": "workspace:^",
+    "clsx": "^2.0.0",
+    "dayjs": "^1.11.9",
+    "next": "13.4.13",
+    "next-intl": "3.0.0-beta.9",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "4.10.1",
+    "sass": "1.65.0",
+    "zustand": "4.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.4.9",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.13",
+    "postcss": "8.4.27",
+    "sharp": "^0.32.4",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
+  }
+}
