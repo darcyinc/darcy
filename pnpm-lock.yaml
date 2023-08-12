@@ -137,8 +137,8 @@ importers:
         specifier: 9.0.2
         version: 9.0.2
       '@types/node':
-        specifier: 20.4.9
-        version: 20.4.9
+        specifier: 20.4.10
+        version: 20.4.10
       pino-pretty:
         specifier: 10.2.0
         version: 10.2.0
@@ -159,8 +159,8 @@ importers:
         version: 1.4.0
     devDependencies:
       '@types/node':
-        specifier: 20.4.9
-        version: 20.4.9
+        specifier: 20.4.10
+        version: 20.4.10
       tsup:
         specifier: 7.2.0
         version: 7.2.0(typescript@5.1.6)
@@ -781,15 +781,11 @@ packages:
   /@types/jsonwebtoken@9.0.2:
     resolution: {integrity: sha512-drE6uz7QBKq1fYqqoFKTDRdFCPHd5TCub75BM+D+cMx7NU9hUz7SESLfC2fSCXVFMO5Yj8sOWHuGqPgjc+fz0Q==}
     dependencies:
-      '@types/node': 20.4.9
+      '@types/node': 20.4.10
     dev: true
 
   /@types/node@20.4.10:
     resolution: {integrity: sha512-vwzFiiy8Rn6E0MtA13/Cxxgpan/N6UeNYR9oUu6kuJWxu6zCk98trcDp8CBhbtaeuq9SykCmXkFr2lWLoPcvLg==}
-    dev: true
-
-  /@types/node@20.4.9:
-    resolution: {integrity: sha512-8e2HYcg7ohnTUbHk8focoklEQYvemQmu9M/f43DZVx43kHn0tE3BY/6gSDxS7k0SprtS0NHvj+L80cGLnoOUcQ==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
