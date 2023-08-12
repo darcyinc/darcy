@@ -6,8 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "nest build",
-    "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
+    "build": "concurrently \"nest build root\" \"nest build users\" \"nest build auth\"",
     "dev": "pnpm start:dev",
     "start": "concurrently \"nest start root\" \"nest start users\" \"nest start auth\"",
     "start:dev": "concurrently \"nest start root -w\" \"nest start users -w\" \"nest start auth -w\"",
