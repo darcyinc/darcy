@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { RpcException } from '@nestjs/microservices';
 import { DiscordTokenResponse, generateDiscordAuthParams } from './discord.utils';
@@ -17,7 +17,7 @@ export class DiscordService {
     const { email, verified, username } = (await this.getDiscordUserData(token)) as { email: string; verified: boolean; username: string };
 
     if (!email || !verified) {
-      throw new RpcException('no_email_associated');
+      throw new RpcException(new ForbiddenException('Invalid email or email not verified.'));
     }
 
     const existingUser = await this.prismaService.userAuth.findFirst({
@@ -68,7 +68,7 @@ export class DiscordService {
     const data = (await request.json()) as DiscordTokenResponse;
 
     if (data.error || !data.scope.includes('identify') || !data.scope.includes('email')) {
-      throw new Error('Invalid scope or an error ocurred.');
+      throw new RpcException(new UnauthorizedException('Invalid scope or an error ocurred.'));
     }
 
     return data.access_token;
