@@ -79,8 +79,8 @@ importers:
         version: 4.4.1(@types/react@18.2.20)(react@18.2.0)
     devDependencies:
       '@types/node':
-        specifier: 20.4.9
-        version: 20.4.9
+        specifier: 20.4.10
+        version: 20.4.10
       '@types/react':
         specifier: 18.2.20
         version: 18.2.20
@@ -786,10 +786,6 @@ packages:
 
   /@types/node@20.4.10:
     resolution: {integrity: sha512-vwzFiiy8Rn6E0MtA13/Cxxgpan/N6UeNYR9oUu6kuJWxu6zCk98trcDp8CBhbtaeuq9SykCmXkFr2lWLoPcvLg==}
-    dev: true
-
-  /@types/node@20.4.9:
-    resolution: {integrity: sha512-8e2HYcg7ohnTUbHk8focoklEQYvemQmu9M/f43DZVx43kHn0tE3BY/6gSDxS7k0SprtS0NHvj+L80cGLnoOUcQ==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
