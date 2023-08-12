@@ -8,10 +8,6 @@ interface RootLayoutParams {
   };
 }
 
-export function generateStaticParams() {
-  return [{ locale: 'pt-BR' }, { locale: 'en-US' }];
-}
-
 export default async function RootLayout({ children, params }: PropsWithChildren<RootLayoutParams>) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const locale = useLocale();
