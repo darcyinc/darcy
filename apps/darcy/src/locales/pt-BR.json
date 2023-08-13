@@ -5,8 +5,7 @@
       "authenticating": "Autenticando..."
     },
     "greeting": "Bem-vindo(a) de volta!",
-    "loginTip": "Insira seus dados para se autenticar na Darcy.",
-    "noAccount": "Ainda não tem uma conta?"
+    "loginTip": "Insira seus dados para se autenticar na Darcy."
   },
   "UserProfile": {
     "FollowStats": {

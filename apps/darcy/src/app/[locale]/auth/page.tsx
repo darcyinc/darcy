@@ -15,7 +15,7 @@ export default function Home() {
     <form className="m-auto flex max-w-md animate-fade-in flex-col justify-center gap-2 p-5">
       <h1 className="text-3xl font-bold">{t('greeting')}</h1>
       <p>
-        {t('loginTip')} <Link href="/auth/signup">{t('noAccount')}</Link>
+        {t('loginTip')}
       </p>
 
       <OAuth.Providers />
