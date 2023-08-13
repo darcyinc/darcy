@@ -1,7 +1,12 @@
 {
-  "AuthCallback": {
-    "goBack": "Go back",
-    "authenticating": "Authenticating..."
+  "Auth": {
+    "AuthCallback": {
+      "goBack": "Go back",
+      "authenticating": "Authenticating..."
+    },
+    "greeting": "Welcome back!",
+    "loginTip": "Enter your credentials to authenticate on Darcy.",
+    "noAccount": "Don't have an account?"
   },
   "UserProfile": {
     "FollowStats": {

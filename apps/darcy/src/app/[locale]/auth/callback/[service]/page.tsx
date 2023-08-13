@@ -23,7 +23,7 @@ interface CallbackPageProps {
 }
 
 export default function CallbackPage({ params, searchParams }: CallbackPageProps) {
-  const t = useTranslations('AuthCallback');
+  const t = useTranslations('Auth.AuthCallback');
 
   const { service } = params;
   const { code, state } = searchParams;

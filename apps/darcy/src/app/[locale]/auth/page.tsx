@@ -2,20 +2,20 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 import { OAuth } from '@/components/OAuth';
+import { useTranslations } from 'next-intl';
 
 export const metadata: Metadata = {
   title: 'Sign in | Darcy'
 };
 
-// const _EMAIL_REGEX =
-//   /^[\w!#$%&'*+./=?^`{|}~-]+@[\dA-Za-z](?:[\dA-Za-z-]{0,61}[\dA-Za-z])?(?:\.[\dA-Za-z](?:[\dA-Za-z-]{0,61}[\dA-Za-z])?)*$/;
-
 export default function Home() {
+  const t = useTranslations('Auth');
+
   return (
     <form className="m-auto flex max-w-md animate-fade-in flex-col justify-center gap-2 p-5">
-      <h1 className="text-3xl font-bold">Bem-vindo(a) de volta!</h1>
+      <h1 className="text-3xl font-bold">{t('greeting')}</h1>
       <p>
-        Insira seus dados para se autenticar na Darcy. <Link href="/auth/signup">Ainda não tem uma conta?</Link>
+        {t('loginTip')} <Link href="/auth/signup">{t('noAccount')}</Link>
       </p>
 
       <OAuth.Providers />

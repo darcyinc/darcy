@@ -1,7 +1,12 @@
 {
-  "AuthCallback": {
-    "goBack": "Voltar",
-    "authenticating": "Autenticando..."
+  "Auth": {
+    "AuthCallback": {
+      "goBack": "Voltar",
+      "authenticating": "Autenticando..."
+    },
+    "greeting": "Bem-vindo(a) de volta!",
+    "loginTip": "Insira seus dados para se autenticar na Darcy.",
+    "noAccount": "Ainda não tem uma conta?"
   },
   "UserProfile": {
     "FollowStats": {
