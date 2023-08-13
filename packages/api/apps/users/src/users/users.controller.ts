@@ -1,7 +1,9 @@
 import { Controller, NotFoundException } from '@nestjs/common';
 import { MessagePattern, RpcException } from '@nestjs/microservices';
-import { UsersService } from './users.service';
+
 import { CreateUserDto } from '@/lib/shared/dtos/user.dto';
+
+import { UsersService } from './users.service';
 
 @Controller()
 export class UsersController {

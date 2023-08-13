@@ -3,9 +3,10 @@ import fastifyCsrf from '@fastify/csrf-protection';
 import helmet from '@fastify/helmet';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
+
 import { AppModule } from './app.module';
-import { ValidationPipe } from './pipes/validation.pipe';
 import { RpcExceptionFilter } from './exceptions/rpcExpection.filter';
+import { ValidationPipe } from './pipes/validation.pipe';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
@@ -19,4 +20,4 @@ async function bootstrap() {
 
   await app.listen(3001, '0.0.0.0');
 }
-bootstrap();
+void bootstrap();

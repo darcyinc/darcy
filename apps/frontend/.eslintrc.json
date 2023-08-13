@@ -18,7 +18,6 @@
         "missingExports": true,
         "unusedExports": true,
         "ignoreExports": [
-          "**/*.d.ts",
           "**/+(layout|page|not-found|template).tsx"
         ]
       }

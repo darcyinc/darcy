@@ -47,13 +47,21 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/require-await": "off",
     "@typescript-eslint/no-misused-promises": "off",
-    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-useless-constructor": "error",
     "@typescript-eslint/no-empty-function": [
       "error",
       {
         "allow": [
           "arrowFunctions"
         ]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
       }
     ],
     "prettier/prettier": "error",
@@ -81,13 +89,7 @@
       "always"
     ],
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "varsIgnorePattern": "^_",
-        "argsIgnorePattern": "^_"
-      }
-    ],
+    "no-useless-constructor": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/filename-case": [
       "error",

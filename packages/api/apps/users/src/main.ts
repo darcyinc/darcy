@@ -2,6 +2,7 @@ import 'dotenv/config';
 
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+
 import { UsersModule } from './users/users.module';
 
 async function bootstrap() {
@@ -13,4 +14,4 @@ async function bootstrap() {
   });
   await app.listen();
 }
-bootstrap();
+void bootstrap();

@@ -1,8 +1,9 @@
-import { AuthDto } from '@/lib/shared/dtos/auth.dto';
 import { HttpException, Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { User } from '@prisma/client';
 import { firstValueFrom } from 'rxjs';
+
+import { AuthDto } from '@/lib/shared/dtos/auth.dto';
 
 @Injectable()
 export class AuthService {

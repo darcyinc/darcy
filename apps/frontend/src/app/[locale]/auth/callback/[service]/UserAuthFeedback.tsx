@@ -56,7 +56,7 @@ export default function UserAuthFeedback({ service, code, state, i18n }: UserAut
       }
     };
 
-    auth();
+    void auth();
   }
 
   return <span className="m-auto text-xl">{i18n.authenticating}</span>;

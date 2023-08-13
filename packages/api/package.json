@@ -12,7 +12,6 @@
     "start:dev": "concurrently \"nest start root -w\" \"nest start users -w\" \"nest start auth -w\"",
     "start:debug": "nest start --debug -w",
     "start:prod": "node dist/apps/root/main",
-    "lint": "eslint \"{src,apps,libs}/**/*.ts\" --fix",
     "postinstall": "pnpm prisma generate"
   },
   "dependencies": {

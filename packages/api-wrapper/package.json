@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "tsup --watch",
-    "build": "tsup",
-    "lint": "eslint . --ext .ts"
+    "build": "tsup"
   },
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",

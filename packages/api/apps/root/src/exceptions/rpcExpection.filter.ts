@@ -9,6 +9,6 @@ export class RpcExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<FastifyReply>();
 
-    response.status(error?.statusCode ?? 500).send(error ?? 'Internal server error');
+    return response.status(error?.statusCode ?? 500).send(error ?? 'Internal server error');
   }
 }
