@@ -1,13 +1,15 @@
+import { useTranslations } from 'next-intl';
+
 import Feed from '@/components/Feed';
 import FeedFilter from '@/components/Feed/FeedFilter';
 import FeedHeader from '@/components/Feed/FeedHeader';
 import FeedPost from '@/components/Feed/FeedPost';
 import FeedPostComposer from '@/components/Feed/FeedPostComposer';
-import { useTranslations } from 'next-intl';
+import FeedPostLoader from '@/components/Feed/FeedPostLoader';
 
 export default function Home() {
   const t = useTranslations('Feed.FeedHeader');
-  
+
   return (
     <Feed>
       <FeedHeader>
@@ -31,6 +33,8 @@ export default function Home() {
         username="Davi Patricio"
         views={100}
       />
+
+      <FeedPostLoader onVisible={undefined} />
     </Feed>
   );
 }
