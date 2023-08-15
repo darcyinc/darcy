@@ -21,6 +21,7 @@ export default function Home() {
 
       <div className="pt-20">
         <UserProfile
+          verified
           avatarUrl="https://picsum.photos/200/200"
           bannerUrl="https://picsum.photos/800/200"
           bio="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."

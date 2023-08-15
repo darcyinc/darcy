@@ -1,3 +1,5 @@
+import { MdVerified } from 'react-icons/md';
+
 import Button from '../Button';
 
 import UserAvatarBanner from './UserAvatarBanner';
@@ -13,9 +15,10 @@ interface UserProfileProps {
   job?: string;
   location?: string;
   website?: string;
+  verified?: boolean;
 }
 
-export default function UserProfile({ name, avatarUrl, bannerUrl, bio }: UserProfileProps) {
+export default function UserProfile({ name, avatarUrl, bannerUrl, bio, job, website, location, verified }: UserProfileProps) {
   return (
     <div>
       {/* User avatar & banner */}
@@ -32,15 +35,14 @@ export default function UserProfile({ name, avatarUrl, bannerUrl, bio }: UserPro
 
       {/* User info */}
       <section className="mt-[70px] flex flex-col gap-1 px-4">
-        <h1 className="text-xl font-bold">{name}</h1>
+        <div className="flex items-center gap-1">
+          <h1 className="text-xl font-bold">{name}</h1>
+          {verified && <MdVerified className="text-blue" />}
+        </div>
+
         <p>{bio}</p>
 
-        <UserProfileInformation
-          job="Software Engineer"
-          joinedAt={Date.now() - 999_000_000}
-          location="São Paulo, Brasil"
-          website="https://davipatricio.vercel.appdavipatricio.vercel.appdavipatricio.vercel.appdavipatricio.vercel.app"
-        />
+        <UserProfileInformation job={job} joinedAt={Date.now() - 999_000_000} location={location} website={website} />
 
         {/* Following & followers */}
         <UserFollowStats followers={12} following={32} />
