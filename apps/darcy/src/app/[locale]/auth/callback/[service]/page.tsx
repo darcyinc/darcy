@@ -35,7 +35,7 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
     return (
       <span className="m-auto text-center text-xl">
         <p>{error}</p>
-        <Link href="/auth/signin">{t('goBack')}</Link>
+        <Link href="/auth">{t('goBack')}</Link>
       </span>
     );
   }
@@ -47,14 +47,14 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
 
       if (!AUTH_SERVICES_CALLBACK.includes(service) || !code || !state) return router.replace('/auth');
 
-      if (state !== oauth2State) return router.replace('/auth/signin');
+      if (state !== oauth2State) return router.replace('/auth');
 
       const { error, redirect, token } = await client.auth.withService({
         code,
         service
       });
 
-      if (redirect) return router.replace('/auth/signin');
+      if (redirect) return router.replace('/auth');
       if (error) return setError(error);
 
       if (token) {
