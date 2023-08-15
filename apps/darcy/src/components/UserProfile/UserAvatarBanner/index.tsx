@@ -13,7 +13,7 @@ export default function UserAvatarBanner({ avatarUrl, bannerUrl }: UserAvatarBan
   const [avatarModalOpen, setAvatarModalOpen] = useState(false);
 
   return (
-    <section className="relative">
+    <div>
       {avatarModalOpen && (
         <Modal onClose={() => setAvatarModalOpen(false)}>
           <div className="max-h-[220px] max-w-[220px] sm:max-h-[320px] sm:max-w-[320px]">
@@ -39,6 +39,6 @@ export default function UserAvatarBanner({ avatarUrl, bannerUrl }: UserAvatarBan
       >
         <img alt="Avatar" className="h-20 w-20 rounded-full border-2 border-black sm:h-32 sm:w-32" draggable={false} src={avatarUrl} />
       </button>
-    </section>
+    </div>
   );
 }
