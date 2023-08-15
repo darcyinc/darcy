@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { HiX } from 'react-icons/hi';
 
 interface ModalProps extends React.ComponentProps<'div'> {
@@ -17,10 +17,27 @@ export default function Modal(props: ModalProps) {
     [props]
   );
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') props.onClose();
+    };
+
+    // add tabindex to all elements that is not data-modal and its children
+    const elements = [...document.body.querySelectorAll('*')].filter((element: Element) => !element.closest('[data-modal]'));
+
+    for (const element of elements) {
+      if (element instanceof HTMLElement) element.setAttribute('tabindex', '-1');
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [props]);
+
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       {...props}
+      data-modal
       className={clsx(
         'fixed inset-0 z-10 flex h-full w-full items-center justify-center overflow-y-auto bg-background/90 p-2 sm:p-0',
         props.className
