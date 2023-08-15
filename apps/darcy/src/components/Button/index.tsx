@@ -7,13 +7,13 @@ interface ButtonProps extends React.ComponentProps<'button'> {
 
 const ButtonStyles: Record<ButtonProps['color'], string> = {
   blue: 'bg-blue text-white hover:bg-blue/80 disabled:bg-blue/50 disabled:text-white/50',
-  white: 'bg-white text-black hover:bg-gray-300 disabled:bg-gray-300 disabled:text-black/70',
+  white: 'bg-white text-black hover:bg-gray-300 disabled:bg-gray-300 disabled:text-black/70'
 };
 
 const ButtonSizes: Record<ButtonProps['size'], string> = {
   sm: 'text-sm',
   md: 'text-base',
-  lg: 'w-full p-5 text-xl',
+  lg: 'w-full p-5 text-xl'
 };
 
 export default function Button({ children, color = 'blue', size = 'md', ...props }: ButtonProps) {

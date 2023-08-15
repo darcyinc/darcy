@@ -1,9 +1,18 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { IconType } from 'react-icons';
 import { MdHome, MdSearch, MdNotificationsNone, MdNotifications, MdMailOutline, MdMail } from 'react-icons/md';
 
-const DesktopLinks = [
+interface DesktopLink {
+  active?: boolean;
+  i18nName: string;
+  href: string;
+  Icon: IconType;
+  ActiveIcon?: IconType;
+}
+
+const DesktopLinks: DesktopLink[] = [
   {
     active: true,
     i18nName: 'home',
