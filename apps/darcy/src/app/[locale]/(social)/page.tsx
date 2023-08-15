@@ -3,12 +3,15 @@ import FeedFilter from '@/components/Feed/FeedFilter';
 import FeedHeader from '@/components/Feed/FeedHeader';
 import FeedPost from '@/components/Feed/FeedPost';
 import FeedPostComposer from '@/components/Feed/FeedPostComposer';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('Feed.FeedHeader');
+  
   return (
     <Feed>
       <FeedHeader>
-        <p className="p-4 text-xl font-bold">Página inicial</p>
+        <p className="p-4 text-xl font-bold">{t('home')}</p>
         <FeedFilter currentFilter="foryou" />
       </FeedHeader>
 

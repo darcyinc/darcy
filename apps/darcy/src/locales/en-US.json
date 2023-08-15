@@ -17,6 +17,9 @@
     }
   },
   "Feed": {
+    "FeedHeader": {
+      "home": "Home"
+    },
     "FeedFilter": {
       "foryou": "For you",
       "following": "Following"
