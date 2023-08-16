@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "**/.eslintignore",
+        "**/.eslintrc.json",
+        "**/.prettierignore",
+        "**/.prettierrc.json",
+        "**/tsconfig.eslint.json",
+        "**/src/**/*.tsx",
+        "**/src/**/*.ts",
+        "**/src/**/*.css",
+        "**/src/**/*.scss",
+        "**/.prettierrc",
+        "**/next.config.js"
+      ],
+      "outputs": [".next/**", "!.next/cache/**", "dist"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "inputs": [
+        "**/.eslintignore",
+        "**/.eslintrc.json",
+        "**/.prettierignore",
+        "**/.prettierrc.json",
+        "**/tsconfig.eslint.json",
+        "**/src/**/*.tsx",
+        "**/src/**/*.ts",
+        "**/src/**/*.css",
+        "**/src/**/*.scss",
+        "**/.prettierrc",
+        "**/next.config.js"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

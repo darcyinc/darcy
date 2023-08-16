@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+export default {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
@@ -9,12 +10,12 @@ module.exports = {
         grayBorder: 'rgb(var(--color-gray-border) / <alpha-value>)',
         red: 'rgb(var(--color-red) / <alpha-value>)',
         green: 'rgb(var(--color-green) / <alpha-value>)',
-  
+
         background: 'rgb(var(--theme-background) / <alpha-value>)',
-  
+
         textPrimary: 'rgb(var(--text-primary) / <alpha-value>)',
         textSecondary: 'rgb(var(--text-secondary) / <alpha-value>)',
-  
+
         hoverEffect: 'var(--color-hover-effect)'
       },
       animation: {
@@ -22,11 +23,11 @@ module.exports = {
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 }
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
         }
       }
     }
   },
   plugins: []
-};
+} satisfies Config;

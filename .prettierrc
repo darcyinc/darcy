@@ -8,5 +8,5 @@
   "trailingComma": "none",
   "plugins": ["prettier-plugin-tailwindcss"],
   "pluginSearchDirs": false,
-  "tailwindConfig": "./apps/darcy/tailwind.config.js"
+  "tailwindConfig": "./apps/darcy/tailwind.config.ts"
 }

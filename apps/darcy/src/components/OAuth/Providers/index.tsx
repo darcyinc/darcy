@@ -17,7 +17,7 @@ export default function LoginProviders() {
       </label>
 
       <Button disabled className="my-2.5" color="blue" size="lg" type="submit">
-        <p className="font-semibold text-lg">Enviar link de autenticação</p>
+        <p className="text-lg font-semibold">Enviar link de autenticação</p>
       </Button>
 
       <Divider text="ou entre com" />

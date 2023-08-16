@@ -1,31 +1,35 @@
 {
   "compilerOptions": {
+    // General Options
     "allowSyntheticDefaultImports": true,
-    "alwaysStrict": true,
-    "declaration": false,
+    "allowJs": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "remove",
-    "isolatedModules": true,
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "target": "ESNext",
-    "noEmit": true,
+    
+    // Strict Type-Checking Options
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    
+    // Additional Type-Checking Options
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    
+    // Miscellaneous Options
+    "alwaysStrict": true,
+    "declaration": false,
+    "isolatedModules": true,
+    "noEmit": true,
     "removeComments": true,
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true
-  },
-  "include": [
-    "packages/",
-    "apps/"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "skipLibCheck": true
+  }
 }

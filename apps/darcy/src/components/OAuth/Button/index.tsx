@@ -1,12 +1,11 @@
 'use client';
 
+import clsx from 'clsx';
 import { PropsWithChildren, useCallback } from 'react';
-
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 
 import Button from '@/components/Button';
-import clsx from 'clsx';
 
 interface OAuth2ButtonProps {
   service: 'discord' | 'google' | 'github';
@@ -28,7 +27,7 @@ const Services = {
     styles: 'bg-neutral-600 !text-white hover:bg-neutral-600/80',
     Icon: BsGithub
   }
-}
+};
 
 export default function OAuth2Button({ service, children }: PropsWithChildren<OAuth2ButtonProps>) {
   const serviceData = Services[service];
@@ -44,12 +43,12 @@ export default function OAuth2Button({ service, children }: PropsWithChildren<OA
 
       window.location.href = oauthLink;
     },
-    [service]
+    [service, serviceData.link]
   );
 
   return (
     <Button className={clsx('gap-2', serviceData.styles)} color="blue" size="md" type="button" onClick={handleRedirect}>
-      <serviceData.Icon className="w-6 h-6" />
+      <serviceData.Icon className="h-6 w-6" />
       {children}
     </Button>
   );
