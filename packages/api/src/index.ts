@@ -1,14 +1,11 @@
+import 'dotenv/config';
+
 import path from 'node:path';
 
 import autoload from '@fastify/autoload';
 import cors from '@fastify/cors';
 import { PrismaClient } from '@prisma/client';
-import { config } from 'dotenv';
 import fastify from 'fastify';
-
-config({
-  path: '../.env'
-});
 
 global.prisma = new PrismaClient();
 global.prisma.$connect();
