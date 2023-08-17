@@ -14,7 +14,7 @@ async function run() {
       data: {
         auth: {
           create: {
-            email: 'alicesmitch@example.com'
+            email: 'alicesmith@example.com'
           }
         },
         handle: 'alicesmith',
@@ -46,7 +46,7 @@ run()
   .then(async () => {
     await prisma.$disconnect();
   })
-  .catch(async (e) => {
+  .catch(async (error) => {
     await prisma.$disconnect();
-    throw e;
+    throw error;
   });

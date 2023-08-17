@@ -1,7 +1,6 @@
 {
-  "extends": [
-    "../../.eslintrc.json"
-  ],
+  "root": true,
+  "extends": "../../.eslintrc.json",
   "rules": {
     "import/no-unused-modules": "off",
     "unicorn/prefer-module": "off",

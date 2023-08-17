@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'pnpm'
 
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -40,13 +41,18 @@ jobs:
       - name: Setup Next.js cache
         uses: actions/cache@v3
         with:
-           path: ${{ github.workspace }}/apps/darcy/.next/cache
-           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
-           restore-keys: |
+          path: ${{ github.workspace }}/apps/darcy/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
+          restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - uses: dtinth/setup-github-actions-caching-for-turbo@v1
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run build & lint
+      - name: Run build
         run: pnpm run build
+
+      - name: Run lint
+        run: pnpm run lint

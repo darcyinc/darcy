@@ -8,7 +8,7 @@
     "start": "node dist/index.js",
     "dev": "tsup --watch",
     "build": "tsup",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --cache",
     "postinstall": "prisma generate"
   },
   "author": "Davi Patricio <davipatricio@protonmail.com>",
@@ -26,7 +26,18 @@
     "@types/jsonwebtoken": "9.0.2",
     "@types/node": "20.5.0",
     "pino-pretty": "10.2.0",
-    "prisma": "5.1.1",
+    "prisma": "5.1.1",  
+    "@typescript-eslint/eslint-plugin": "6.4.0",
+    "@typescript-eslint/parser": "6.4.0",
+    "eslint": "8.47.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-unicorn": "48.0.1",
+    "prettier": "3.0.1",
+    "prettier-plugin-tailwindcss": "0.0.0-insiders.dad4b36",
+    "typescript": "5.1.6",
     "tsup": "7.2.0"
   },
   "prisma": {
