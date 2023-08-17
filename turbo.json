@@ -13,7 +13,7 @@
         "**/.prettierrc",
         "**/next.config.js"
       ],
-      "outputs": [".next/**", "!.next/cache/**", "dist"]
+      "outputs": ["**/.next/**", "!**/.next/cache/**", "**/dist", "**/.eslintcache"]
     },
     "lint": {
       "dependsOn": ["^lint"],
@@ -26,8 +26,7 @@
       ]
     },
     "start": {
-      "inputs": ["**/next.config.js", "**/.env"],
-      "outputs": [".next/**", "!.next/cache/**", "dist"]
+      "inputs": ["**/next.config.js", "**/.env"]
     },
     "dev": {
       "cache": false,
