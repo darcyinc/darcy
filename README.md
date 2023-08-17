@@ -31,13 +31,16 @@ The Darcy API, built with Fastify and TypeScript, is located in the `packages/ap
 Darcy comes with the following npm scripts:
 
 `build`: Builds the frontend, API and API Wrapper.
-`start`: Starts the production version of the website and API. You **must run build** before running this script.
+
+`start`: Starts the production version of the website and API. You **must** run the build build before running this script.
+
 `dev`: Starts the development server with hot-reloading enabled.
-`lint`: Lints the codebase using ESLint and Prettier.
+
+`lint`: Lints the codebase using ESLint and Prettier. You **must** run the build build before running this script.
 
 ## License
 
-Darcy is released under the MIT License. For more details, see the LICENSE file.
+Darcy is released under the MIT License. For more details, see the [LICENSE](LICENSE) file.
 
 ---
 
