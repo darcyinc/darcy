@@ -8,7 +8,6 @@ import { PrismaClient } from '@prisma/client';
 import fastify from 'fastify';
 
 global.prisma = new PrismaClient();
-global.prisma.$connect();
 
 const app = fastify({
   logger: {
