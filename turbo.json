@@ -4,10 +4,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": [
-        "**/.eslintignore",
         "**/.eslintrc.json",
-        "**/.prettierignore",
-        "**/.prettierrc.json",
         "**/tsconfig.eslint.json",
         "**/src/**/*.tsx",
         "**/src/**/*.ts",
@@ -21,17 +18,11 @@
     "lint": {
       "dependsOn": ["^lint"],
       "inputs": [
-        "**/.eslintignore",
         "**/.eslintrc.json",
-        "**/.prettierignore",
-        "**/.prettierrc.json",
         "**/tsconfig.eslint.json",
         "**/src/**/*.tsx",
         "**/src/**/*.ts",
-        "**/src/**/*.css",
-        "**/src/**/*.scss",
-        "**/.prettierrc",
-        "**/next.config.js"
+        "**/.prettierrc"
       ]
     },
     "start": {
