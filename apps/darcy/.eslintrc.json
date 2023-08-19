@@ -16,7 +16,7 @@
         "missingExports": true,
         "unusedExports": true,
         "ignoreExports": [
-          "./tailwind.config.ts",
+          "**/tailwind.config.ts",
           "**/+(layout|page|not-found).tsx"
         ]
       }
