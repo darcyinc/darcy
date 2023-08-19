@@ -2,7 +2,11 @@ name: Build project and run linter
 
 on:
   push:
+    paths:
+      - '**/*.{ts,js,tsx,json}'
   pull_request:
+    paths:
+      - '**/*.{ts,js,tsx,json}'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
