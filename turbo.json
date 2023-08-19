@@ -1,27 +1,22 @@
 {
   "$schema": "https://turbo.build/schema.json",
+	"globalDependencies": ["pnpm-lock.lock", "**/tsconfig.json", "**/tsup.config.ts"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
       "inputs": [
-        ".eslintrc.json",
-        "tsconfig.eslint.json",
         "src/**/*.tsx",
-        "src/**/*.ts",
-        "src/**/*.css",
-        "src/**/*.scss",
-        ".prettierrc",
-        "next.config.js"
+        "src/**/*.ts"
       ],
       "outputs": [".next/**", "!.next/cache/**", "dist/**", ".eslintcache"]
     },
     "lint": {
       "dependsOn": ["^lint"],
       "inputs": [
-        "**/.eslintrc.json",
-        "**/tsconfig.eslint.json",
         "**/src/**/*.tsx",
         "**/src/**/*.ts",
+        "**/.eslintrc.json",
+        "**/tsconfig.eslint.json",
         "**/.prettierrc"
       ],
       "outputs": [".eslintcache"]
