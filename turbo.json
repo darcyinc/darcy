@@ -32,7 +32,6 @@
       "outputs": ["dist/**"]
     },
     "@darcy/api#build": {
-      "dependsOn": ["^build"],
       "inputs": ["src/**/*.ts"],
       "outputs": ["dist/**"]
     }
