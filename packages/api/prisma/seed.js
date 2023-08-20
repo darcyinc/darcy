@@ -19,9 +19,6 @@ async function run() {
         },
         handle: 'alicesmith',
         displayName: 'Alice Smith'
-      },
-      include: {
-        auth: true
       }
     }),
 
@@ -34,9 +31,6 @@ async function run() {
         },
         handle: 'johndoe',
         displayName: 'John Doe'
-      },
-      include: {
-        auth: true
       }
     })
   ]);
