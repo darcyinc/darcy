@@ -9,7 +9,7 @@
     },
     "lint": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["**/src/**/*.tsx", "**/src/**/*.ts", "**/.eslintrc.json", "**/tsconfig.eslint.json", "**/.prettierrc"],
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "**/.eslintrc.json", "**/tsconfig.eslint.json", "**/.prettierrc"],
       "outputs": [".eslintcache"]
     },
     "start": {
@@ -27,12 +27,11 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "@darcy/api-wrapper#build": {
-      "dependsOn": ["@darcy/api#build"],
       "inputs": ["src/**/*.ts"],
       "outputs": ["dist/**"]
     },
     "@darcy/api#build": {
-      "inputs": ["src/**/*.ts"],
+      "inputs": ["apps/**/*.ts"],
       "outputs": ["dist/**"]
     }
   }
