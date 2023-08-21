@@ -4,8 +4,8 @@
   "private": true,
   "types": "./types/index.ts",
   "scripts": {
-    "start": "node scripts/start-all.mjs",
-    "dev": "tsup --watch --onSuccess \"node scripts/start-all.mjs\"",
+    "start": "node scripts/startAll.mjs",
+    "dev": "tsup --watch --onSuccess \"node scripts/startAll.mjs\"",
     "build": "tsup",
     "lint": "eslint . --cache",
     "postinstall": "prisma generate"
