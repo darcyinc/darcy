@@ -1,7 +1,8 @@
 import { Unauthorized } from 'http-errors';
 
+import { DarcyRouteConfig } from '@/shared/types/routeConfig';
+
 import { DarcyFastifyInstance } from '..';
-import { DarcyRouteConfig } from '../../shared/types/routeConfig';
 
 export default async function (app: DarcyFastifyInstance) {
   app.addHook('preHandler', async (request, reply) => {

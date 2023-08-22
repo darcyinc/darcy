@@ -4,7 +4,7 @@ import compress from '@fastify/compress';
 import cors from '@fastify/cors';
 import fastify from 'fastify';
 
-import { setupPrisma } from '../shared/lib/prisma';
+import { setupPrisma } from '@/shared/lib/prisma';
 
 import { registerAutoload } from './utils/registerAutoLoad';
 

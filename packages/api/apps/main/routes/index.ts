@@ -1,5 +1,6 @@
+import { DarcyRouteConfig } from '@/shared/types/routeConfig';
+
 import { DarcyFastifyInstance } from '..';
-import { DarcyRouteConfig } from '../../shared/types/routeConfig';
 
 export default async function (app: DarcyFastifyInstance) {
   app.route({
