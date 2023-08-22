@@ -4,6 +4,8 @@ import compress from '@fastify/compress';
 import cors from '@fastify/cors';
 import fastify from 'fastify';
 
+import { setupPrisma } from '../shared/lib/prisma';
+
 import { registerAutoload } from './utils/registerAutoLoad';
 
 const app = fastify({
@@ -18,6 +20,8 @@ const app = fastify({
 const PORT = Number(process.env.PORT ?? 3001);
 
 async function bootstrap() {
+  await setupPrisma();
+
   await Promise.all([
     registerAutoload(app, './middlewares', { encapsulate: false }),
     registerAutoload(app, './routes'),
