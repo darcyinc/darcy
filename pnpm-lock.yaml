@@ -165,6 +165,12 @@ importers:
       jsonwebtoken:
         specifier: 9.0.1
         version: 9.0.1
+      zod:
+        specifier: 3.22.2
+        version: 3.22.2
+      zod-validation-error:
+        specifier: 1.5.0
+        version: 1.5.0(zod@3.22.2)
     devDependencies:
       '@types/http-errors':
         specifier: 2.0.1
@@ -3907,7 +3913,7 @@ packages:
       postcss: 8.4.28
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
-      resolve: 1.22.2
+      resolve: 1.22.4
     dev: true
 
   /postcss-js@4.0.1(postcss@8.4.28):
@@ -5177,8 +5183,21 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /zod-validation-error@1.5.0(zod@3.22.2):
+    resolution: {integrity: sha512-/7eFkAI4qV0tcxMBB/3+d2c1P6jzzZYdYSlBuAklzMuCrJu5bzJfHS0yVAS87dRHVlhftd6RFJDIvv03JgkSbw==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      zod: ^3.18.0
+    dependencies:
+      zod: 3.22.2
+    dev: false
+
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false
+
+  /zod@3.22.2:
+    resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
     dev: false
 
   /zustand@4.4.1(@types/react@18.2.20)(react@18.2.0):

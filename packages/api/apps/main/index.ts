@@ -1,7 +1,6 @@
-import 'dotenv/config';
-
 import compress from '@fastify/compress';
 import cors from '@fastify/cors';
+import { config } from 'dotenv';
 import fastify from 'fastify';
 
 import { setupPrisma } from '@/shared/lib/prisma';
@@ -18,6 +17,8 @@ const app = fastify({
 });
 
 const PORT = Number(process.env.PORT ?? 3001);
+
+config({ path: '../../.env' });
 
 async function bootstrap() {
   await setupPrisma();
