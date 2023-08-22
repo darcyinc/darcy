@@ -11,12 +11,8 @@ const signAsync = promisify<TokenPayload, string>(sign);
 const verifyAsync = promisify<string, string>(verify);
 
 export const createToken = async (email: string, updatedAt: number): Promise<string> => {
-  try {
-    const token = (await signAsync({ email, updatedAt }, process.env.JWT_SECRET!)) as unknown as string;
-    return token;
-  } catch (error) {
-    throw error;
-  }
+  const token = (await signAsync({ email, updatedAt }, process.env.JWT_SECRET!)) as unknown as string;
+  return token;
 };
 
 export const verifyToken = async (token: string) => {
