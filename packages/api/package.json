@@ -2,11 +2,10 @@
   "name": "@darcy/api",
   "version": "1.0.0",
   "private": true,
-  "main": "dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./types/index.ts",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "tsup --watch",
+    "start": "node scripts/startAll.mjs",
+    "dev": "tsup --watch --onSuccess \"node scripts/startAll.mjs\"",
     "build": "tsup",
     "lint": "eslint . --cache",
     "postinstall": "prisma generate"
@@ -15,18 +14,20 @@
   "license": "MIT",
   "dependencies": {
     "@fastify/autoload": "5.7.1",
+    "@fastify/compress": "6.4.0",
     "@fastify/cors": "8.3.0",
     "@prisma/client": "5.2.0",
     "dotenv": "16.3.1",
     "fastify": "4.21.0",
-    "fastify-plugin": "4.5.1",
-    "jsonwebtoken": "9.0.1"
+    "http-errors": "2.0.0",
+    "jsonwebtoken": "9.0.1",
+    "zod": "3.22.2",
+    "zod-validation-error": "1.5.0"
   },
   "devDependencies": {
+    "@types/http-errors": "2.0.1",
     "@types/jsonwebtoken": "9.0.2",
     "@types/node": "20.5.3",
-    "pino-pretty": "10.2.0",
-    "prisma": "5.2.0",  
     "@typescript-eslint/eslint-plugin": "6.4.1",
     "@typescript-eslint/parser": "6.4.1",
     "eslint": "8.47.0",
@@ -35,10 +36,12 @@
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5",
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-unicorn": "48.0.1",
+    "pino-pretty": "10.2.0",
     "prettier": "3.0.2",
     "prettier-plugin-tailwindcss": "0.5.3",
-    "typescript": "5.1.6",
-    "tsup": "7.2.0"
+    "prisma": "5.2.0",
+    "tsup": "7.2.0",
+    "typescript": "5.1.6"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

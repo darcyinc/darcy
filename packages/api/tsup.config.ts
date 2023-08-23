@@ -1,21 +1,11 @@
-import { spawn } from 'node:child_process';
-import { copyFile } from 'node:fs/promises';
-
 import { defineConfig } from 'tsup';
 
-export default defineConfig((options) => ({
-  entry: ['src/**/*.ts'],
+export default defineConfig({
+  entry: ['apps/**/*.ts'],
   sourcemap: false,
   clean: true,
-  dts: true,
+  dts: false,
   format: 'cjs',
   minify: true,
-  target: 'node20',
-
-  onSuccess: async () => {
-    await Promise.allSettled([
-      copyFile('./.env', './dist/.env'),
-      options.watch ? spawn('node', ['dist/index.js'], { stdio: 'inherit' }) : undefined
-    ]);
-  }
-}));
+  target: 'node20'
+});

@@ -1,5 +1,4 @@
 {
-  "root": true,
   "extends": "../../.eslintrc.json",
   "rules": {
     "import/no-unused-modules": "off",
