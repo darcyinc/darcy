@@ -54,7 +54,7 @@ export default function Modal(props: ModalProps) {
           type="button"
           onClick={props.onClose}
         >
-          <HiX className="h-6 w-6 sm:h-8 sm:w-8" />
+          <HiX className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
 
         <div className="rounded-lg pl-6">{props.children}</div>
