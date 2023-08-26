@@ -6,10 +6,12 @@
       "@/shared/*": [
         "apps/shared/*"
       ]
-    }
+    },
+    "types": [
+      "./types/env.d.ts"
+    ]
   },
   "include": [
-    "apps/**/*.ts",
-    "types/env.d.ts"
+    "apps/**/*.ts"
   ]
 }

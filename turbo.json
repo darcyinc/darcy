@@ -23,7 +23,7 @@
     },
     "@darcy/darcy#build": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css", "src/**/*.tsx", "public/**", "next.config.js"],
+      "inputs": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css", "public/**", "next.config.js"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "@darcy/api-wrapper#build": {
