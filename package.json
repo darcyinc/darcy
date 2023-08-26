@@ -1,14 +1,21 @@
 {
   "name": "@darcy/monorepo",
   "version": "0.0.1",
-  "private": true,
+  "description": "Description of your monorepo project.",
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.6.12",
   "scripts": {
     "build": "turbo run build",
     "start": "turbo run start",
     "dev": "turbo run dev",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "format": "turbo run format"
   },
   "devDependencies": {
     "@types/node": "20.5.6",
@@ -18,16 +25,9 @@
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.6.0",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5",
-    "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-unicorn": "48.0.1",
     "prettier": "3.0.2",
-    "prettier-plugin-tailwindcss": "0.5.3",
     "turbo": "1.10.13",
     "typescript": "5.2.2"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
-  },
-  "packageManager": "pnpm@8.6.12"
+  }
 }

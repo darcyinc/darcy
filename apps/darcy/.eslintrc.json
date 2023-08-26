@@ -1,12 +1,6 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:jsx-a11y/recommended",
-    "../../.eslintrc.json"
-  ],
-  "plugins": [
-    "jsx-a11y"
-  ],
+  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended", "../../.eslintrc.json"],
+  "plugins": ["jsx-a11y"],
   "rules": {
     "@next/next/no-img-element": "off",
     "import/no-unused-modules": [
@@ -14,10 +8,7 @@
       {
         "missingExports": true,
         "unusedExports": true,
-        "ignoreExports": [
-          "**/tailwind.config.ts",
-          "**/+(layout|page|not-found).tsx"
-        ]
+        "ignoreExports": ["**/tailwind.config.ts", "**/+(layout|page|not-found).tsx"]
       }
     ],
     "react/jsx-sort-props": [
@@ -30,10 +21,7 @@
       }
     ],
     "react/button-has-type": "error",
-    "react/jsx-boolean-value": [
-      "error",
-      "never"
-    ],
+    "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-no-useless-fragment": "error",
     "unicorn/filename-case": [
       "error",

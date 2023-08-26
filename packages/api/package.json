@@ -1,17 +1,19 @@
 {
   "name": "@darcy/api",
   "version": "1.0.0",
+  "description": "Description of your API project.",
   "private": true,
   "types": "./types/index.ts",
+  "author": "Davi Patricio <davipatricio@protonmail.com>",
+  "license": "MIT",
   "scripts": {
     "start": "node scripts/startAll.mjs",
     "dev": "tsup --watch --onSuccess \"node scripts/startAll.mjs\"",
     "build": "tsup",
-    "lint": "eslint . --cache",
+    "lint": "prettier --check apps types && eslint apps types",
+    "format": "prettier --write apps types && eslint --fix apps types",
     "postinstall": "prisma generate"
   },
-  "author": "Davi Patricio <davipatricio@protonmail.com>",
-  "license": "MIT",
   "dependencies": {
     "@fastify/autoload": "5.7.1",
     "@fastify/compress": "6.4.0",
@@ -34,11 +36,9 @@
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.6.0",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.27.5",
-    "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-unicorn": "48.0.1",
     "pino-pretty": "10.2.0",
     "prettier": "3.0.2",
-    "prettier-plugin-tailwindcss": "0.5.3",
     "prisma": "5.2.0",
     "tsup": "7.2.0",
     "typescript": "5.2.2"

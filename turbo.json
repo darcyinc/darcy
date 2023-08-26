@@ -1,16 +1,30 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["pnpm-lock.lock", "**/tsconfig.json", "**/tsup.config.ts"],
+  "globalDependencies": [
+    "pnpm-lock.lock",
+    "**/tsconfig.json",
+    "**/.eslintrc.json",
+    "**/tsup.config.ts",
+    "turbo.json",
+    "package.json",
+    ".prettierrc.json",
+    "**/.prettierignore"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "package.json"],
       "outputs": ["dist/**"]
     },
     "lint": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "**/.eslintrc.json", "**/tsconfig.eslint.json", "**/.prettierrc"],
-      "outputs": [".eslintcache"]
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "**/tsconfig.eslint.json", "package.json"],
+      "outputs": []
+    },
+    "format": {
+      "dependsOn": ["@darcy/api-wrapper#build"],
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "**/tsconfig.eslint.json", "package.json"],
+      "outputs": []
     },
     "start": {
       "cache": false,
@@ -23,7 +37,7 @@
     },
     "@darcy/darcy#build": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css", "public/**", "next.config.js"],
+      "inputs": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css", "public/**", "next.config.js", "package.json"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "@darcy/api-wrapper#build": {

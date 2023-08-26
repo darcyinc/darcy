@@ -33,7 +33,8 @@ body {
   }
 
   * {
-    transition: color 0.2s ease-out, background-color 0.2s ease-out;
+    transition:
+      color 0.2s ease-out,
+      background-color 0.2s ease-out;
   }
-
 }
