@@ -14,7 +14,7 @@ const app = fastify({
   }
 });
 
-const PORT = Number(process.env.PORT ?? 3001);
+const PORT = Number(4001);
 
 config({ path: '../../.env' });
 
@@ -22,7 +22,6 @@ async function bootstrap() {
   await setupPrisma();
 
   await Promise.all([
-    registerAutoload(app, './middlewares', { encapsulate: false }),
     registerAutoload(app, './routes'),
     app.register(compress)
   ]);
