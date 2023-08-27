@@ -17,7 +17,11 @@
       "./packages/*/tsconfig.eslint.json"
     ]
   },
-  "plugins": ["@typescript-eslint", "unicorn"],
+  "plugins": [
+    "@typescript-eslint",
+    "unicorn",
+    "import"
+  ],
   "ignorePatterns": [
     // Ignore specific files and directories
     "*.js",
@@ -48,7 +52,9 @@
     "@typescript-eslint/no-empty-function": [
       "error",
       {
-        "allow": ["arrowFunctions"]
+        "allow": [
+          "arrowFunctions"
+        ]
       }
     ],
     "@typescript-eslint/no-unused-vars": [
@@ -58,13 +64,19 @@
         "argsIgnorePattern": "^_"
       }
     ],
-
     // Import and naming rules
     "import/no-named-as-default": "off",
     "import/order": [
       "error",
       {
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
@@ -72,9 +84,11 @@
         "newlines-between": "always"
       }
     ],
-
     // General rules
-    "eqeqeq": ["error", "always"],
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
     "no-unused-vars": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/filename-case": [

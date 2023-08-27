@@ -2,7 +2,7 @@ import path from 'node:path';
 
 import fastifyAutoload from '@fastify/autoload';
 
-import { DarcyFastifyInstance } from '..';
+import { DarcyFastifyInstance } from '../../main';
 
 export async function registerAutoload(app: DarcyFastifyInstance, dir: string, options?: { encapsulate?: boolean }) {
   await app.register(fastifyAutoload, {
