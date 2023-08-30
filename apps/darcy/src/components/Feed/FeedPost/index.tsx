@@ -27,9 +27,9 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
 
   return (
     <ClickablePost>
-      <div className="h-10 w-10 flex-shrink-0">
+      <Link className="h-10 w-10 flex-shrink-0" href={`/${handle}`}>
         <img alt={username} className="rounded-full" draggable={false} src={avatar} />
-      </div>
+      </Link>
 
       <div className="flex flex-col">
         <header className="flex flex-col gap-x-1 sm:flex-row">
