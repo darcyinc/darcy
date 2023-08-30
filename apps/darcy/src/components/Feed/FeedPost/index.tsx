@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 
+import UserBadge from '@/components/UserProfile/UserBadge';
 import useRelativeTime from '@/hooks/useRelativeTime';
 
 import ClickablePost from './ClickablePost';
@@ -31,17 +32,19 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
         <img alt={username} className="rounded-full" draggable={false} src={avatar} />
       </Link>
 
-      <div className="flex flex-col">
-        <header className="flex flex-col gap-x-1 sm:flex-row">
+      <div className="flex flex-col overflow-hidden">
+        <header className="flex items-center gap-x-1 truncate">
           <Link className="truncate font-bold text-textPrimary hover:underline" href={`/${handle}`}>
             {username}
           </Link>
 
-          <p className="flex gap-1 text-textSecondary">
-            <Link className="truncate text-textSecondary hover:underline" href={`/${handle}`}>
-              @{handle}
-            </Link>
+          <Link className="hidden truncate text-textSecondary hover:underline sm:inline" href={`/${handle}`}>
+            @{handle}
+          </Link>
 
+          <UserBadge badge="verified" />
+
+          <p className="flex flex-1 gap-1 overflow-hidden text-textSecondary">
             <span className="select-none">·</span>
             <time className="truncate" dateTime={new Date(time).toISOString()}>
               {relativeTime}
@@ -51,7 +54,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
 
         <article className="break-words">{content}</article>
 
-        <footer className="mt-2 flex justify-evenly">
+        <footer className="mx-1 mt-2 flex justify-between sm:mx-0 sm:justify-evenly">
           <FeedPostActions {...props} />
         </footer>
       </div>
