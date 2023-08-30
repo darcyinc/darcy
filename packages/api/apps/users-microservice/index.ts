@@ -21,10 +21,7 @@ config({ path: '../../.env' });
 async function bootstrap() {
   await setupPrisma();
 
-  await Promise.all([
-    registerAutoload(app, './routes'),
-    app.register(compress)
-  ]);
+  await Promise.all([registerAutoload(app, './routes'), app.register(compress)]);
 
   await app.listen({ port: PORT, host: '0.0.0.0' });
 }
