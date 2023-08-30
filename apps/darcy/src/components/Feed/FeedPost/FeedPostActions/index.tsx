@@ -33,7 +33,7 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
 
   return (
     <>
-      <button className="group flex select-none items-center hover:text-blue" type="button">
+      <button className="group flex select-none items-center gap-2 hover:text-blue" type="button">
         <MdOutlineSpeakerNotes className="h-7 w-7 rounded-full p-1 group-hover:bg-blue/40" />
         <span>{comments}</span>
       </button>
