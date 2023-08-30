@@ -1,8 +1,7 @@
-import { MdVerified } from 'react-icons/md';
-
 import Button from '../Button';
 
 import UserAvatarBanner from './UserAvatarBanner';
+import UserBadge from './UserBadge';
 import UserFollowStats from './UserFollowStats';
 import UserProfileInformation from './UserProfileInformation';
 
@@ -37,7 +36,7 @@ export default function UserProfile({ name, avatarUrl, bannerUrl, bio, job, webs
       <section className="mt-[70px] flex flex-col gap-1 px-4">
         <div className="flex items-center gap-1">
           <h1 className="text-xl font-bold">{name}</h1>
-          {verified && <MdVerified className="text-blue" />}
+          {verified && <UserBadge badge="verified" />}
         </div>
 
         <p>{bio}</p>
