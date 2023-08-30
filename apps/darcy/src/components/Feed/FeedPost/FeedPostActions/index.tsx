@@ -28,6 +28,9 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
     console.log('Reposting post', postId);
   };
 
+  const RepostIcon = hasReposted ? MdRestartAlt : MdOutlineRestartAlt;
+  const LikedIcon = hasLiked ? MdFavorite : MdOutlineFavoriteBorder;
+
   return (
     <>
       <button className="group flex select-none items-center gap-2 hover:text-blue" type="button">
@@ -41,11 +44,7 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
         type="button"
         onClick={handleRepost}
       >
-        {hasReposted ? (
-          <MdRestartAlt className="h-7 w-7 rounded-full p-1 group-hover:bg-green/40" />
-        ) : (
-          <MdOutlineRestartAlt className="h-7 w-7 rounded-full p-1 group-hover:bg-green/40" />
-        )}
+        <RepostIcon className="h-7 w-7 rounded-full p-1 group-hover:bg-green/40" />
         <span>{reposts}</span>
       </button>
 
@@ -55,12 +54,7 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
         type="button"
         onClick={handleLike}
       >
-        {hasLiked ? (
-          <MdFavorite className="h-7 w-7 rounded-full p-1 group-hover:bg-red/40" />
-        ) : (
-          <MdOutlineFavoriteBorder className="h-7 w-7 rounded-full p-1 group-hover:bg-red/40" />
-        )}
-
+        <LikedIcon className="h-7 w-7 rounded-full p-1 group-hover:bg-red/40" />
         <span>{likes}</span>
       </button>
 
