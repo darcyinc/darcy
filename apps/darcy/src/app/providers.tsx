@@ -8,9 +8,9 @@ import { useTheme } from '@/hooks/theme';
 export default function Providers({ children }: PropsWithChildren) {
   const { theme } = useTheme();
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+  if (typeof window !== 'undefined') document.documentElement.dataset.theme = theme;
 
+  useEffect(() => {
     updateToken(localStorage.getItem('token')!);
 
     // Automatically update the token when it changes in another tab
