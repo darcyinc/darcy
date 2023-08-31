@@ -28,36 +28,36 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
 
   return (
     <ClickablePost>
-      <Link className="h-10 w-10 flex-shrink-0" href={`/${handle}`}>
-        <img alt={username} className="rounded-full" draggable={false} src={avatar} />
-      </Link>
+      <div className="flex gap-2">
+        <Link className="h-10 w-10 flex-shrink-0" href={`/${handle}`}>
+          <img alt={username} className="rounded-full" draggable={false} src={avatar} />
+        </Link>
 
-      <div className="flex flex-col overflow-hidden">
-        <header className="flex items-center gap-x-1 truncate">
-          <Link className="truncate font-bold text-textPrimary hover:underline" href={`/${handle}`}>
-            {username}
-          </Link>
+        <div className="flex flex-col overflow-hidden">
+          <header className="flex items-center gap-x-1 truncate">
+            <Link className="truncate font-bold text-textPrimary hover:underline" href={`/${handle}`}>
+              {username}
+            </Link>
 
-          <Link className="hidden truncate text-textSecondary hover:underline sm:inline" href={`/${handle}`}>
-            @{handle}
-          </Link>
+            <Link className="hidden truncate text-textSecondary hover:underline sm:inline" href={`/${handle}`}>
+              @{handle}
+            </Link>
 
-          <UserBadge badge="verified" />
+            <UserBadge badge="verified" />
 
-          <p className="flex flex-1 gap-1 overflow-hidden text-textSecondary">
-            <span className="select-none">·</span>
-            <time className="truncate" dateTime={new Date(time).toISOString()}>
-              {relativeTime}
-            </time>
-          </p>
-        </header>
+            <p className="flex flex-1 gap-1 overflow-hidden text-textSecondary">
+              <span className="select-none">·</span>
+              <time className="truncate" dateTime={new Date(time).toISOString()}>
+                {relativeTime}
+              </time>
+            </p>
+          </header>
 
-        <article className="break-words">{content}</article>
-
-        <footer className="mx-1 mt-2 flex justify-between sm:mx-0 sm:justify-evenly">
-          <FeedPostActions {...props} />
-        </footer>
+          <article className="break-words">{content}</article>
+        </div>
       </div>
+
+      <FeedPostActions {...props} />
     </ClickablePost>
   );
 }

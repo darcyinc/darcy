@@ -20,6 +20,9 @@ interface FeedPostActionsProps {
 }
 
 export default function FeedPostActions({ comments, reposts, likes, views, postId, hasLiked, hasReposted }: FeedPostActionsProps) {
+  const RepostIcon = hasReposted ? MdRestartAlt : MdOutlineRestartAlt;
+  const LikedIcon = hasLiked ? MdFavorite : MdOutlineFavoriteBorder;
+
   const handleLike = async () => {
     console.log('Liking post', postId);
   };
@@ -28,11 +31,8 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
     console.log('Reposting post', postId);
   };
 
-  const RepostIcon = hasReposted ? MdRestartAlt : MdOutlineRestartAlt;
-  const LikedIcon = hasLiked ? MdFavorite : MdOutlineFavoriteBorder;
-
   return (
-    <>
+    <footer className="mt-2 flex justify-evenly">
       <button className="group flex select-none items-center gap-2 hover:text-blue" type="button">
         <MdOutlineSpeakerNotes className="h-7 w-7 rounded-full p-1 group-hover:bg-blue/40" />
         <span>{comments}</span>
@@ -62,6 +62,6 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
         <MdViewKanban className="h-7 w-7 rounded-full p-1 group-hover:bg-purple-500/40" />
         <span>{views}</span>
       </button>
-    </>
+    </footer>
   );
 }
