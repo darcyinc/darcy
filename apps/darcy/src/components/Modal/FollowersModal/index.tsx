@@ -5,22 +5,20 @@ import { useCallback } from 'react';
 
 import Modal from '@/components/Modal';
 
-interface HomeProps {
-  params: {
-    username: string;
-  };
+interface FollowersModalProps {
+  username: string;
 }
 
-export default function Home({ params }: HomeProps) {
+export default function FollowersModal({ username }: FollowersModalProps) {
   const router = useRouter();
 
   const onClose = useCallback(() => {
-    router.replace(`/${params.username}`);
-  }, [router, params]);
+    router.replace(`/${username}`);
+  }, [router, username]);
 
   return (
     <Modal showSolidBackground onClose={onClose}>
-      {params.username}
+      {username}
     </Modal>
   );
 }
