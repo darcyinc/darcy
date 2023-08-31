@@ -1,20 +1,30 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { KeyboardEvent, MouseEvent, PropsWithChildren, useCallback } from 'react';
 
 import isEnterOrClick from '@/utils/isEnterOrClick';
 
-export default function ClickablePost({ children }: PropsWithChildren) {
-  const handleClick = useCallback((event: KeyboardEvent | MouseEvent) => {
-    event.preventDefault();
+interface ClickablePostProps {
+  postId: string;
+}
 
-    // only trigger if the event target is the post itself or a article element (post content)
-    if (event.target !== event.currentTarget && (event.target as HTMLElement).tagName !== 'ARTICLE') return;
+export default function ClickablePost({ children, postId }: PropsWithChildren<ClickablePostProps>) {
+  const router = useRouter();
 
-    if (!isEnterOrClick(event)) return;
+  const handleClick = useCallback(
+    (event: KeyboardEvent | MouseEvent) => {
+      event.preventDefault();
 
-    console.log('clicked on post');
-  }, []);
+      // only trigger if the event target is the post itself or a article element (post content)
+      if (event.target !== event.currentTarget && (event.target as HTMLElement).tagName !== 'ARTICLE') return;
+
+      if (!isEnterOrClick(event)) return;
+
+      router.push(`/post/${postId}`);
+    },
+    [postId, router]
+  );
 
   return (
     <div

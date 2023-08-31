@@ -27,7 +27,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
   const relativeTime = useRelativeTime({ locale, time });
 
   return (
-    <ClickablePost>
+    <ClickablePost postId={props.postId}>
       <div className="flex gap-2">
         <Link className="h-10 w-10 flex-shrink-0" href={`/${handle}`}>
           <img alt={username} className="rounded-full" draggable={false} src={avatar} />
