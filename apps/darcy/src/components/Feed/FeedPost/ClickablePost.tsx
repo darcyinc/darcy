@@ -18,7 +18,7 @@ export default function ClickablePost({ children }: PropsWithChildren) {
 
   return (
     <div
-      className="flex w-full gap-2 overflow-hidden border-b border-b-grayBorder p-2 hover:bg-hoverEffect"
+      className="overflow-hidden border-b border-b-grayBorder p-2 hover:bg-hoverEffect"
       role="button"
       tabIndex={0}
       onClick={handleClick}
