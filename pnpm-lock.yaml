@@ -57,8 +57,8 @@ importers:
         specifier: 13.4.19
         version: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1)
       next-intl:
-        specifier: 3.0.0-beta.14
-        version: 3.0.0-beta.14(next@13.4.19)(react@18.2.0)
+        specifier: 3.0.0-beta.15
+        version: 3.0.0-beta.15(next@13.4.19)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -3190,9 +3190,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl@3.0.0-beta.14(next@13.4.19)(react@18.2.0):
-    resolution: {integrity: sha512-/nDS1Y8yrRJU2wVcqUw0pAdmN/+Z8JuGHJslzaOAjZ/UqJTYsBci+BiczkMGB8Tqk1F7OoDVRIxKQFtS3wu6mg==}
-    engines: {node: '>=10'}
+  /next-intl@3.0.0-beta.15(next@13.4.19)(react@18.2.0):
+    resolution: {integrity: sha512-u28FFxUUQNiTXyMmpCHKG/lWGIkGpT7e564MqnkRX5ExCWbnzx90fRqLsDHDkYGIYw5iTzvlmdSQO6OuDu9k4w==}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3202,7 +3201,7 @@ packages:
       next: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1)
       react: 18.2.0
       server-only: 0.0.1
-      use-intl: 3.0.0-beta.2(react@18.2.0)
+      use-intl: 3.0.0-beta.3(react@18.2.0)
     dev: false
 
   /next@13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1):
@@ -4715,9 +4714,8 @@ packages:
     dependencies:
       punycode: 2.3.0
 
-  /use-intl@3.0.0-beta.2(react@18.2.0):
-    resolution: {integrity: sha512-6q3p15QFpiYk0UptLXPOTHHczZRle4fRCb+VKcaM6m9m3LDZ28nN0SFsE3STdnYGvXXsozE6t6O3t9GC1/WdPA==}
-    engines: {node: '>=10'}
+  /use-intl@3.0.0-beta.3(react@18.2.0):
+    resolution: {integrity: sha512-b5c9F6F3Yw7xbdIVdDBj2qh5BHntdr2Obp3c40OTxXOwqDIyjAbOxjezGe7ak8EGo0TEezyN6oPvi6aQWPjDdQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
