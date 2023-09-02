@@ -32,16 +32,4 @@
     --color-scheme: only light;
     --theme-background: 255 255 255;
   }
-
-  html[data-theme='slate'] {
-    --color-dark-gray: 30 39 50;
-    --color-gray-border: 56 68 77;
-
-    --color-hover-effect: rgba(247, 249, 249, 0.1);
-
-    --text-primary: 255 255 255;
-    --text-secondary: 139 152 165;
-
-    --theme-background: 21 32 43;
-  }
 }

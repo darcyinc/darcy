@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 interface ITheme {
-  theme: 'dark' | 'light' | 'slate';
+  theme: 'dark' | 'light';
   setTheme: (theme: ITheme['theme']) => void;
 }
 
