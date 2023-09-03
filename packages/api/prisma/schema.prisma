@@ -10,59 +10,78 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Define the User schema
 model User {
-  id          String  @id @default(uuid())
-  displayName String  @default("")
+  id          String  @id @default(cuid())
+  displayName String
   handle      String  @unique
   bio         String  @default("")
   private     Boolean @default(false)
-  avatar      String?
-  banner      String?
+  avatarUrl   String?
+  bannerUrl   String?
 
-  posts     Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Define the relationships with other models
+  posts     Post[]       @relation("Author")
   auth      UserAuth?
-  followers User[]    @relation("Followers")
-  following User[]    @relation("Following")
+  followers UserFollow[] @relation("UserFollowers")
+  following UserFollow[] @relation("UserFollowing")
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  likedPosts    Post[] @relation("PostLikes") @ignore
+  repostedPosts Post[] @relation("PostReposts") @ignore
 
-  // Relations
-  PostLikes    Post?   @relation("PostLikes", fields: [postLikesId], references: [id])
-  postLikesId  String? @ignore
-  PostReposts  Post?   @relation("PostReposts", fields: [postRepostId], references: [id])
-  postRepostId String? @ignore
-  Followers    User?   @relation("Followers", fields: [followersId], references: [id])
-  followersId  String? @ignore
-  Following    User?   @relation("Following", fields: [followingId], references: [id])
-  followingId  String? @ignore
+  // Define the counts
+  postCount      Int @default(0)
+  followerCount  Int @default(0)
+  followingCount Int @default(0)
 }
 
+// Define the UserAuth schema
 model UserAuth {
-  id     String @id @default(uuid())
-  user   User   @relation(fields: [userId], references: [id])
+  id     String @id @default(cuid())
+  user   User?  @relation(fields: [userId], references: [id])
   userId String @unique
-  email  String @unique
+  email  String
 
-  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 }
 
+// Define the Post schema
 model Post {
-  id       String   @id @default(uuid())
-  author   User?    @relation(fields: [authorId], references: [id])
-  authorId String?
-  content  String?
-  media    String[]
-
-  likes    User[] @relation("PostLikes")
-  reposts  User[] @relation("PostReposts")
-  comments Post[] @relation("PostComments")
+  id        String   @id @default(cuid())
+  author    User     @relation("Author", fields: [authorId], references: [id])
+  authorId  String
+  content   String
+  mediaUrls String[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // Relations
-  PostComments   Post?   @relation("PostComments", fields: [postCommentsId], references: [id])
-  postCommentsId String? @ignore
+  // Define the relationships with other models
+  likes   User[] @relation("PostLikes")
+  reposts User[] @relation("PostReposts")
+
+  comments   Post[]  @relation("CommentOf")
+  parentPost Post?   @relation("CommentOf", fields: [parentId], references: [id])
+  parentId   String?
+
+  // Define the counts
+  likeCount    Int @default(0)
+  repostCount  Int @default(0)
+  commentCount Int @default(0)
+}
+
+// Define the UserFollow schema
+model UserFollow {
+  id       String @id @default(cuid())
+  user     User   @relation("UserFollowers", fields: [userId], references: [id])
+  userId   String
+  target   User   @relation("UserFollowing", fields: [targetId], references: [id])
+  targetId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
