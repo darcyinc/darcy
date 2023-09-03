@@ -29,8 +29,8 @@ model User {
   followers UserFollow[] @relation("UserFollowers")
   following UserFollow[] @relation("UserFollowing")
 
-  likedPosts    Post[] @relation("PostLikes") @ignore
-  repostedPosts Post[] @relation("PostReposts") @ignore
+  likedPosts    Post[] @relation("PostLikes")
+  repostedPosts Post[] @relation("PostReposts")
 
   // Define the counts
   postCount      Int @default(0)
