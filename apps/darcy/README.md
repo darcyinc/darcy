@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Darcy Social Network
+
+Welcome to Darcy, a beautiful and engaging social network that allows you to connect with friends, share your thoughts, and explore a world of possibilities.
+
+This is the folder for the website of Darcy. The website is built using Next.js, next-i18n, zustand and TailwindCSS.
+
+## Table of Contents
+
+- [Introduction](#darcy-social-network)
+- [Getting Started](#getting-started)
+- [NPM Scripts](#npm-scripts)
+- [License](#license)
 
 ## Getting Started
 
-First, run the development server:
+To kickstart your Darcy website experience, follow these simple steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. **Install Dependencies:** Begin by installing the required dependencies using pnpm: `pnpm install`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Configure Environment:** Rename `.env.example` to `.env` and populate it with the necessary environment variables.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Build and Start:** Initialize the website with this command: `pnpm build && pnpm start` or `pnpm dev` for development mode.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Explore the API:** Open your web browser and go to http://localhost:3000 to access the website.
 
-## Learn More
+## NPM Scripts
 
-To learn more about Next.js, take a look at the following resources:
+The monorepo comes with the following npm scripts:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `build`: Builds the website.
+- `dev`: Initiates the development server with hot-reloading enabled.
+- `start`: Launches the production version of the website.
+- `lint`: Ensures codebase formatting adheres to Prettier and ESLint standards.
+- `format`: Automatically formats and rectifies codebase issues using Prettier and ESLint.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+Darcy and the Darcy website are distributed under the MIT License. For detailed licensing information, please consult the [LICENSE](LICENSE) file.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+We hope you enjoy using Darcy and have a fantastic experience connecting with others in this wonderful social network. If you encounter any issues or have any questions, feel free to open an issue on our GitHub repository.
