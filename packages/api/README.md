@@ -2,7 +2,7 @@
 
 Welcome to Darcy, a beautiful and engaging social network that allows you to connect with friends, share your thoughts, and explore a world of possibilities.
 
-This is the folder for the API of Darcy. The API is built using Node.js and Fastify, and uses PostgreSQL as the database. The API is split into multiple microservices, each of which is contained in its own folder in the `apps` directory.
+This is the folder for the API of Darcy. The API is built using Node.js and Fastify, and uses PostgreSQL as the database. The API is split into multiple microservices (which uses the API Gateway design pattern), each of which is contained in its own folder in the `apps` directory.
 
 ## Table of Contents
 
