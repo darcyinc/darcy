@@ -2,7 +2,7 @@ import { NotFound } from 'http-errors';
 
 import { DarcyRouteConfig } from '@/shared/types/routeConfig';
 
-import { DarcyFastifyInstance } from '../../';
+import { DarcyFastifyInstance } from '../..';
 
 export default async function (app: DarcyFastifyInstance) {
   app.route<{
