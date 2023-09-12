@@ -38,6 +38,6 @@ async function bootstrap() {
   await app.listen({ port: PORT, host: '0.0.0.0' });
 }
 
-bootstrap();
+void bootstrap();
 
 export type DarcyFastifyInstance = typeof app;
