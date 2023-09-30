@@ -55,7 +55,7 @@ importers:
         version: 1.11.9
       next:
         specifier: 13.4.19
-        version: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1)
+        version: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.68.0)
       next-intl:
         specifier: 3.0.0-rc.2
         version: 3.0.0-rc.2(next@13.4.19)(react@18.2.0)
@@ -72,8 +72,8 @@ importers:
         specifier: 5.21.5
         version: 5.21.5(react-dom@18.2.0)(react@18.2.0)
       sass:
-        specifier: 1.66.1
-        version: 1.66.1
+        specifier: 1.68.0
+        version: 1.68.0
       zustand:
         specifier: 4.4.1
         version: 4.4.1(@types/react@18.2.21)(react@18.2.0)
@@ -3194,13 +3194,13 @@ packages:
     dependencies:
       '@formatjs/intl-localematcher': 0.2.32
       negotiator: 0.6.3
-      next: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1)
+      next: 13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.68.0)
       react: 18.2.0
       server-only: 0.0.1
       use-intl: 3.0.0-beta.3(react@18.2.0)
     dev: false
 
-  /next@13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.66.1):
+  /next@13.4.19(react-dom@18.2.0)(react@18.2.0)(sass@1.68.0):
     resolution: {integrity: sha512-HuPSzzAbJ1T4BD8e0bs6B9C1kWQ6gv8ykZoRWs5AQoiIuqbGHHdQO7Ljuvg05Q0Z24E2ABozHe6FxDvI6HfyAw==}
     engines: {node: '>=16.8.0'}
     hasBin: true
@@ -3222,7 +3222,7 @@ packages:
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sass: 1.66.1
+      sass: 1.68.0
       styled-jsx: 5.1.1(react@18.2.0)
       watchpack: 2.4.0
       zod: 3.21.4
@@ -4049,8 +4049,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /sass@1.66.1:
-    resolution: {integrity: sha512-50c+zTsZOJVgFfTgwwEzkjA3/QACgdNsKueWPyAR0mRINIvLAStVQBbPg14iuqEQ74NPDbXzJARJ/O4SI1zftA==}
+  /sass@1.68.0:
+    resolution: {integrity: sha512-Lmj9lM/fef0nQswm1J2HJcEsBUba4wgNx2fea6yJHODREoMFnwRpZydBnX/RjyXw2REIwdkbqE4hrTo4qfDBUA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
