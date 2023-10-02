@@ -14,7 +14,7 @@ type BaseMicroserviceRequestOptions = {
 type MicroserviceRequestOptions = BaseMicroserviceRequestOptions &
   (
     | {
-        method?: 'GET' | 'undefined';
+        method?: 'GET';
         data?: undefined;
       }
     | {
@@ -25,8 +25,7 @@ type MicroserviceRequestOptions = BaseMicroserviceRequestOptions &
 
 export async function requestMicroservice(options: MicroserviceRequestOptions): Promise<Record<string, unknown>>;
 export async function requestMicroservice(options: MicroserviceRequestOptions) {
-  // eslint-disable-next-line @typescript-eslint/unbound-method
-  const { headers, json, status } = await fetch(`http://localhost:3000/${options.microservice}/${options.path}`, {
+  const { headers, status, ...req } = await fetch(`http://localhost:3000/${options.microservice}/${options.path}`, {
     method: options.method,
     headers: {
       'Content-Type': 'application/json'
@@ -40,6 +39,6 @@ export async function requestMicroservice(options: MicroserviceRequestOptions) {
     options.reply.header(key, value);
   }
 
-  const response = (await json()) as Record<string, unknown>;
+  const response = (await req.json()) as Record<string, unknown>;
   return response;
 }
