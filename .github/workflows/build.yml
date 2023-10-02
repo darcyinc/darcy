@@ -27,18 +27,21 @@ jobs:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
 
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: bun install
+        run: pnpm install
 
       - name: Run build
-        run: bun run build
+        run: pnpm run build
 
       - name: Run lint
-        run: bun run lint
+        run: pnpm run lint
