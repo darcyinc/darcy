@@ -14,8 +14,8 @@ export interface APIUser extends APIBaseEntity {
   private: boolean;
 
   // The user's avatar and banner URLs.
-  avatar?: string;
-  banner?: string;
+  avatarUrl?: string;
+  bannerUrl?: string;
 
   followersCount: number;
   followingCount: number;

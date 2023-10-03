@@ -18,12 +18,12 @@
     },
     "lint": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "**/tsconfig.eslint.json", "package.json"],
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
       "outputs": []
     },
     "format": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "**/tsconfig.eslint.json", "package.json"],
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
       "outputs": []
     },
     "start": {

@@ -6,7 +6,7 @@ export interface APIPost extends APIBaseEntity {
   author: APIUser;
   content: string;
   // The post's media URLs. Empty array if none.
-  media: string[];
+  mediaUrls: string[];
 
   likesCount: number;
   repostsCount: number;
@@ -23,7 +23,7 @@ export type APIGetPostLikes = APIUser[] | APIError;
 export type APIGetPostReposts = APIUser[] | APIError;
 export type APIGetPostReplies = APIPost[] | APIError;
 
-export type APICreatePost = Pick<APIPost, 'content' | 'media'> | APIError;
+export type APICreatePost = Pick<APIPost, 'content' | 'mediaUrls'> | APIError;
 export type APIUpdatePost = boolean | APIError;
 
 export type APILikePost = undefined | APIError;
