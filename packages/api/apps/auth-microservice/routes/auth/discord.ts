@@ -15,6 +15,11 @@ export default async function (app: DarcyFastifyInstance) {
     handler: async (request, reply) => {
       const { code } = request.body;
 
+      if(!code) {
+        reply.status(400);
+        return { error: 'missing_code' };
+      }
+
       try {
         const token = await getDiscordToken(code);
         const userData = await getDiscordUserData(token);
