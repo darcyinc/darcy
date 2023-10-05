@@ -27,7 +27,7 @@ type MicroserviceRequestOptions = BaseMicroserviceRequestOptions &
 
 export async function requestMicroservice(options: MicroserviceRequestOptions): Promise<Record<string, unknown>>;
 export async function requestMicroservice(options: MicroserviceRequestOptions) {
-  const { headers, status, ...req } = await fetch(`${microserviceUrls[options.microservice]}/${options.path}`, {
+  const req = await fetch(`${microserviceUrls[options.microservice]}${options.path}`, {
     method: options.method,
     headers: {
       'Content-Type': 'application/json'
@@ -35,9 +35,9 @@ export async function requestMicroservice(options: MicroserviceRequestOptions) {
     body: options.data ? JSON.stringify(options.data) : undefined
   });
 
-  options.reply.status(status);
+  options.reply.status(req.status);
 
-  for (const [key, value] of Object.entries(headers)) {
+  for (const [key, value] of Object.entries(req.headers)) {
     options.reply.header(key, value);
   }
 
