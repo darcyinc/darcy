@@ -6,7 +6,7 @@ import { DarcyFastifyInstance } from '..';
 
 export default async function (app: DarcyFastifyInstance) {
   app.addHook('preHandler', async (request, reply) => {
-    const config = request.routeConfig as DarcyRouteConfig;
+    const config = request.routeOptions.config as DarcyRouteConfig;
 
     if (config.requiresAuth) {
       if (!request.headers.authorization) return reply.send(Unauthorized('Missing Authentication Header'));
