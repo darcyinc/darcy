@@ -11,9 +11,9 @@ export default async function (app: DarcyFastifyInstance) {
     url: '/:service/callback',
     config: { requiresAuth: false } as DarcyRouteConfig,
     handler: async (request, reply) => {
-      const data = requestMicroservice({
+      const data = await requestMicroservice({
         microservice: 'auth',
-        path: `/${request.params.service}`,
+        path: `/auth/${request.params.service}/callback`,
         method: 'POST',
         data: request.body,
         reply

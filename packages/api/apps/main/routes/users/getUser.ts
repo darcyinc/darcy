@@ -11,9 +11,9 @@ export default async function (app: DarcyFastifyInstance) {
     url: '/:id',
     config: { requiresAuth: false } as DarcyRouteConfig,
     handler: async (request, reply) => {
-      const data = requestMicroservice({
+      const data = await requestMicroservice({
         microservice: 'users',
-        path: `/${request.params.id}`,
+        path: `/users/${request.params.id}`,
         method: 'GET',
         reply
       });
