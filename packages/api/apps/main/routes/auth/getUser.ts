@@ -5,16 +5,17 @@ import { DarcyFastifyInstance } from '../..';
 
 export default async function (app: DarcyFastifyInstance) {
   app.route<{
-    Params: { id: string };
+    Params: { service: string };
   }>({
-    method: 'GET',
-    url: '/:id',
+    method: 'POST',
+    url: '/:service/callback',
     config: { requiresAuth: false } as DarcyRouteConfig,
     handler: async (request, reply) => {
       const data = requestMicroservice({
-        microservice: 'users',
-        path: `/${request.params.id}`,
-        method: 'GET',
+        microservice: 'auth',
+        path: `/${request.params.service}`,
+        method: 'POST',
+        data: request.body,
         reply
       });
 

@@ -1,10 +1,12 @@
 import { FastifyReply } from 'fastify';
 
-type Microservice = 'users';
+import { microserviceUrls } from './constants';
+
+type Microservice = 'users' | 'auth';
 type HttpMethods = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
 type BaseMicroserviceRequestOptions = {
-  microservice?: Microservice;
+  microservice: Microservice;
   path: string;
   method: HttpMethods;
   data?: any;
@@ -19,13 +21,13 @@ type MicroserviceRequestOptions = BaseMicroserviceRequestOptions &
       }
     | {
         method: 'POST' | 'PATCH' | 'DELETE';
-        data: any;
+        data?: any;
       }
   );
 
 export async function requestMicroservice(options: MicroserviceRequestOptions): Promise<Record<string, unknown>>;
 export async function requestMicroservice(options: MicroserviceRequestOptions) {
-  const { headers, status, ...req } = await fetch(`http://localhost:3000/${options.microservice}/${options.path}`, {
+  const { headers, status, ...req } = await fetch(`${microserviceUrls[options.microservice]}/${options.path}`, {
     method: options.method,
     headers: {
       'Content-Type': 'application/json'

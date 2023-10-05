@@ -1,1 +1,4 @@
-export const UsersMicroserviceUrl = 'http://localhost:4001';
+export const microserviceUrls = {
+  auth: 'http://localhost:4002',
+  users: 'http://localhost:4001'
+};
