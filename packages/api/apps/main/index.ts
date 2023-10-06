@@ -27,10 +27,10 @@ async function bootstrap() {
     registerAutoload(app, './routes'),
     app.register(compress),
     app.register(cors, {
-      origin: '*',
+      origin: process.env.NODE_ENV === 'production' ? process.env.WEBSITE_URL : '*',
+      credentials: process.env.NODE_ENV === 'production' ? true : false,
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization'],
-      credentials: true
+      allowedHeaders: ['Content-Type', 'Authorization']
     })
   ]);
 

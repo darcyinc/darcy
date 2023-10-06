@@ -15,13 +15,9 @@ export default class Client {
       baseURL: url,
       headers: {
         Authorization: `Bearer ${token ?? ''}`,
-        Accept: 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:3000',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Credentials': 'true'
+        Accept: 'application/json'
       },
       validateStatus: () => true,
-      withCredentials: true,
       responseType: 'json'
     });
 
