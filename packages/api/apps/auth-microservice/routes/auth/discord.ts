@@ -39,7 +39,7 @@ export default async function (app: DarcyFastifyInstance) {
 
         if (existingUser) {
           reply.status(200);
-          return createToken(existingUser.email, existingUser.updatedAt.getTime());
+          return { token: await createToken(existingUser.email, existingUser.updatedAt.getTime()) };
         }
 
         const newUser = await prisma.user.create({
@@ -58,7 +58,7 @@ export default async function (app: DarcyFastifyInstance) {
         });
 
         reply.status(200);
-        return createToken(userData.email, newUser.auth!.updatedAt.getTime());
+        return { token: await createToken(newUser.auth!.email, newUser.auth!.updatedAt.getTime()) };
       } catch {
         reply.status(500);
         return { error: 'unknown_error' };
