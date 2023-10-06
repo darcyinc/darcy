@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 import { PropsWithChildren, useCallback } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
@@ -30,6 +31,7 @@ const Services = {
 };
 
 export default function OAuth2Button({ service, children }: PropsWithChildren<OAuth2ButtonProps>) {
+  const router = useRouter();
   const serviceData = Services[service];
 
   const handleRedirect = useCallback(
@@ -40,10 +42,9 @@ export default function OAuth2Button({ service, children }: PropsWithChildren<OA
       const oauthLink = `${serviceData.link}&state=${randomString}`;
 
       sessionStorage.setItem(`oauth2-state:${service}`, randomString);
-
-      window.location.href = oauthLink;
+      router.push(oauthLink);
     },
-    [service, serviceData.link]
+    [service, serviceData.link, router]
   );
 
   return (
