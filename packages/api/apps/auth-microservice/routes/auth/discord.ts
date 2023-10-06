@@ -1,3 +1,4 @@
+import { createToken } from '@/shared/lib/jwt';
 import { DarcyRouteConfig } from '@/shared/types/routeConfig';
 import generateHandleFromEmail from 'apps/auth-microservice/lib/handleFromEmail';
 import { getDiscordToken, getDiscordUserData } from 'apps/auth-microservice/lib/oauth2/discord';
@@ -38,10 +39,10 @@ export default async function (app: DarcyFastifyInstance) {
 
         if (existingUser) {
           reply.status(200);
-          return { token: 'FAKE-TOKEN' };
+          return createToken(existingUser.email, existingUser.updatedAt.getTime());
         }
 
-        await prisma.user.create({
+        const newUser = await prisma.user.create({
           data: {
             auth: {
               create: {
@@ -57,7 +58,7 @@ export default async function (app: DarcyFastifyInstance) {
         });
 
         reply.status(200);
-        return { token: 'FAKE-TOKEN' };
+        return createToken(userData.email, newUser.auth!.updatedAt.getTime());
       } catch {
         reply.status(500);
         return { error: 'unknown_error' };

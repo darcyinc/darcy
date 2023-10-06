@@ -18,7 +18,7 @@ const generateAuthParams = (code: string) =>
     code
   });
 
-export interface DiscordTokenResponse {
+interface DiscordTokenResponse {
   access_token: string;
   token_type: string;
   scope: string;
