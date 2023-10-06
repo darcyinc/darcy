@@ -24,7 +24,7 @@
     "http-errors": "2.0.0",
     "jsonwebtoken": "9.0.2",
     "undici": "5.25.4",
-    "zod": "3.22.3",
+    "zod": "3.22.4",
     "zod-validation-error": "1.5.0"
   },
   "devDependencies": {
