@@ -15,7 +15,7 @@ export default async function (app: DarcyFastifyInstance) {
     handler: async (request, reply) => {
       const { code } = request.body;
 
-      if(!code) {
+      if (!code) {
         reply.status(400);
         return { error: 'missing_code' };
       }
