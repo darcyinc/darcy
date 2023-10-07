@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 import AuthStructure from './structures/auth';
+import PostStructure from './structures/posts';
 import UserStructure from './structures/users';
 
 export default class Client {
@@ -9,6 +10,7 @@ export default class Client {
   // Structures
   auth!: AuthStructure;
   users!: UserStructure;
+  posts!: PostStructure;
 
   constructor(url: string, token = '') {
     this.axios = axios.create({
@@ -35,5 +37,6 @@ export default class Client {
   setupStructures() {
     this.auth = new AuthStructure(this.axios);
     this.users = new UserStructure(this.axios);
+    this.posts = new PostStructure(this.axios);
   }
 }
