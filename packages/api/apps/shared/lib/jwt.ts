@@ -1,5 +1,3 @@
-import { promisify } from 'node:util';
-
 import { sign, verify } from 'jsonwebtoken';
 
 interface TokenPayload {
@@ -7,15 +5,20 @@ interface TokenPayload {
   updatedAt: number;
 }
 
-const signAsync = promisify<TokenPayload, string>(sign);
-const verifyAsync = promisify<string, string>(verify);
-
-export const createToken = async (email: string, updatedAt: number): Promise<string> => {
-  const token = (await signAsync({ email, updatedAt }, process.env.JWT_SECRET!)) as unknown as string;
-  return token;
+export const createToken = async (email: string, updatedAt: number) => {
+  return new Promise<string>((resolve, reject) => {
+    sign({ email, updatedAt }, process.env.JWT_SECRET!, { noTimestamp: true }, (err, token) => {
+      if (err || !token) reject(err);
+      else resolve(token);
+    });
+  });
 };
 
 export const verifyToken = async (token: string) => {
-  const decoded = (await verifyAsync(token, process.env.JWT_SECRET!)) as unknown as TokenPayload;
-  return decoded;
+  return new Promise<TokenPayload>((resolve, reject) => {
+    verify(token, process.env.JWT_SECRET!, (err, decoded) => {
+      if (err || !decoded) reject(err);
+      else resolve(decoded as TokenPayload);
+    });
+  });
 };
