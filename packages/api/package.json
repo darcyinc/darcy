@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Description of your API project.",
   "private": true,
-  "types": "./types/index.ts",
+  "types": "./types/index.d.ts",
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
   "scripts": {

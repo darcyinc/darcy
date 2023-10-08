@@ -1,2 +1,2 @@
 export { default as Client } from './client';
-export * from '@darcy/api';
+export type * from '@darcy/api';
