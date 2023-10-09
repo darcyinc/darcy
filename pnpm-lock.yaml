@@ -63,8 +63,8 @@ importers:
         specifier: 13.5.4
         version: 13.5.4(react-dom@18.2.0)(react@18.2.0)
       next-intl:
-        specifier: 3.0.0-rc.2
-        version: 3.0.0-rc.2(next@13.5.4)(react@18.2.0)
+        specifier: 3.0.0-rc.4
+        version: 3.0.0-rc.4(next@13.5.4)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -3318,8 +3318,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl@3.0.0-rc.2(next@13.5.4)(react@18.2.0):
-    resolution: {integrity: sha512-nYDn7ZuIiqX5XrBvf8bqdNVthPkkbbEN4HwDRY2SbFLkjCW2ceyP9aomJ6yfeOa1Vluy3sbEcHw8jJn/qmsqhA==}
+  /next-intl@3.0.0-rc.4(next@13.5.4)(react@18.2.0):
+    resolution: {integrity: sha512-laPDCJh+WMHHJ6ARI/qI2rvVa4UoPMK2cCqB021h6Iq8ip/+QgAn8AwnGxHODJcWJRNKU/DrR9s8DHH/7naf1g==}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0

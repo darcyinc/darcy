@@ -14,7 +14,7 @@
     "clsx": "^2.0.0",
     "dayjs": "^1.11.9",
     "next": "13.5.4",
-    "next-intl": "3.0.0-rc.2",
+    "next-intl": "3.0.0-rc.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "4.11.0",
