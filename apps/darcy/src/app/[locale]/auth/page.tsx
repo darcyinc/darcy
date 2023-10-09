@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Sign in | Darcy'
 };
 
-export default function Home() {
+export default function Home({ searchParams }: { searchParams: { error: string } }) {
   const t = useTranslations('Auth');
 
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold">{t('greeting')}</h1>
       <p>{t('loginTip')}</p>
 
-      <OAuth.Providers />
+      <OAuth.Providers error={searchParams.error} />
     </form>
   );
 }

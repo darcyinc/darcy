@@ -4,6 +4,13 @@
       "goBack": "Go back",
       "authenticating": "Authenticating..."
     },
+    "AuthErrors": {
+      "errorWhileAuth": "Error while authenticating:",
+      "no_email_associated": "The account on the chosen service does not have an associated e-mail.",
+      "email_not_verified": "The e-mail on the chosen service has not been verified.",
+      "unknown_error": "Unknown error",
+      "missing_code": "Invalid authentication code"
+    },
     "greeting": "Welcome back!",
     "loginTip": "Enter your credentials to authenticate on Darcy."
   },

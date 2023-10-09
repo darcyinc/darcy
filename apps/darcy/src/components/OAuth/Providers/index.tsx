@@ -1,9 +1,13 @@
+import { useTranslations } from 'next-intl';
+
 import Button from '@/components/Button';
 import Divider from '@/components/Divider';
 
 import { OAuth } from '..';
 
-export default function LoginProviders() {
+export default function LoginProviders({ error }: { error?: string }) {
+  const t = useTranslations('Auth.AuthErrors');
+
   return (
     <>
       <label className="mt-1 w-full">
@@ -14,6 +18,12 @@ export default function LoginProviders() {
           placeholder="E-mail"
           type="email"
         />
+
+        {error && (
+          <p className="mt-2.5 text-[#b91c1c]">
+            <span className="font-bold">{t('errorWhileAuth')}</span> {t(error)}
+          </p>
+        )}
       </label>
 
       <Button disabled className="my-2.5" color="blue" size="lg" type="submit">

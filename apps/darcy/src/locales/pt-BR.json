@@ -4,6 +4,13 @@
       "goBack": "Voltar",
       "authenticating": "Autenticando..."
     },
+    "AuthErrors": {
+      "errorWhileAuth": "Erro ao autenticar:",
+      "no_email_associated": "A conta no serviço escolhido não possui um e-mail associado.",
+      "email_not_verified": "O e-mail no serviço escolhido não foi verificado.",
+      "unknown_error": "Erro desconhecido",
+      "missing_code": "Código de autenticação inválido"
+    },
     "greeting": "Bem-vindo(a) de volta!",
     "loginTip": "Insira seus dados para se autenticar na Darcy."
   },

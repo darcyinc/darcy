@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { client } from '@/api/client';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
@@ -27,7 +26,6 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
   const t = useTranslations('Auth.AuthCallback');
   const currentUser = useCurrentUser();
   const router = useRouter();
-  const [error, setError] = useState('');
 
   const { service } = params;
   const { code, state } = searchParams;
@@ -38,35 +36,26 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
       if (!AUTH_SERVICES_CALLBACK.includes(service) || !code || !state) return router.replace('/auth');
       if (state !== oauth2State) return router.replace('/auth');
 
-      const { error, redirect, token } = await client.auth.withService({
-        code,
-        service
-      });
+      client.auth
+        .withService({
+          code,
+          service
+        })
+        .then(({ token }) => {
+          sessionStorage.removeItem(`oauth2-state:${service}`);
+          localStorage.setItem('token', token);
 
-      if (redirect) return router.replace('/auth');
-      if (error) return setError(error);
+          client.users.get().then((data) => currentUser.setData({ ...data, token }));
 
-      if (token) {
-        sessionStorage.removeItem(`oauth2-state:${service}`);
-        localStorage.setItem('token', token);
-
-        client.users.get().then((data) => currentUser.setData({ ...data, token }));
-
-        router.push('/');
-      }
+          router.push('/');
+        })
+        .catch((error: Error) => {
+          if (error.message) return router.replace(`/auth?error=${error.message}`);
+        });
     };
 
     auth();
   }, [code, currentUser, router, service, state]);
-
-  if (error) {
-    return (
-      <span className="m-auto text-center text-xl">
-        <p>{error}</p>
-        <Link href="/auth">{t('goBack')}</Link>
-      </span>
-    );
-  }
 
   return <span className="m-auto text-xl">{t('authenticating')}</span>;
 }
