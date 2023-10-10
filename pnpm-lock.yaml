@@ -79,17 +79,17 @@ importers:
         version: 5.21.5(react-dom@18.2.0)(react@18.2.0)
       zustand:
         specifier: 4.4.3
-        version: 4.4.3(@types/react@18.2.27)(react@18.2.0)
+        version: 4.4.3(@types/react@18.2.28)(react@18.2.0)
     devDependencies:
       '@types/node':
         specifier: 20.8.4
         version: 20.8.4
       '@types/react':
-        specifier: 18.2.27
-        version: 18.2.27
+        specifier: 18.2.28
+        version: 18.2.28
       '@types/react-dom':
-        specifier: 18.2.12
-        version: 18.2.12
+        specifier: 18.2.13
+        version: 18.2.13
       '@typescript-eslint/eslint-plugin':
         specifier: 6.7.5
         version: 6.7.5(@typescript-eslint/parser@6.7.5)(eslint@8.51.0)(typescript@5.2.2)
@@ -898,14 +898,14 @@ packages:
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  /@types/react-dom@18.2.12:
-    resolution: {integrity: sha512-QWZuiA/7J/hPIGocXreCRbx7wyoeet9ooxfbSA+zbIWqyQEE7GMtRn4A37BdYyksnN+/NDnWgfxZH9UVGDw1hg==}
+  /@types/react-dom@18.2.13:
+    resolution: {integrity: sha512-eJIUv7rPP+EC45uNYp/ThhSpE16k22VJUknt5OLoH9tbXoi8bMhwLf5xRuWMywamNbWzhrSmU7IBJfPup1+3fw==}
     dependencies:
-      '@types/react': 18.2.27
+      '@types/react': 18.2.28
     dev: true
 
-  /@types/react@18.2.27:
-    resolution: {integrity: sha512-Wfv7B7FZiR2r3MIqbAlXoY1+tXm4bOqfz4oRr+nyXdBqapDBZ0l/IGcSlAfvxIHEEJjkPU0MYAc/BlFPOcrgLw==}
+  /@types/react@18.2.28:
+    resolution: {integrity: sha512-ad4aa/RaaJS3hyGz0BGegdnSRXQBkd1CCYDCdNjBPg90UUpLgo+WlJqb9fMYUxtehmzF3PJaTWqRZjko6BRzBg==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -4998,7 +4998,7 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  /zustand@4.4.3(@types/react@18.2.27)(react@18.2.0):
+  /zustand@4.4.3(@types/react@18.2.28)(react@18.2.0):
     resolution: {integrity: sha512-oRy+X3ZazZvLfmv6viIaQmtLOMeij1noakIsK/Y47PWYhT8glfXzQ4j0YcP5i0P0qI1A4rIB//SGROGyZhx91A==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -5013,7 +5013,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.27
+      '@types/react': 18.2.28
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
