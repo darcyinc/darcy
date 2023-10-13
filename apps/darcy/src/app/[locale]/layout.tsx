@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 
 import Providers from './providers';
 
-const locales = new Set(['en', 'pt-BR']);
+const locales = new Set(['en-US', 'pt-BR']);
 
 interface RootLayoutParams {
   params: {
