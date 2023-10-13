@@ -1,24 +1,13 @@
-import { notFound } from 'next/navigation';
 import { NextIntlClientProvider, useLocale } from 'next-intl';
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren } from 'react';
 
 // This provider allows the `useTranslation` hook in Client Components.
-export default function Providers({ children }: PropsWithChildren) {
+export default async function Providers({ children }: PropsWithChildren) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const locale = useLocale();
-  const [messages, setMessages] = useState<Record<string, string>>({});
 
-  useEffect(() => {
-    const getLocales = async () => {
-      try {
-        const data = ((await import(`../../locales/${locale}.json`)) as { default: Record<string, string> }).default;
-        setMessages(data);
-      } catch {
-        notFound();
-      }
-    };
-
-    getLocales();
-  }, [locale]);
+  let messages = {} as Record<string, string>;
+  messages = ((await import(`../../locales/${locale}.json`)) as { default: Record<string, string> }).default;
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
