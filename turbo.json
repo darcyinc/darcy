@@ -26,6 +26,15 @@
       "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
       "outputs": []
     },
+    "format:eslint": {
+      "dependsOn": ["@darcy/api-wrapper#build"],
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
+      "outputs": []
+    },
+    "format:prettier": {
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
+      "outputs": []
+    },
     "start": {
       "cache": false,
       "persistent": true

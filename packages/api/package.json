@@ -11,7 +11,9 @@
     "dev": "tsup --watch --onSuccess \"node scripts/startAll.mjs\"",
     "build": "tsup",
     "lint": "prettier --check apps types && eslint apps types",
-    "format": "prettier --write apps types && eslint --fix apps types",
+    "format:prettier": "prettier --write apps types",
+    "format:eslint": "eslint apps types --fix",
+    "format": "pnpm run format:prettier && pnpm run format:eslint",
     "postinstall": "prisma generate"
   },
   "dependencies": {

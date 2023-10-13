@@ -1,7 +1,7 @@
 {
   "name": "@darcy/monorepo",
   "version": "0.0.1",
-  "description": "Description of your monorepo project.",
+  "description": "The Darcy Social Network.",
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
   "private": true,
@@ -15,7 +15,9 @@
     "start": "turbo run start",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "turbo run format",
+    "format:prettier": "turbo run format:prettier --parallel",
+    "format:eslint": "turbo run format:eslint",
+    "format": "turbo run format:prettier && turbo run format:eslint",
     "prepare": "is-ci || husky install"
   },
   "devDependencies": {

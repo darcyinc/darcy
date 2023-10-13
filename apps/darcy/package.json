@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "prettier --check src --cache && eslint src",
-    "format": "prettier --write src && eslint src --fix"
+    "format:prettier": "prettier --write src",
+    "format:eslint": "eslint src --fix",
+    "format": "pnpm run format:prettier && pnpm run format:eslint"
   },
   "dependencies": {
     "@darcy/api-wrapper": "workspace:^",

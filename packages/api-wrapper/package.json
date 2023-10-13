@@ -11,7 +11,9 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "lint": "prettier --check src && eslint src",
-    "format": "prettier --write src && eslint --fix src"
+    "format:prettier": "prettier --write src",
+    "format:eslint": "eslint src --fix",
+    "format": "pnpm run format:prettier && pnpm run format:eslint"
   },
   "dependencies": {
     "@darcy/api": "workspace:*",
