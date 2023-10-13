@@ -1,8 +1,10 @@
 import clsx from 'clsx';
+import { AiOutlineLoading } from 'react-icons/ai';
 
 interface ButtonProps extends React.ComponentProps<'button'> {
   color: 'blue' | 'white';
   size: 'sm' | 'md' | 'lg';
+  loading?: boolean;
 }
 
 const ButtonStyles: Record<ButtonProps['color'], string> = {
@@ -16,7 +18,7 @@ const ButtonSizes: Record<ButtonProps['size'], string> = {
   lg: 'w-full p-5 text-xl'
 };
 
-export default function Button({ children, color = 'blue', size = 'md', ...props }: ButtonProps) {
+export default function Button({ children, color = 'blue', type = 'button', size = 'md', loading, ...props }: ButtonProps) {
   return (
     <button
       {...props}
@@ -26,8 +28,10 @@ export default function Button({ children, color = 'blue', size = 'md', ...props
         ButtonSizes[size],
         props.className
       )}
-      type="button"
+      // eslint-disable-next-line react/button-has-type
+      type={type}
     >
+      {loading && <AiOutlineLoading className="mr-2.5 animate-spin" />}
       {children}
     </button>
   );
