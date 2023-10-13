@@ -5,7 +5,8 @@
       "authenticating": "Autenticando..."
     },
     "AuthErrors": {
-      "errorWhileAuth": "Erro ao autenticar:",
+      "error_while_auth": "Erro ao autenticar:",
+      "invalid_email": "E-mail inválido",
       "no_email_associated": "A conta no serviço escolhido não possui um e-mail associado.",
       "email_not_verified": "O e-mail no serviço escolhido não foi verificado.",
       "unknown_error": "Erro desconhecido",

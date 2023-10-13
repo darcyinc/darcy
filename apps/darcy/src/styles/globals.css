@@ -16,6 +16,8 @@
     --text-primary: 255 255 255;
     --text-secondary: 113 118 123;
 
+    --error: 185 28 28;
+
     --color-scheme: only dark;
     --theme-background: 0 0 0;
   }

@@ -1,34 +1,13 @@
-import { useTranslations } from 'next-intl';
-
-import Button from '@/components/Button';
 import Divider from '@/components/Divider';
 
 import { OAuth } from '..';
 
-export default function LoginProviders({ error }: { error?: string }) {
-  const t = useTranslations('Auth.AuthErrors');
+import EmailForm from './EmailForm';
 
+export default function LoginProviders({ error }: { error?: string }) {
   return (
     <>
-      <label className="mt-1 w-full">
-        <input
-          autoComplete="on"
-          className="w-full rounded-2xl border border-grayBorder bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary focus:border-blue"
-          maxLength={255}
-          placeholder="E-mail"
-          type="email"
-        />
-
-        {error && (
-          <p className="mt-2.5 text-[#b91c1c]">
-            <span className="font-bold">{t('errorWhileAuth')}</span> {t(error)}
-          </p>
-        )}
-      </label>
-
-      <Button disabled className="my-2.5" color="blue" size="lg" type="submit">
-        <p className="text-lg font-semibold">Enviar link de autenticação</p>
-      </Button>
+      <EmailForm error={error} />
 
       <Divider text="ou entre com" />
 

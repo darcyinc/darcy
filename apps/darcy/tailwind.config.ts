@@ -16,7 +16,9 @@ export default {
         textPrimary: 'rgb(var(--text-primary) / <alpha-value>)',
         textSecondary: 'rgb(var(--text-secondary) / <alpha-value>)',
 
-        hoverEffect: 'var(--color-hover-effect)'
+        hoverEffect: 'var(--color-hover-effect)',
+
+        error: 'rgb(var(--error) / <alpha-value>)'
       },
       animation: {
         'fade-in': 'fadeIn 1.3s ease-in-out'
