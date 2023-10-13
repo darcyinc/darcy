@@ -1,21 +1,21 @@
 import { notFound } from 'next/navigation';
+import { PropsWithChildren } from 'react';
 
 import FollowersModal from '@/components/Modal/FollowersModal';
 import FollowingModal from '@/components/Modal/FollowingModal';
 
 interface LayoutProps {
-  children: React.ReactNode;
   params: {
     username: string;
     modal?: string[];
   };
 }
 
-export default function RootLayout({ children, params }: LayoutProps) {
+export default function RootLayout({ children, params }: PropsWithChildren<LayoutProps>) {
   const modal = params.modal;
 
   if (!modal) return children;
-  if (modal.length > 1) return notFound();
+  if (modal.length > 1) notFound();
 
   const firstModal = modal[0];
 
