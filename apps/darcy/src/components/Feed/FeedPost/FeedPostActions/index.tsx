@@ -32,34 +32,42 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
   };
 
   return (
-    <footer className="mt-2 flex justify-evenly">
-      <button className="group flex select-none items-center gap-2 hover:text-blue" type="button">
-        <MdOutlineSpeakerNotes className="h-7 w-7 rounded-full p-1 group-hover:bg-blue/40" />
+    <footer className="mt-2 flex justify-evenly text-sm text-gray-500">
+      <button className="group flex select-none items-center gap-1 hover:text-blue" type="button">
+        <div className="rounded-full p-2 group-hover:bg-blue/20">
+          <MdOutlineSpeakerNotes className="h-4 w-4" />
+        </div>
         <span>{comments}</span>
       </button>
 
       <button
-        className="group flex select-none items-center gap-2 hover:text-green data-[reposted='true']:text-green"
+        className="group flex select-none items-center gap-1 hover:text-green data-[reposted='true']:text-green"
         data-reposted={hasReposted}
         type="button"
         onClick={handleRepost}
       >
-        <RepostIcon className="h-7 w-7 rounded-full p-1 group-hover:bg-green/40" />
+        <div className="rounded-full p-2 group-hover:bg-green/20">
+          <RepostIcon className="h-4 w-4" />
+        </div>
         <span>{reposts}</span>
       </button>
 
       <button
-        className="group flex select-none items-center gap-2 hover:text-red data-[liked='true']:text-red"
+        className="group flex select-none items-center gap-1 hover:text-red data-[liked='true']:text-red"
         data-liked={hasLiked}
         type="button"
         onClick={handleLike}
       >
-        <LikedIcon className="h-7 w-7 rounded-full p-1 group-hover:bg-red/40" />
+        <div className="rounded-full p-2 group-hover:bg-red/20">
+          <LikedIcon className="h-4 w-4" />
+        </div>
         <span>{likes}</span>
       </button>
 
-      <button className="group flex select-none items-center gap-2 hover:text-purple-300" type="button">
-        <MdViewKanban className="h-7 w-7 rounded-full p-1 group-hover:bg-purple-500/40" />
+      <button className="group flex select-none items-center gap-1 hover:text-purple-300" type="button">
+        <div className="rounded-full p-2 group-hover:bg-purple-500/20">
+          <MdViewKanban className="h-4 w-4" />
+        </div>
         <span>{views}</span>
       </button>
     </footer>
