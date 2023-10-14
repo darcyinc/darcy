@@ -26,5 +26,9 @@ export default function FeedPostLoader({ onVisible }: FeedPostLoaderProps) {
     };
   }, [onVisible]);
 
-  return <p ref={ref}>Carregando publicações...</p>;
+  return (
+    <p className="my-2 text-center" ref={ref}>
+      Carregando publicações...
+    </p>
+  );
 }
