@@ -34,6 +34,7 @@ export default function Home() {
         views={100}
       />
 
+      {/* TODO */}
       <FeedPostLoader onVisible={undefined} />
     </Feed>
   );
