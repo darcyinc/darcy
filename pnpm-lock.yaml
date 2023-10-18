@@ -63,8 +63,8 @@ importers:
         specifier: 13.5.5
         version: 13.5.5(react-dom@18.2.0)(react@18.2.0)
       next-intl:
-        specifier: 3.0.0-rc.4
-        version: 3.0.0-rc.4(next@13.5.5)(react@18.2.0)
+        specifier: 3.0.0-rc.5
+        version: 3.0.0-rc.5(next@13.5.5)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -3313,8 +3313,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl@3.0.0-rc.4(next@13.5.5)(react@18.2.0):
-    resolution: {integrity: sha512-laPDCJh+WMHHJ6ARI/qI2rvVa4UoPMK2cCqB021h6Iq8ip/+QgAn8AwnGxHODJcWJRNKU/DrR9s8DHH/7naf1g==}
+  /next-intl@3.0.0-rc.5(next@13.5.5)(react@18.2.0):
+    resolution: {integrity: sha512-ieLwIibWzMZ4KjA/2zum2i6fdp/jhNym/9YZCxcPfnW1maglcHgkuDzXp5SiC7HDwDcWHxrKZhTLmcd6anbItQ==}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3324,7 +3324,7 @@ packages:
       next: 13.5.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       server-only: 0.0.1
-      use-intl: 3.0.0-beta.3(react@18.2.0)
+      use-intl: 3.0.0-rc.5(react@18.2.0)
     dev: false
 
   /next@13.5.5(react-dom@18.2.0)(react@18.2.0):
@@ -4859,8 +4859,8 @@ packages:
     dependencies:
       punycode: 2.3.0
 
-  /use-intl@3.0.0-beta.3(react@18.2.0):
-    resolution: {integrity: sha512-b5c9F6F3Yw7xbdIVdDBj2qh5BHntdr2Obp3c40OTxXOwqDIyjAbOxjezGe7ak8EGo0TEezyN6oPvi6aQWPjDdQ==}
+  /use-intl@3.0.0-rc.5(react@18.2.0):
+    resolution: {integrity: sha512-a36Fzm5a2yyf2FMwytEkAI/g09vkNz6HncObtR4es+cKR/8fcpUjCwSRWftUfMZhJnc0vx4lEgwiiv3gn2uyQQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
