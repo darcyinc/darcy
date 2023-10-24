@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@types/node':
-        specifier: 20.8.7
-        version: 20.8.7
+        specifier: 20.8.8
+        version: 20.8.8
       '@typescript-eslint/eslint-plugin':
         specifier: 6.9.0
         version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
@@ -82,8 +82,8 @@ importers:
         version: 4.4.4(@types/react@18.2.31)(react@18.2.0)
     devDependencies:
       '@types/node':
-        specifier: 20.8.7
-        version: 20.8.7
+        specifier: 20.8.8
+        version: 20.8.8
       '@types/react':
         specifier: 18.2.31
         version: 18.2.31
@@ -179,8 +179,8 @@ importers:
         specifier: 9.0.4
         version: 9.0.4
       '@types/node':
-        specifier: 20.8.7
-        version: 20.8.7
+        specifier: 20.8.8
+        version: 20.8.8
       '@typescript-eslint/eslint-plugin':
         specifier: 6.9.0
         version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
@@ -228,8 +228,8 @@ importers:
         version: 1.5.1
     devDependencies:
       '@types/node':
-        specifier: 20.8.7
-        version: 20.8.7
+        specifier: 20.8.8
+        version: 20.8.8
       '@typescript-eslint/eslint-plugin':
         specifier: 6.9.0
         version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
@@ -880,11 +880,11 @@ packages:
   /@types/jsonwebtoken@9.0.4:
     resolution: {integrity: sha512-8UYapdmR0QlxgvJmyE8lP7guxD0UGVMfknsdtCFZh4ovShdBl3iOI4zdvqBHrB/IS+xUj3PSx73Qkey1fhWz+g==}
     dependencies:
-      '@types/node': 20.8.7
+      '@types/node': 20.8.8
     dev: true
 
-  /@types/node@20.8.7:
-    resolution: {integrity: sha512-21TKHHh3eUHIi2MloeptJWALuCu5H7HQTdTrWIFReA8ad+aggoX+lRes3ex7/FtpC+sVUpFMQ+QTfYr74mruiQ==}
+  /@types/node@20.8.8:
+    resolution: {integrity: sha512-YRsdVxq6OaLfmR9Hy816IMp33xOBjfyOgUd77ehqg96CFywxAPbDbXvAsuN2KVg2HOT8Eh6uAfU+l4WffwPVrQ==}
     dependencies:
       undici-types: 5.25.3
     dev: true
