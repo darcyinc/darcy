@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@darcy/api": "workspace:*",
-    "axios": "1.5.1"
+    "axios": "1.6.0"
   },
   "devDependencies": {
     "@types/node": "20.8.9",
