@@ -21,7 +21,7 @@
     "react-dom": "18.2.0",
     "react-icons": "4.11.0",
     "react-tooltip": "5.21.6",
-    "zustand": "4.4.4"
+    "zustand": "4.4.5"
   },
   "devDependencies": {
     "@types/node": "20.8.10",
