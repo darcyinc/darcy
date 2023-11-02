@@ -63,8 +63,8 @@ importers:
         specifier: 13.5.6
         version: 13.5.6(react-dom@18.2.0)(react@18.2.0)
       next-intl:
-        specifier: 3.0.0-rc.6
-        version: 3.0.0-rc.6(next@13.5.6)(react@18.2.0)
+        specifier: 3.0.0-rc.7
+        version: 3.0.0-rc.7(next@13.5.6)(react@18.2.0)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -3280,17 +3280,16 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl@3.0.0-rc.6(next@13.5.6)(react@18.2.0):
-    resolution: {integrity: sha512-Eymf9lfxiqYO6w4YkSe1gQqZMF6Y9AQIAn49uBv8z6JPSEgyelZezt7n/6qECugTVA1rbH/BslrM/jBjMvXXEQ==}
+  /next-intl@3.0.0-rc.7(next@13.5.6)(react@18.2.0):
+    resolution: {integrity: sha512-41gDE/WhqpT79UW4qgslB+FKdiBZHGND0Yfsy8f31lARZElCsQA177tDna87Nkzi2Ji//jHoJofoqlUKPXcIxw==}
     peerDependencies:
-      next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
+      next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@formatjs/intl-localematcher': 0.2.32
       negotiator: 0.6.3
       next: 13.5.6(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      server-only: 0.0.1
       use-intl: 3.0.0-rc.6(react@18.2.0)
     dev: false
 
@@ -4153,10 +4152,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-
-  /server-only@0.0.1:
-    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
-    dev: false
 
   /set-cookie-parser@2.6.0:
     resolution: {integrity: sha512-RVnVQxTXuerk653XfuliOxBP81Sf0+qfQE73LIYKcyMYHG94AuH0kgrQpRDuTZnSmjpysHmzxJXKNfa6PjFhyQ==}
