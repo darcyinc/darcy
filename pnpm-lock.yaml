@@ -163,8 +163,8 @@ importers:
         specifier: 9.0.2
         version: 9.0.2
       undici:
-        specifier: 5.27.0
-        version: 5.27.0
+        specifier: 5.27.2
+        version: 5.27.2
       zod:
         specifier: 3.22.4
         version: 3.22.4
@@ -4772,8 +4772,8 @@ packages:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
     dev: true
 
-  /undici@5.27.0:
-    resolution: {integrity: sha512-l3ydWhlhOJzMVOYkymLykcRRXqbUaQriERtR70B9LzNkZ4bX52Fc8wbTDneMiwo8T+AemZXvXaTx+9o5ROxrXg==}
+  /undici@5.27.2:
+    resolution: {integrity: sha512-iS857PdOEy/y3wlM3yRp+6SNQQ6xU0mmZcwRSriqk+et/cwWAtwmIGf6WkoDN2EK/AMdCO/dfXzIwi+rFMrjjQ==}
     engines: {node: '>=14.0'}
     dependencies:
       '@fastify/busboy': 2.0.0
