@@ -30,7 +30,7 @@
     "zod-validation-error": "1.5.0"
   },
   "devDependencies": {
-    "@types/http-errors": "2.0.3",
+    "@types/http-errors": "2.0.4",
     "@types/jsonwebtoken": "9.0.4",
     "@types/node": "20.8.10",
     "@typescript-eslint/eslint-plugin": "6.10.0",
