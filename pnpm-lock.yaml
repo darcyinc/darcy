@@ -75,8 +75,8 @@ importers:
         specifier: 4.11.0
         version: 4.11.0(react@18.2.0)
       react-tooltip:
-        specifier: 5.22.0
-        version: 5.22.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 5.23.0
+        version: 5.23.0(react-dom@18.2.0)(react@18.2.0)
       zustand:
         specifier: 4.4.6
         version: 4.4.6(@types/react@18.2.37)(react@18.2.0)
@@ -3897,8 +3897,8 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
-  /react-tooltip@5.22.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-xbJBRY1LyHYd7j00UeBOqZR9SH/1S47Pe+m8vM1a+ZXglkeSNnBt5YYoPttU/amjC/VZJAPQ8+2B9x8Fl8U1qA==}
+  /react-tooltip@5.23.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-MYqn6n+Af8NHHDL3zrSqzVSoK2LLqTNFp30CuuHCYlBEf+q88FWfg+8pSO+0GnDvOa5ZaryNDq9sAVQeNhnsgw==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
