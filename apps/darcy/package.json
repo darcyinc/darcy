@@ -24,7 +24,7 @@
     "zustand": "4.4.6"
   },
   "devDependencies": {
-    "@types/node": "20.9.3",
+    "@types/node": "20.9.4",
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.16",
     "@typescript-eslint/eslint-plugin": "6.12.0",
