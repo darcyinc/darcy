@@ -1,19 +1,15 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef } from 'react';
 
 import Button from '@/components/Button';
 
 export default function FeedPostComposer() {
-  const [content, setContent] = useState('');
+  const contentRef = useRef<HTMLTextAreaElement>(null);
   const t = useTranslations('Feed.PostComposer');
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(event.target.value);
-
-    console.log(event.target.scrollHeight);
-
     // handle if the element gets smaller
     event.target.style.height = 'auto';
 
@@ -30,10 +26,11 @@ export default function FeedPostComposer() {
         <textarea
           className="max-h-32 resize-none bg-transparent text-textPrimary placeholder-textSecondary outline-none"
           placeholder="O que está acontecendo?"
+          ref={contentRef}
           onChange={handleChange}
         />
 
-        <Button className="self-end" color="white" disabled={content.length === 0} size="sm">
+        <Button className="self-end" color="white" disabled={contentRef.current?.value.length === 0} size="sm">
           <p>{t('publish')}</p>
         </Button>
       </div>

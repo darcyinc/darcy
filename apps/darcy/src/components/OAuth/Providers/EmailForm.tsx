@@ -11,29 +11,34 @@ interface EmailFormProps {
 
 const EMAIL_REGEX = /^[\w%+.-]+@[\d.A-Za-z-]+\.[A-Za-z]{2,}$/;
 
+interface AuthFormData {
+  submitting: boolean;
+  email: string;
+  showPastError: boolean;
+  validationError?: string;
+}
+
 export default function EmailForm({ error }: EmailFormProps) {
   const t = useTranslations('Auth.AuthErrors');
-  const [showPastError, setShowPastError] = useState(Boolean(error));
-  const [validationError, setValidationError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
+  const [authData, setAuthData] = useState<AuthFormData>({
+    submitting: false,
+    email: '',
+    showPastError: Boolean(error),
+    validationError: ''
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (loading) return;
-
-    setLoading(true);
-    setValidationError('');
+    if (authData.submitting) return;
+    setAuthData((prev) => ({ ...prev, submitting: true, validationError: '' }));
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    setValidationError('');
-    setShowPastError(false);
+    setAuthData((prev) => ({ ...prev, email: e.target.value, showPastError: false, validationError: '' }));
 
     if (!EMAIL_REGEX.test(e.target.value)) {
-      return setValidationError('invalid_email');
+      setAuthData((prev) => ({ ...prev, validationError: 'invalid_email' }));
     }
   };
 
@@ -44,29 +49,29 @@ export default function EmailForm({ error }: EmailFormProps) {
           required
           autoComplete="on"
           className="w-full rounded-2xl border bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary valid:border-grayBorder invalid:border-error invalid:placeholder-shown:border-grayBorder focus:border-blue disabled:bg-slate-600/10 disabled:text-textSecondary disabled:hover:cursor-not-allowed"
-          disabled={loading}
+          disabled={authData.submitting}
           maxLength={255}
           pattern={EMAIL_REGEX.source}
           placeholder="E-mail"
           type="email"
-          value={email}
+          value={authData.email}
           onChange={handleEmailChange}
         />
 
-        {showPastError && error && (
+        {authData.showPastError && error && (
           <p className="mt-2.5 text-error">
             <span className="font-bold">{t('error_while_auth')}</span> {t(error)}
           </p>
         )}
 
-        {validationError && <p className="mt-2.5 text-error">{t(validationError)}</p>}
+        {authData.validationError && <p className="mt-2.5 text-error">{t(authData.validationError)}</p>}
       </label>
 
       <Button
         className="my-2.5"
         color="blue"
-        disabled={loading || !!validationError || email.length === 0}
-        loading={loading}
+        disabled={authData.submitting || !!authData.validationError || authData.email.length === 0}
+        loading={authData.submitting}
         size="lg"
         type="submit"
       >

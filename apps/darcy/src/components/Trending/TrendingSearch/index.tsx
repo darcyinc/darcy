@@ -3,25 +3,22 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import { HiOutlineX, HiSearch } from 'react-icons/hi';
 
 export default function TrendingSearch() {
   const t = useTranslations('Trending');
+  const searchRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
-  const [search, setSearch] = useState('');
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  }, []);
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      router.push(`/search?q=${encodeURIComponent(search.trim())}`);
+      if (!searchRef.current) return;
+      router.push(`/search?q=${encodeURIComponent(searchRef.current.value.trim())}`);
     },
-    [search, router]
+    [router]
   );
 
   return (
@@ -33,7 +30,6 @@ export default function TrendingSearch() {
         'focus-within:border-blue focus-within:bg-transparent',
         'valid:border-blue valid:bg-transparent valid:transition-colors valid:duration-1000 valid:ease-in-out'
       )}
-      onReset={() => setSearch('')}
       onSubmit={handleSubmit}
     >
       <HiSearch className="ml-2 flex-shrink-0 text-xl text-textSecondary" />
@@ -46,9 +42,8 @@ export default function TrendingSearch() {
         minLength={1}
         name="search"
         placeholder={t('searchPlaceholder')}
+        ref={searchRef}
         type="text"
-        value={search}
-        onChange={handleChange}
       />
 
       <button
