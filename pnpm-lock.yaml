@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@types/node':
-        specifier: 20.10.0
-        version: 20.10.0
+        specifier: 20.10.1
+        version: 20.10.1
       '@typescript-eslint/eslint-plugin':
         specifier: 6.13.1
         version: 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.54.0)(typescript@5.3.2)
@@ -82,8 +82,8 @@ importers:
         version: 4.4.7(@types/react@18.2.39)(react@18.2.0)
     devDependencies:
       '@types/node':
-        specifier: 20.10.0
-        version: 20.10.0
+        specifier: 20.10.1
+        version: 20.10.1
       '@types/react':
         specifier: 18.2.39
         version: 18.2.39
@@ -179,8 +179,8 @@ importers:
         specifier: 9.0.5
         version: 9.0.5
       '@types/node':
-        specifier: 20.10.0
-        version: 20.10.0
+        specifier: 20.10.1
+        version: 20.10.1
       '@typescript-eslint/eslint-plugin':
         specifier: 6.13.1
         version: 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.54.0)(typescript@5.3.2)
@@ -228,8 +228,8 @@ importers:
         version: 1.6.2
     devDependencies:
       '@types/node':
-        specifier: 20.10.0
-        version: 20.10.0
+        specifier: 20.10.1
+        version: 20.10.1
       '@typescript-eslint/eslint-plugin':
         specifier: 6.13.1
         version: 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.54.0)(typescript@5.3.2)
@@ -971,11 +971,11 @@ packages:
   /@types/jsonwebtoken@9.0.5:
     resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
     dependencies:
-      '@types/node': 20.10.0
+      '@types/node': 20.10.1
     dev: true
 
-  /@types/node@20.10.0:
-    resolution: {integrity: sha512-D0WfRmU9TQ8I9PFx9Yc+EBHw+vSpIub4IDvQivcp26PtPrdMGAq5SDcpXEo/epqa/DXotVpekHiLNTg3iaKXBQ==}
+  /@types/node@20.10.1:
+    resolution: {integrity: sha512-T2qwhjWwGH81vUEx4EXmBKsTJRXFXNZTL4v0gi01+zyBmCwzE6TyHszqX01m+QHTEq+EZNo13NeJIdEqf+Myrg==}
     dependencies:
       undici-types: 5.26.5
     dev: true
