@@ -36,7 +36,7 @@
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "npm:eslint-plugin-i@2.29.0",
     "eslint-plugin-unicorn": "49.0.0",
-    "postcss": "8.4.31",
+    "postcss": "8.4.32",
     "prettier": "3.1.0",
     "prettier-plugin-tailwindcss": "0.5.7",
     "sharp": "^0.32.5",
