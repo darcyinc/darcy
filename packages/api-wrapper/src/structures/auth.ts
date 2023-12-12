@@ -2,6 +2,7 @@ import { APIUserOauthAuthCreate, APIUserOauthAuthCreatePayload } from '@darcy/ap
 import { AxiosInstance } from 'axios';
 
 export default class AuthStructure {
+  // biome-ignore lint/nursery/noEmptyBlockStatements: <explanation>
   constructor(private axios: AxiosInstance) {}
 
   async withService({ code, service }: APIUserOauthAuthCreatePayload & { service: string }) {

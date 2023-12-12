@@ -2,6 +2,7 @@ import { APIGetBasicPost, APIGetPostLikes, APIGetPostReplies, APIGetPostReposts 
 import { AxiosInstance } from 'axios';
 
 export default class PostStructure {
+  // biome-ignore lint/nursery/noEmptyBlockStatements: <explanation>
   constructor(private axios: AxiosInstance) {}
 
   /**

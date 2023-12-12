@@ -32,7 +32,14 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "style": {
+        "noNegationElse": "error"
+      },
+      "nursery": {
+        "noUnusedImports": "error",
+        "noEmptyBlockStatements": "error"
+      }
     }
   }
 }

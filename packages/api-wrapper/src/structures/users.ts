@@ -2,6 +2,7 @@ import { APIGetBasicUser, APIGetUserFollowers, APIGetUserFollowing, APIGetUserPo
 import { AxiosInstance } from 'axios';
 
 export default class UserStructure {
+  // biome-ignore lint/nursery/noEmptyBlockStatements: <explanation>
   constructor(private axios: AxiosInstance) {}
 
   /**
