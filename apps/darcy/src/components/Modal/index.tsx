@@ -34,7 +34,6 @@ export default function Modal(props: ModalProps) {
   }, [props]);
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       {...props}
       data-modal
@@ -46,7 +45,7 @@ export default function Modal(props: ModalProps) {
     >
       <div className={clsx('relative p-4', props.showSolidBackground && 'rounded-lg border border-grayBorder bg-background')}>
         <button
-          // eslint-disable-next-line jsx-a11y/no-autofocus
+          // biome-ignore lint/a11y/noAutofocus: <explanation>
           autoFocus
           aria-label="Close modal"
           className="absolute left-3 top-4 text-textPrimary hover:text-textSecondary focus:text-textSecondary"

@@ -28,7 +28,6 @@ export default function Button({ children, color = 'blue', type = 'button', size
         ButtonSizes[size],
         props.className
       )}
-      // eslint-disable-next-line react/button-has-type
       type={type}
     >
       {loading && <AiOutlineLoading className="mr-2.5 animate-spin" />}

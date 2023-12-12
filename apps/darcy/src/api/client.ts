@@ -2,4 +2,4 @@ import { Client } from '@darcy/api-wrapper';
 
 export const client = new Client(process.env.NEXT_PUBLIC_API_URL ?? '');
 
-export const updateToken = (token = '') => client.setToken(token);
+export const updateToken = (token?: string | null) => client.setToken(token ?? '');

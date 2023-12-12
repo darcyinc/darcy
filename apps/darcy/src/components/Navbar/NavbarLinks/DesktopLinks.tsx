@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { IconType } from 'react-icons';
-import { MdHome, MdSearch, MdNotificationsNone, MdNotifications, MdMailOutline, MdMail } from 'react-icons/md';
+import { MdHome, MdMail, MdMailOutline, MdNotifications, MdNotificationsNone, MdSearch } from 'react-icons/md';
 
 interface DesktopLink {
   active?: boolean;

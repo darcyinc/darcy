@@ -5,9 +5,15 @@ interface TokenPayload {
   updatedAt: number;
 }
 
+const { JWT_SECRET } = process.env;
+
+if (!JWT_SECRET) {
+  throw new Error('Missing JWT_SECRET env var. Set it and restart the server');
+}
+
 export const createToken = async (email: string, updatedAt: number) => {
   return new Promise<string>((resolve, reject) => {
-    sign({ email, updatedAt }, process.env.JWT_SECRET!, { noTimestamp: true }, (err, token) => {
+    sign({ email, updatedAt }, JWT_SECRET, { noTimestamp: true }, (err, token) => {
       if (err || !token) reject(err);
       else resolve(token);
     });
@@ -16,7 +22,7 @@ export const createToken = async (email: string, updatedAt: number) => {
 
 export const verifyToken = async (token: string) => {
   return new Promise<TokenPayload>((resolve, reject) => {
-    verify(token, process.env.JWT_SECRET!, (err, decoded) => {
+    verify(token, JWT_SECRET, (err, decoded) => {
       if (err || !decoded) reject(err);
       else resolve(decoded as TokenPayload);
     });

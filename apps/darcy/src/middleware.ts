@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import createMiddleware from 'next-intl/middleware';
 
 export default createMiddleware({

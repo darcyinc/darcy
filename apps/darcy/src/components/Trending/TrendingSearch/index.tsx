@@ -1,8 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useCallback, useRef } from 'react';
 import { HiOutlineX, HiSearch } from 'react-icons/hi';
 

@@ -15,7 +15,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
         placeholder="blur"
         quality={100}
         sizes="70%"
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         src={AuthSideImage}
       />
 

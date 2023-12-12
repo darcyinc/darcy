@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { useLocale } from 'next-intl';
+import Link from 'next/link';
 
 import UserBadge from '@/components/UserProfile/UserBadge';
 import useRelativeTime from '@/hooks/useRelativeTime';

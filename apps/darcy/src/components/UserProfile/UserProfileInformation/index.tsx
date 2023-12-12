@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { MdOutlineCalendarMonth, MdOutlineLink, MdOutlineLocationOn, MdWorkOutline } from 'react-icons/md';
 
 interface UserProfileInformationProps {
@@ -13,7 +13,10 @@ export default function UserProfileInformation({ location, job, website, joinedA
   const t = useTranslations('UserProfile.Information');
   const locale = useLocale();
 
-  const formattedJoinedAt = new Date(joinedAt).toLocaleDateString(locale, { month: 'long', year: 'numeric' });
+  const formattedJoinedAt = new Date(joinedAt).toLocaleDateString(locale, {
+    month: 'long',
+    year: 'numeric'
+  });
 
   return (
     <div className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-[15px] text-textSecondary">

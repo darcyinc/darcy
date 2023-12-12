@@ -35,7 +35,12 @@ export default function EmailForm({ error }: EmailFormProps) {
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAuthData((prev) => ({ ...prev, email: e.target.value, showPastError: false, validationError: '' }));
+    setAuthData((prev) => ({
+      ...prev,
+      email: e.target.value,
+      showPastError: false,
+      validationError: ''
+    }));
 
     if (!EMAIL_REGEX.test(e.target.value)) {
       setAuthData((prev) => ({ ...prev, validationError: 'invalid_email' }));

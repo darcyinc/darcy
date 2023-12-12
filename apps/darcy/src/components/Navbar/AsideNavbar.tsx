@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { AiOutlineAlignLeft } from 'react-icons/ai';
 import { MdCreate } from 'react-icons/md';
 

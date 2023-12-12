@@ -19,7 +19,7 @@ export default function Home() {
 
       <FeedPostComposer />
 
-      {Array.from({ length: 10 }).map((_, i) => (
+      {Array.from({ length: 10 }).map((_) => (
         <FeedPost
           hasLiked
           hasReposted
@@ -28,7 +28,6 @@ export default function Home() {
           content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
           createdAt={Date.now()}
           handle="davipatricio"
-          key={i}
           likes={0}
           postId="unknown"
           reposts={0}

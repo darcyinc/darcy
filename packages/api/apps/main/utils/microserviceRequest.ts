@@ -9,7 +9,7 @@ type BaseMicroserviceRequestOptions = {
   microservice: Microservice;
   path: string;
   method: HttpMethods;
-  data?: any;
+  data?: unknown;
   reply: FastifyReply;
 };
 
@@ -21,7 +21,7 @@ type MicroserviceRequestOptions = BaseMicroserviceRequestOptions &
       }
     | {
         method: 'POST' | 'PATCH' | 'DELETE';
-        data?: any;
+        data?: unknown;
       }
   );
 

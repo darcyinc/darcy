@@ -1,14 +1,13 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": [
-    "pnpm-lock.lock",
+    "pnpm-lock.yaml",
     "**/tsconfig.json",
-    "**/.eslintrc.json",
     "**/tsup.config.ts",
     "turbo.json",
     "package.json",
-    ".prettierrc.json",
-    "**/.prettierignore"
+    "biome.json",
+    "**/biome.json"
   ],
   "pipeline": {
     "build": {
@@ -18,21 +17,12 @@
     },
     "lint": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "package.json"],
       "outputs": []
     },
     "format": {
       "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
-      "outputs": []
-    },
-    "format:eslint": {
-      "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
-      "outputs": []
-    },
-    "format:prettier": {
-      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "tsconfig.eslint.json", "package.json"],
+      "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "package.json"],
       "outputs": []
     },
     "start": {
