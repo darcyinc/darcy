@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import { useCallback } from 'react';
+import { MdOutlineSettings } from 'react-icons/md';
 
 type FilterOption = 'foryou' | 'following';
 
@@ -19,21 +20,25 @@ export default function FeedFilter({ currentFilter }: FeedFilterProps) {
   }, []);
 
   return (
-    <>
+    <div className="flex items-center">
       {['foryou', 'following'].map((item) => (
         <button
-          className={'h-11 w-2/4 text-base hover:bg-hoverEffect'}
+          className={'h-12 w-2/4 text-base hover:bg-hoverEffect'}
           key={item}
           type="button"
           onClick={() => handleFilter(item as FilterOption)}
         >
           <div className="m-auto w-fit">
-            <span className={clsx(currentFilter === item ? 'font-bold leading-10' : 'font-normal text-textSecondary')}>{t(item)}</span>
+            <span className={clsx(currentFilter === item ? 'font-bold leading-[44px]' : 'font-normal text-textSecondary')}>{t(item)}</span>
 
-            <div className={clsx('h-1 rounded-sm', currentFilter === item && 'bg-blue')} />
+            <div className={clsx('h-1 mt-auto rounded-sm', currentFilter === item && 'bg-blue')} />
           </div>
         </button>
       ))}
-    </>
+
+      <button type="button" className="hover:bg-hoverEffect p-2 mx-2 rounded-full">
+        <MdOutlineSettings className="text-xl" />
+      </button>
+    </div>
   );
 }

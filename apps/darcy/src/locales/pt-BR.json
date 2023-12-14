@@ -25,9 +25,6 @@
     }
   },
   "Feed": {
-    "FeedHeader": {
-      "home": "Página inicial"
-    },
     "FeedFilter": {
       "foryou": "Para você",
       "following": "Seguindo"

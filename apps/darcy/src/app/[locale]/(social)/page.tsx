@@ -1,5 +1,3 @@
-import { useTranslations } from 'next-intl';
-
 import Feed from '@/components/Feed';
 import FeedFilter from '@/components/Feed/FeedFilter';
 import FeedHeader from '@/components/Feed/FeedHeader';
@@ -8,12 +6,9 @@ import FeedPostComposer from '@/components/Feed/FeedPostComposer';
 import FeedPostLoader from '@/components/Feed/FeedPostLoader';
 
 export default function Home() {
-  const t = useTranslations('Feed.FeedHeader');
-
   return (
     <Feed>
       <FeedHeader>
-        <p className="p-4 text-xl font-bold">{t('home')}</p>
         <FeedFilter currentFilter="foryou" />
       </FeedHeader>
 
