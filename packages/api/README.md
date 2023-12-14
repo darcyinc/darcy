@@ -43,8 +43,8 @@ The monorepo comes with the following npm scripts:
 - `build`: Compiles the server and all microservices.
 - `dev`: Initiates the development server with hot-reloading enabled.
 - `start`: Launches the production version of the API, including all microservices.
-- `lint`: Ensures codebase formatting adheres to Prettier and ESLint standards.
-- `format`: Automatically formats and rectifies codebase issues using Prettier and ESLint.
+- `lint`: Ensures codebase formatting adheres to the Biome standards.
+- `format`: Automatically formats and rectifies codebase issues using Biome.
 
 ## License
 
