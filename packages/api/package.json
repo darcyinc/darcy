@@ -32,7 +32,7 @@
     "@types/http-errors": "2.0.4",
     "@types/jsonwebtoken": "9.0.5",
     "@types/node": "20.10.4",
-    "pino-pretty": "10.2.3",
+    "pino-pretty": "10.3.0",
     "prisma": "5.7.0",
     "tsup": "8.0.1",
     "typescript": "5.3.3"
