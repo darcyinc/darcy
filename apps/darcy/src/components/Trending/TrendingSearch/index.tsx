@@ -40,7 +40,6 @@ export default function TrendingSearch() {
         className="w-full bg-transparent text-sm outline-none placeholder:text-textSecondary"
         maxLength={255}
         minLength={1}
-        name="search"
         placeholder={t('searchPlaceholder')}
         ref={searchRef}
         type="text"
