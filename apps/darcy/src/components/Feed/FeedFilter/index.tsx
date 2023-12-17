@@ -1,23 +1,18 @@
 'use client';
 
+import { FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import { useCallback } from 'react';
 import { MdOutlineSettings } from 'react-icons/md';
 
-type FilterOption = 'foryou' | 'following';
+type FilterOption = FeedSortState['sortMode'];
 
-interface FeedFilterProps {
-  currentFilter: FilterOption;
-}
-
-export default function FeedFilter({ currentFilter }: FeedFilterProps) {
+export default function FeedFilter() {
   const t = useTranslations('Feed.FeedFilter');
+  const feedSort = useFeedSort();
 
-  const handleFilter = useCallback((_newFilter: FilterOption) => {
-    // TODO: change filter on context
-    return;
-  }, []);
+  const handleFilter = useCallback((newFilter: FilterOption) => feedSort.setSortMode(newFilter), [feedSort]);
 
   return (
     <div className="flex items-center">
@@ -29,9 +24,10 @@ export default function FeedFilter({ currentFilter }: FeedFilterProps) {
           onClick={() => handleFilter(item as FilterOption)}
         >
           <div className="m-auto w-fit">
-            <span className={clsx(currentFilter === item ? 'font-bold leading-[44px]' : 'font-normal text-textSecondary')}>{t(item)}</span>
+            <span className={clsx('leading-[44px]', feedSort.sortMode === item ? 'font-bold' : 'text-textSecondary')}>{t(item)}</span>
 
-            <div className={clsx('h-1 mt-auto rounded-sm', currentFilter === item && 'bg-blue')} />
+            {/* Current sort mode indicator */}
+            {feedSort.sortMode === item && <div className={clsx('h-1 mt-auto rounded-sm bg-blue')} />}
           </div>
         </button>
       ))}

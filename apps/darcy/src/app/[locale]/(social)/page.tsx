@@ -11,7 +11,7 @@ export default function Home() {
     <Feed>
       <FeedHeader>
         <MobileNavbarProfile />
-        <FeedFilter currentFilter="foryou" />
+        <FeedFilter />
       </FeedHeader>
 
       <FeedPostComposer />
@@ -30,6 +30,7 @@ export default function Home() {
           reposts={0}
           username="Davi Patricio"
           views={100}
+          key={Math.random().toString(36).substring(7)}
         />
       ))}
 
