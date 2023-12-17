@@ -4,11 +4,13 @@ import FeedHeader from '@/components/Feed/FeedHeader';
 import FeedPost from '@/components/Feed/FeedPost';
 import FeedPostComposer from '@/components/Feed/FeedPostComposer';
 import FeedPostLoader from '@/components/Feed/FeedPostLoader';
+import MobileNavbarProfile from '@/components/Navbar/NavbarProfile/MobileNavbarProfile';
 
 export default function Home() {
   return (
     <Feed>
       <FeedHeader>
+        <MobileNavbarProfile />
         <FeedFilter currentFilter="foryou" />
       </FeedHeader>
 

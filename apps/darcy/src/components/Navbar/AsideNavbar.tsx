@@ -6,6 +6,7 @@ import { MdCreate } from 'react-icons/md';
 import Button from '../Button';
 
 import { NavbarLinks } from './NavbarLinks';
+import DesktopNavbarProfile from './NavbarProfile/DesktopNavbarProfile';
 
 export default function AsideNavbar() {
   const t = useTranslations('Navbar');
@@ -28,15 +29,7 @@ export default function AsideNavbar() {
       </nav>
 
       {/* User Profile */}
-      <Link className="mt-auto w-full rounded-full p-3 hover:bg-hoverEffect" href="/davipatricio">
-        <div className="flex items-center gap-2">
-          <img alt="Your profile avatar." className="h-12 w-12 rounded-full" src="https://picsum.photos/48.webp" />
-          <div className="hidden w-full flex-col overflow-hidden xl:flex">
-            <p className="truncate font-bold text-textPrimary">Davi Patricio</p>
-            <p className="text-textSecondary">@davipatricio</p>
-          </div>
-        </div>
-      </Link>
+      <DesktopNavbarProfile />
     </div>
   );
 }
