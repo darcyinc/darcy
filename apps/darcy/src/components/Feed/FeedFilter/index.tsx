@@ -36,7 +36,7 @@ export default function FeedFilter({ currentFilter }: FeedFilterProps) {
         </button>
       ))}
 
-      <button type="button" className="hover:bg-hoverEffect p-2 mx-2 rounded-full">
+      <button type="button" className="hover:bg-hoverEffect p-2 mx-2 rounded-full hidden md:block">
         <MdOutlineSettings className="text-xl" />
       </button>
     </div>
