@@ -12,8 +12,8 @@ importers:
         specifier: 1.4.1
         version: 1.4.1
       '@types/node':
-        specifier: 20.10.4
-        version: 20.10.4
+        specifier: 20.10.5
+        version: 20.10.5
       husky:
         specifier: 8.0.3
         version: 8.0.3
@@ -64,8 +64,8 @@ importers:
         specifier: 1.4.1
         version: 1.4.1
       '@types/node':
-        specifier: 20.10.4
-        version: 20.10.4
+        specifier: 20.10.5
+        version: 20.10.5
       '@types/react':
         specifier: 18.2.45
         version: 18.2.45
@@ -134,8 +134,8 @@ importers:
         specifier: 9.0.5
         version: 9.0.5
       '@types/node':
-        specifier: 20.10.4
-        version: 20.10.4
+        specifier: 20.10.5
+        version: 20.10.5
       pino-pretty:
         specifier: 10.3.0
         version: 10.3.0
@@ -162,8 +162,8 @@ importers:
         specifier: 1.4.1
         version: 1.4.1
       '@types/node':
-        specifier: 20.10.4
-        version: 20.10.4
+        specifier: 20.10.5
+        version: 20.10.5
       tsup:
         specifier: 8.0.1
         version: 8.0.1(typescript@5.3.3)
@@ -859,11 +859,11 @@ packages:
   /@types/jsonwebtoken@9.0.5:
     resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
     dependencies:
-      '@types/node': 20.10.4
+      '@types/node': 20.10.5
     dev: true
 
-  /@types/node@20.10.4:
-    resolution: {integrity: sha512-D08YG6rr8X90YB56tSIuBaddy/UXAA9RKJoFvrsnogAum/0pmjkgi4+2nx96A330FmioegBWmEYQ+syqCFaveg==}
+  /@types/node@20.10.5:
+    resolution: {integrity: sha512-nNPsNE65wjMxEKI93yOP+NPGGBJz/PoN3kZsVLee0XMiJolxSekEVD8wRwBUBqkwc7UWop0edW50yrCQW4CyRw==}
     dependencies:
       undici-types: 5.26.5
     dev: true
