@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { NavbarLinks } from "./NavbarLinks";
+import { useEffect, useRef, useState } from 'react';
+import { NavbarLinks } from './NavbarLinks';
 
 export default function MobileNavbar() {
   const navbar = useRef<HTMLDivElement>(null);
@@ -17,20 +17,20 @@ export default function MobileNavbar() {
       const currentScroll = window.scrollY;
 
       if (currentScroll > lastScroll && !navbar.current.style.transform) {
-        navbar.current.style.transform = "translate3d(0, 100%, 0)";
+        navbar.current.style.transform = 'translate3d(0, 100%, 0)';
       }
 
-      if (currentScroll < lastScroll && navbar.current.style.transform !== "") {
-        navbar.current.style.transform = "";
+      if (currentScroll < lastScroll && navbar.current.style.transform !== '') {
+        navbar.current.style.transform = '';
       }
 
       setLastScroll(currentScroll);
     };
 
-    window.addEventListener("scroll", scrollHandler);
+    window.addEventListener('scroll', scrollHandler);
 
     return () => {
-      window.removeEventListener("scroll", scrollHandler);
+      window.removeEventListener('scroll', scrollHandler);
     };
   }, [lastScroll]);
 

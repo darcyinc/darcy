@@ -1,12 +1,9 @@
-"use client";
+'use client';
 
-import clsx from "clsx";
-import { ComponentProps, useEffect, useRef, useState } from "react";
+import clsx from 'clsx';
+import { ComponentProps, useEffect, useRef, useState } from 'react';
 
-export default function FeedHeader({
-  children,
-  ...props
-}: ComponentProps<"div">) {
+export default function FeedHeader({ children, ...props }: ComponentProps<'div'>) {
   const header = useRef<HTMLDivElement>(null);
   const [lastScroll, setLastScroll] = useState(0);
 
@@ -20,32 +17,32 @@ export default function FeedHeader({
       const currentScroll = window.scrollY;
 
       if (currentScroll <= 60) {
-        header.current.style.transform = "";
+        header.current.style.transform = '';
         return;
       }
 
       if (currentScroll > lastScroll && !header.current.style.transform) {
-        header.current.style.transform = "translate3d(0, -100%, 0)";
+        header.current.style.transform = 'translate3d(0, -100%, 0)';
       }
 
-      if (currentScroll < lastScroll && header.current.style.transform !== "") {
-        header.current.style.transform = "";
+      if (currentScroll < lastScroll && header.current.style.transform !== '') {
+        header.current.style.transform = '';
       }
 
       setLastScroll(currentScroll);
     };
 
-    window.addEventListener("scroll", scrollHandler);
+    window.addEventListener('scroll', scrollHandler);
 
     return () => {
-      window.removeEventListener("scroll", scrollHandler);
+      window.removeEventListener('scroll', scrollHandler);
     };
   }, [lastScroll]);
 
   return (
     <div
       className={clsx(
-        "sticky top-0 w-full border-b border-b-grayBorder bg-black/60 backdrop-blur-md z-10 transition-all duration-300",
+        'sticky top-0 w-full border-b border-b-grayBorder bg-black/60 backdrop-blur-md z-10 transition-all duration-300',
         props.className
       )}
       ref={header}
