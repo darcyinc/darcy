@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@darcy/api": "workspace:*",
-    "axios": "1.6.4"
+    "axios": "1.6.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
