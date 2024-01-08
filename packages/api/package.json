@@ -23,7 +23,7 @@
     "fastify": "4.25.2",
     "http-errors": "2.0.0",
     "jsonwebtoken": "9.0.2",
-    "undici": "6.2.1",
+    "undici": "6.3.0",
     "zod": "3.22.4",
     "zod-validation-error": "2.1.0"
   },
