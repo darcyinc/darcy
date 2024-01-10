@@ -8,7 +8,6 @@ import { DarcyFastifyInstance } from '../..';
 export default async function (app: DarcyFastifyInstance) {
   app.route<{
     Body: { code: string };
-    Querystring: { recentPosts: boolean };
   }>({
     method: 'POST',
     url: '/discord/callback',
