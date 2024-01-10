@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.1",
-    "@types/node": "20.10.7",
+    "@types/node": "20.10.8",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
     "turbo": "1.11.3",
