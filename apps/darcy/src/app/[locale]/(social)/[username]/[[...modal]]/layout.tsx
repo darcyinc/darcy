@@ -11,22 +11,21 @@ interface LayoutProps {
   };
 }
 
+const supportedModals = new Set(['followers', 'following']);
+
 export default function RootLayout({ children, params }: PropsWithChildren<LayoutProps>) {
   const modal = params.modal;
-
   if (!modal) return children;
-  if (modal.length > 1) notFound();
 
   const firstModal = modal[0];
 
-  const showFollowersModal = firstModal === 'followers';
-  const showFollowingModal = firstModal === 'following';
+  if (modal.length > 1 || !supportedModals.has(firstModal)) notFound();
 
   return (
     <>
       {children}
-      {showFollowersModal && <FollowersModal username={params.username} />}
-      {showFollowingModal && <FollowingModal username={params.username} />}
+      {firstModal === 'followers' && <FollowersModal username={params.username} />}
+      {firstModal === 'following' && <FollowingModal username={params.username} />}
     </>
   );
 }
