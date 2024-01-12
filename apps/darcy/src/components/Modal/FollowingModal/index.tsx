@@ -18,6 +18,7 @@ export default function FollowingModal({ username }: FollowingModalProps) {
 
   return (
     <Modal showSolidBackground onClose={onClose}>
+      Following
       {username}
     </Modal>
   );
