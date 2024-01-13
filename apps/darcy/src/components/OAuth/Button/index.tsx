@@ -12,21 +12,19 @@ interface OAuth2ButtonProps {
   service: 'discord' | 'google' | 'github';
 }
 
-const { NEXT_PUBLIC_DISCORD_AUTH_URL, NEXT_PUBLIC_GOOGLE_AUTH_URL, NEXT_PUBLIC_GITHUB_AUTH_URL } = process.env;
-
 const Services = {
   discord: {
-    link: NEXT_PUBLIC_DISCORD_AUTH_URL,
+    link: process.env.NEXT_PUBLIC_DISCORD_AUTH_URL,
     styles: 'bg-indigo-700 !text-white hover:bg-indigo-700/80',
     Icon: BsDiscord
   },
   google: {
-    link: NEXT_PUBLIC_GOOGLE_AUTH_URL,
+    link: process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL,
     styles: 'bg-white !text-black hover:bg-white/80',
     Icon: FcGoogle
   },
   github: {
-    link: NEXT_PUBLIC_GITHUB_AUTH_URL,
+    link: process.env.NEXT_PUBLIC_GITHUB_AUTH_URL,
     styles: 'bg-neutral-600 !text-white hover:bg-neutral-600/80',
     Icon: BsGithub
   }
@@ -48,10 +46,6 @@ export default function OAuth2Button({ service, children }: PropsWithChildren<OA
     },
     [service, serviceData.link, router]
   );
-
-  if (!serviceData.link) {
-    return null;
-  }
 
   return (
     <Button className={clsx('gap-2', serviceData.styles)} color="blue" size="md" type="button" onClick={handleRedirect}>
