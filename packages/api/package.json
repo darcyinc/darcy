@@ -36,8 +36,5 @@
     "prisma": "5.8.0",
     "tsup": "8.0.1",
     "typescript": "5.3.3"
-  },
-  "prisma": {
-    "seed": "node prisma/seed.js"
   }
 }

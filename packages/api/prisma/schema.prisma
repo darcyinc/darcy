@@ -12,7 +12,7 @@ datasource db {
 
 // Define the User schema
 model User {
-  id          String  @id @default(cuid())
+  id          String  @id @unique @default(cuid())
   displayName String
   handle      String  @unique
   bio         String  @default("")
@@ -40,10 +40,10 @@ model User {
 
 // Define the UserAuth schema
 model UserAuth {
-  id     String @id @default(cuid())
-  user   User?  @relation(fields: [userId], references: [id])
+  id     String @id @unique @default(cuid())
+  user   User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String @unique
-  email  String
+  email  String @unique
 
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
@@ -51,7 +51,7 @@ model UserAuth {
 
 // Define the Post schema
 model Post {
-  id        String   @id @default(cuid())
+  id        String   @id @unique @default(cuid())
   author    User     @relation("Author", fields: [authorId], references: [id])
   authorId  String
   content   String
@@ -76,7 +76,7 @@ model Post {
 
 // Define the UserFollow schema
 model UserFollow {
-  id       String @id @default(cuid())
+  id       String @id @unique @default(cuid())
   user     User   @relation("UserFollowers", fields: [userId], references: [id])
   userId   String
   target   User   @relation("UserFollowing", fields: [targetId], references: [id])
