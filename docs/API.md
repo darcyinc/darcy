@@ -2,6 +2,12 @@
 
 The API is built using Node.js and Fastify, and uses PostgreSQL as the database. The API is split into multiple microservices (which uses the API Gateway design pattern), each of which is contained in its own folder in the `packages/api/apps` directory.
 
+## Front-end
+
+### Authentication
+
+To authenticate with the API, the user must go to `localhost:3000/auth`, choose an OAuth service. After choosing a service, the user will be redirected to the OAuth service's website to authenticate. After authenticating, the user will be redirected back to `localhost:3000/auth/callback/:service` (where service can be: `discord`, `google` or `github`), which the front-end will make a request to the Darcy API `localhost:3001/auth/:service/callback?code=:code` (where service can be: `discord`, `google` or `github` and code is the code returned by the OAuth service). The API will then return a JWT token `{ "token": "..." }`, which the front-end will store in the browser's local storage.
+
 ## Endpoints
 
 ### Users
