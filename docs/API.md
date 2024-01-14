@@ -1,14 +1,22 @@
 # The Darcy API documentation
 
-The API is built using Node.js and Fastify, and uses PostgreSQL as the database. The API is split into multiple microservices (which uses the API Gateway design pattern), each of which is contained in its own folder in the `packages/api/apps` directory.
+The API is built using Next.js [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and uses PostgreSQL as the database.
 
 ## Front-end
 
 ### Authentication
 
-To authenticate with the API, the user must go to `localhost:3000/auth`, choose an OAuth service. After choosing a service, the user will be redirected to the OAuth service's website to authenticate. After authenticating, the user will be redirected back to `localhost:3000/auth/callback/:service` (where service can be: `discord`, `google` or `github`), which the front-end will make a request to the Darcy API `localhost:3001/auth/:service/callback?code=:code` (where service can be: `discord`, `google` or `github` and code is the code returned by the OAuth service). The API will then return a JWT token `{ "token": "..." }`, which the front-end will store in the browser's local storage.
+To authenticate with the API, the user must go to `localhost:3000/auth`, choose an OAuth service. After choosing a service, the user will be redirected to the OAuth service's website to authenticate. After authenticating, the user will be redirected back to `localhost:3000/auth/callback/:service` (where service can be: `discord`, `google` or `github`), which the front-end will make a request to the Darcy's API `localhost:3000/api/auth/:service/callback?code=:code` (where service can be: `discord`, `google` or `github` and code is the code returned by the OAuth service). The API will then return a JWT token `{ "token": "..." }`, which the front-end will store in the browser's local storage.
 
 ## Endpoints
+
+The API base URL is `localhost:3000/api`.
+
+### API Errors
+
+If an error occurs, the API will return a JSON object with the following fields and the appropriate HTTP status code:
+
+- `error`: The code of the error to be translated by the front-end. (e.g. `user_not_found`)
 
 ### Users
 
@@ -49,6 +57,7 @@ The request body should contain the following fields:
 If the oauth authentication is successful, a token will be returned in the response body. This token should be used in the `Authorization` header.
 
 **Example Response:**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
