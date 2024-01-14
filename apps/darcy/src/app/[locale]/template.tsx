@@ -12,7 +12,9 @@ export default function Template({ children }: PropsWithChildren) {
   const router = useRouter();
   const { theme } = useTheme();
 
-  if (typeof window !== 'undefined') document.documentElement.dataset.theme = theme;
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
