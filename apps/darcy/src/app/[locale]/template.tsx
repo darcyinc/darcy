@@ -25,7 +25,7 @@ export default function Template({ children }: PropsWithChildren) {
         if (response.status !== 200) {
           localStorage.removeItem('token');
           currentUser.setData({ token: null });
-          router.push('/auth');
+          return router.push('/auth');
         }
 
         currentUser.setData({ ...response.data, token });
