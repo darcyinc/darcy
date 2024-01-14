@@ -93,6 +93,31 @@ If the oauth authentication is successful, a token will be returned in the respo
 
 ### Posts
 
+#### GET `/popular-posts`
+
+Gets the most popular posts from the last week. Mostly used for the home page when the user is not logged in. Can have the following search parameters:
+- `page`: The page of posts to return. Defaults to 1. Should be a number greater than 0.
+- `limit`: The maximum number of posts to return. Defaults to 50. Should be a number between 1 and 50.
+
+**Example Response:**
+
+```json
+[
+  {
+    "id": "clrcswoys00001o087o82kff6",
+    "authorId": "clrcqqjxu0000ifudofglmmhk",
+    "content": "Hello world!",
+    "mediaUrls": [],
+    "createdAt": "2024-01-14T01:11:57.796Z",
+    "updatedAt": "2024-01-14T01:11:42.952Z",
+    "parentId": null,
+    "likeCount": 0,
+    "repostCount": 0,
+    "commentCount": 0
+  }
+]
+```
+
 #### POST `/post`
 
 Creates a new post. The request body should contain the following fields:
