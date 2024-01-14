@@ -15,9 +15,11 @@ interface UserProfileProps {
   location?: string;
   website?: string;
   verified?: boolean;
+  followers: number;
+  following: number;
 }
 
-export default function UserProfile({ name, avatarUrl, bannerUrl, bio, job, website, location, verified }: UserProfileProps) {
+export default function UserProfile({ name, avatarUrl, bannerUrl, bio, job, website, location, verified, followers, following }: UserProfileProps) {
   return (
     <div>
       {/* User avatar & banner */}
@@ -44,7 +46,7 @@ export default function UserProfile({ name, avatarUrl, bannerUrl, bio, job, webs
         <UserProfileInformation job={job} joinedAt={Date.now() - 999_000_000} location={location} website={website} />
 
         {/* Following & followers */}
-        <UserFollowStats followers={12} following={32} />
+        <UserFollowStats followers={followers} following={following} />
       </section>
     </div>
   );
