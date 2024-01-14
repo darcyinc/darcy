@@ -12,6 +12,18 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   const searchParams = request.nextUrl.searchParams;
   const page = Number(searchParams.get('page') ?? 1);
   const limit = Number(searchParams.get('limit') ?? 50);
+  const postType = searchParams.get('type') ?? 'posts';
+
+  if (postType !== 'posts' && postType !== 'replies') {
+    return new Response(
+      JSON.stringify({
+        error: 'Invalid post type'
+      }),
+      {
+        status: 400
+      }
+    );
+  }
 
   if (Number.isNaN(page) || Number.isNaN(limit)) {
     return new Response(
@@ -57,6 +69,11 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
       },
       include: {
         posts: {
+          where: {
+            // if postType is posts, we want to get all posts
+            // if postType is replies, we want to get all replies
+            parentId: postType === 'posts' ? null : { not: null }
+          },
           orderBy: {
             createdAt: 'desc'
           },
@@ -70,9 +87,16 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   }
 
   const user = await prisma.user.findFirst({
-    where: { handle: params.handle },
+    where: {
+      handle: params.handle
+    },
     include: {
       posts: {
+        where: {
+          // if postType is posts, we want to get all posts
+          // if postType is replies, we want to get all replies
+          parentId: postType === 'posts' ? null : { not: null }
+        },
         orderBy: {
           createdAt: 'desc'
         },
