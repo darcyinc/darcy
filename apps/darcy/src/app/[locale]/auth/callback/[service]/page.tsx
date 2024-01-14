@@ -44,7 +44,7 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
       localStorage.setItem('token', reqAuth.data.token);
 
       const reqUser = await apiClient.get('/users/@me');
-      currentUser.setData({...reqUser.data, token: reqAuth.data.token });
+      currentUser.setData({ ...reqUser.data, token: reqAuth.data.token });
 
       router.push('/');
     };
