@@ -1,22 +1,30 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useCallback, useRef } from 'react';
+import { useCallback, useState } from 'react';
 
+import { apiClient } from '@/api/client';
 import Button from '@/components/Button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 export default function FeedPostComposer() {
+  const [content, setContent] = useState('');
   const currentUser = useCurrentUser();
-  const contentRef = useRef<HTMLTextAreaElement>(null);
   const t = useTranslations('Feed.PostComposer');
 
   const handleChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setContent(event.target.value);
+
     // handle if the element gets smaller
     event.target.style.height = 'auto';
-
     event.target.style.height = `${event.target.scrollHeight}px`;
   }, []);
+
+  const handlePublish = useCallback(() => {
+    apiClient.post('/post', { content }).then(() => {
+      setContent('');
+    });
+  }, [content]);
 
   return (
     currentUser.token && (
@@ -29,11 +37,11 @@ export default function FeedPostComposer() {
           <textarea
             className="max-h-32 resize-none bg-transparent text-textPrimary placeholder-textSecondary outline-none"
             placeholder="O que está acontecendo?"
-            ref={contentRef}
+            value={content}
             onChange={handleChange}
           />
 
-          <Button className="self-end" color="white" disabled={contentRef.current?.value.length === 0} size="sm">
+          <Button className="self-end" color="white" disabled={content.length === 0} size="sm" onClick={handlePublish}>
             <p>{t('publish')}</p>
           </Button>
         </div>
