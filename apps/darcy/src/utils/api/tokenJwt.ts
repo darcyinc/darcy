@@ -1,13 +1,14 @@
 import { sign, verify } from 'jsonwebtoken';
+import isCI from 'is-ci';
 
 interface TokenPayload {
   email: string;
   updatedAt: number;
 }
 
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET } = process.env as Record<string, string>;
 
-if (!JWT_SECRET) {
+if (!isCI && !JWT_SECRET) {
   throw new Error('Missing JWT_SECRET env var. Set it and restart the server');
 }
 

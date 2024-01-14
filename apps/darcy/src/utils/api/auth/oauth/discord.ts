@@ -1,8 +1,9 @@
 import { URLSearchParams } from 'node:url';
+import isCI from 'is-ci';
 
-const { DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, WEBSITE_URL } = process.env;
+const { DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, WEBSITE_URL } = process.env as Record<string, string>;
 
-if (!DISCORD_CLIENT_ID || !DISCORD_CLIENT_SECRET || !WEBSITE_URL) {
+if (!isCI && (!DISCORD_CLIENT_ID || !DISCORD_CLIENT_SECRET || !WEBSITE_URL)) {
   throw new Error('Missing environment variables for Discord OAuth2.');
 }
 

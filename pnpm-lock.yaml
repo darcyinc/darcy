@@ -41,6 +41,9 @@ importers:
       dayjs:
         specifier: ^1.11.9
         version: 1.11.9
+      is-ci:
+        specifier: 3.0.1
+        version: 3.0.1
       jsonwebtoken:
         specifier: 9.0.2
         version: 9.0.2
@@ -69,6 +72,9 @@ importers:
       '@biomejs/biome':
         specifier: 1.5.1
         version: 1.5.1
+      '@types/is-ci':
+        specifier: 3.0.4
+        version: 3.0.4
       '@types/jsonwebtoken':
         specifier: 9.0.5
         version: 9.0.5
@@ -451,6 +457,12 @@ packages:
       tslib: 2.6.1
     dev: false
 
+  /@types/is-ci@3.0.4:
+    resolution: {integrity: sha512-AkCYCmwlXeuH89DagDCzvCAyltI2v9lh3U3DqSg/GrBYoReAaWwxfXCqMx9UV5MajLZ4ZFwZzV4cABGIxk2XRw==}
+    dependencies:
+      ci-info: 3.9.0
+    dev: true
+
   /@types/jsonwebtoken@9.0.5:
     resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
     dependencies:
@@ -627,7 +639,6 @@ packages:
   /ci-info@3.9.0:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
     engines: {node: '>=8'}
-    dev: true
 
   /classnames@2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
@@ -912,7 +923,6 @@ packages:
     hasBin: true
     dependencies:
       ci-info: 3.9.0
-    dev: true
 
   /is-core-module@2.13.0:
     resolution: {integrity: sha512-Z7dk6Qo8pOCp3l4tsX2C5ZVas4V+UxwQodwZhLopL91TX8UyyHEXafPcyoeeWuLrwzHcr3igO78wNLwHJHsMCQ==}
