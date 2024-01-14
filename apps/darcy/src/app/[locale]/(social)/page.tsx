@@ -1,3 +1,7 @@
+'use client';
+
+import { apiClient } from '@/api/client';
+import { GetPopularPostsResponse } from '@/app/api/popular-posts/route';
 import Feed from '@/components/Feed';
 import FeedFilter from '@/components/Feed/FeedFilter';
 import FeedHeader from '@/components/Feed/FeedHeader';
@@ -5,8 +9,36 @@ import FeedPost from '@/components/Feed/FeedPost';
 import FeedPostComposer from '@/components/Feed/FeedPostComposer';
 import FeedPostLoader from '@/components/Feed/FeedPostLoader';
 import MobileNavbarProfile from '@/components/Navbar/NavbarProfile/MobileNavbarProfile';
+import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { useCallback, useState } from 'react';
 
 export default function Home() {
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [posts, setPosts] = useState<GetPopularPostsResponse[]>([]);
+  const currentUser = useCurrentUser();
+
+  const handleLoadMore = useCallback(async () => {
+    if (!hasMore) return;
+
+    setPage((prev) => prev + 1);
+
+    console.debug(' -> Fetching more posts. ');
+
+    if (currentUser.token) {
+      const response = await apiClient.get(`/popular-posts?page=${page}`);
+      setPosts((prev) => [...prev, ...response.data]);
+
+      if (response.data.length === 0) setHasMore(false);
+      return;
+    }
+
+    const response = await apiClient.get(`/popular-posts?page=${page}`);
+    setPosts((prev) => [...prev, ...response.data]);
+
+    if (response.data.length === 0) setHasMore(false);
+  }, [page, hasMore, currentUser]);
+
   return (
     <Feed>
       <FeedHeader>
@@ -16,26 +48,26 @@ export default function Home() {
 
       <FeedPostComposer />
 
-      {Array.from({ length: 10 }).map((_) => (
+      {posts.map((post) => (
         <FeedPost
-          hasLiked
-          hasReposted
-          avatar="https://picsum.photos/44/44.webp"
-          comments={0}
-          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-          createdAt={Date.now()}
-          handle="davipatricio"
-          likes={0}
-          postId="unknown"
-          reposts={0}
-          username="Davi Patricio"
-          views={100}
-          key={Math.random().toString(36).substring(7)}
+          hasLiked={false}
+          hasReposted={false}
+          avatar={post.author.avatarUrl || 'https://picsum.photos/48.webp'}
+          comments={post.commentCount}
+          content={post.content}
+          createdAt={new Date(post.createdAt).getTime()}
+          handle={post.author.handle}
+          likes={post.likeCount}
+          postId={post.id}
+          reposts={post.repostCount}
+          username={post.author.displayName}
+          views={0}
+          key={post.id}
         />
       ))}
 
       {/* TODO */}
-      <FeedPostLoader onVisible={undefined} />
+      <FeedPostLoader onVisible={handleLoadMore} />
     </Feed>
   );
 }
