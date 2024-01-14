@@ -13,7 +13,7 @@ export default function Template({ children }: PropsWithChildren) {
   const { theme } = useTheme();
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+    document.documentElement.classList.add(theme);
   }, [theme]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>

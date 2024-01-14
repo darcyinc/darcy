@@ -4,7 +4,7 @@
 
 @layer base {
   html,
-  html[data-theme='dark'] {
+  html.dark {
     --color-blue: 29 155 240;
     --color-dark-gray: 22 24 28;
     --color-gray-border: 47 51 54;
@@ -22,7 +22,7 @@
     --theme-background: 0 0 0;
   }
 
-  html[data-theme='light'] {
+  html.light {
     --color-dark-gray: 247 249 249;
     --color-gray-border: 239 243 244;
 
