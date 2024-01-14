@@ -13,5 +13,5 @@ interface RelativeTimeOptions {
 export default function useRelativeTime({ locale: userLocale, time }: RelativeTimeOptions) {
   locale(userLocale);
 
-  return dayjs(time).fromNow(true);
+  return dayjs(time).fromNow();
 }
