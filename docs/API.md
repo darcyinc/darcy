@@ -50,7 +50,7 @@ Returns a user's posts. The `handle` parameter should not include the `@` symbol
 
 Can have the following search parameters:
 - `page`: The page of posts to return. Defaults to 1. Should be a number greater than 0.
-- `limit`: The maximum number of posts to return. Defaults to 10. Should be a number between 1 and 20.
+- `limit`: The maximum number of posts to return. Defaults to 50. Should be a number between 1 and 50.
 
 **Example Response:**
 

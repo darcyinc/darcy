@@ -11,7 +11,7 @@ interface RecentPostOptions {
 export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   const searchParams = request.nextUrl.searchParams;
   const page = Number(searchParams.get('page') ?? 1);
-  const limit = Number(searchParams.get('limit') ?? 10);
+  const limit = Number(searchParams.get('limit') ?? 50);
 
   if (Number.isNaN(page) || Number.isNaN(limit)) {
     return new Response(
@@ -35,10 +35,10 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
     );
   }
 
-  if (limit < 1 || limit > 20) {
+  if (limit < 1 || limit > 50) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid limit. Must be between 1 and 20'
+        error: 'Invalid limit. Must be between 1 and 50'
       }),
       {
         status: 400
