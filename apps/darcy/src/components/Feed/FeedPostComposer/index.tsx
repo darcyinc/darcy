@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useCallback, useState } from 'react';
+import toast from 'react-hot-toast';
 
 import { apiClient } from '@/api/client';
 import Button from '@/components/Button';
@@ -27,10 +28,15 @@ export default function FeedPostComposer() {
     setLoading(true);
 
     apiClient.post('/post', { content }).then((response) => {
-      if (response.status === 201) setContent('');
-
-      // TODO: error handling
       setLoading(false);
+
+      if (response.status === 201) {
+        setContent('');
+        toast('Post created successfully!');
+        return;
+      }
+
+      toast.error('Could not create post.');
     });
   }, [content]);
 

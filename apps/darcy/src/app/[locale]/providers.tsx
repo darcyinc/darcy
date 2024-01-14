@@ -1,5 +1,6 @@
 import { NextIntlClientProvider, useLocale } from 'next-intl';
 import { PropsWithChildren } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 // This provider allows the `useTranslation` hook in Client Components.
 export default async function Providers({ children }: PropsWithChildren) {
@@ -14,6 +15,7 @@ export default async function Providers({ children }: PropsWithChildren) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      <Toaster />
       {children}
     </NextIntlClientProvider>
   );
