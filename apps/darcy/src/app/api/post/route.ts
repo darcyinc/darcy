@@ -33,5 +33,7 @@ export async function POST(request: NextRequest) {
     }
   });
 
-  return new Response(JSON.stringify(post));
+  return new Response(JSON.stringify(post), {
+    status: 201
+  })
 }
