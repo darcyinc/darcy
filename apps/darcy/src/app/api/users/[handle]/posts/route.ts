@@ -74,6 +74,15 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
             // if postType is replies, we want to get all replies
             parentId: postType === 'posts' ? null : { not: null }
           },
+          include: {
+            author: {
+              select: {
+                displayName: true,
+                handle: true,
+                avatarUrl: true
+              }
+            }
+          },
           orderBy: {
             createdAt: 'desc'
           },
@@ -93,9 +102,16 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
     include: {
       posts: {
         where: {
-          // if postType is posts, we want to get all posts
-          // if postType is replies, we want to get all replies
           parentId: postType === 'posts' ? null : { not: null }
+        },
+        include: {
+          author: {
+            select: {
+              displayName: true,
+              handle: true,
+              avatarUrl: true
+            }
+          }
         },
         orderBy: {
           createdAt: 'desc'
@@ -117,7 +133,6 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
     );
   }
 
-  // TODO: handle private accounts
   if (user.private) {
     return new Response(
       JSON.stringify({

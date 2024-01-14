@@ -1,5 +1,14 @@
 import { prisma } from '@/utils/api/prisma';
+import { Post } from '@prisma/client';
 import { NextRequest } from 'next/server';
+
+export interface GetPopularPostsResponse extends Post {
+  author: {
+    displayName: string;
+    handle: string;
+    avatarUrl: string | null;
+  };
+}
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -44,6 +53,15 @@ export async function GET(request: NextRequest) {
       parentId: null,
       author: {
         private: false
+      }
+    },
+    include: {
+      author: {
+        select: {
+          displayName: true,
+          handle: true,
+          avatarUrl: true
+        }
       }
     },
     orderBy: {
