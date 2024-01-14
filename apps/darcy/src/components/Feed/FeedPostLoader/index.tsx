@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 interface FeedPostLoaderProps {
-  onVisible: undefined | (() => void);
+  onVisible?: (() => void);
 }
 
 export default function FeedPostLoader({ onVisible }: FeedPostLoaderProps) {
