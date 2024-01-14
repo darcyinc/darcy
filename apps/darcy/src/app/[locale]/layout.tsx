@@ -9,7 +9,7 @@ import { DESCRIPTION } from '@/utils/constants';
 import Providers from './providers';
 import Template from './template';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '600', '700'] });
 
 export const metadata: Metadata = {
   title: 'Darcy',
