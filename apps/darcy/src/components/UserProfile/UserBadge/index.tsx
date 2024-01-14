@@ -17,7 +17,7 @@ export default function UserBadge({ badge }: UserBadgeProps) {
 
   return (
     <>
-      <Tooltip id={id} />
+      <Tooltip id={id} className='z-20' />
       {badge === 'verified' && (
         <MdVerified
           className="flex-shrink-0 text-blue"
