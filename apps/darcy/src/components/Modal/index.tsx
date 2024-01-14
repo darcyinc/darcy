@@ -38,7 +38,7 @@ export default function Modal(props: ModalProps) {
       {...props}
       data-modal
       className={clsx(
-        'fixed inset-0 z-10 flex h-full w-full items-center justify-center overflow-y-auto bg-background/90 p-2 sm:p-0',
+        'fixed inset-0 z-50 flex h-full w-full items-center justify-center overflow-y-auto bg-background/90 p-2 sm:p-0',
         props.className
       )}
       onClick={handleClose}
