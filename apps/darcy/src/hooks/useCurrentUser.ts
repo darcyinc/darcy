@@ -1,7 +1,7 @@
-import { APIUser } from '@darcy/api-wrapper';
+import { User } from '@prisma/client';
 import { create } from 'zustand';
 
-type CurrentUserState = Pick<APIUser, 'avatarUrl' | 'displayName' | 'handle' | 'bio'> & {
+type CurrentUserState = Pick<User, 'avatarUrl' | 'displayName' | 'handle' | 'bio'> & {
   token: string;
   setData: (data: Partial<CurrentUserState>) => void;
 };

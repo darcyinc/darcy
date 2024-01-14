@@ -1,5 +1,4 @@
 import FollowersModal from '@/components/Modal/FollowersModal';
-import { PropsWithChildren } from 'react';
 
 interface PageProps {
   params: {
@@ -7,6 +6,6 @@ interface PageProps {
   };
 }
 
-export default function Page({ params }: PropsWithChildren<PageProps>) {
+export default function Page({ params }: PageProps) {
   return <FollowersModal username={params.username} />;
 }

@@ -69,6 +69,9 @@ importers:
       '@biomejs/biome':
         specifier: 1.5.1
         version: 1.5.1
+      '@types/jsonwebtoken':
+        specifier: 9.0.5
+        version: 9.0.5
       '@types/node':
         specifier: 20.11.0
         version: 20.11.0
@@ -447,6 +450,12 @@ packages:
     dependencies:
       tslib: 2.6.1
     dev: false
+
+  /@types/jsonwebtoken@9.0.5:
+    resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
+    dependencies:
+      '@types/node': 20.11.0
+    dev: true
 
   /@types/node@20.11.0:
     resolution: {integrity: sha512-o9bjXmDNcF7GbM4CNQpmi+TutCgap/K3w1JyKgxAjqx41zp9qlIAVFi0IhCNsJcXolEqLWhbFbEeL0PvYm4pcQ==}
