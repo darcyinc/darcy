@@ -4,8 +4,8 @@ import { PropsWithChildren, useEffect } from 'react';
 
 import { apiClient } from '@/api/client';
 import { useTheme } from '@/hooks/theme';
-import { useRouter } from 'next/navigation';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { useRouter } from 'next/navigation';
 
 export default function Template({ children }: PropsWithChildren) {
   const currentUser = useCurrentUser();

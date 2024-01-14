@@ -7,9 +7,9 @@ import { MdCreate } from 'react-icons/md';
 
 import Button from '../Button';
 
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { NavbarLinks } from './NavbarLinks';
 import DesktopNavbarProfile from './NavbarProfile/DesktopNavbarProfile';
-import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 export default function AsideNavbar() {
   const currentUser = useCurrentUser();

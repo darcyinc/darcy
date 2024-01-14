@@ -1,5 +1,5 @@
-import { sign, verify } from 'jsonwebtoken';
 import isCI from 'is-ci';
+import { sign, verify } from 'jsonwebtoken';
 
 interface TokenPayload {
   email: string;
