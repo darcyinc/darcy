@@ -16,12 +16,12 @@
       "outputs": ["dist/**"]
     },
     "lint": {
-      "dependsOn": ["@darcy/api-wrapper#build"],
+      "dependsOn": [],
       "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "package.json"],
       "outputs": []
     },
     "format": {
-      "dependsOn": ["@darcy/api-wrapper#build"],
+      "dependsOn": [],
       "inputs": ["**/*.tsx", "**/*.ts", "**/*.js", "package.json"],
       "outputs": []
     },
@@ -30,22 +30,9 @@
       "persistent": true
     },
     "dev": {
-      "dependsOn": ["@darcy/api-wrapper#build"],
+      "dependsOn": [],
       "cache": false,
       "persistent": true
-    },
-    "@darcy/darcy#build": {
-      "dependsOn": ["@darcy/api-wrapper#build"],
-      "inputs": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css", "public/**", "next.config.js", "package.json"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "@darcy/api-wrapper#build": {
-      "inputs": ["src/**/*.ts"],
-      "outputs": ["dist/**"]
-    },
-    "@darcy/api#build": {
-      "inputs": ["apps/**/*.ts"],
-      "outputs": ["dist/**"]
     }
   }
 }

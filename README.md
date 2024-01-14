@@ -20,20 +20,19 @@ To embark on your Darcy journey, follow these simple steps:
 2. Navigate to the project directory: `cd darcy`
 3. Install the dependencies using pnpm: `pnpm install`
 4. Launch the development front-end and API in dev mode: `pnpm dev`
-5. Access the website by opening http://localhost:3000 in your web browser. The API will be running on http://localhost:3001, while microservices will be accessible from http://localhost:4001 onwards.
+5. Access the website by opening http://localhost:3000 in your web browser. The API will be running on http://localhost:3000/api.
 
-## Setting Up the API
+## Setting Up the Project
 
-For detailed instructions on configuring and setting up the API, please refer to the [API README](packages/api/README.md).
+For detailed instructions on configuring and setting up the API, please refer to the [API README](apps/darcy/README.md).
 
 ## NPM Scripts
 
 The monorepo comes with the following npm scripts:
 
-
 - `build`: Compiles all the packages in the monorepo.
 - `dev`: Initiates the development server with hot-reloading enabled.
-- `start`: Launches the production version of the API, including all microservices.
+- `start`: Launches the production version of Darcy (you must run build first).
 - `lint`: Ensures codebase formatting adheres to the Biome standards.
 - `format`: Automatically formats and rectifies codebase issues using Biome.
 
