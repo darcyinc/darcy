@@ -24,6 +24,7 @@ export default function Template({ children }: PropsWithChildren) {
       apiClient.get('/users/@me').then((response) => {
         if (response.status !== 200) {
           localStorage.removeItem('token');
+          currentUser.setData({ token: null });
           router.push('/auth');
         }
 

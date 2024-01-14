@@ -1,5 +1,6 @@
 'use client';
 
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
@@ -9,6 +10,7 @@ import { MdOutlineSettings } from 'react-icons/md';
 type FilterOption = FeedSortState['sortMode'];
 
 export default function FeedFilter() {
+  const currentUser = useCurrentUser();
   const t = useTranslations('Feed.FeedFilter');
   const feedSort = useFeedSort();
 
@@ -18,10 +20,11 @@ export default function FeedFilter() {
     <div className="flex items-center">
       {['foryou', 'following'].map((item) => (
         <button
-          className={'h-12 w-2/4 text-base hover:bg-hoverEffect'}
+          className={'h-12 w-2/4 text-base enabled:hover:bg-hoverEffect disabled:cursor-not-allowed'}
           key={item}
           type="button"
           onClick={() => handleFilter(item as FilterOption)}
+          disabled={!currentUser.token && item === 'following'}
         >
           <div className="m-auto w-fit">
             <span className={clsx('leading-[44px]', feedSort.sortMode === item ? 'font-bold' : 'text-textSecondary')}>{t(item)}</span>

@@ -2,7 +2,7 @@ import { User } from '@prisma/client';
 import { create } from 'zustand';
 
 type CurrentUserState = Pick<User, 'avatarUrl' | 'displayName' | 'handle' | 'bio'> & {
-  token: string;
+  token: string | null;
   setData: (data: Partial<CurrentUserState>) => void;
 };
 

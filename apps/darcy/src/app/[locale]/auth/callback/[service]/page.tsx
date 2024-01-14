@@ -38,7 +38,10 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
       if (state !== oauth2State) return router.replace('/auth');
 
       const reqAuth = await apiClient.post(`/auth/${service}/callback`, { code });
-      if (reqAuth.status !== 200) return router.replace(`/auth?error=${reqAuth.data.error}`);
+      if (reqAuth.status !== 200) {
+        currentUser.setData({ token: null });
+        return router.replace(`/auth?error=${reqAuth.data.error}`);
+      }
 
       sessionStorage.removeItem(`oauth2-state:${service}`);
       localStorage.setItem('token', reqAuth.data.token);

@@ -4,8 +4,10 @@ import { useTranslations } from 'next-intl';
 import { useCallback, useRef } from 'react';
 
 import Button from '@/components/Button';
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 export default function FeedPostComposer() {
+  const currentUser = useCurrentUser();
   const contentRef = useRef<HTMLTextAreaElement>(null);
   const t = useTranslations('Feed.PostComposer');
 
@@ -17,7 +19,7 @@ export default function FeedPostComposer() {
   }, []);
 
   return (
-    <div className="hidden w-full gap-3 border-b border-b-grayBorder p-2 py-4 md:flex">
+    currentUser.token && <div className="hidden w-full gap-3 border-b border-b-grayBorder p-2 py-4 md:flex">
       <div className="h-10 w-10 flex-shrink-0">
         <img alt="Your profile" className="rounded-full" draggable={false} src={'https://picsum.photos/44/44.webp'} />
       </div>

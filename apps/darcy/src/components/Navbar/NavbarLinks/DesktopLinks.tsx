@@ -10,6 +10,7 @@ interface DesktopLink {
   href: string;
   Icon: IconType;
   ActiveIcon?: IconType;
+  requiresAuth?: boolean;
 }
 
 const DesktopLinks: DesktopLink[] = [
