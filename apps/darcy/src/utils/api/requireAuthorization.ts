@@ -1,7 +1,19 @@
 import { headers } from 'next/headers';
 import { verifyToken } from './tokenJwt';
 
-export default async function requireAuthorization() {
+type UnauthorizedResponse = {
+  authorized: false;
+  response: Response;
+};
+
+type AuthorizedResponse = {
+  authorized: true;
+  email: string;
+};
+
+type AuthorizationResponse = AuthorizedResponse | UnauthorizedResponse;
+
+export default async function requireAuthorization(): Promise<AuthorizationResponse> {
   const rawToken = headers().get('Authorization');
 
   if (!rawToken) {
