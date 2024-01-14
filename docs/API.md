@@ -22,7 +22,7 @@ If an error occurs, the API will return a JSON object with the following fields 
 
 #### GET `/users/:handle`
 
-Returns a user's profile information. The `handle` parameter should not include the `@` symbol.
+Returns a user's profile information. The `handle` parameter should not include the `@` symbol. To get the currently authenticated user's profile, use `@me` as the `handle` parameter.
 
 If the user is not found, a 404 error will be returned.
 
@@ -42,6 +42,33 @@ If the user is not found, a 404 error will be returned.
   "followerCount": 0,
   "followingCount": 0
 }
+```
+
+#### GET `/users/:handle/posts`
+
+Returns a user's posts. The `handle` parameter should not include the `@` symbol. To get the currently authenticated user's posts, use `@me` as the `handle` parameter.
+
+Can have the following search parameters:
+- `page`: The page of posts to return. Defaults to 1. Should be a number greater than 0.
+- `limit`: The maximum number of posts to return. Defaults to 10. Should be a number between 1 and 20.
+
+**Example Response:**
+
+```json
+[
+  {
+    "id": "clrcswoys00001o087o82kff6",
+    "authorId": "clrcqqjxu0000ifudofglmmhk",
+    "content": "Hello world!",
+    "mediaUrls": [],
+    "createdAt": "2024-01-14T01:11:57.796Z",
+    "updatedAt": "2024-01-14T01:11:42.952Z",
+    "parentId": null,
+    "likeCount": 0,
+    "repostCount": 0,
+    "commentCount": 0
+  }
+]
 ```
 
 ### Authentication

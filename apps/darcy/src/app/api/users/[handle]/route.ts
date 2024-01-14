@@ -1,7 +1,14 @@
 import { prisma } from '@/utils/api/prisma';
 import requireAuthorization from '@/utils/api/requireAuthorization';
+import { NextRequest } from 'next/server';
 
-export async function GET(_request: Request, { params }: { params: { handle: string } }) {
+interface UserOptions {
+  params: {
+    handle: string;
+  };
+}
+
+export async function GET(_request: NextRequest, { params }: UserOptions) {
   if (params.handle === '@me') {
     const authData = await requireAuthorization();
 
