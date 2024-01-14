@@ -2,12 +2,7 @@
 
 import { apiClient } from '@/api/client';
 import { GetPopularPostsResponse } from '@/app/api/popular-posts/route';
-import Feed from '@/components/Feed';
-import FeedFilter from '@/components/Feed/FeedFilter';
-import FeedHeader from '@/components/Feed/FeedHeader';
-import FeedPost from '@/components/Feed/FeedPost';
-import FeedPostComposer from '@/components/Feed/FeedPostComposer';
-import FeedPostLoader from '@/components/Feed/FeedPostLoader';
+import Feed, { FeedFilter, FeedHeader, FeedPost, FeedPostComposer, FeedPostLoader } from '@/components/Feed';
 import MobileNavbarProfile from '@/components/Navbar/NavbarProfile/MobileNavbarProfile';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useCallback, useState } from 'react';
@@ -22,8 +17,6 @@ export default function Home() {
     if (!hasMore) return;
 
     setPage((prev) => prev + 1);
-
-    console.debug(' -> Fetching more posts. ');
 
     if (currentUser.token) {
       const response = await apiClient.get(`/popular-posts?page=${page}`);
