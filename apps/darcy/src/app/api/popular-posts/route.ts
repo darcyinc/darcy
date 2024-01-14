@@ -6,7 +6,7 @@ export interface GetPopularPostsResponse extends Post {
   author: {
     displayName: string;
     handle: string;
-    avatarUrl: string | null;
+    avatarUrl: string;
   };
 }
 

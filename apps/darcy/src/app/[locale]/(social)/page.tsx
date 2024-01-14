@@ -52,7 +52,7 @@ export default function Home() {
         <FeedPost
           hasLiked={false}
           hasReposted={false}
-          avatar={post.author.avatarUrl || 'https://picsum.photos/48.webp'}
+          avatar={post.author.avatarUrl}
           comments={post.commentCount}
           content={post.content}
           createdAt={new Date(post.createdAt).getTime()}

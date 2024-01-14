@@ -10,7 +10,7 @@ export default function MobileNavbarProfile() {
 
   return (
     <div className="flex items-center justify-between sm:hidden w-full py-2 px-4">
-      {currentUser.token && <img alt="Your profile avatar." className="h-8 w-8 rounded-full" src="https://picsum.photos/48.webp" />}
+      {currentUser.token && <img alt="Your profile avatar." className="h-8 w-8 rounded-full" src={currentUser.avatarUrl} />}
 
       <Link className="rounded-full p-2 text-textPrimary hover:bg-hoverEffect" href="/">
         <AiOutlineAlignLeft className="text-2xl" />

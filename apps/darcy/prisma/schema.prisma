@@ -17,7 +17,7 @@ model User {
   handle      String  @unique
   bio         String  @default("")
   private     Boolean @default(false)
-  avatarUrl   String?
+  avatarUrl   String  @default("/assets/images/default-profile-picture.png")
   bannerUrl   String?
 
   createdAt DateTime @default(now())

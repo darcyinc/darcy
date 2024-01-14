@@ -22,7 +22,7 @@ export default function FeedPostComposer() {
     currentUser.token && (
       <div className="hidden w-full gap-3 border-b border-b-grayBorder p-2 py-4 md:flex">
         <div className="h-10 w-10 flex-shrink-0">
-          <img alt="Your profile" className="rounded-full" draggable={false} src={'https://picsum.photos/44/44.webp'} />
+          <img alt="Your profile" className="rounded-full" draggable={false} src={currentUser.avatarUrl} />
         </div>
 
         <div className="flex w-full flex-col gap-2">
