@@ -6,9 +6,12 @@ import { useCallback, useState } from 'react';
 import { apiClient } from '@/api/client';
 import Button from '@/components/Button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { Oval } from 'react-loader-spinner';
 
 export default function FeedPostComposer() {
   const [content, setContent] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const currentUser = useCurrentUser();
   const t = useTranslations('Feed.PostComposer');
 
@@ -21,8 +24,13 @@ export default function FeedPostComposer() {
   }, []);
 
   const handlePublish = useCallback(() => {
-    apiClient.post('/post', { content }).then(() => {
-      setContent('');
+    setLoading(true);
+
+    apiClient.post('/post', { content }).then((response) => {
+      if (response.status === 201) setContent('');
+
+      // TODO: error handling
+      setLoading(false);
     });
   }, [content]);
 
@@ -41,7 +49,8 @@ export default function FeedPostComposer() {
             onChange={handleChange}
           />
 
-          <Button className="self-end" color="white" disabled={content.length === 0} size="sm" onClick={handlePublish}>
+          <Button className="self-end gap-2" color="white" disabled={content.length === 0 || loading} size="sm" onClick={handlePublish}>
+            <Oval visible={loading} height="20" width="20" color="#000" secondaryColor="#000" ariaLabel="oval-loading" strokeWidth={5} />
             <p>{t('publish')}</p>
           </Button>
         </div>
