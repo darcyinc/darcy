@@ -1,5 +1,8 @@
-import { Client } from '@darcy/api-wrapper';
+import axios from 'axios';
 
-export const client = new Client(process.env.NEXT_PUBLIC_API_URL ?? '');
-
-export const updateToken = (token?: string | null) => client.setToken(token ?? '');
+export const apiClient = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});

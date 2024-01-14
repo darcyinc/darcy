@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-import { client } from '@/api/client';
+import { apiClient } from '@/api/client';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { AUTH_SERVICES_CALLBACK } from '@/utils/constants';
 
@@ -30,32 +30,27 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
   const { service } = params;
   const { code, state } = searchParams;
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     const auth = async () => {
       const oauth2State = sessionStorage.getItem(`oauth2-state:${service}`);
       if (!AUTH_SERVICES_CALLBACK.includes(service) || !code || !state) return router.replace('/auth');
       if (state !== oauth2State) return router.replace('/auth');
 
-      client.auth
-        .withService({
-          code,
-          service
-        })
-        .then(({ token }) => {
-          sessionStorage.removeItem(`oauth2-state:${service}`);
-          localStorage.setItem('token', token);
+      const reqAuth = await apiClient.post(`/auth/${service}/callback`, { code });
+      if (reqAuth.status !== 200) return router.replace(`/auth?error=${reqAuth.data.error}`);
 
-          client.users.get().then((data) => currentUser.setData({ ...data, token }));
+      sessionStorage.removeItem(`oauth2-state:${service}`);
+      localStorage.setItem('token', reqAuth.data.token);
 
-          router.push('/');
-        })
-        .catch((error: Error) => {
-          if (error.message) return router.replace(`/auth?error=${error.message}`);
-        });
+      const reqUser = await apiClient.get('/users/@me');
+      currentUser.setData(reqUser.data);
+
+      router.push('/');
     };
 
     auth();
-  }, [code, currentUser, router, service, state]);
+  }, []);
 
   return <span className="m-auto text-xl">{t('authenticating')}</span>;
 }
