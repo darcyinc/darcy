@@ -14,9 +14,20 @@ export async function GET(_request: NextRequest, { params }: UserOptions) {
 
     if (!authData.authorized) return authData.response;
 
-    const user = await prisma.user.findFirstOrThrow({
+    const user = await prisma.user.findFirst({
       where: { auth: { email: authData.email } }
     });
+
+    if (!user) {
+      return new Response(
+        JSON.stringify({
+          error: 'User not found'
+        }),
+        {
+          status: 404
+        }
+      );
+    }
 
     return new Response(JSON.stringify(user));
   }
