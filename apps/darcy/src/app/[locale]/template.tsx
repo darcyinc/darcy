@@ -1,16 +1,15 @@
 'use client';
 
-import { PropsWithChildren, useEffect } from 'react';
-
 import { apiClient } from '@/api/client';
 import { useTheme } from '@/hooks/theme';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useRouter } from 'next/navigation';
+import { PropsWithChildren, useEffect } from 'react';
 
 export default function Template({ children }: PropsWithChildren) {
-  const currentUser = useCurrentUser();
   const router = useRouter();
   const { theme } = useTheme();
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     document.documentElement.classList.add(theme);

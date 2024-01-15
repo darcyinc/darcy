@@ -1,7 +1,6 @@
+import { OAuth } from '@/components/OAuth';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
-
-import { OAuth } from '@/components/OAuth';
 
 export const metadata: Metadata = {
   title: 'Sign in | Darcy'

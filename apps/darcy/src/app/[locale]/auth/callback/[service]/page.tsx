@@ -1,12 +1,11 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-
 import { apiClient } from '@/api/client';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { AUTH_SERVICES_CALLBACK } from '@/utils/constants';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 interface CallbackPageParams {
   service: string;
