@@ -1,7 +1,9 @@
+'use client';
+
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
-import Button from '../Button';
 import UserAvatarBanner from './UserAvatarBanner';
 import UserBadge from './UserBadge';
+import UserFollowButton from './UserFollowButton';
 import UserFollowStats from './UserFollowStats';
 import UserProfileInformation from './UserProfileInformation';
 
@@ -26,11 +28,7 @@ export default function UserProfile({
         <UserAvatarBanner avatarUrl={avatarUrl} bannerUrl={bannerUrl} />
 
         {/* TODO: Edit profile button, unfollow */}
-        <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">
-          <Button color="white" size="sm">
-            <p>Seguir</p>
-          </Button>
-        </div>
+        <UserFollowButton handle={handle} />
       </section>
 
       {/* User info */}
