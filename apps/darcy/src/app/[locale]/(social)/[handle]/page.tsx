@@ -1,6 +1,6 @@
 'use client';
 
-import Feed, { FeedHeader, FeedPostComposer } from '@/components/Feed';
+import { FeedHeader, FeedPostComposer } from '@/components/Feed';
 import UserPostFetcher from '@/components/Feed/FeedPostFetcher/UserPostFetcher';
 import UserProfile from '@/components/UserProfile';
 import useUser from '@/hooks/api/useUser';
@@ -20,7 +20,7 @@ export default function Home({ params }: HomeProps) {
 
   if (loading || error) {
     return (
-      <Feed>
+      <>
         <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
           <Link className="rounded-full text-textPrimary hover:bg-hoverEffect p-2" href="/">
             <MdArrowBack className="h-5 w-5" />
@@ -28,12 +28,12 @@ export default function Home({ params }: HomeProps) {
         </FeedHeader>
 
         {error && <p className="text-center mt-2 text-xl">User not found.</p>}
-      </Feed>
+      </>
     );
   }
 
   return (
-    <Feed>
+    <>
       <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
         <Link className="rounded-full text-textPrimary hover:bg-hoverEffect p-2" href="/">
           <MdArrowBack className="h-5 w-5" />
@@ -50,6 +50,6 @@ export default function Home({ params }: HomeProps) {
       {currentUser.handle === userData.handle && <FeedPostComposer showProfilePicture={false} />}
 
       <UserPostFetcher userData={userData} handle={params.handle} />
-    </Feed>
+    </>
   );
 }

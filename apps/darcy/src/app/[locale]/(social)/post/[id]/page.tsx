@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { MdArrowBack } from 'react-icons/md';
 
-import Feed, { FeedHeader, FeedPost } from '@/components/Feed';
+import { FeedHeader, FeedPost } from '@/components/Feed';
 
 export default function Home() {
   return (
-    <Feed>
+    <>
       <FeedHeader className="absolute flex items-center gap-4 p-4 backdrop-blur-md">
         <Link className="rounded-full p-2 text-textPrimary hover:bg-hoverEffect" href="/">
           <MdArrowBack className="h-7 w-7" />
@@ -30,6 +30,6 @@ export default function Home() {
         username="Davi Patricio"
         views={100}
       />
-    </Feed>
+    </>
   );
 }
