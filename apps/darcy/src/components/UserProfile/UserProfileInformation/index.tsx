@@ -3,17 +3,17 @@ import Link from 'next/link';
 import { MdOutlineCalendarMonth, MdOutlineLink, MdOutlineLocationOn, MdWorkOutline } from 'react-icons/md';
 
 interface UserProfileInformationProps {
-  location?: string;
-  website?: string;
-  job?: string;
-  joinedAt: number;
+  location?: string | null;
+  website?: string | null;
+  job?: string | null;
+  createdAt: string;
 }
 
-export default function UserProfileInformation({ location, job, website, joinedAt }: UserProfileInformationProps) {
+export default function UserProfileInformation({ location, job, website, createdAt }: UserProfileInformationProps) {
   const t = useTranslations('UserProfile.Information');
   const locale = useLocale();
 
-  const formattedJoinedAt = new Date(joinedAt).toLocaleDateString(locale, {
+  const formattedCreatedAt = new Date(createdAt).toLocaleDateString(locale, {
     month: 'long',
     year: 'numeric'
   });
@@ -45,7 +45,7 @@ export default function UserProfileInformation({ location, job, website, joinedA
 
       <div className="flex items-center gap-1">
         <MdOutlineCalendarMonth className="h-4 w-4 flex-shrink-0" />
-        <time dateTime={new Date(joinedAt).toISOString()}>{t('joinedAt', { date: formattedJoinedAt })}</time>
+        <time dateTime={new Date(createdAt).toISOString()}>{t('joinedAt', { date: formattedCreatedAt })}</time>
       </div>
     </div>
   );

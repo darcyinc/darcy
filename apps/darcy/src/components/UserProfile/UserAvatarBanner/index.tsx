@@ -6,7 +6,7 @@ import Modal from '@/components/Modal';
 
 interface UserAvatarBannerProps {
   avatarUrl: string;
-  bannerUrl: string;
+  bannerUrl?: string | null;
 }
 
 export default function UserAvatarBanner({ avatarUrl, bannerUrl }: UserAvatarBannerProps) {
@@ -30,7 +30,7 @@ export default function UserAvatarBanner({ avatarUrl, bannerUrl }: UserAvatarBan
         </Modal>
       )}
 
-      <img alt="Banner" className="h-52 object-cover" draggable={false} src={bannerUrl} />
+      <img alt="Banner" className="h-52 object-cover" draggable={false} src={bannerUrl ?? ''} />
 
       <button
         className="absolute -bottom-10 left-4 flex items-end justify-center sm:-bottom-16 md:left-5"

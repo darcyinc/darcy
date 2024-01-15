@@ -1,7 +1,6 @@
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 
-import UserBadge from '@/components/UserProfile/UserBadge';
 import useRelativeTime from '@/hooks/useRelativeTime';
 
 import ClickablePost from './ClickablePost';
@@ -43,7 +42,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
               @{handle}
             </Link>
 
-            <UserBadge badge="verified" />
+            {/* {verified !== 'NONE' && <UserBadge badge={verified} />} */}
 
             <p className="flex flex-1 gap-1 overflow-hidden text-textSecondary">
               <span className="select-none">·</span>

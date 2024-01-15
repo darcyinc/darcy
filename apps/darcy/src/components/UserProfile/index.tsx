@@ -1,36 +1,24 @@
+import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import Button from '../Button';
-
 import UserAvatarBanner from './UserAvatarBanner';
 import UserBadge from './UserBadge';
 import UserFollowStats from './UserFollowStats';
 import UserProfileInformation from './UserProfileInformation';
 
-interface UserProfileProps {
-  name: string;
-  avatarUrl: string;
-  bannerUrl: string;
-  bio: string;
-  joinedAt?: number;
-  job?: string;
-  location?: string;
-  website?: string;
-  verified?: boolean;
-  followers: number;
-  following: number;
-}
-
 export default function UserProfile({
-  name,
+  displayName,
   avatarUrl,
   bannerUrl,
   bio,
+  createdAt,
+  handle,
   job,
   website,
   location,
   verified,
-  followers,
-  following
-}: UserProfileProps) {
+  followersCount,
+  followingCount
+}: Omit<GetUserResponse, 'updatedAt'>) {
   return (
     <div>
       {/* User avatar & banner */}
@@ -48,16 +36,20 @@ export default function UserProfile({
       {/* User info */}
       <section className="mt-[70px] flex flex-col gap-1 px-4">
         <div className="flex items-center gap-1">
-          <h1 className="text-xl font-bold">{name}</h1>
-          {verified && <UserBadge badge="verified" />}
+          <h1 className="text-xl font-bold">{displayName}</h1>
+          {verified !== 'NONE' && <UserBadge badge={verified} />}
         </div>
+
+        <p className="text-textSecondary">
+          @{handle}
+        </p>
 
         <p>{bio}</p>
 
-        <UserProfileInformation job={job} joinedAt={Date.now() - 999_000_000} location={location} website={website} />
+        <UserProfileInformation job={job} createdAt={createdAt} location={location} website={website} />
 
         {/* Following & followers */}
-        <UserFollowStats followers={followers} following={following} />
+        <UserFollowStats followers={followersCount} following={followingCount} />
       </section>
     </div>
   );
