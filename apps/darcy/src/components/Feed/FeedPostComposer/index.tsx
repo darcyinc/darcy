@@ -63,7 +63,7 @@ export default function FeedPostComposer({ showProfilePicture = true }: FeedPost
           <Button
             className="self-end gap-2"
             color="white"
-            disabled={content.length === 0 || loading}
+            disabled={content.length === 0}
             size="sm"
             onClick={handlePublish}
             loading={loading}

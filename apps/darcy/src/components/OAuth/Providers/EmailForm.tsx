@@ -75,7 +75,7 @@ export default function EmailForm({ error }: EmailFormProps) {
       <Button
         className="my-2.5"
         color="blue"
-        disabled={authData.submitting || !!authData.validationError || authData.email.length === 0}
+        disabled={!!authData.validationError || authData.email.length === 0}
         loading={authData.submitting}
         size="lg"
         type="submit"

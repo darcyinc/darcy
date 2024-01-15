@@ -22,6 +22,7 @@ export default function Button({ children, color = 'blue', type = 'button', size
   return (
     <button
       {...props}
+      disabled={loading || props.disabled}
       className={clsx(
         'flex items-center justify-center rounded-full px-5 py-2 gap-2 font-bold disabled:cursor-not-allowed',
         ButtonStyles[color],
