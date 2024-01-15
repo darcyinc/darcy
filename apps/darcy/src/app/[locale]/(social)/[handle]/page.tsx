@@ -1,16 +1,15 @@
 'use client';
 
-import Link from 'next/link';
-import { MdArrowBack } from 'react-icons/md';
-
-import { apiClient } from '@/api/client';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import Feed, { FeedPost, FeedPostComposer, FeedPostLoader } from '@/components/Feed';
 import FeedHeader from '@/components/Feed/FeedHeader';
 import UserProfile from '@/components/UserProfile';
+import useUser from '@/hooks/api/useUser';
+import useUserPosts from '@/hooks/api/useUserPosts';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
+import { MdArrowBack } from 'react-icons/md';
 
 interface HomeProps {
   params: {
@@ -21,31 +20,24 @@ interface HomeProps {
 export default function Home({ params }: HomeProps) {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [error, setError] = useState(false);
-  const [userData, setUserData] = useState<GetUserResponse>();
   const [posts, setPosts] = useState<GetUserPostsResponse[]>([]);
+
   const currentUser = useCurrentUser();
+  const { data: userData, error, loading } = useUser(params.handle);
+  const { data: userPosts, loading: loadingUserPosts } = useUserPosts(params.handle, { page });
 
   useEffect(() => {
-    apiClient.get(`/users/${params.handle}`).then((response) => {
-      if (response.status !== 200) return setError(true);
-      setUserData(response.data);
-    });
-  }, [params]);
+    if (loadingUserPosts) return;
+    if (userPosts.length === 0) return setHasMore(false);
+    setPosts((prev) => [...prev, ...userPosts]);
+  }, [userPosts, loadingUserPosts]);
 
   const handleLoadMore = useCallback(async () => {
     if (!hasMore) return;
-
     setPage((prev) => prev + 1);
+  }, [hasMore]);
 
-    const response = await apiClient.get(`/users/${params.handle}/posts?page=${page}`);
-    setPosts((prev) => [...prev, ...response.data]);
-
-    if (response.data.length === 0) setHasMore(false);
-    return;
-  }, [page, hasMore, params]);
-
-  if (error) {
+  if (loading || error) {
     return (
       <Feed>
         <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
@@ -54,19 +46,7 @@ export default function Home({ params }: HomeProps) {
           </Link>
         </FeedHeader>
 
-        <p className="text-center mt-2 text-xl">User not found.</p>
-      </Feed>
-    );
-  }
-
-  if (!userData) {
-    return (
-      <Feed>
-        <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
-          <Link className="rounded-full text-textPrimary hover:bg-hoverEffect p-2" href="/">
-            <MdArrowBack className="h-5 w-5" />
-          </Link>
-        </FeedHeader>
+        {error && <p className="text-center mt-2 text-xl">User not found.</p>}
       </Feed>
     );
   }
