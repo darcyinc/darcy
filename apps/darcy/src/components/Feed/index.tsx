@@ -16,4 +16,3 @@ export { default as FeedHeader } from './FeedHeader';
 export { default as FeedPost } from './FeedPost';
 export { default as FeedPostComposer } from './FeedPostComposer';
 export { default as FeedPostLoader } from './FeedPostLoader';
-

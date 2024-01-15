@@ -19,7 +19,18 @@ interface UserProfileProps {
   following: number;
 }
 
-export default function UserProfile({ name, avatarUrl, bannerUrl, bio, job, website, location, verified, followers, following }: UserProfileProps) {
+export default function UserProfile({
+  name,
+  avatarUrl,
+  bannerUrl,
+  bio,
+  job,
+  website,
+  location,
+  verified,
+  followers,
+  following
+}: UserProfileProps) {
   return (
     <div>
       {/* User avatar & banner */}
