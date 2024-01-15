@@ -40,9 +40,7 @@ export default function UserProfile({
           {verified !== 'NONE' && <UserBadge badge={verified} />}
         </div>
 
-        <p className="text-textSecondary">
-          @{handle}
-        </p>
+        <p className="text-textSecondary">@{handle}</p>
 
         <p>{bio}</p>
 

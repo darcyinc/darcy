@@ -67,10 +67,7 @@ export default function Home({ params }: HomeProps) {
       </FeedHeader>
 
       <div>
-        <UserProfile
-          {...userData}
-          bannerUrl="https://picsum.photos/800/200"
-        />
+        <UserProfile {...userData} bannerUrl="https://picsum.photos/800/200" />
       </div>
     </Feed>
   );
