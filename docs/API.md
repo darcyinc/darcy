@@ -121,3 +121,11 @@ Creates a new post. The request body should contain the following fields:
 - `postId`?: The ID of the post to reply to. If this field is present, the post will be a reply to the post with the given ID.
 
 If the post is created successfully, the post will be returned in the response body.
+
+#### POST `/post/:id/like`
+
+Likes a post. The `id` parameter should be the ID of the post to like.
+
+#### DELETE `/post/:id/like`
+
+Unlikes a post. The `id` parameter should be the ID of the post to unlike.
