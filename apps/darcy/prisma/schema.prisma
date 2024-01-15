@@ -10,32 +10,36 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum VerifiedType {
+  NONE
+  PERSON
+  ORGANIZATION
+  GOVERNMENT
+}
+
 // Define the User schema
 model User {
-  id          String  @id @unique @default(cuid())
+  id          String       @id @unique @default(cuid())
   displayName String
-  handle      String  @unique
-  bio         String  @default("")
-  private     Boolean @default(false)
-  avatarUrl   String  @default("/assets/images/default-profile-picture.png")
+  handle      String       @unique
+  bio         String       @default("")
+  private     Boolean      @default(false)
+  verified    VerifiedType @default(NONE)
+  avatarUrl   String       @default("/assets/images/default-profile-picture.png")
   bannerUrl   String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // Define the relationships with other models
-  posts     Post[]       @relation("Author")
-  auth      UserAuth?
-  followers UserFollow[] @relation("UserFollowers")
-  following UserFollow[] @relation("UserFollowing")
+  // An array of user ids that this user follows
+  followingIds String[]
 
-  likedPosts    Post[] @relation("PostLikes")
-  repostedPosts Post[] @relation("PostReposts")
+  // Define the relationships with other models
+  posts Post[]    @relation("Author")
+  auth  UserAuth?
 
   // Define the counts
   postCount      Int @default(0)
-  followerCount  Int @default(0)
-  followingCount Int @default(0)
 }
 
 // Define the UserAuth schema
@@ -60,28 +64,12 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // Define the relationships with other models
-  likes   User[] @relation("PostLikes")
-  reposts User[] @relation("PostReposts")
+  likedIds String[]
 
   comments   Post[]  @relation("CommentOf")
   parentPost Post?   @relation("CommentOf", fields: [parentId], references: [id])
   parentId   String?
 
   // Define the counts
-  likeCount    Int @default(0)
-  repostCount  Int @default(0)
   commentCount Int @default(0)
-}
-
-// Define the UserFollow schema
-model UserFollow {
-  id       String @id @unique @default(cuid())
-  user     User   @relation("UserFollowers", fields: [userId], references: [id])
-  userId   String
-  target   User   @relation("UserFollowing", fields: [targetId], references: [id])
-  targetId String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
