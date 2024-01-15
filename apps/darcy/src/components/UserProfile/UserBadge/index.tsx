@@ -26,12 +26,12 @@ export default function UserBadge({ badge }: UserBadgeProps) {
             'flex-shrink-0',
             badge === 'ORGANIZATION' && 'text-yellow-400',
             badge === 'PERSON' && 'text-blue',
-            badge === 'GOVERNMENT' && 'text-gray-400',
+            badge === 'GOVERNMENT' && 'text-gray-400'
           )}
           data-tooltip-content="Verificado"
           data-tooltip-id={id}
           data-tooltip-place="top"
-          data-tooltip-variant={theme === 'light' ? 'light' : 'dark'}
+          data-tooltip-variant={theme}
         />
       )}
     </>
