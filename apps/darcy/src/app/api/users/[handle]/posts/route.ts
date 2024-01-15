@@ -106,13 +106,12 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
 
     return new Response(
       JSON.stringify(
-        user.posts
-          .map((post) => ({
-            ...post,
-            authorId: undefined,
-            likedIds: undefined,
-            likeCount: post.likedIds.length,
-          }))
+        user.posts.map((post) => ({
+          ...post,
+          authorId: undefined,
+          likedIds: undefined,
+          likeCount: post.likedIds.length
+        }))
       )
     );
   }
@@ -159,13 +158,12 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
 
   return new Response(
     JSON.stringify(
-      user.posts
-        .map((post) => ({
-          ...post,
-          authorId: undefined,
-          likedIds: undefined,
-          likeCount: post.likedIds.length,
-        }))
+      user.posts.map((post) => ({
+        ...post,
+        authorId: undefined,
+        likedIds: undefined,
+        likeCount: post.likedIds.length
+      }))
     )
   );
 }

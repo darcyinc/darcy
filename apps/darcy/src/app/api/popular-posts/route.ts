@@ -82,7 +82,7 @@ export async function GET(request: NextRequest) {
           ...post,
           authorId: undefined,
           likedIds: undefined,
-          likeCount: post.likedIds.length,
+          likeCount: post.likedIds.length
         }))
     )
   );
