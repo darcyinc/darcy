@@ -5,9 +5,10 @@ import { MdArrowBack } from 'react-icons/md';
 
 import { apiClient } from '@/api/client';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
-import Feed from '@/components/Feed';
+import Feed, { FeedPostComposer } from '@/components/Feed';
 import FeedHeader from '@/components/Feed/FeedHeader';
 import UserProfile from '@/components/UserProfile';
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useEffect, useState } from 'react';
 
 interface HomeProps {
@@ -17,6 +18,7 @@ interface HomeProps {
 }
 
 export default function Home({ params }: HomeProps) {
+  const currentUser = useCurrentUser();
   const [error, setError] = useState(false);
   const [userData, setUserData] = useState<GetUserResponse>();
 
@@ -67,6 +69,8 @@ export default function Home({ params }: HomeProps) {
       </FeedHeader>
 
       <UserProfile {...userData} bannerUrl="https://picsum.photos/800/200" />
+
+      {currentUser.handle === userData.handle && <FeedPostComposer showProfilePicture={false} />}
     </Feed>
   );
 }

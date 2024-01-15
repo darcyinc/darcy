@@ -9,7 +9,11 @@ import Button from '@/components/Button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { Oval } from 'react-loader-spinner';
 
-export default function FeedPostComposer() {
+interface FeedPostComposerProps {
+  showProfilePicture?: boolean;
+}
+
+export default function FeedPostComposer({ showProfilePicture = true }: FeedPostComposerProps) {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -43,9 +47,11 @@ export default function FeedPostComposer() {
   return (
     currentUser.token && (
       <div className="hidden w-full gap-3 border-b border-b-grayBorder p-2 py-4 md:flex">
-        <div className="h-10 w-10 flex-shrink-0">
-          <img alt="Your profile" className="rounded-full" draggable={false} src={currentUser.avatarUrl} />
-        </div>
+        {showProfilePicture && (
+          <div className="h-10 w-10 flex-shrink-0">
+            <img alt="Your profile" className="rounded-full" draggable={false} src={currentUser.avatarUrl} />
+          </div>
+        )}
 
         <div className="flex w-full flex-col gap-2">
           <textarea
