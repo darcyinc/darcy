@@ -6,8 +6,8 @@ import toast from 'react-hot-toast';
 
 import { apiClient } from '@/api/client';
 import Button from '@/components/Button';
+import LoadingSpinner from '@/components/LoadingSpinner';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { Oval } from 'react-loader-spinner';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
@@ -62,7 +62,7 @@ export default function FeedPostComposer({ showProfilePicture = true }: FeedPost
           />
 
           <Button className="self-end gap-2" color="white" disabled={content.length === 0 || loading} size="sm" onClick={handlePublish}>
-            <Oval visible={loading} height="20" width="20" color="#000" secondaryColor="#000" ariaLabel="oval-loading" strokeWidth={5} />
+            <LoadingSpinner />
             <p>{t('publish')}</p>
           </Button>
         </div>

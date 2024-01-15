@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { AiOutlineLoading } from 'react-icons/ai';
+import LoadingSpinner from '../LoadingSpinner';
 
 interface ButtonProps extends React.ComponentProps<'button'> {
   color: 'blue' | 'white';
@@ -23,14 +23,14 @@ export default function Button({ children, color = 'blue', type = 'button', size
     <button
       {...props}
       className={clsx(
-        'flex items-center justify-center rounded-full px-5 py-2 font-bold disabled:cursor-not-allowed',
+        'flex items-center justify-center rounded-full px-5 py-2 gap-2 font-bold disabled:cursor-not-allowed',
         ButtonStyles[color],
         ButtonSizes[size],
         props.className
       )}
       type={type}
     >
-      {loading && <AiOutlineLoading className="mr-2.5 animate-spin" />}
+      {loading && <LoadingSpinner />}
       {children}
     </button>
   );
