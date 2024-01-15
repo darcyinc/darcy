@@ -7,7 +7,6 @@ import { PropsWithChildren } from 'react';
 import { DESCRIPTION } from '@/utils/constants';
 
 import Providers from './providers';
-import Template from './template';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '600', '700'] });
 
@@ -26,9 +25,7 @@ export default function RootLayout({ children, params }: PropsWithChildren<Layou
   return (
     <html lang={params.locale}>
       <body className={inter.className}>
-        <Template>
-          <Providers>{children}</Providers>
-        </Template>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
