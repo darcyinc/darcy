@@ -8,6 +8,16 @@ interface RecentPostOptions {
   };
 }
 
+export interface GetUserPostsResponse {
+  id: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  parentId: string | null;
+  commentCount: number;
+  likeCount: number;
+}
+
 export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   const searchParams = request.nextUrl.searchParams;
   const page = Number(searchParams.get('page') ?? 1);
@@ -74,15 +84,6 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
             // if postType is replies, we want to get all replies
             parentId: postType === 'posts' ? null : { not: null }
           },
-          include: {
-            author: {
-              select: {
-                displayName: true,
-                handle: true,
-                avatarUrl: true
-              }
-            }
-          },
           orderBy: {
             createdAt: 'desc'
           },
@@ -103,7 +104,17 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
       );
     }
 
-    return new Response(JSON.stringify(user.posts));
+    return new Response(
+      JSON.stringify(
+        user.posts
+          .map((post) => ({
+            ...post,
+            authorId: undefined,
+            likedIds: undefined,
+            likeCount: post.likedIds.length,
+          }))
+      )
+    );
   }
 
   const user = await prisma.user.findFirst({
@@ -114,15 +125,6 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
       posts: {
         where: {
           parentId: postType === 'posts' ? null : { not: null }
-        },
-        include: {
-          author: {
-            select: {
-              displayName: true,
-              handle: true,
-              avatarUrl: true
-            }
-          }
         },
         orderBy: {
           createdAt: 'desc'
@@ -155,5 +157,15 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
     );
   }
 
-  return new Response(JSON.stringify(user.posts));
+  return new Response(
+    JSON.stringify(
+      user.posts
+        .map((post) => ({
+          ...post,
+          authorId: undefined,
+          likedIds: undefined,
+          likeCount: post.likedIds.length,
+        }))
+    )
+  );
 }

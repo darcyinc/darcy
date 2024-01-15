@@ -59,7 +59,6 @@ export default function Home() {
         />
       ))}
 
-      {/* TODO */}
       <FeedPostLoader onVisible={handleLoadMore} />
     </Feed>
   );
