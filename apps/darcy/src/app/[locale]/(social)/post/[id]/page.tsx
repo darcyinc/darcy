@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import { MdArrowBack } from 'react-icons/md';
 
-import Feed from '@/components/Feed';
-import FeedHeader from '@/components/Feed/FeedHeader';
-import FeedPost from '@/components/Feed/FeedPost';
+import Feed, { FeedHeader, FeedPost } from '@/components/Feed';
 
 export default function Home() {
   return (

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 interface FeedPostLoaderProps {
-  onVisible?: () => void;
+  onVisible: () => void;
 }
 
 export default function FeedPostLoader({ onVisible }: FeedPostLoaderProps) {
@@ -13,14 +13,14 @@ export default function FeedPostLoader({ onVisible }: FeedPostLoaderProps) {
   useEffect(() => {
     if (!ref.current) return;
 
-    const intersectionObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
-      if (entry.isIntersecting) onVisible?.();
+      if (entry.isIntersecting) onVisible();
     });
 
-    intersectionObserver.observe(ref.current);
+    observer.observe(ref.current);
 
-    return () => intersectionObserver.disconnect();
+    return () => observer.disconnect();
   }, []);
 
   return <p className="my-2 text-center" ref={ref} />;

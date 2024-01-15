@@ -10,9 +10,9 @@ import { MdOutlineSettings } from 'react-icons/md';
 type FilterOption = FeedSortState['sortMode'];
 
 export default function FeedFilter() {
+  const feedSort = useFeedSort();
   const currentUser = useCurrentUser();
   const t = useTranslations('Feed.FeedFilter');
-  const feedSort = useFeedSort();
 
   const handleFilter = useCallback((newFilter: FilterOption) => feedSort.setSortMode(newFilter), [feedSort]);
 

@@ -1,8 +1,7 @@
 'use client';
 
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
-import Feed, { FeedPost, FeedPostComposer, FeedPostLoader } from '@/components/Feed';
-import FeedHeader from '@/components/Feed/FeedHeader';
+import Feed, { FeedHeader, FeedPost, FeedPostComposer, FeedPostLoader } from '@/components/Feed';
 import UserProfile from '@/components/UserProfile';
 import useUser from '@/hooks/api/useUser';
 import useUserPosts from '@/hooks/api/useUserPosts';
@@ -24,20 +23,20 @@ export default function Home({ params }: HomeProps) {
 
   const currentUser = useCurrentUser();
   const { data: userData, error, loading } = useUser(params.handle);
-  const { data: userPosts, loading: loadingUserPosts } = useUserPosts(params.handle, { page });
+  const { data: userPosts, error: errorUserPosts, loading: loadingUserPosts } = useUserPosts(params.handle, { page });
 
   useEffect(() => {
-    if (loadingUserPosts) return;
+    if (errorUserPosts || loadingUserPosts) return;
     if (userPosts.length === 0) return setHasMore(false);
     setPosts((prev) => [...prev, ...userPosts]);
-  }, [userPosts, loadingUserPosts]);
+  }, [userPosts, errorUserPosts, loadingUserPosts]);
 
   const handleLoadMore = useCallback(async () => {
-    if (!hasMore) return;
+    if (errorUserPosts || !hasMore) return;
     setPage((prev) => prev + 1);
-  }, [hasMore]);
+  }, [errorUserPosts, hasMore]);
 
-  if (loading || error) {
+  if (loading || error || errorUserPosts) {
     return (
       <Feed>
         <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">

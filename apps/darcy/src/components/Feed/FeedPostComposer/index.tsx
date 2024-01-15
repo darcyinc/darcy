@@ -6,7 +6,6 @@ import toast from 'react-hot-toast';
 
 import { apiClient } from '@/api/client';
 import Button from '@/components/Button';
-import LoadingSpinner from '@/components/LoadingSpinner';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 interface FeedPostComposerProps {
@@ -61,8 +60,14 @@ export default function FeedPostComposer({ showProfilePicture = true }: FeedPost
             onChange={handleChange}
           />
 
-          <Button className="self-end gap-2" color="white" disabled={content.length === 0 || loading} size="sm" onClick={handlePublish}>
-            <LoadingSpinner />
+          <Button
+            className="self-end gap-2"
+            color="white"
+            disabled={content.length === 0 || loading}
+            size="sm"
+            onClick={handlePublish}
+            loading={loading}
+          >
             <p>{t('publish')}</p>
           </Button>
         </div>
