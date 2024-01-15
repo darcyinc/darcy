@@ -1,11 +1,30 @@
 import { prisma } from '@/utils/api/prisma';
 import requireAuthorization from '@/utils/api/requireAuthorization';
+import { $Enums } from '@prisma/client';
 import { NextRequest } from 'next/server';
 
 interface UserOptions {
   params: {
     handle: string;
   };
+}
+
+export interface GetUserResponse {
+  handle: string;
+  displayName: string;
+  bio: string;
+  avatarUrl: string;
+  bannerUrl: string | null;
+  verified: $Enums.VerifiedType;
+  createdAt: string;
+  updatedAt: string;
+  job: string | null;
+  location: string | null;
+  website: string | null;
+  birthday: string | null;
+  postCount: number;
+  followersCount: number;
+  followingCount: number;
 }
 
 export async function GET(_request: NextRequest, { params }: UserOptions) {
@@ -29,7 +48,17 @@ export async function GET(_request: NextRequest, { params }: UserOptions) {
       );
     }
 
-    return new Response(JSON.stringify(user));
+    const followersCount = await prisma.user.count({
+      where: {
+        followingIds: {
+          has: user.id
+        }
+      }
+    });
+
+    return new Response(
+      JSON.stringify({ ...user, followersCount, followingCount: user.followingIds.length, followingIds: undefined, id: undefined })
+    );
   }
 
   const user = await prisma.user.findFirst({
@@ -47,5 +76,15 @@ export async function GET(_request: NextRequest, { params }: UserOptions) {
     );
   }
 
-  return new Response(JSON.stringify(user));
+  const followersCount = await prisma.user.count({
+    where: {
+      followingIds: {
+        has: user.id
+      }
+    }
+  });
+
+  return new Response(
+    JSON.stringify({ ...user, followersCount, followingCount: user.followingIds.length, followingIds: undefined, id: undefined })
+  );
 }
