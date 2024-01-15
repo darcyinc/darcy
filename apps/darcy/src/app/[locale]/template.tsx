@@ -1,8 +1,8 @@
 'use client';
 
 import { apiClient } from '@/api/client';
-import { useTheme } from '@/hooks/theme';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { useTheme } from '@/hooks/useTheme';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren, useEffect } from 'react';
 

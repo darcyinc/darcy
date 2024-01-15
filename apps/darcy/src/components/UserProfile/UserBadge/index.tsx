@@ -5,7 +5,7 @@ import { MdVerified } from 'react-icons/md';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
-import { useTheme } from '@/hooks/theme';
+import { useTheme } from '@/hooks/useTheme';
 import { $Enums } from '@prisma/client';
 import clsx from 'clsx';
 
