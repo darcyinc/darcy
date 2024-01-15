@@ -1,8 +1,14 @@
 import { prisma } from '@/utils/api/prisma';
-import { Post } from '@prisma/client';
 import { NextRequest } from 'next/server';
 
-export interface GetPopularPostsResponse extends Post {
+export interface GetPopularPostsResponse {
+  id: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  parentId: string | null;
+  commentCount: number;
+  likeCount: number;
   author: {
     displayName: string;
     handle: string;
@@ -68,5 +74,16 @@ export async function GET(request: NextRequest) {
     skip: (page - 1) * limit
   });
 
-  return new Response(JSON.stringify(popularPosts.sort((a, b) => b.likedIds.length - a.likedIds.length)));
+  return new Response(
+    JSON.stringify(
+      popularPosts
+        .sort((a, b) => b.likedIds.length - a.likedIds.length)
+        .map((post) => ({
+          ...post,
+          authorId: undefined,
+          likedIds: undefined,
+          likeCount: post.likedIds.length,
+        }))
+    )
+  );
 }

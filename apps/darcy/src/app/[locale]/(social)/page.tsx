@@ -52,8 +52,8 @@ export default function Home() {
           handle={post.author.handle}
           likes={post.likeCount}
           postId={post.id}
-          reposts={post.repostCount}
           username={post.author.displayName}
+          reposts={0}
           views={0}
           key={post.id}
         />
