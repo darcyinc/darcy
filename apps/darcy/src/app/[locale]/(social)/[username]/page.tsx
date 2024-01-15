@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { MdArrowBack } from 'react-icons/md';
 
 import { apiClient } from '@/api/client';
+import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import Feed from '@/components/Feed';
 import FeedHeader from '@/components/Feed/FeedHeader';
 import UserProfile from '@/components/UserProfile';
-import { User } from '@prisma/client';
 import { useEffect, useState } from 'react';
 
 interface HomeProps {
@@ -18,7 +18,7 @@ interface HomeProps {
 
 export default function Home({ params }: HomeProps) {
   const [error, setError] = useState(false);
-  const [userData, setUserData] = useState<User>();
+  const [userData, setUserData] = useState<GetUserResponse>();
 
   useEffect(() => {
     apiClient.get(`/users/${params.username}`).then((response) => {
@@ -68,15 +68,8 @@ export default function Home({ params }: HomeProps) {
 
       <div>
         <UserProfile
-          verified={true}
-          avatarUrl={userData.avatarUrl}
+          {...userData}
           bannerUrl="https://picsum.photos/800/200"
-          bio={userData.bio}
-          location="São Paulo, Brasil"
-          name={userData.displayName}
-          website="https://davipatricio.vercel.app"
-          followers={userData.followerCount}
-          following={userData.followingCount}
         />
       </div>
     </Feed>
