@@ -2,7 +2,7 @@ import { prisma } from '@/utils/api/prisma';
 import requireAuthorization from '@/utils/api/requireAuthorization';
 import { NextRequest } from 'next/server';
 
-export interface CreatePostRequest {
+interface CreatePostRequest {
   content: string;
 }
 

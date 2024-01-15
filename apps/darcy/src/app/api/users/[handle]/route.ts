@@ -3,7 +3,7 @@ import requireAuthorization from '@/utils/api/requireAuthorization';
 import { $Enums } from '@prisma/client';
 import { NextRequest } from 'next/server';
 
-interface UserOptions {
+interface GetUserOptions {
   params: {
     handle: string;
   };
@@ -27,7 +27,7 @@ export interface GetUserResponse {
   followingCount: number;
 }
 
-export async function GET(_request: NextRequest, { params }: UserOptions) {
+export async function GET(_request: NextRequest, { params }: GetUserOptions) {
   if (params.handle === '@me') {
     const authData = await requireAuthorization();
 

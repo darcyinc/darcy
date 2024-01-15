@@ -1,5 +1,6 @@
 'use client';
 
+import { apiClient } from '@/api/client';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { BiRepost } from 'react-icons/bi';
 import { MdFavorite, MdOutlineFavoriteBorder, MdOutlineSpeakerNotes, MdViewKanban } from 'react-icons/md';
@@ -20,7 +21,8 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
   const LikedIcon = hasLiked ? MdFavorite : MdOutlineFavoriteBorder;
 
   const handleLike = async () => {
-    console.log('Liking post', postId);
+    if (hasLiked) apiClient.delete(`/post/${postId}/like`);
+    else apiClient.post(`/post/${postId}/like`);
   };
 
   const handleRepost = async () => {

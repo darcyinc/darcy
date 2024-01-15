@@ -16,6 +16,7 @@ export interface GetUserPostsResponse {
   parentId: string | null;
   commentCount: number;
   likeCount: number;
+  hasLiked: boolean;
 }
 
 export async function GET(request: NextRequest, { params }: RecentPostOptions) {
@@ -110,7 +111,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
           ...post,
           authorId: undefined,
           likedIds: undefined,
-          likeCount: post.likedIds.length
+          likeCount: post.likedIds.length,
+          hasLiked: post.likedIds.includes(user.id)
         }))
       )
     );
@@ -162,7 +164,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
         ...post,
         authorId: undefined,
         likedIds: undefined,
-        likeCount: post.likedIds.length
+        likeCount: post.likedIds.length,
+        hasLiked: post.likedIds.includes(user.id)
       }))
     )
   );

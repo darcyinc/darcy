@@ -34,7 +34,7 @@ export default function UserPostFetcher({ userData, handle }: UserPostFetcherPro
     <>
       {posts.map((post) => (
         <FeedPost
-          hasLiked={false}
+          hasLiked={post.hasLiked}
           hasReposted={false}
           avatar={userData.avatarUrl}
           comments={post.commentCount}
