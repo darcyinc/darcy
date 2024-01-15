@@ -6,9 +6,11 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 import { useTheme } from '@/hooks/theme';
+import { $Enums } from '@prisma/client';
+import clsx from 'clsx';
 
 interface UserBadgeProps {
-  badge: 'verified';
+  badge: $Enums.VerifiedType;
 }
 
 export default function UserBadge({ badge }: UserBadgeProps) {
@@ -18,9 +20,14 @@ export default function UserBadge({ badge }: UserBadgeProps) {
   return (
     <>
       <Tooltip id={id} className="z-20" />
-      {badge === 'verified' && (
+      {badge && (
         <MdVerified
-          className="flex-shrink-0 text-blue"
+          className={clsx(
+            'flex-shrink-0',
+            badge === 'ORGANIZATION' && 'text-yellow-400',
+            badge === 'PERSON' && 'text-blue',
+            badge === 'GOVERNMENT' && 'text-gray-400',
+          )}
           data-tooltip-content="Verificado"
           data-tooltip-id={id}
           data-tooltip-place="top"
