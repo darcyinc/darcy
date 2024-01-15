@@ -2,6 +2,7 @@
 
 import { apiClient } from '@/api/client';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { useRouter } from 'next/navigation';
 import { BiRepost } from 'react-icons/bi';
 import { MdFavorite, MdOutlineFavoriteBorder, MdOutlineSpeakerNotes, MdViewKanban } from 'react-icons/md';
 
@@ -16,22 +17,32 @@ interface FeedPostActionsProps {
 }
 
 export default function FeedPostActions({ comments, reposts, likes, views, postId, hasLiked, hasReposted }: FeedPostActionsProps) {
+  const router = useRouter();
   const currentUser = useCurrentUser();
 
   const LikedIcon = hasLiked ? MdFavorite : MdOutlineFavoriteBorder;
 
-  const handleLike = async () => {
+  const handleComment = () => {
+    router.push(`/post/${postId}`);
+  };
+
+  const handleLike = () => {
     if (hasLiked) apiClient.delete(`/post/${postId}/like`);
     else apiClient.post(`/post/${postId}/like`);
   };
 
-  const handleRepost = async () => {
+  const handleRepost = () => {
     console.log('Reposting post', postId);
   };
 
   return (
     <footer className="mt-2 flex justify-evenly text-sm text-gray-500">
-      <button className="group flex select-none items-center gap-1 hover:text-blue" type="button">
+      <button
+        className="group flex select-none items-center gap-1 hover:text-blue"
+        type="button"
+        onClick={handleComment}
+        aria-label="See post comments"
+      >
         <div className="rounded-full p-1.5 group-hover:bg-blue/20">
           <MdOutlineSpeakerNotes className="h-4 w-4" />
         </div>
@@ -44,6 +55,7 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
         type="button"
         onClick={handleRepost}
         disabled={!currentUser.token}
+        aria-label="Repost post"
       >
         <div className="rounded-full p-1.5 group-enabled:hover:bg-green/20">
           <BiRepost className="h-4 w-4" />
@@ -57,6 +69,7 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
         type="button"
         onClick={handleLike}
         disabled={!currentUser.token}
+        aria-label="Like post"
       >
         <div className="rounded-full p-1.5 group-enabled:hover:bg-red/20">
           <LikedIcon className="h-4 w-4" />
@@ -64,7 +77,7 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
         <span>{likes}</span>
       </button>
 
-      <button className="group flex select-none items-center gap-1 hover:text-purple-300" type="button">
+      <button className="group flex select-none items-center gap-1 hover:text-purple-300" type="button" aria-label="See post views">
         <div className="rounded-full p-1.5 group-hover:bg-purple-500/20">
           <MdViewKanban className="h-4 w-4" />
         </div>
