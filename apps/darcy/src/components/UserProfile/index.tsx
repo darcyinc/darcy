@@ -20,7 +20,7 @@ export default function UserProfile({
   followingCount
 }: Omit<GetUserResponse, 'updatedAt'>) {
   return (
-    <div>
+    <div className="border-b border-b-grayBorder pb-4">
       {/* User avatar & banner */}
       <section className="relative">
         <UserAvatarBanner avatarUrl={avatarUrl} bannerUrl={bannerUrl} />
