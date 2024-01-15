@@ -38,8 +38,14 @@ model User {
   posts Post[]    @relation("Author")
   auth  UserAuth?
 
+  // Profile info
+  websiteUrl String?
+  location   String?
+  jobTitle   String?
+  birthday   DateTime?
+
   // Define the counts
-  postCount      Int @default(0)
+  postCount Int @default(0)
 }
 
 // Define the UserAuth schema
