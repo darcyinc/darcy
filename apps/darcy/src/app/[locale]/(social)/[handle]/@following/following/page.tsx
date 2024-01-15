@@ -2,10 +2,10 @@ import FollowingModal from '@/components/Modal/FollowingModal';
 
 interface PageProps {
   params: {
-    username: string;
+    handle: string;
   };
 }
 
 export default function Page({ params }: PageProps) {
-  return <FollowingModal username={params.username} />;
+  return <FollowingModal username={params.handle} />;
 }

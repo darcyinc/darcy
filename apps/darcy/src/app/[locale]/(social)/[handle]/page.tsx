@@ -14,7 +14,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 interface HomeProps {
   params: {
-    username: string;
+    handle: string;
   };
 }
 
@@ -27,7 +27,7 @@ export default function Home({ params }: HomeProps) {
   const currentUser = useCurrentUser();
 
   useEffect(() => {
-    apiClient.get(`/users/${params.username}`).then((response) => {
+    apiClient.get(`/users/${params.handle}`).then((response) => {
       if (response.status !== 200) return setError(true);
       setUserData(response.data);
     });
@@ -38,7 +38,7 @@ export default function Home({ params }: HomeProps) {
 
     setPage((prev) => prev + 1);
 
-    const response = await apiClient.get(`/users/${params.username}/posts?page=${page}`);
+    const response = await apiClient.get(`/users/${params.handle}/posts?page=${page}`);
     setPosts((prev) => [...prev, ...response.data]);
 
     if (response.data.length === 0) setHasMore(false);
