@@ -64,12 +64,9 @@ export async function GET(request: NextRequest) {
         }
       }
     },
-    orderBy: {
-      likeCount: 'desc'
-    },
     take: limit,
     skip: (page - 1) * limit
   });
 
-  return new Response(JSON.stringify(popularPosts));
+  return new Response(JSON.stringify(popularPosts.sort((a, b) => b.likedIds.length - a.likedIds.length)));
 }
