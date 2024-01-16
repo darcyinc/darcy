@@ -1,16 +1,17 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 import { apiClient } from '@/api/client';
+import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import Button from '@/components/Button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
-  onPublish?: (data: any) => void;
+  onPublish?: (data: GetPostResponse) => void;
 }
 
 export default function FeedPostComposer({ showProfilePicture = true, onPublish }: FeedPostComposerProps) {
@@ -20,15 +21,15 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
   const currentUser = useCurrentUser();
   const t = useTranslations('Feed.PostComposer');
 
-  const handleChange = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
 
     // handle if the element gets smaller
     event.target.style.height = 'auto';
     event.target.style.height = `${event.target.scrollHeight}px`;
-  }, []);
+  };
 
-  const handlePublish = useCallback(() => {
+  const handlePublish = () => {
     setLoading(true);
 
     apiClient.post('/post', { content }).then((response) => {
@@ -43,7 +44,7 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
 
       toast.error('Could not create post.');
     });
-  }, [content]);
+  };
 
   return (
     currentUser.token && (

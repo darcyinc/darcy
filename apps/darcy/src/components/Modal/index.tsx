@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { HiX } from 'react-icons/hi';
 
 interface ModalProps extends React.ComponentProps<'div'> {
@@ -10,12 +10,9 @@ interface ModalProps extends React.ComponentProps<'div'> {
 }
 
 export default function Modal(props: ModalProps) {
-  const handleClose = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>) => {
-      if (event.target === event.currentTarget) props.onClose();
-    },
-    [props]
-  );
+  const handleClose = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) props.onClose();
+  };
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
-import { PropsWithChildren, useCallback } from 'react';
+import { PropsWithChildren, } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 
@@ -34,18 +34,15 @@ export default function OAuth2Button({ service, children }: PropsWithChildren<OA
   const router = useRouter();
   const serviceData = Services[service];
 
-  const handleRedirect = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
+  const handleRedirect = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
 
-      const randomString = Math.random().toString(36);
-      const oauthLink = `${serviceData.link}&state=${randomString}`;
+    const randomString = Math.random().toString(36);
+    const oauthLink = `${serviceData.link}&state=${randomString}`;
 
-      sessionStorage.setItem(`oauth2-state:${service}`, randomString);
-      router.push(oauthLink);
-    },
-    [service, serviceData.link, router]
-  );
+    sessionStorage.setItem(`oauth2-state:${service}`, randomString);
+    router.push(oauthLink);
+  };
 
   return (
     <Button className={clsx('gap-2', serviceData.styles)} color="blue" size="md" type="button" onClick={handleRedirect}>

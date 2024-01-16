@@ -4,7 +4,6 @@ import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
-import { useCallback } from 'react';
 import { MdOutlineSettings } from 'react-icons/md';
 
 type FilterOption = FeedSortState['sortMode'];
@@ -14,7 +13,7 @@ export default function FeedFilter() {
   const currentUser = useCurrentUser();
   const t = useTranslations('Feed.FeedFilter');
 
-  const handleFilter = useCallback((newFilter: FilterOption) => feedSort.setSortMode(newFilter), [feedSort]);
+  const handleFilter = (newFilter: FilterOption) => feedSort.setSortMode(newFilter);
 
   return (
     <div className="flex items-center">

@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { useCallback, useRef } from 'react';
+import { useRef } from 'react';
 import { HiOutlineX, HiSearch } from 'react-icons/hi';
 
 export default function TrendingSearch() {
@@ -11,15 +11,12 @@ export default function TrendingSearch() {
   const searchRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const handleSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-      if (!searchRef.current) return;
-      router.push(`/search?q=${encodeURIComponent(searchRef.current.value.trim())}`);
-    },
-    [router]
-  );
+    if (!searchRef.current) return;
+    router.push(`/search?q=${encodeURIComponent(searchRef.current.value.trim())}`);
+  };
 
   return (
     <form
