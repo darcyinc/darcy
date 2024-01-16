@@ -23,6 +23,10 @@ export default function TimelinePostFetcher() {
     setPosts((prev) => [...prev, ...data]);
   }, [data, loading]);
 
+  if (loading) {
+    return <FeedPostComposer />;
+  }
+
   const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
     setPosts((prev) => {
       const index = prev.findIndex((post) => post.id === postId);
@@ -37,9 +41,7 @@ export default function TimelinePostFetcher() {
     setPage((prev) => prev + 1);
   };
 
-  const onComposerPublish = (data: GetPostResponse) => {
-    setPosts((prev) => [data, ...prev]);
-  };
+  const onComposerPublish = (data: GetPostResponse) => setPosts((prev) => [data, ...prev]);
 
   return (
     <>
