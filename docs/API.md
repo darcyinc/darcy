@@ -24,16 +24,21 @@ If the user is not found, a 404 error will be returned.
 
 ```json
 {
-  "displayName": "John Doe",
-  "handle": "johndoe",
-  "bio": "I'm a software engineer.",
+  "displayName": "Davi Patricio",
+  "handle": "davipatricio",
+  "bio": "Hello world.",
   "private": false,
-  "avatarUrl": "",
-  "bannerUrl": "",
-  "createdAt": "2021-01-01T00:00:00.000Z",
-  "updatedAt": "2021-01-01T00:00:00.000Z",
+  "verified": "ORGANIZATION",
+  "avatarUrl": "/assets/images/default-profile-picture.png",
+  "bannerUrl": null,
+  "createdAt": "2024-01-15T01:09:35.425Z",
+  "updatedAt": "2024-01-15T01:15:28.024Z",
+  "websiteUrl": null,
+  "location": null,
+  "jobTitle": null,
+  "birthday": null,
   "postCount": 0,
-  "followerCount": 0,
+  "followersCount": 0,
   "followingCount": 0
 }
 ```
@@ -41,8 +46,8 @@ If the user is not found, a 404 error will be returned.
 #### GET `/users/:handle/posts`
 
 Returns a user's posts. The `handle` parameter should not include the `@` symbol. To get the currently authenticated user's posts, use `@me` as the `handle` parameter.
-
 Can have the following search parameters:
+
 - `page`: The page of posts to return. Defaults to 1. Should be a number greater than 0.
 - `limit`: The maximum number of posts to return. Defaults to 50. Should be a number between 1 and 50.
 - `type`: The type of posts to return. Defaults to `posts`. Can be one of `posts` or `replies`.
@@ -52,16 +57,15 @@ Can have the following search parameters:
 ```json
 [
   {
-    "id": "clrcswoys00001o087o82kff6",
-    "authorId": "clrcqqjxu0000ifudofglmmhk",
-    "content": "Hello world!",
+    "id": "clrfpawqt00096g3ogb87qy1u",
+    "content": "Next.js 13 rocks!",
     "mediaUrls": [],
-    "createdAt": "2024-01-14T01:11:57.796Z",
-    "updatedAt": "2024-01-14T01:11:42.952Z",
+    "createdAt": "2024-01-16T01:54:21.126Z",
+    "updatedAt": "2024-01-16T01:57:20.713Z",
     "parentId": null,
+    "commentCount": 0,
     "likeCount": 0,
-    "repostCount": 0,
-    "commentCount": 0
+    "hasLiked": false
   }
 ]
 ```
@@ -88,9 +92,38 @@ If the oauth authentication is successful, a token will be returned in the respo
 
 ### Posts
 
+#### GET `/post/:id`
+
+Gets a post by its ID. The `id` parameter should be the ID of the post to get.
+If the post is not found, a 404 error will be returned.
+
+**Example Response:**
+
+```json
+{
+  "id": "clrfp6c3400076g3ok1nnf1pf",
+  "authorId": "clre89hs00002ox3fztrqxqil",
+  "content": "Hello world!",
+  "mediaUrls": [],
+  "createdAt": "2024-01-16T01:50:47.728Z",
+  "updatedAt": "2024-01-16T02:15:47.491Z",
+  "parentId": null,
+  "commentCount": 0,
+  "author": {
+    "displayName": "Davi Patricio",
+    "handle": "davipatricio",
+    "avatarUrl": "/assets/images/default-profile-picture.png",
+    "private": false
+  },
+  "likeCount": 1,
+  "hasLiked": true
+}
+```
+
 #### GET `/popular-posts`
 
 Gets the most popular posts from the last week. Mostly used for the home page when the user is not logged in. Can have the following search parameters:
+
 - `page`: The page of posts to return. Defaults to 1. Should be a number greater than 0.
 - `limit`: The maximum number of posts to return. Defaults to 50. Should be a number between 1 and 50.
 
@@ -99,16 +132,20 @@ Gets the most popular posts from the last week. Mostly used for the home page wh
 ```json
 [
   {
-    "id": "clrcswoys00001o087o82kff6",
-    "authorId": "clrcqqjxu0000ifudofglmmhk",
-    "content": "Hello world!",
+    "id": "clrfp3u7n00036g3oomdmg5qw",
+    "content": "test",
     "mediaUrls": [],
-    "createdAt": "2024-01-14T01:11:57.796Z",
-    "updatedAt": "2024-01-14T01:11:42.952Z",
+    "createdAt": "2024-01-16T01:48:51.252Z",
+    "updatedAt": "2024-01-16T02:15:38.425Z",
     "parentId": null,
-    "likeCount": 0,
-    "repostCount": 0,
-    "commentCount": 0
+    "commentCount": 0,
+    "author": {
+      "displayName": "Davi Patricio",
+      "handle": "davipatricio",
+      "avatarUrl": "/assets/images/default-profile-picture.png"
+    },
+    "likeCount": 1,
+    "hasLiked": false
   }
 ]
 ```
