@@ -7,7 +7,7 @@ interface FeedPostLoaderProps {
 }
 
 export default function FeedPostLoader({ onVisible }: FeedPostLoaderProps) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLParagraphElement>(null);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: prevent infinite loop
   useEffect(() => {
@@ -23,5 +23,5 @@ export default function FeedPostLoader({ onVisible }: FeedPostLoaderProps) {
     return () => observer.disconnect();
   }, []);
 
-  return <span className="my-2 text-center" ref={ref} />;
+  return <p className="my-2 text-center" ref={ref} />;
 }

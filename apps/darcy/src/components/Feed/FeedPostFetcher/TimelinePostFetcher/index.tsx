@@ -20,10 +20,25 @@ export default function TimelinePostFetcher() {
   useEffect(() => {
     if (loading) return;
     if (data.length === 0) return setHasMore(false);
-    setPosts((prev) => [...prev, ...data]);
+
+    // if the last data.id is the same as previous last data.id, then we've already fetched this page
+    setPosts((prev) => {
+      // initial state is empty array
+      if (prev.length === 0) return data;
+
+      // TODO: remove
+      // const lastOldData = prev[prev.length - 1];
+      // const lastData = data[data.length - 1];
+
+      // if (lastOldData.id === lastData.id) {
+      //   return prev;
+      // }
+
+      return [...prev, ...data];
+    });
   }, [data, loading]);
 
-  if (loading) {
+  if (page === 1 && loading) {
     return <FeedPostComposer />;
   }
 
@@ -37,7 +52,7 @@ export default function TimelinePostFetcher() {
   };
 
   const handleLoadMore = () => {
-    if (!hasMore) return;
+    if (loading || !hasMore) return;
     setPage((prev) => prev + 1);
   };
 
