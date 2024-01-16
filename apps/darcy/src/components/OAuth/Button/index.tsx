@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
-import { PropsWithChildren, } from 'react';
+import { PropsWithChildren } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 
