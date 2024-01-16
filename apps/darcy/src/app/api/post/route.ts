@@ -41,10 +41,27 @@ export async function POST(request: NextRequest) {
     data: {
       content: cleanContent,
       authorId: user.id
+    },
+    include: {
+      author: {
+        select: {
+          displayName: true,
+          handle: true,
+          avatarUrl: true
+        }
+      }
     }
   });
 
-  return new Response(JSON.stringify(post), {
-    status: 201
-  });
+  return new Response(
+    JSON.stringify({
+      ...post,
+      likedIds: undefined,
+      likeCount: post.likedIds.length,
+      hasLiked: false
+    }),
+    {
+      status: 201
+    }
+  );
 }
