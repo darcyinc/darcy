@@ -1,20 +1,10 @@
 import { prisma } from '@/utils/api/prisma';
+import requireAuthorization from '@/utils/api/requireAuthorization';
+import { User } from '@prisma/client';
 import { NextRequest } from 'next/server';
+import { GetPostResponse } from '../post/[postId]/route';
 
-export interface GetPopularPostsResponse {
-  id: string;
-  content: string;
-  createdAt: string;
-  updatedAt: string;
-  parentId: string | null;
-  commentCount: number;
-  likeCount: number;
-  author: {
-    displayName: string;
-    handle: string;
-    avatarUrl: string;
-  };
-}
+export type GetPopularPostsResponse = GetPostResponse[];
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -74,6 +64,20 @@ export async function GET(request: NextRequest) {
     skip: (page - 1) * limit
   });
 
+  const authData = await requireAuthorization();
+
+  let user: User | null = null;
+
+  if (authData.authorized) {
+    user = await prisma.user.findFirst({
+      where: {
+        auth: {
+          email: authData.email
+        }
+      }
+    });
+  }
+
   return new Response(
     JSON.stringify(
       popularPosts
@@ -82,7 +86,8 @@ export async function GET(request: NextRequest) {
           ...post,
           authorId: undefined,
           likedIds: undefined,
-          likeCount: post.likedIds.length
+          likeCount: post.likedIds.length,
+          hasLiked: user ? post.likedIds.includes(user.id) : false
         }))
     )
   );
