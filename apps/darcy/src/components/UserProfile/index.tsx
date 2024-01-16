@@ -1,9 +1,10 @@
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import UserAvatarBanner from './UserAvatarBanner';
 import UserBadge from './UserBadge';
-import UserFollowButton from './UserFollowButton';
 import UserFollowStats from './UserFollowStats';
 import UserProfileInformation from './UserProfileInformation';
+import UserEditButton from './buttons/UserEditButton';
+import UserFollowButton from './buttons/UserFollowButton';
 
 export default function UserProfile({
   displayName,
@@ -27,6 +28,7 @@ export default function UserProfile({
 
         {/* TODO: Edit profile button, unfollow */}
         <UserFollowButton handle={handle} />
+        <UserEditButton handle={handle} />
       </section>
 
       {/* User info */}
