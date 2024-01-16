@@ -11,7 +11,6 @@ import { useCurrentUser } from '@/hooks/useCurrentUser';
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
   onPublish?: (data: any) => void;
-
 }
 
 export default function FeedPostComposer({ showProfilePicture = true, onPublish }: FeedPostComposerProps) {

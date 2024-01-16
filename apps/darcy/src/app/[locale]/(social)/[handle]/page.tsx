@@ -1,6 +1,6 @@
 'use client';
 
-import { FeedHeader, } from '@/components/Feed';
+import { FeedHeader } from '@/components/Feed';
 import UserPostFetcher from '@/components/Feed/FeedPostFetcher/UserPostFetcher';
 import UserProfile from '@/components/UserProfile';
 import useUser from '@/hooks/api/useUser';
