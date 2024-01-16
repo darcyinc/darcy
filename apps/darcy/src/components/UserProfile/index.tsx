@@ -1,5 +1,3 @@
-'use client';
-
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import UserAvatarBanner from './UserAvatarBanner';
 import UserBadge from './UserBadge';
