@@ -58,7 +58,7 @@ export default function TimelinePostFetcher() {
           avatar={post.author.avatarUrl}
           comments={post.commentCount}
           content={post.content}
-          createdAt={new Date(post.createdAt).getTime()}
+          createdAt={post.createdAt}
           handle={post.author.handle}
           likes={post.likeCount}
           postId={post.id}

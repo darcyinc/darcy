@@ -12,7 +12,7 @@ interface FeedPostProps {
   username: string;
   avatar: string;
   handle: string;
-  createdAt: number;
+  createdAt: string;
   likes: number;
   comments: number;
   reposts: number;
@@ -23,9 +23,9 @@ interface FeedPostProps {
   updatePostData?: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
 }
 
-export default function FeedPost({ content, avatar, username, handle, createdAt: time, ...props }: FeedPostProps) {
+export default function FeedPost({ content, avatar, username, handle, createdAt, ...props }: FeedPostProps) {
   const locale = useLocale();
-  const relativeTime = useRelativeTime({ locale, time });
+  const relativeTime = useRelativeTime({ locale, time: createdAt });
 
   return (
     <ClickablePost postId={props.postId}>
@@ -48,7 +48,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt:
 
             <p className="flex flex-1 gap-1 overflow-hidden text-textSecondary">
               <span className="select-none">·</span>
-              <time className="truncate" dateTime={new Date(time).toISOString()}>
+              <time className="truncate" dateTime={new Date(createdAt).toISOString()}>
                 {relativeTime}
               </time>
             </p>
