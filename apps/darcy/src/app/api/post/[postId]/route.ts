@@ -1,7 +1,6 @@
 import { prisma } from '@/utils/api/prisma';
 import requireAuthorization from '@/utils/api/requireAuthorization';
 import { NextRequest } from 'next/server';
-import { GetPopularPostsResponse } from '../../popular-posts/route';
 
 interface GetPostOptions {
   params: {
@@ -9,7 +8,21 @@ interface GetPostOptions {
   };
 }
 
-export type GetPostResponse = GetPopularPostsResponse & { hasLiked: true };
+export interface GetPostResponse {
+  id: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  parentId: string | null;
+  commentCount: number;
+  likeCount: number;
+  hasLiked: boolean;
+  author: {
+    displayName: string;
+    handle: string;
+    avatarUrl: string;
+  };
+}
 
 export async function GET(_request: NextRequest, { params }: GetPostOptions) {
   const authData = await requireAuthorization();
