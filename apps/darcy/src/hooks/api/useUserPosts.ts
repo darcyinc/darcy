@@ -13,20 +13,24 @@ export default function useUserPosts(handle: string, options?: UseUserPostsOptio
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<GetUserPostsResponse[]>([]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: avoid infinite loop
-  useEffect(() => {
+  useEffect(() => fetchData(), []);
+
+  const fetchData = () => {
+    if (!loading) setLoading(true);
+    setError(undefined);
+
     apiClient
       .get(`/users/${handle}/posts?page=${options?.page ?? 1}&type=${options?.type ?? 'posts'}`)
       .then((response) => {
         if (response.status >= 400) setError(response.data.error);
-        setData(response.data);
+        else setData(response.data);
       })
       .catch((error) => {
         if (error instanceof AxiosError) setError(error.response?.data.error);
-        else setError(error);
+        else setError(error.message);
       })
       .finally(() => setLoading(false));
-  }, []);
+  };
 
-  return { data, error, loading };
+  return { data, error, loading, refetch: fetchData };
 }
