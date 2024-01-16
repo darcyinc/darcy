@@ -1,15 +1,18 @@
 'use client';
 
 import { GetPopularPostsResponse } from '@/app/api/popular-posts/route';
+import { GetPostResponse } from '@/app/api/post/[postId]/route';
+import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import usePopularPosts from '@/hooks/api/usePopularPosts';
 import { useEffect, useState } from 'react';
 import FeedPost from '../../FeedPost';
+import FeedPostComposer from '../../FeedPostComposer';
 import FeedPostLoader from '../../FeedPostLoader';
 
 export default function TimelinePostFetcher() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [posts, setPosts] = useState<GetPopularPostsResponse[]>([]);
+  const [posts, setPosts] = useState<GetPopularPostsResponse>([]);
 
   // TODO: don't use usePopularPosts for authenticated users
   const { data, loading } = usePopularPosts({ page });
@@ -20,16 +23,31 @@ export default function TimelinePostFetcher() {
     setPosts((prev) => [...prev, ...data]);
   }, [data, loading]);
 
+  const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
+    setPosts((prev) => {
+      const index = prev.findIndex((post) => post.id === postId);
+      const post = prev[index];
+
+      return [...prev.slice(0, index), { ...post, ...newData }, ...prev.slice(index + 1)];
+    });
+  };
+
   const handleLoadMore = () => {
     if (!hasMore) return;
     setPage((prev) => prev + 1);
   };
 
+  const onComposerPublish = (data: GetPostResponse) => {
+    setPosts((prev) => [data, ...prev]);
+  };
+
   return (
     <>
+      <FeedPostComposer onPublish={onComposerPublish} />
+
       {posts.map((post) => (
         <FeedPost
-          hasLiked={false}
+          hasLiked={post.hasLiked}
           hasReposted={false}
           avatar={post.author.avatarUrl}
           comments={post.commentCount}
@@ -42,6 +60,7 @@ export default function TimelinePostFetcher() {
           reposts={0}
           views={0}
           key={post.id}
+          updatePostData={updatePostData}
         />
       ))}
 

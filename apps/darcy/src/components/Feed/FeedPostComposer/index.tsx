@@ -10,9 +10,11 @@ import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
+  onPublish?: (data: any) => void;
+
 }
 
-export default function FeedPostComposer({ showProfilePicture = true }: FeedPostComposerProps) {
+export default function FeedPostComposer({ showProfilePicture = true, onPublish }: FeedPostComposerProps) {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -36,6 +38,7 @@ export default function FeedPostComposer({ showProfilePicture = true }: FeedPost
       if (response.status === 201) {
         setContent('');
         toast('Post created successfully!');
+        onPublish?.(response.data);
         return;
       }
 

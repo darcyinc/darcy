@@ -1,10 +1,9 @@
 'use client';
 
-import { FeedHeader, FeedPostComposer } from '@/components/Feed';
+import { FeedHeader, } from '@/components/Feed';
 import UserPostFetcher from '@/components/Feed/FeedPostFetcher/UserPostFetcher';
 import UserProfile from '@/components/UserProfile';
 import useUser from '@/hooks/api/useUser';
-import { useCurrentUser } from '@/hooks/useCurrentUser';
 import Link from 'next/link';
 import { MdArrowBack } from 'react-icons/md';
 
@@ -15,7 +14,6 @@ interface HomeProps {
 }
 
 export default function Home({ params }: HomeProps) {
-  const currentUser = useCurrentUser();
   const { data: userData, error, loading } = useUser(params.handle);
 
   if (loading || error) {
@@ -46,8 +44,6 @@ export default function Home({ params }: HomeProps) {
       </FeedHeader>
 
       <UserProfile {...userData} bannerUrl="https://picsum.photos/800/200" />
-
-      {currentUser.handle === userData.handle && <FeedPostComposer showProfilePicture={false} />}
 
       <UserPostFetcher userData={userData} handle={params.handle} />
     </>
