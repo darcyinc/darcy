@@ -99,4 +99,3 @@ export async function DELETE(_request: NextRequest, { params }: LikePostOptions)
     status: 200
   });
 }
-
