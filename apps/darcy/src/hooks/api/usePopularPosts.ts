@@ -10,7 +10,7 @@ interface UsePopularPostsOptions {
 export default function usePopularPosts(options?: UsePopularPostsOptions) {
   const [error, setError] = useState<Error>();
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<GetPopularPostsResponse[]>([]);
+  const [data, setData] = useState<GetPopularPostsResponse>([]);
 
   useEffect(() => fetchData(), []);
 
