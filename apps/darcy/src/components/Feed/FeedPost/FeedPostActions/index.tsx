@@ -37,11 +37,25 @@ export default function FeedPostActions({
     router.push(`/post/${postId}`);
   };
 
-  const handleLike = () => {
+  const handleLike = async () => {
     updatePostData?.(postId, { hasLiked: !hasLiked, likeCount: likes + (hasLiked ? -1 : 1) });
 
-    if (hasLiked) apiClient.delete(`/post/${postId}/like`);
-    else apiClient.post(`/post/${postId}/like`);
+    const undoOptimisticUpdate = () => updatePostData?.(postId, { hasLiked, likeCount: likes });
+
+    if (hasLiked)
+      apiClient
+        .delete(`/post/${postId}/like`)
+        .then((res) => {
+          if (res.status !== 200) undoOptimisticUpdate();
+        })
+        .catch(undoOptimisticUpdate);
+    else
+      apiClient
+        .post(`/post/${postId}/like`)
+        .then((res) => {
+          if (res.status !== 200) undoOptimisticUpdate();
+        })
+        .catch(undoOptimisticUpdate);
   };
 
   const handleRepost = () => {
