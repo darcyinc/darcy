@@ -21,19 +21,8 @@ export default function TimelinePostFetcher() {
     if (loading) return;
     if (data.length === 0) return setHasMore(false);
 
-    // if the last data.id is the same as previous last data.id, then we've already fetched this page
     setPosts((prev) => {
-      // initial state is empty array
       if (prev.length === 0) return data;
-
-      // TODO: remove
-      // const lastOldData = prev[prev.length - 1];
-      // const lastData = data[data.length - 1];
-
-      // if (lastOldData.id === lastData.id) {
-      //   return prev;
-      // }
-
       return [...prev, ...data];
     });
   }, [data, loading]);
