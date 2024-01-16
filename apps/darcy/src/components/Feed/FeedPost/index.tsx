@@ -20,7 +20,7 @@ interface FeedPostProps {
   postId: string;
   hasLiked: boolean;
   hasReposted: boolean;
-  updatePostData: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
+  updatePostData?: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
 }
 
 export default function FeedPost({ content, avatar, username, handle, createdAt: time, ...props }: FeedPostProps) {

@@ -15,7 +15,7 @@ interface FeedPostActionsProps {
   postId: string;
   hasLiked: boolean;
   hasReposted: boolean;
-  updatePostData: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
+  updatePostData?: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
 }
 
 export default function FeedPostActions({
@@ -38,7 +38,7 @@ export default function FeedPostActions({
   };
 
   const handleLike = () => {
-    updatePostData(postId, { hasLiked: !hasLiked, likeCount: likes + (hasLiked ? -1 : 1) });
+    updatePostData?.(postId, { hasLiked: !hasLiked, likeCount: likes + (hasLiked ? -1 : 1) });
 
     if (hasLiked) apiClient.delete(`/post/${postId}/like`);
     else apiClient.post(`/post/${postId}/like`);
