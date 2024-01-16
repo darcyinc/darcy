@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import useRelativeTime from '@/hooks/useRelativeTime';
 
+import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import ClickablePost from './ClickablePost';
 import FeedPostActions from './FeedPostActions';
 
@@ -19,6 +20,7 @@ interface FeedPostProps {
   postId: string;
   hasLiked: boolean;
   hasReposted: boolean;
+  updatePostData: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
 }
 
 export default function FeedPost({ content, avatar, username, handle, createdAt: time, ...props }: FeedPostProps) {

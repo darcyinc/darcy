@@ -1,6 +1,7 @@
 'use client';
 
 import { apiClient } from '@/api/client';
+import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useRouter } from 'next/navigation';
 import { BiRepost } from 'react-icons/bi';
@@ -14,9 +15,19 @@ interface FeedPostActionsProps {
   postId: string;
   hasLiked: boolean;
   hasReposted: boolean;
+  updatePostData: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
 }
 
-export default function FeedPostActions({ comments, reposts, likes, views, postId, hasLiked, hasReposted }: FeedPostActionsProps) {
+export default function FeedPostActions({
+  comments,
+  reposts,
+  likes,
+  views,
+  postId,
+  hasLiked,
+  hasReposted,
+  updatePostData
+}: FeedPostActionsProps) {
   const router = useRouter();
   const currentUser = useCurrentUser();
 
@@ -27,6 +38,8 @@ export default function FeedPostActions({ comments, reposts, likes, views, postI
   };
 
   const handleLike = () => {
+    updatePostData(postId, { hasLiked: !hasLiked, likeCount: likes + (hasLiked ? -1 : 1) });
+
     if (hasLiked) apiClient.delete(`/post/${postId}/like`);
     else apiClient.post(`/post/${postId}/like`);
   };

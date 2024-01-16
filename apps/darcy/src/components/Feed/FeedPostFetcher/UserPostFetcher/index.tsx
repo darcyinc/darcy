@@ -19,6 +19,15 @@ export default function UserPostFetcher({ userData, handle }: UserPostFetcherPro
 
   const { data, error, loading } = useUserPosts(handle, { page });
 
+  const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
+    setPosts((prev) => {
+      const index = prev.findIndex((post) => post.id === postId);
+      const post = prev[index];
+
+      return [...prev.slice(0, index), { ...post, ...newData }, ...prev.slice(index + 1)];
+    });
+  }
+
   useEffect(() => {
     if (error || loading) return;
     if (data.length === 0) return setHasMore(false);
@@ -47,6 +56,7 @@ export default function UserPostFetcher({ userData, handle }: UserPostFetcherPro
           reposts={0}
           views={0}
           key={post.id}
+          updatePostData={updatePostData}
         />
       ))}
 
