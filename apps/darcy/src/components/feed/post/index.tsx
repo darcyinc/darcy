@@ -1,10 +1,10 @@
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import useRelativeTime from '@/hooks/useRelativeTime';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import ClickablePost from './clickable-post';
 import FeedPostActions from './post-actions';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 interface FeedPostProps {
   content: string;

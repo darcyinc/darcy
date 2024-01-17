@@ -7,9 +7,9 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import LoadingSpinner from '../loading-spinner';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
