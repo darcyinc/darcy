@@ -1,4 +1,4 @@
-import FollowersModal from '@/components/Modal/FollowersModal';
+import FollowersModal from '@/components/modal/FollowersModal';
 
 interface PageProps {
   params: {

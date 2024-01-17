@@ -1,6 +1,6 @@
-import { FeedFilter, FeedHeader } from '@/components/Feed';
-import TimelinePostFetcher from '@/components/Feed/FeedPostFetcher/TimelinePostFetcher';
-import MobileNavbarProfile from '@/components/Navbar/NavbarProfile/MobileNavbarProfile';
+import { FeedFilter, FeedHeader } from '@/components/feed';
+import { TimelinePostFetcher } from '@/components/feed/feed-fetcher';
+import { MobileNavbarProfile } from '@/components/navbar/NavbarProfile';
 
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-import { OAuth } from '@/components/OAuth';
+import { OAuth } from '@/components/oauth';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 

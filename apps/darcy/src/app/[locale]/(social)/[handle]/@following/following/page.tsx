@@ -1,4 +1,4 @@
-import FollowingModal from '@/components/Modal/FollowingModal';
+import FollowingModal from '@/components/modal/FollowingModal';
 
 interface PageProps {
   params: {

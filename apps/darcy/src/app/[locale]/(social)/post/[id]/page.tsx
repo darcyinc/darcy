@@ -1,7 +1,6 @@
+import { FeedHeader, FeedPost } from '@/components/feed';
 import Link from 'next/link';
 import { MdArrowBack } from 'react-icons/md';
-
-import { FeedHeader, FeedPost } from '@/components/Feed';
 
 export default function Home() {
   return (
@@ -22,7 +21,7 @@ export default function Home() {
         avatar="https://picsum.photos/44/44.webp"
         comments={0}
         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-        createdAt={Date.now()}
+        createdAt={new Date().toString()}
         handle="davipatricio"
         likes={0}
         postId="unknown"

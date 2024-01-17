@@ -1,6 +1,6 @@
-import Feed from '@/components/Feed';
-import AsideNavbar from '@/components/Navbar/AsideNavbar';
-import Trending from '@/components/Trending';
+import Feed from '@/components/feed';
+import AsideNavbar from '@/components/navbar/aside-navbar';
+import Trending from '@/components/trending';
 import { PropsWithChildren } from 'react';
 
 export default function RootLayout({ children }: PropsWithChildren) {
