@@ -40,12 +40,12 @@ export default function Modal(props: ModalProps) {
       )}
       onClick={handleClose}
     >
-      <div className={clsx('relative p-4', props.showSolidBackground && 'rounded-lg border border-grayBorder bg-background')}>
+      <div className={clsx('relative p-4', props.showSolidBackground && 'rounded-lg border border-border bg-background')}>
         <button
           // biome-ignore lint/a11y/noAutofocus: <explanation>
           autoFocus
           aria-label="Close modal"
-          className="absolute left-3 top-4 text-textPrimary hover:text-textSecondary focus:text-textSecondary"
+          className="absolute left-3 top-4 text-textPrimary hover:text-muted-foreground focus:text-muted-foreground"
           title="Close modal"
           type="button"
           onClick={props.onClose}

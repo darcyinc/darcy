@@ -19,7 +19,7 @@ export default function UserProfileInformation({ location, job, website, created
   });
 
   return (
-    <div className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-[15px] text-textSecondary">
+    <div className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-[15px] text-muted-foreground">
       {job && (
         <div className="flex items-center gap-1">
           <MdWorkOutline className="h-4 w-4 flex-shrink-0" />
@@ -28,7 +28,7 @@ export default function UserProfileInformation({ location, job, website, created
       )}
 
       {location && (
-        <div className="flex items-center gap-1 text-textSecondary">
+        <div className="flex items-center gap-1 text-muted-foreground">
           <MdOutlineLocationOn className="h-4 w-4 flex-shrink-0" />
           <p className="break-all">{location}</p>
         </div>

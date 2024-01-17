@@ -1,10 +1,12 @@
 'use client';
 
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import { MdOutlineSettings } from 'react-icons/md';
+import { Button } from '../ui/button';
 
 type FilterOption = FeedSortState['sortMode'];
 
@@ -16,27 +18,30 @@ export default function FeedFilter() {
   const handleFilter = (newFilter: FilterOption) => feedSort.setSortMode(newFilter);
 
   return (
-    <div className="flex items-center">
-      {['foryou', 'following'].map((item) => (
-        <button
-          className={'h-12 w-2/4 text-base enabled:hover:bg-hoverEffect disabled:cursor-not-allowed'}
-          key={item}
-          type="button"
-          onClick={() => handleFilter(item as FilterOption)}
-          disabled={!currentUser.token && item === 'following'}
-        >
-          <div className="m-auto w-fit">
-            <span className={clsx('leading-[44px]', feedSort.sortMode === item ? 'font-bold' : 'text-textSecondary')}>{t(item)}</span>
+    <div>
+      <Tabs defaultValue="foryou" onValueChange={(value) => handleFilter(value as FilterOption)}>
+        <TabsList className="h-12 flex p-0">
+          <TabsTrigger value="foryou" className="w-2/4 flex flex-col h-full hover:!bg-accent p-0 pt-2">
+            <p className={clsx('text-base', feedSort.sortMode === 'foryou' && 'font-bold')}>
+              {t('foryou')}
+              <span className={clsx('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'foryou' && 'bg-primary')} />
+            </p>
+          </TabsTrigger>
+          <TabsTrigger value="following" className="w-2/4 flex flex-col h-full hover:!bg-accent p-0 pt-2" disabled={!currentUser.token}>
+            <p className={clsx('text-base', feedSort.sortMode === 'following' && 'font-bold')}>
+              {t('following')}
+              <span className={clsx('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'following' && 'bg-primary')} />
+            </p>
+          </TabsTrigger>
 
-            {/* Current sort mode indicator */}
-            {feedSort.sortMode === item && <div className={clsx('h-1 mt-auto rounded-sm bg-blue')} />}
-          </div>
-        </button>
-      ))}
-
-      <button type="button" className="hover:bg-hoverEffect p-2 mx-2 rounded-full hidden sm:block">
-        <MdOutlineSettings className="text-xl" />
-      </button>
+          {/* hidden because MobileNavbarProfile on mobile already shows the settings icon */}
+          <Button size="icon" variant="ghost" className="mx-2 !p-0 rounded-full hidden sm:inline-flex">
+            <div className="p-4">
+              <MdOutlineSettings className="text-lg" />
+            </div>
+          </Button>
+        </TabsList>
+      </Tabs>
     </div>
   );
 }

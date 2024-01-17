@@ -1,45 +1,87 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
-  html,
-  html.dark {
-    --color-blue: 29 155 240;
-    --color-dark-gray: 22 24 28;
-    --color-gray-border: 47 51 54;
-    --color-red: 249 24 128;
-    --color-green: 0 186 124;
+  :root {
+    --background: 255 255 255;
+    --foreground: 0 0 0;
 
-    --color-hover-effect: rgba(231, 233, 234, 0.1);
+    --card: 180 14.29% 97.25%;
+    --card-foreground: 0 0% 0%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 29 155 240;
+    --primary-foreground: 255 255 255;
+ 
+    --secondary: 0 0 0;
+    --secondary-foreground: 255 255 255;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 83 100 113;
+ 
+    --accent: 15, 20, 25, 0.1;
+    --accent-foreground: 0 0 0;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --text-primary: 255 255 255;
-    --text-secondary: 113 118 123;
+    --border: 239 243 244;
+    --input: 239 243 244;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
 
-    --error: 185 28 28;
-
-    --color-scheme: only dark;
-    --theme-background: 0 0 0;
+    --like: 249 24 128;
+    --repost: 0 186 124;
   }
-
-  html.light {
-    --color-dark-gray: 247 249 249;
-    --color-gray-border: 239 243 244;
-
-    --color-hover-effect: rgba(15, 20, 25, 0.1);
-
-    --text-primary: 0 0 0;
-    --text-secondary: 83 100 113;
-
-    --color-scheme: only light;
-    --theme-background: 255 255 255;
+ 
+  .dark {
+    --background: 0 0 0;
+    --foreground: 255 255 255;
+ 
+    --card: 22 24 28;
+    --card-foreground: 255 255 255;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 29 155 240;
+    --primary-foreground: 255 255 255; 
+ 
+    --secondary: 255 255 255;
+    --secondary-foreground: 0 0 0;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 113 118 123;
+ 
+    --accent: 231, 233, 234, 0.1;
+    --accent-foreground: 255 255 255;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 47 51 54;
+    --input: 47 51 54;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-::selection {
+/* ::selection {
   color: #fff;
   background-color: rgb(var(--color-blue));
-}
+} */
 
 html {
   color-scheme: var(--color-scheme);
@@ -47,14 +89,9 @@ html {
 }
 
 body {
-  overflow: auto;
-  min-height: 100vh;
-}
-
-body {
   display: flex;
   justify-content: center;
-  background-color: rgb(var(--theme-background));
+  min-height: 100vh;
 }
 
 body a {

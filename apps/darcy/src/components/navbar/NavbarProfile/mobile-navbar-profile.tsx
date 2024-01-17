@@ -1,5 +1,6 @@
 'use client';
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import Link from 'next/link';
 import { AiOutlineAlignLeft } from 'react-icons/ai';
@@ -10,13 +11,19 @@ export default function MobileNavbarProfile() {
 
   return (
     <div className="flex items-center justify-between sm:hidden w-full py-2 px-4">
-      {currentUser.token && <img alt="Your profile avatar." className="h-8 w-8 rounded-full" src={currentUser.avatarUrl} />}
+      {currentUser.token && (
+        <Avatar>
+          <AvatarImage src={currentUser.avatarUrl} alt="Your profile picture" />
+          {/* TODO */}
+          <AvatarFallback>??</AvatarFallback>
+        </Avatar>
+      )}
 
-      <Link className="rounded-full p-2 text-textPrimary hover:bg-hoverEffect" href="/">
+      <Link className="rounded-full p-2 text-textPrimary hover:bg-accent" href="/">
         <AiOutlineAlignLeft className="text-2xl" />
       </Link>
 
-      <button type="button" className="hover:bg-hoverEffect p-2 mx-2 rounded-full block sm:hidden">
+      <button type="button" className="hover:bg-accent p-2 mx-2 rounded-full block sm:hidden">
         <MdOutlineSettings className="text-xl" />
       </button>
     </div>

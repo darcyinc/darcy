@@ -29,12 +29,12 @@ export default function TrendingSearch() {
       )}
       onSubmit={handleSubmit}
     >
-      <HiSearch className="ml-2 flex-shrink-0 text-xl text-textSecondary" />
+      <HiSearch className="ml-2 flex-shrink-0 text-xl text-muted-foreground" />
 
       <input
         required
         autoComplete="off"
-        className="w-full bg-transparent text-sm outline-none placeholder:text-textSecondary"
+        className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
         maxLength={255}
         minLength={1}
         placeholder={t('searchPlaceholder')}
@@ -44,7 +44,7 @@ export default function TrendingSearch() {
 
       <button
         className={clsx(
-          'flex h-5 w-5 items-center justify-center rounded-full bg-blue p-0.5',
+          'flex h-5 w-5 items-center justify-center rounded-full bg-primary p-0.5',
           'opacity-100 transition-opacity duration-200 ease-in-out',
           'hover:opacity-80 group-invalid:hidden'
         )}

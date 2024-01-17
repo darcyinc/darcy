@@ -20,7 +20,7 @@ export default function UserProfile({
   followingCount
 }: Omit<GetUserResponse, 'updatedAt'>) {
   return (
-    <div className="border-b border-b-grayBorder pb-4">
+    <div className="border-b border-b-border pb-4">
       {/* User avatar & banner */}
       <section className="relative">
         <UserAvatarBanner avatarUrl={avatarUrl} bannerUrl={bannerUrl} />
@@ -37,7 +37,7 @@ export default function UserProfile({
           {verified !== 'NONE' && <UserBadge badge={verified} />}
         </div>
 
-        <p className="text-textSecondary">@{handle}</p>
+        <p className="text-muted-foreground">@{handle}</p>
 
         <p>{bio}</p>
 

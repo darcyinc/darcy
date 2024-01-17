@@ -4,6 +4,7 @@ import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import ClickablePost from './clickable-post';
 import FeedPostActions from './post-actions';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 interface FeedPostProps {
   content: string;
@@ -29,7 +30,11 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
     <ClickablePost postId={props.postId}>
       <div className="flex gap-2">
         <Link className="h-10 w-10 flex-shrink-0" href={`/${handle}`}>
-          <img alt={username} className="rounded-full" draggable={false} src={avatar} />
+          <Avatar>
+            <AvatarImage src={avatar} alt={`${username}'s profile picture`} />
+            {/* TODO */}
+            <AvatarFallback>??</AvatarFallback>
+          </Avatar>
         </Link>
 
         <div className="flex flex-col overflow-hidden">
@@ -38,13 +43,13 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
               {username}
             </Link>
 
-            <Link className="hidden truncate text-textSecondary hover:underline sm:inline" href={`/${handle}`}>
+            <Link className="hidden truncate text-muted-foreground hover:underline sm:inline" href={`/${handle}`}>
               @{handle}
             </Link>
 
             {/* {verified !== 'NONE' && <UserBadge badge={verified} />} */}
 
-            <p className="flex flex-1 gap-1 overflow-hidden text-textSecondary">
+            <p className="flex flex-1 gap-1 overflow-hidden text-muted-foreground">
               <span className="select-none">·</span>
               <time className="truncate" dateTime={new Date(createdAt).toISOString()}>
                 {relativeTime}

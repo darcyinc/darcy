@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -13,7 +14,7 @@ interface DesktopLink {
   requiresAuth?: boolean;
 }
 
-const DesktopLinks: DesktopLink[] = [
+export const DesktopLinks: DesktopLink[] = [
   {
     active: true,
     i18nName: 'home',
@@ -43,9 +44,11 @@ export default function DesktopNavbarLinks() {
   const t = useTranslations('Navbar');
 
   return DesktopLinks.map((link) => (
-    <Link className="flex w-fit items-center rounded-full p-3 text-textPrimary hover:bg-hoverEffect" href={link.href} key={link.i18nName}>
-      <link.Icon className="h-7 w-7" />
-      <p className={clsx('hidden text-xl xl:ml-5 xl:mr-4 xl:block', link.active && 'font-bold')}>{t(link.i18nName)}</p>
+    <Link href={link.href} key={link.i18nName}>
+      <Button variant="ghost" className="p-3 py-6 rounded-full">
+        <link.Icon className="h-7 w-7" />
+        <p className={clsx('hidden text-xl xl:ml-2 xl:block', link.active && 'font-bold')}>{t(link.i18nName)}</p>
+      </Button>
     </Link>
   ));
 }

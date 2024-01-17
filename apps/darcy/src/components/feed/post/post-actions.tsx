@@ -3,6 +3,7 @@
 import { apiClient } from '@/api/client';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { BiRepost } from 'react-icons/bi';
 import { MdFavorite, MdOutlineFavoriteBorder, MdOutlineSpeakerNotes, MdViewKanban } from 'react-icons/md';
@@ -65,46 +66,50 @@ export default function PostActions({
   return (
     <footer className="mt-2 flex justify-evenly text-sm text-gray-500">
       <button
-        className="group flex select-none items-center gap-1 hover:text-blue"
+        className="group flex select-none items-center gap-1 hover:text-primary"
         type="button"
         onClick={handleComment}
         aria-label="See post comments"
       >
-        <div className="rounded-full p-1.5 group-hover:bg-blue/20">
+        <div className="rounded-full p-1.5 group-hover:bg-primary/20">
           <MdOutlineSpeakerNotes className="h-4 w-4" />
         </div>
         <span>{comments}</span>
       </button>
 
       <button
-        className="group flex select-none items-center gap-1 enabled:hover:text-green data-[reposted='true']:text-green disabled:cursor-not-allowed"
-        data-reposted={hasReposted}
+        className={clsx(
+          'group flex select-none items-center gap-1 enabled:hover:text-repost disabled:cursor-not-allowed',
+          hasReposted && 'text-repost'
+        )}
         type="button"
         onClick={handleRepost}
         disabled={!currentUser.token}
         aria-label="Repost post"
       >
-        <div className="rounded-full p-1.5 group-enabled:hover:bg-green/20">
+        <div className="rounded-full p-1.5 group-enabled:hover:bg-repost/20">
           <BiRepost className="h-4 w-4" />
         </div>
         <span>{reposts}</span>
       </button>
 
       <button
-        className="group flex select-none items-center gap-1 enabled:hover:text-red data-[liked='true']:text-red disabled:cursor-not-allowed"
-        data-liked={hasLiked}
+        className={clsx(
+          'group flex select-none items-center gap-1 enabled:hover:text-like disabled:cursor-not-allowed',
+          hasLiked && 'text-like'
+        )}
         type="button"
         onClick={handleLike}
         disabled={!currentUser.token}
         aria-label="Like post"
       >
-        <div className="rounded-full p-1.5 group-enabled:hover:bg-red/20">
+        <div className="rounded-full p-1.5 group-enabled:hover:bg-like/20">
           <LikedIcon className="h-4 w-4" />
         </div>
         <span>{likes}</span>
       </button>
 
-      <button className="group flex select-none items-center gap-1 hover:text-purple-300" type="button" aria-label="See post views">
+      <button className="group flex select-none items-center gap-1 hover:text-purple-600" type="button" aria-label="See post views">
         <div className="rounded-full p-1.5 group-hover:bg-purple-500/20">
           <MdViewKanban className="h-4 w-4" />
         </div>

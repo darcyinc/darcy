@@ -10,7 +10,7 @@ export default function MobileNavbar() {
 
   return (
     <div
-      className="sticky bottom-0 w-full border-t border-t-grayBorder bg-white/80 dark:bg-black/80 p-1 backdrop-blur-md sm:hidden transition-all"
+      className="sticky bottom-0 w-full border-t border-t-border bg-white/80 dark:bg-black/80 p-1 backdrop-blur-md sm:hidden transition-all"
       ref={navbar}
     >
       <nav className="flex items-center justify-evenly xl:items-start">

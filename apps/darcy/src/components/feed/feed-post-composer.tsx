@@ -2,11 +2,14 @@
 
 import { apiClient } from '@/api/client';
 import { GetPostResponse } from '@/app/api/post/[postId]/route';
-import Button from '@/components/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import LoadingSpinner from '../loading-spinner';
+import { Button } from '../ui/button';
+import { Textarea } from '../ui/textarea';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
@@ -28,8 +31,14 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
     event.target.style.height = `${event.target.scrollHeight}px`;
   };
 
-  const handlePublish = () => {
+  const handlePublish = async () => {
     setLoading(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    setLoading(false);
+    setContent('');
+    toast('Post created successfully!');
 
     apiClient.post('/post', { content }).then((response) => {
       setLoading(false);
@@ -47,30 +56,34 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
 
   return (
     currentUser.token && (
-      <div className="hidden w-full gap-3 border-b border-b-grayBorder p-2 py-4 md:flex">
+      <div className="hidden w-full gap-3 border-b border-b-border p-2 py-4 md:flex">
         {showProfilePicture && (
           <div className="h-10 w-10 flex-shrink-0">
-            <img alt="Your profile" className="rounded-full" draggable={false} src={currentUser.avatarUrl} />
+            <Avatar>
+              <AvatarImage src={currentUser.avatarUrl} alt="Your profile picture" />
+              {/* TODO */}
+              <AvatarFallback>??</AvatarFallback>
+            </Avatar>
           </div>
         )}
 
         <div className="flex w-full flex-col gap-2">
-          <textarea
-            className="max-h-32 resize-none bg-transparent text-textPrimary placeholder-textSecondary outline-none"
+          <Textarea
+            className="max-h-32 border-transparent focus-visible:border-input rounded-xl text-base"
             placeholder="O que está acontecendo?"
             value={content}
             onChange={handleChange}
           />
 
           <Button
-            className="self-end gap-2"
-            color="white"
-            disabled={content.length === 0}
-            size="sm"
+            variant="secondary"
+            className="gap-2 rounded-full w-fit self-end font-bold"
+            size="md"
             onClick={handlePublish}
-            loading={loading}
+            disabled={content.length === 0}
           >
-            <p>{t('publish')}</p>
+            {loading && <LoadingSpinner />}
+            {t('publish')}
           </Button>
         </div>
       </div>

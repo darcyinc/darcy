@@ -1,6 +1,7 @@
 'use client';
 
-import Button from '@/components/button';
+import LoadingSpinner from '@/components/loading-spinner';
+import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useState } from 'react';
 
@@ -18,8 +19,9 @@ export default function UserFollowButton({ handle }: { handle: string }) {
 
   return (
     <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">
-      <Button color="white" size="sm" onClick={handleFollow} loading={fakeLoading}>
-        <p>Seguir</p>
+      <Button variant="secondary" className="rounded-full font-bold gap-2" size="md" onClick={handleFollow}>
+        {fakeLoading && <LoadingSpinner />}
+        Seguir
       </Button>
     </div>
   );

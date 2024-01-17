@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <FeedHeader className="absolute flex items-center gap-4 p-4 backdrop-blur-md">
-        <Link className="rounded-full p-2 text-textPrimary hover:bg-hoverEffect" href="/">
+        <Link className="rounded-full p-2 text-textPrimary hover:bg-accent" href="/">
           <MdArrowBack className="h-7 w-7" />
         </Link>
 

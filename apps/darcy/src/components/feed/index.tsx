@@ -5,7 +5,7 @@ import MobileNavbar from '../navbar/mobile-navbar';
 export default function Feed({ children }: PropsWithChildren) {
   return (
     <>
-      <div className="relative h-full border-grayBorder sm:border-x">{children}</div>
+      <div className="relative h-full border-border sm:border-x">{children}</div>
       <MobileNavbar />
     </>
   );

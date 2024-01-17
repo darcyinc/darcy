@@ -2,18 +2,12 @@
 
 import { apiClient } from '@/api/client';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { useTheme } from '@/hooks/useTheme';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren, useEffect } from 'react';
 
 export default function Template({ children }: PropsWithChildren) {
   const router = useRouter();
-  const { theme } = useTheme();
   const currentUser = useCurrentUser();
-
-  useEffect(() => {
-    document.documentElement.classList.add(theme);
-  }, [theme]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {

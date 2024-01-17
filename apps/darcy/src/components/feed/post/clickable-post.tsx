@@ -1,9 +1,8 @@
 'use client';
 
+import isEnterOrClick from '@/utils/isEnterOrClick';
 import { useRouter } from 'next/navigation';
 import { KeyboardEvent, MouseEvent, PropsWithChildren } from 'react';
-
-import isEnterOrClick from '@/utils/isEnterOrClick';
 
 interface ClickablePostProps {
   postId: string;
@@ -25,7 +24,7 @@ export default function ClickablePost({ children, postId }: PropsWithChildren<Cl
 
   return (
     <div
-      className="overflow-hidden border-b border-b-grayBorder p-2 hover:bg-hoverEffect"
+      className="overflow-hidden border-b border-b-border p-2 hover:bg-accent"
       role="button"
       tabIndex={0}
       onClick={handleClick}

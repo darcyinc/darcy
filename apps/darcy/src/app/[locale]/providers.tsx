@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/theme-provider';
 import { NextIntlClientProvider, useLocale } from 'next-intl';
 import { PropsWithChildren } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -16,7 +17,9 @@ export default async function Providers({ children }: PropsWithChildren) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Toaster />
-      {children}
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        {children}
+      </ThemeProvider>
     </NextIntlClientProvider>
   );
 }

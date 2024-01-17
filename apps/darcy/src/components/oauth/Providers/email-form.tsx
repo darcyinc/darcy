@@ -53,7 +53,7 @@ export default function EmailForm({ error }: EmailFormProps) {
         <input
           required
           autoComplete="on"
-          className="w-full rounded-2xl border bg-transparent p-2.5 text-sm outline-none placeholder:text-textSecondary valid:border-grayBorder invalid:border-error invalid:placeholder-shown:border-grayBorder focus:border-blue disabled:bg-slate-600/10 disabled:text-textSecondary disabled:hover:cursor-not-allowed"
+          className="w-full rounded-2xl border bg-transparent p-2.5 text-sm outline-none placeholder:text-muted-foreground valid:border-border invalid:border-error invalid:placeholder-shown:border-border focus:border-blue disabled:bg-slate-600/10 disabled:text-muted-foreground disabled:hover:cursor-not-allowed"
           disabled={authData.submitting}
           maxLength={255}
           pattern={EMAIL_REGEX.source}

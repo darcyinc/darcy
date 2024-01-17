@@ -1,36 +1,77 @@
 import type { Config } from 'tailwindcss';
 
-export default ({
-  content: ['./src/**/*.{ts,tsx}'],
-  darkMode: 'class',
+const config = {
+  darkMode: ['class'],
+  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+  prefix: '',
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px'
+      }
+    },
     extend: {
       colors: {
-        blue: 'rgb(var(--color-blue) / <alpha-value>)',
-        darkGray: 'rgb(var(--color-dark-gray) / <alpha-value>)',
-        grayBorder: 'rgb(var(--color-gray-border) / <alpha-value>)',
-        red: 'rgb(var(--color-red) / <alpha-value>)',
-        green: 'rgb(var(--color-green) / <alpha-value>)',
-
-        background: 'rgb(var(--theme-background) / <alpha-value>)',
-
-        textPrimary: 'rgb(var(--text-primary) / <alpha-value>)',
-        textSecondary: 'rgb(var(--text-secondary) / <alpha-value>)',
-
-        hoverEffect: 'var(--color-hover-effect)',
-
-        error: 'rgb(var(--error) / <alpha-value>)'
+        border: 'rgba(var(--border) / <alpha-value>)',
+        input: 'rgba(var(--input) / <alpha-value>)',
+        ring: 'rgba(var(--ring) / <alpha-value>)',
+        background: 'rgba(var(--background) / <alpha-value>)',
+        foreground: 'rgba(var(--foreground) / <alpha-value>)',
+        like: 'rgba(var(--like) / <alpha-value>)',
+        repost: 'rgba(var(--repost) / <alpha-value>)',
+        primary: {
+          DEFAULT: 'rgba(var(--primary) / <alpha-value>)',
+          foreground: 'rgba(var(--primary-foreground) / <alpha-value>)'
+        },
+        secondary: {
+          DEFAULT: 'rgba(var(--secondary) / <alpha-value>)',
+          foreground: 'rgba(var(--secondary-foreground) / <alpha-value>)'
+        },
+        destructive: {
+          DEFAULT: 'rgba(var(--destructive) / <alpha-value>)',
+          foreground: 'rgba(var(--destructive-foreground) / <alpha-value>)'
+        },
+        muted: {
+          DEFAULT: 'rgba(var(--muted) / <alpha-value>)',
+          foreground: 'rgba(var(--muted-foreground) / <alpha-value>)'
+        },
+        accent: {
+          DEFAULT: 'rgba(var(--accent))',
+          foreground: 'rgba(var(--accent-foreground))'
+        },
+        popover: {
+          DEFAULT: 'rgba(var(--popover) / <alpha-value>)',
+          foreground: 'rgba(var(--popover-foreground) / <alpha-value>)'
+        },
+        card: {
+          DEFAULT: 'rgba(var(--card) / <alpha-value>)',
+          foreground: 'rgba(var(--card-foreground) / <alpha-value>)'
+        }
       },
-      animation: {
-        'fade-in': 'fadeIn 1.3s ease-in-out'
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' }
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' }
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
         }
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out'
       }
     }
   },
-  plugins: []
-} satisfies Config);
+  plugins: [require('tailwindcss-animate')]
+} satisfies Config;
+
+export default config;
