@@ -22,7 +22,7 @@
     "is-ci": "3.0.1",
     "jsonwebtoken": "9.0.2",
     "lucide-react": "0.311.0",
-    "next": "14.0.5-canary.62",
+    "next": "14.0.5-canary.63",
     "next-intl": "3.4.3",
     "next-themes": "0.2.1",
     "react": "18.2.0",
