@@ -1,9 +1,9 @@
 'use client';
 
+import LoadingSpinner from '@/components/loading-spinner';
+import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-
-import Button from '@/components/button';
 
 interface EmailFormProps {
   error?: string;
@@ -73,13 +73,12 @@ export default function EmailForm({ error }: EmailFormProps) {
       </label>
 
       <Button
-        className="my-2.5"
-        color="blue"
+        className="my-2.5 gap-2 w-full rounded-full"
         disabled={!!authData.validationError || authData.email.length === 0}
-        loading={authData.submitting}
         size="lg"
         type="submit"
       >
+        {authData.submitting && <LoadingSpinner />}
         <p className="text-lg font-semibold">Enviar link de autenticação</p>
       </Button>
     </form>

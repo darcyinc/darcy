@@ -5,8 +5,7 @@ import { useRouter } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
-
-import Button from '@/components/button';
+import { Button } from '../ui/button';
 
 interface OAuth2ButtonProps {
   service: 'discord' | 'google' | 'github';
@@ -15,17 +14,17 @@ interface OAuth2ButtonProps {
 const Services = {
   discord: {
     link: process.env.NEXT_PUBLIC_DISCORD_AUTH_URL,
-    styles: 'bg-indigo-700 !text-white hover:bg-indigo-700/80',
+    styles: '!bg-indigo-700 !text-white hover:!bg-indigo-700/80',
     Icon: BsDiscord
   },
   google: {
     link: process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL,
-    styles: 'bg-white !text-black hover:bg-white/80',
+    styles: '!bg-white !text-black hover:!bg-white/80',
     Icon: FcGoogle
   },
   github: {
     link: process.env.NEXT_PUBLIC_GITHUB_AUTH_URL,
-    styles: 'bg-neutral-600 !text-white hover:bg-neutral-600/80',
+    styles: '!bg-neutral-600 !text-white hover:!bg-neutral-600/80',
     Icon: BsGithub
   }
 };
@@ -45,7 +44,7 @@ export default function OAuthButton({ service, children }: PropsWithChildren<OAu
   };
 
   return (
-    <Button className={clsx('gap-2', serviceData.styles)} color="blue" size="md" type="button" onClick={handleRedirect}>
+    <Button className={clsx('rounded-full font-bold text-lg w-full gap-2', serviceData.styles)} onClick={handleRedirect}>
       <serviceData.Icon className="h-6 w-6" />
       {children}
     </Button>
