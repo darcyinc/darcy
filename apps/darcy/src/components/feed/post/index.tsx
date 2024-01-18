@@ -29,7 +29,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
   return (
     <ClickablePost postId={props.postId}>
       <div className="flex gap-2">
-        <Link className="h-10 w-10 flex-shrink-0" href={`/${handle}`}>
+        <Link className="h-10 w-10" href={`/${handle}`}>
           <Avatar>
             <AvatarImage src={avatar} alt={`${username}'s profile picture`} />
             {/* TODO */}
@@ -39,7 +39,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
 
         <div className="flex flex-col overflow-hidden">
           <header className="flex items-center gap-x-1 truncate">
-            <Link className="truncate font-bold text-textPrimary hover:underline" href={`/${handle}`}>
+            <Link className="truncate font-bold hover:underline" href={`/${handle}`}>
               {username}
             </Link>
 

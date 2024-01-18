@@ -21,7 +21,7 @@ export default function DesktopNavbarProfile() {
               </Avatar>
 
               <div className="hidden w-full flex-col overflow-hidden xl:flex">
-                <p className="text-start truncate font-bold text-textPrimary">{currentUser.displayName}</p>
+                <p className="text-start truncate font-bold">{currentUser.displayName}</p>
                 <p className="text-muted-foreground">@{currentUser.handle}</p>
               </div>
             </div>

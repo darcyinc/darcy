@@ -45,7 +45,7 @@ export default function Modal(props: ModalProps) {
           // biome-ignore lint/a11y/noAutofocus: <explanation>
           autoFocus
           aria-label="Close modal"
-          className="absolute left-3 top-4 text-textPrimary hover:text-muted-foreground focus:text-muted-foreground"
+          className="absolute left-3 top-4 hover:text-muted-foreground focus:text-muted-foreground"
           title="Close modal"
           type="button"
           onClick={props.onClose}

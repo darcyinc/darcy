@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <>
       <FeedHeader className="absolute flex items-center gap-4 p-4 backdrop-blur-md">
-        <Link className="rounded-full p-2 text-textPrimary hover:bg-accent" href="/">
+        <Link className="rounded-full p-2 hover:bg-accent" href="/">
           <MdArrowBack className="h-7 w-7" />
         </Link>
 
         <div>
-          <h1 className="text-xl font-bold text-textPrimary">Publicação</h1>
+          <h1 className="text-xl font-bold">Publicação</h1>
         </div>
       </FeedHeader>
 

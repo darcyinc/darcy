@@ -20,7 +20,7 @@ export default function Home({ params }: HomeProps) {
     return (
       <>
         <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
-          <Link className="rounded-full text-textPrimary hover:bg-accent p-2" href="/">
+          <Link className="rounded-full hover:bg-accent p-2" href="/">
             <MdArrowBack className="h-5 w-5" />
           </Link>
         </FeedHeader>
@@ -33,12 +33,12 @@ export default function Home({ params }: HomeProps) {
   return (
     <>
       <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
-        <Link className="rounded-full text-textPrimary hover:bg-accent p-2" href="/">
+        <Link className="rounded-full hover:bg-accent p-2" href="/">
           <MdArrowBack className="h-5 w-5" />
         </Link>
 
         <div>
-          <h1 className="text-lg font-bold text-textPrimary">{userData.displayName}</h1>
+          <h1 className="text-lg font-bold">{userData.displayName}</h1>
           <p className="text-sm text-muted-foreground">{userData.postCount} posts</p>
         </div>
       </FeedHeader>

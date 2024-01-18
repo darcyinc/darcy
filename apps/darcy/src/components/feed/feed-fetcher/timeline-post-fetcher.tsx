@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
+import SkeletonPost from '../post/skeleton-post';
 
 export default function TimelinePostFetcher() {
   const [page, setPage] = useState(1);
@@ -28,7 +29,15 @@ export default function TimelinePostFetcher() {
   }, [data, loading]);
 
   if (page === 1 && loading) {
-    return <FeedPostComposer />;
+    return (
+      <>
+        <FeedPostComposer />
+        <SkeletonPost />
+        <SkeletonPost />
+        <SkeletonPost />
+        <SkeletonPost />
+      </>
+    );
   }
 
   const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {

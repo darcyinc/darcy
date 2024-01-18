@@ -15,13 +15,13 @@ export default function UserFollowStats({ following, followers }: UserFollowStat
 
   return (
     <div className="flex gap-2 text-sm">
-      <Link className="decoration-textPrimary hover:underline" href={`${pathname}/following`}>
-        <span className="font-bold text-textPrimary">{following}</span>
+      <Link className="hover:underline" href={`${pathname}/following`}>
+        <span className="font-bold">{following}</span>
         <span className="text-muted-foreground"> {t('following')}</span>
       </Link>
 
-      <Link className="decoration-textPrimary hover:underline" href={`${pathname}/followers`}>
-        <span className="font-bold text-textPrimary">{followers}</span>
+      <Link className="hover:underline" href={`${pathname}/followers`}>
+        <span className="font-bold">{followers}</span>
         <span className="text-muted-foreground"> {t('followers')}</span>
       </Link>
     </div>

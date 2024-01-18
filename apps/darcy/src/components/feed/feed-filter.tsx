@@ -20,7 +20,7 @@ export default function FeedFilter() {
   return (
     <div>
       <Tabs defaultValue="foryou" onValueChange={(value) => handleFilter(value as FilterOption)}>
-        <TabsList className="h-12 flex p-0">
+        <TabsList className="h-12 flex p-0 bg-background">
           <TabsTrigger value="foryou" className="w-2/4 flex flex-col h-full hover:!bg-accent p-0 pt-2">
             <p className={clsx('text-base', feedSort.sortMode === 'foryou' && 'font-bold')}>
               {t('foryou')}

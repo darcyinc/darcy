@@ -19,7 +19,7 @@ export default function MobileNavbarProfile() {
         </Avatar>
       )}
 
-      <Link className="rounded-full p-2 text-textPrimary hover:bg-accent" href="/">
+      <Link className="rounded-full p-2 hover:bg-accent" href="/">
         <AiOutlineAlignLeft className="text-2xl" />
       </Link>
 
