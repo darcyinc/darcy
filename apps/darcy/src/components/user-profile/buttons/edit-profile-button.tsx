@@ -10,7 +10,9 @@ export default function UserEditButton({ handle }: { handle: string }) {
 
   return (
     <Button variant="secondary" className="rounded-full font-bold" size="md" asChild>
-      <Link href={`/${currentUser.handle}/edit`}>Editar perfil</Link>
+      <Link href={`/${currentUser.handle}/edit`} scroll={false}>
+        Editar perfil
+      </Link>
     </Button>
   );
 }

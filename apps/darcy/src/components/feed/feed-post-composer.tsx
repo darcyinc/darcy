@@ -5,11 +5,11 @@ import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
 import LoadingSpinner from '../loading-spinner';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
+import { useToast } from '../ui/use-toast';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
@@ -22,6 +22,8 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
 
   const currentUser = useCurrentUser();
   const t = useTranslations('Feed.PostComposer');
+
+  const { toast } = useToast();
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
@@ -36,21 +38,17 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    setLoading(false);
-    setContent('');
-    toast('Post created successfully!');
-
     apiClient.post('/post', { content }).then((response) => {
       setLoading(false);
 
       if (response.status === 201) {
         setContent('');
-        toast('Post created successfully!');
+        toast({ title: 'Post created successfully!' });
         onPublish?.(response.data);
         return;
       }
 
-      toast.error('Could not create post.');
+      toast({ title: 'Could not create post.', variant: 'destructive' });
     });
   };
 
