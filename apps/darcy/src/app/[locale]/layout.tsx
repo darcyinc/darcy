@@ -22,7 +22,7 @@ interface LayoutProps {
 
 export default function RootLayout({ children, params }: PropsWithChildren<LayoutProps>) {
   return (
-    <html lang={params.locale}>
+    <html lang={params.locale} suppressHydrationWarning>
       <body className={clsx(inter.className, 'overflow-y-scroll')}>
         <Providers>{children}</Providers>
       </body>
