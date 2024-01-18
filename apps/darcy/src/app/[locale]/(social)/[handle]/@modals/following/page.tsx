@@ -1,11 +1,24 @@
-import FollowingModal from '@/components/modal/FollowingModal';
+'use client';
 
-interface PageProps {
-  params: {
-    handle: string;
-  };
-}
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-export default function Page({ params }: PageProps) {
-  return <FollowingModal username={params.handle} />;
+export default function Page() {
+  const [open, setOpen] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!open) router.back();
+  }, [router, open]);
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Seguindo</DialogTitle>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
+  );
 }
