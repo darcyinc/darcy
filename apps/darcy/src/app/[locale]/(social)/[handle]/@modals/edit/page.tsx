@@ -40,7 +40,7 @@ export default function Page({ params }: PageProps) {
     });
   };
 
-  if (!currentUser || currentUser.handle !== params.handle) return null;
+  if (!currentUser.token || currentUser.handle !== params.handle) return null;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
