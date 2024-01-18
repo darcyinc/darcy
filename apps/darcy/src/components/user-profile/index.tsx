@@ -26,8 +26,10 @@ export default function UserProfile({
         <UserAvatarBanner avatarUrl={avatarUrl} bannerUrl={bannerUrl} />
 
         {/* TODO: Edit profile button, unfollow */}
-        <UserFollowButton handle={handle} />
-        <UserEditButton handle={handle} />
+        <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">
+          <UserFollowButton handle={handle} />
+          <UserEditButton handle={handle} />
+        </div>
       </section>
 
       {/* User info */}

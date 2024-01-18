@@ -18,11 +18,9 @@ export default function UserFollowButton({ handle }: { handle: string }) {
   };
 
   return (
-    <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">
-      <Button variant="secondary" className="rounded-full font-bold gap-2" size="md" onClick={handleFollow}>
-        {fakeLoading && <LoadingSpinner />}
-        Seguir
-      </Button>
-    </div>
+    <Button variant="secondary" className="rounded-full font-bold gap-2" size="md" onClick={handleFollow}>
+      {fakeLoading && <LoadingSpinner />}
+      Seguir
+    </Button>
   );
 }
