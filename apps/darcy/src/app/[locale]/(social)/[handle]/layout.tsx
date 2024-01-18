@@ -1,15 +1,13 @@
 import React, { PropsWithChildren } from 'react';
 
 interface LayoutProps {
-  followers: React.ReactNode;
-  following: React.ReactNode;
+  modals: React.ReactNode;
 }
 
-export default function RootLayout({ children, followers, following }: PropsWithChildren<LayoutProps>) {
+export default function RootLayout({ children, modals }: PropsWithChildren<LayoutProps>) {
   return (
     <>
-      {followers}
-      {following}
+      {modals}
       {children}
     </>
   );
