@@ -53,7 +53,7 @@ export default function EmailForm({ error }: EmailFormProps) {
         <input
           required
           autoComplete="on"
-          className="w-full rounded-2xl border bg-transparent p-2.5 text-sm outline-none placeholder:text-muted-foreground valid:border-border invalid:border-error invalid:placeholder-shown:border-border focus:border-blue disabled:bg-slate-600/10 disabled:text-muted-foreground disabled:hover:cursor-not-allowed"
+          className="w-full rounded-2xl border bg-transparent p-2.5 text-sm outline-none placeholder:text-muted-foreground valid:border-border invalid:border-red-600 invalid:placeholder-shown:border-border focus:border-blue disabled:bg-slate-600/10 disabled:text-muted-foreground disabled:hover:cursor-not-allowed"
           disabled={authData.submitting}
           maxLength={255}
           pattern={EMAIL_REGEX.source}
@@ -64,12 +64,12 @@ export default function EmailForm({ error }: EmailFormProps) {
         />
 
         {authData.showPastError && error && (
-          <p className="mt-2.5 text-error">
+          <p className="mt-2.5 text-red-600">
             <span className="font-bold">{t('error_while_auth')}</span> {t(error)}
           </p>
         )}
 
-        {authData.validationError && <p className="mt-2.5 text-error">{t(authData.validationError)}</p>}
+        {authData.validationError && <p className="mt-2.5 text-red-600">{t(authData.validationError)}</p>}
       </label>
 
       <Button
