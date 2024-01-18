@@ -2,7 +2,7 @@
 
 import useHideOnScroll from '@/hooks/useHideOnScroll';
 import { useRef } from 'react';
-import { MobileNavbarLinks } from './NavbarLinks';
+import { MobileNavbarLinks } from './navbar-links';
 
 export default function MobileNavbar() {
   const navbar = useRef<HTMLDivElement>(null);

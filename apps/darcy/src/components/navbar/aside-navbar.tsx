@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { AiOutlineAlignLeft } from 'react-icons/ai';
 import { MdCreate } from 'react-icons/md';
 import { Button } from '../ui/button';
-import { DesktopNavbarLinks } from './NavbarLinks';
-import DesktopNavbarProfile from './NavbarProfile/desktop-navbar-profile';
+import { DesktopNavbarLinks } from './navbar-links';
+import { DesktopNavbarProfile } from './navbar-profile';
 
 export default function AsideNavbar() {
   const currentUser = useCurrentUser();
