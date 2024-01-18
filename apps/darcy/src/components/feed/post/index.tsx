@@ -1,5 +1,7 @@
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import MiniProfile from '@/components/user-profile/mini-profile';
 import useRelativeTime from '@/hooks/useRelativeTime';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
@@ -38,14 +40,21 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
         </Link>
 
         <div className="flex flex-col overflow-hidden">
-          <header className="flex items-center gap-x-1 truncate">
-            <Link className="truncate font-bold hover:underline" href={`/${handle}`}>
-              {username}
-            </Link>
+          <header className="flex gap-x-1 truncate">
+            <HoverCard>
+              <HoverCardTrigger className="flex gap-x-1">
+                <Link className="truncate font-bold hover:underline" href={`/${handle}`}>
+                  {username}
+                </Link>
 
-            <Link className="hidden truncate text-muted-foreground hover:underline sm:inline" href={`/${handle}`}>
-              @{handle}
-            </Link>
+                <Link className="hidden truncate text-muted-foreground hover:underline sm:inline" href={`/${handle}`}>
+                  @{handle}
+                </Link>
+              </HoverCardTrigger>
+              <HoverCardContent className="bg-background w-fit">
+                <MiniProfile username={username} handle={handle} avatar={avatar} />
+              </HoverCardContent>
+            </HoverCard>
 
             {/* {verified !== 'NONE' && <UserBadge badge={verified} />} */}
 
