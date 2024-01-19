@@ -21,7 +21,6 @@ export default function ClickablePost({ children, postId }: PropsWithChildren<Cl
     if (event.target !== event.currentTarget && (event.target as HTMLElement).tagName !== 'ARTICLE') return;
     if (!isEnterOrClick(event)) return;
 
-
     router.push(`/post/${postId}`);
   };
 
