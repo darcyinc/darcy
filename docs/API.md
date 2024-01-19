@@ -70,6 +70,36 @@ Can have the following search parameters:
 ]
 ```
 
+#### PATCH `/users/@me`
+
+Updates the currently authenticated user's profile. The request body should contain the following fields:
+- `displayName`?: The user's display name.
+- `bio`?: The user's bio.
+- `handle`?: The user's handle.
+
+**Example Response:**
+
+```json
+{
+  "displayName": "Davi Patricio",
+  "handle": "davipatricio",
+  "bio": "Hello world.",
+  "private": false,
+  "verified": "ORGANIZATION",
+  "avatarUrl": "/assets/images/default-profile-picture.png",
+  "bannerUrl": null,
+  "createdAt": "2024-01-15T01:09:35.425Z",
+  "updatedAt": "2024-01-15T01:15:28.024Z",
+  "websiteUrl": null,
+  "location": null,
+  "jobTitle": null,
+  "birthday": null,
+  "postCount": 0,
+  "followersCount": 0,
+  "followingCount": 0
+}
+```
+
 ### Authentication
 
 #### POST `/auth/:service/callback`
