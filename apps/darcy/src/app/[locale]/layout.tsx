@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 
+import { cn } from '@/lib/utils';
 import { DESCRIPTION } from '@/utils/constants';
-import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { PropsWithChildren } from 'react';
@@ -23,7 +23,7 @@ interface LayoutProps {
 export default function RootLayout({ children, params }: PropsWithChildren<LayoutProps>) {
   return (
     <html lang={params.locale} suppressHydrationWarning>
-      <body className={clsx(inter.className, 'overflow-y-scroll')}>
+      <body className={cn(inter.className, 'overflow-y-scroll')}>
         <Providers>{children}</Providers>
       </body>
     </html>

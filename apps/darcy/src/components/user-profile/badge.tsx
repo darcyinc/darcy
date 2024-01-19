@@ -1,6 +1,6 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
 import { $Enums } from '@prisma/client';
-import clsx from 'clsx';
 import { BadgeCheck } from 'lucide-react';
 
 interface UserBadgeProps {
@@ -14,7 +14,7 @@ export default function UserBadge({ badge }: UserBadgeProps) {
         <TooltipTrigger>
           <BadgeCheck
             size={16}
-            className={clsx(
+            className={cn(
               'flex-shrink-0',
               badge === 'ORGANIZATION' && 'text-yellow-400',
               badge === 'PERSON' && 'text-primary',

@@ -1,7 +1,7 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { DISCORD_AUTH_URL } from '@/utils/api/auth/oauth/data';
-import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
@@ -47,7 +47,7 @@ export default function OAuthButton({ service, children }: PropsWithChildren<OAu
   };
 
   return (
-    <Button className={clsx('rounded-full font-bold text-lg w-full gap-2', serviceData.styles)} onClick={handleRedirect}>
+    <Button className={cn('rounded-full font-bold text-lg w-full gap-2', serviceData.styles)} onClick={handleRedirect}>
       <serviceData.Icon className="h-6 w-6" />
       {children}
     </Button>

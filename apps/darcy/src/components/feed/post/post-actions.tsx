@@ -3,7 +3,7 @@
 import { apiClient } from '@/api/client';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { BarChart2, Heart, MessageCircle, Repeat2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -73,7 +73,7 @@ export default function PostActions({
       </button>
 
       <button
-        className={clsx(
+        className={cn(
           'group flex select-none items-center gap-1 enabled:hover:text-repost disabled:cursor-not-allowed',
           hasReposted && 'text-repost'
         )}
@@ -89,7 +89,7 @@ export default function PostActions({
       </button>
 
       <button
-        className={clsx(
+        className={cn(
           'group flex select-none items-center gap-1 enabled:hover:text-like disabled:cursor-not-allowed',
           hasLiked && 'text-like'
         )}
@@ -99,7 +99,7 @@ export default function PostActions({
         aria-label="Like post"
       >
         <div className="rounded-full p-1.5 group-enabled:hover:bg-like/20">
-          <Heart size={16} className={clsx(hasLiked && 'fill-like')} />
+          <Heart size={16} className={cn(hasLiked && 'fill-like')} />
         </div>
         <span>{likes}</span>
       </button>

@@ -3,7 +3,7 @@
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { Settings } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Button } from '../ui/button';
@@ -22,15 +22,15 @@ export default function FeedFilter() {
       <Tabs defaultValue="foryou" onValueChange={(value) => handleFilter(value as FilterOption)}>
         <TabsList className="h-12 flex p-0 bg-background">
           <TabsTrigger value="foryou" className="w-2/4 flex flex-col h-full hover:!bg-accent p-0 pt-2">
-            <p className={clsx('text-base', feedSort.sortMode === 'foryou' && 'font-bold')}>
+            <p className={cn('text-base', feedSort.sortMode === 'foryou' && 'font-bold')}>
               {t('foryou')}
-              <span className={clsx('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'foryou' && 'bg-primary')} />
+              <span className={cn('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'foryou' && 'bg-primary')} />
             </p>
           </TabsTrigger>
           <TabsTrigger value="following" className="w-2/4 flex flex-col h-full hover:!bg-accent p-0 pt-2" disabled={!currentUser.token}>
-            <p className={clsx('text-base', feedSort.sortMode === 'following' && 'font-bold')}>
+            <p className={cn('text-base', feedSort.sortMode === 'following' && 'font-bold')}>
               {t('following')}
-              <span className={clsx('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'following' && 'bg-primary')} />
+              <span className={cn('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'following' && 'bg-primary')} />
             </p>
           </TabsTrigger>
 

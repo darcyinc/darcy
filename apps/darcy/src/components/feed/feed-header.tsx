@@ -1,7 +1,7 @@
 'use client';
 
 import useHideOnScroll from '@/hooks/useHideOnScroll';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { ComponentProps, useRef } from 'react';
 
 export default function FeedHeader({ children, ...props }: ComponentProps<'div'>) {
@@ -10,7 +10,7 @@ export default function FeedHeader({ children, ...props }: ComponentProps<'div'>
 
   return (
     <div
-      className={clsx(
+      className={cn(
         'sticky top-0 w-full border-b border-b-border bg-white/60 dark:bg-black/60 backdrop-blur-md z-10 transition-all duration-300',
         props.className
       )}

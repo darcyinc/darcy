@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { Search, XCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -22,7 +22,7 @@ export default function TrendingSearch() {
 
   return (
     <form
-      className={clsx(
+      className={cn(
         'group',
         'flex items-center gap-2 rounded-full p-1 px-2',
         'border border-solid border-transparent bg-card',

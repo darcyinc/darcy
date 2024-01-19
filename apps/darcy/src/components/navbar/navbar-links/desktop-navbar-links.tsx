@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { Bell, Home, LucideIcon, Mail, Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -43,7 +43,7 @@ export default function DesktopNavbarLinks() {
     <Link href={link.href} key={link.i18nName}>
       <Button variant="ghost" className="p-3 py-6 rounded-full">
         <link.Icon size={24} />
-        <p className={clsx('hidden text-xl xl:ml-2 xl:block', link.active && 'font-bold')}>{t(link.i18nName)}</p>
+        <p className={cn('hidden text-xl xl:ml-2 xl:block', link.active && 'font-bold')}>{t(link.i18nName)}</p>
       </Button>
     </Link>
   ));
