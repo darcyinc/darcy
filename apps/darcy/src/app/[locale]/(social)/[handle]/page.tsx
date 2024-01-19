@@ -5,6 +5,7 @@ import { UserPostFetcher } from '@/components/feed/feed-fetcher';
 import UserProfile from '@/components/user-profile';
 import useUser from '@/hooks/api/useUser';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { MdArrowBack } from 'react-icons/md';
 
 interface HomeProps {
@@ -14,7 +15,15 @@ interface HomeProps {
 }
 
 export default function Home({ params }: HomeProps) {
-  const { data: userData, error, loading } = useUser(params.handle);
+  const router = useRouter();
+  const handle = decodeURIComponent(params.handle);
+
+  if (handle.startsWith('@')) {
+    router.replace(`/${handle.replace('@', '')}`);
+    return null;
+  }
+
+  const { data: userData, error, loading } = useUser(handle);
 
   if (loading || error) {
     return (
@@ -45,7 +54,7 @@ export default function Home({ params }: HomeProps) {
 
       <UserProfile {...userData} bannerUrl="https://picsum.photos/800/200" />
 
-      <UserPostFetcher userData={userData} handle={params.handle} />
+      <UserPostFetcher userData={userData} handle={handle} />
     </>
   );
 }
