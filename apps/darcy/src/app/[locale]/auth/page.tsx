@@ -1,4 +1,4 @@
-import { OAuth } from '@/components/oauth';
+import OAuthProviders from '@/components/oauth/oauth-providers';
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
@@ -14,7 +14,7 @@ export default function Home({ searchParams }: { searchParams: { error: string }
       <h1 className="text-3xl font-bold">{t('greeting')}</h1>
       <p>{t('loginTip')}</p>
 
-      <OAuth.Providers error={searchParams.error} />
+      <OAuthProviders error={searchParams.error} />
     </section>
   );
 }
