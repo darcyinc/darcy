@@ -1,12 +1,12 @@
 'use client';
 
-import { DISCORD_AUTH_URL } from '@/utils/api/auth/oauth/discord';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { Button } from '../ui/button';
+import { DISCORD_AUTH_URL } from '@/utils/api/auth/oauth/data';
 
 interface OAuth2ButtonProps {
   service: 'discord' | 'google' | 'github';

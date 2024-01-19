@@ -24,9 +24,9 @@ export default function Page({ params }: PageProps) {
 
   const [open, setOpen] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [displayName, setDisplayName] = useState();
-  const [handle, setUserHandle] = useState();
-  const [bio, setUserBio] = useState();
+  const [displayName, setDisplayName] = useState('');
+  const [handle, setUserHandle] = useState('');
+  const [bio, setUserBio] = useState('');
 
   useEffect(() => {
     if (!open) router.back();
