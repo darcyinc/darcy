@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 interface PageProps {
   params: {
@@ -20,7 +20,6 @@ interface PageProps {
 export default function Page({ params }: PageProps) {
   const router = useRouter();
   const currentUser = useCurrentUser();
-  const { toast } = useToast();
 
   const [open, setOpen] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -42,17 +41,14 @@ export default function Page({ params }: PageProps) {
       setLoading(false);
 
       if (res.status !== 200) {
-        toast({
-          title: 'Ocorreu um erro ao editar o perfil',
+        toast('Ocorreu um erro ao editar o perfil', {
           description: res.data.error
         });
         return;
       }
 
       currentUser.setData(res.data);
-      toast({
-        title: 'Perfil editado com sucesso!'
-      });
+      toast('Perfil editado com sucesso!');
     });
   };
 

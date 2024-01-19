@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/sonner';
 import { NextIntlClientProvider, useLocale } from 'next-intl';
 import { PropsWithChildren } from 'react';
 
