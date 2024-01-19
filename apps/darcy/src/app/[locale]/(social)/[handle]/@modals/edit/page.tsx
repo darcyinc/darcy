@@ -21,8 +21,8 @@ export default function Page({ params }: PageProps) {
 
   const [open, setOpen] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [, setDisplayName] = useState(currentUser.displayName);
-  const [, setUserHandle] = useState(currentUser.handle);
+  const [displayName, setDisplayName] = useState(currentUser.displayName);
+  const [handle, setUserHandle] = useState(currentUser.handle);
 
   useEffect(() => {
     if (!open) router.back();
@@ -59,7 +59,7 @@ export default function Page({ params }: PageProps) {
               minLength={2}
               maxLength={32}
               required
-              value={currentUser.displayName}
+              value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
               className="mt-1 peer"
             />
@@ -76,7 +76,7 @@ export default function Page({ params }: PageProps) {
               minLength={2}
               required
               pattern="^[a-zA-Z0-9_]*$"
-              value={currentUser.handle}
+              value={handle}
               onChange={(e) => setUserHandle(e.target.value)}
               className="mt-1 peer"
             />
