@@ -10,7 +10,7 @@ export default function UserFollowButton({ handle }: { handle: string }) {
   const [fakeLoading, setFakeLoading] = useState(false);
   const currentUser = useCurrentUser();
 
-  if (currentUser.handle === handle) return null;
+  if (!currentUser.token || currentUser.handle === handle) return null;
 
   const handleFollow = () => {
     setFakeLoading(true);
