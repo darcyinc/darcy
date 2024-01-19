@@ -1,10 +1,9 @@
 'use client';
 
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { AlignLeft, Pencil } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { AiOutlineAlignLeft } from 'react-icons/ai';
-import { MdCreate } from 'react-icons/md';
 import { Button } from '../ui/button';
 import { DesktopNavbarLinks } from './navbar-links';
 import { DesktopNavbarProfile } from './navbar-profile';
@@ -18,7 +17,7 @@ export default function AsideNavbar() {
       {/* Logo */}
       <Button variant="ghost" className="rounded-full p-2" size="icon" asChild>
         <Link href="/">
-          <AiOutlineAlignLeft className="text-6xl" />
+          <AlignLeft size={60} />
         </Link>
       </Button>
 
@@ -29,7 +28,7 @@ export default function AsideNavbar() {
         {currentUser.token && (
           <div className="xl:w-full mt-2 xl:mt-5">
             <Button className="rounded-full w-fit xl:w-full p-3 py-6" size="icon">
-              <MdCreate className="text-2xl xl:hidden" />
+              <Pencil size={24} className="xl:hidden" />
               <p className="hidden xl:block font-bold text-xl">{t('publish')}</p>
             </Button>
           </div>

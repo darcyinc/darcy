@@ -2,9 +2,8 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { AlignLeft, Settings } from 'lucide-react';
 import Link from 'next/link';
-import { AiOutlineAlignLeft } from 'react-icons/ai';
-import { MdOutlineSettings } from 'react-icons/md';
 
 export default function MobileNavbarProfile() {
   const currentUser = useCurrentUser();
@@ -20,11 +19,11 @@ export default function MobileNavbarProfile() {
       )}
 
       <Link className="rounded-full p-2 hover:bg-accent" href="/">
-        <AiOutlineAlignLeft className="text-2xl" />
+        <AlignLeft size={26} />
       </Link>
 
       <button type="button" className="hover:bg-accent p-2 mx-2 rounded-full block sm:hidden">
-        <MdOutlineSettings className="text-xl" />
+        <Settings size={18} />
       </button>
     </div>
   );

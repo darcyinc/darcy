@@ -1,10 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
+import { Search, XCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
-import { HiOutlineX, HiSearch } from 'react-icons/hi';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 
@@ -31,7 +31,7 @@ export default function TrendingSearch() {
       )}
       onSubmit={handleSubmit}
     >
-      <HiSearch className="ml-2 flex-shrink-0 text-xl text-muted-foreground" />
+      <Search className="ml-2 flex-shrink-0 text-xl text-muted-foreground" />
 
       <Input
         required
@@ -42,16 +42,8 @@ export default function TrendingSearch() {
         placeholder={t('searchPlaceholder')}
       />
 
-      <Button
-        className={clsx(
-          'flex h-5 w-5 items-center justify-center rounded-full bg-primary p-0.5',
-          'opacity-100 transition-opacity duration-200 ease-in-out',
-          'hover:opacity-80 group-invalid:hidden'
-        )}
-        aria-label={'Clear search'}
-        type="reset"
-      >
-        <HiOutlineX className="text-lg" />
+      <Button className="rounded-full bg-primary w-5 h-5 group-invalid:hidden" size="icon" aria-label={'Clear search'} type="reset">
+        <XCircle size={20} />
       </Button>
     </form>
   );

@@ -4,9 +4,8 @@ import { apiClient } from '@/api/client';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import clsx from 'clsx';
+import { BarChart2, Heart, MessageCircle, Repeat2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { BiRepost } from 'react-icons/bi';
-import { MdFavorite, MdOutlineFavoriteBorder, MdOutlineSpeakerNotes, MdViewKanban } from 'react-icons/md';
 
 interface FeedPostActionsProps {
   comments: number;
@@ -32,11 +31,7 @@ export default function PostActions({
   const router = useRouter();
   const currentUser = useCurrentUser();
 
-  const LikedIcon = hasLiked ? MdFavorite : MdOutlineFavoriteBorder;
-
-  const handleComment = () => {
-    router.push(`/post/${postId}`);
-  };
+  const handleComment = () => router.push(`/post/${postId}`);
 
   const handleLike = async () => {
     updatePostData?.(postId, { hasLiked: !hasLiked, likeCount: likes + (hasLiked ? -1 : 1) });
@@ -72,7 +67,7 @@ export default function PostActions({
         aria-label="See post comments"
       >
         <div className="rounded-full p-1.5 group-hover:bg-primary/20">
-          <MdOutlineSpeakerNotes className="h-4 w-4" />
+          <MessageCircle size={16} />
         </div>
         <span>{comments}</span>
       </button>
@@ -88,7 +83,7 @@ export default function PostActions({
         aria-label="Repost post"
       >
         <div className="rounded-full p-1.5 group-enabled:hover:bg-repost/20">
-          <BiRepost className="h-4 w-4" />
+          <Repeat2 size={16} />
         </div>
         <span>{reposts}</span>
       </button>
@@ -104,14 +99,14 @@ export default function PostActions({
         aria-label="Like post"
       >
         <div className="rounded-full p-1.5 group-enabled:hover:bg-like/20">
-          <LikedIcon className="h-4 w-4" />
+          <Heart size={16} className={clsx(hasLiked && 'fill-like')} />
         </div>
         <span>{likes}</span>
       </button>
 
       <button className="group flex select-none items-center gap-1 hover:text-purple-600" type="button" aria-label="See post views">
         <div className="rounded-full p-1.5 group-hover:bg-purple-500/20">
-          <MdViewKanban className="h-4 w-4" />
+          <BarChart2 size={16} />
         </div>
         <span>{views}</span>
       </button>

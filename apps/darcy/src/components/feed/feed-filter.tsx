@@ -4,8 +4,8 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
 import clsx from 'clsx';
+import { Settings } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { MdOutlineSettings } from 'react-icons/md';
 import { Button } from '../ui/button';
 
 type FilterOption = FeedSortState['sortMode'];
@@ -37,7 +37,7 @@ export default function FeedFilter() {
           {/* hidden because MobileNavbarProfile on mobile already shows the settings icon */}
           <Button size="icon" variant="ghost" className="mx-2 !p-0 rounded-full hidden sm:inline-flex">
             <div className="p-4">
-              <MdOutlineSettings className="text-lg" />
+              <Settings size={18} />
             </div>
           </Button>
         </TabsList>

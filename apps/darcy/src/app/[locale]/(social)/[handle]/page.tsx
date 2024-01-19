@@ -4,9 +4,9 @@ import { FeedHeader } from '@/components/feed';
 import { UserPostFetcher } from '@/components/feed/feed-fetcher';
 import UserProfile from '@/components/user-profile';
 import useUser from '@/hooks/api/useUser';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { MdArrowBack } from 'react-icons/md';
 
 interface HomeProps {
   params: {
@@ -30,7 +30,7 @@ export default function Home({ params }: HomeProps) {
       <>
         <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
           <Link className="rounded-full hover:bg-accent p-2" href="/">
-            <MdArrowBack className="h-5 w-5" />
+            <ArrowLeft size={20} />
           </Link>
         </FeedHeader>
 
@@ -43,7 +43,7 @@ export default function Home({ params }: HomeProps) {
     <>
       <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
         <Link className="rounded-full hover:bg-accent p-2" href="/">
-          <MdArrowBack className="h-5 w-5" />
+          <ArrowLeft size={20} />
         </Link>
 
         <div>

@@ -1,7 +1,7 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { $Enums } from '@prisma/client';
 import clsx from 'clsx';
-import { MdVerified } from 'react-icons/md';
+import { BadgeCheck } from 'lucide-react';
 
 interface UserBadgeProps {
   badge: $Enums.VerifiedType;
@@ -12,7 +12,8 @@ export default function UserBadge({ badge }: UserBadgeProps) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger>
-          <MdVerified
+          <BadgeCheck
+            size={16}
             className={clsx(
               'flex-shrink-0',
               badge === 'ORGANIZATION' && 'text-yellow-400',

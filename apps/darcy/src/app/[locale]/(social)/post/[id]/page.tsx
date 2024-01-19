@@ -1,13 +1,13 @@
 import { FeedHeader, FeedPost } from '@/components/feed';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { MdArrowBack } from 'react-icons/md';
 
 export default function Home() {
   return (
     <>
       <FeedHeader className="absolute flex items-center gap-4 p-4 backdrop-blur-md">
         <Link className="rounded-full p-2 hover:bg-accent" href="/">
-          <MdArrowBack className="h-7 w-7" />
+          <ArrowLeft size={28} />
         </Link>
 
         <div>

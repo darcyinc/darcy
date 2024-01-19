@@ -1,5 +1,5 @@
-import { AiOutlineLoading } from 'react-icons/ai';
+import { Loader2 } from 'lucide-react';
 
 export default function LoadingSpinner() {
-  return <AiOutlineLoading className="text-xl animate-spin" />;
+  return <Loader2 size={20} className="animate-spin" />;
 }

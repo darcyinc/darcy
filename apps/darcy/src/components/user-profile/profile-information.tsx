@@ -1,6 +1,6 @@
+import { Briefcase, CalendarDays, Link as LinkIcon, MapPin } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { MdOutlineCalendarMonth, MdOutlineLink, MdOutlineLocationOn, MdWorkOutline } from 'react-icons/md';
 
 interface UserProfileInformationProps {
   location?: string | null;
@@ -22,21 +22,21 @@ export default function UserProfileInformation({ location, job, website, created
     <div className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-[15px] text-muted-foreground">
       {job && (
         <div className="flex items-center gap-1">
-          <MdWorkOutline className="h-4 w-4 flex-shrink-0" />
+          <Briefcase size={16} />
           <p className="break-all">{job}</p>
         </div>
       )}
 
       {location && (
         <div className="flex items-center gap-1 text-muted-foreground">
-          <MdOutlineLocationOn className="h-4 w-4 flex-shrink-0" />
+          <MapPin size={16} />
           <p className="break-all">{location}</p>
         </div>
       )}
 
       {website && (
         <div className="flex items-center gap-1">
-          <MdOutlineLink className="h-4 w-4 flex-shrink-0" />
+          <LinkIcon size={16} />
           <Link className="hover:underline" href={website}>
             <p className="max-w-[280px] truncate break-all">{website}</p>
           </Link>
@@ -44,7 +44,7 @@ export default function UserProfileInformation({ location, job, website, created
       )}
 
       <div className="flex items-center gap-1">
-        <MdOutlineCalendarMonth className="h-4 w-4 flex-shrink-0" />
+        <CalendarDays size={16} />
         <time dateTime={new Date(createdAt).toISOString()}>{t('joinedAt', { date: formattedCreatedAt })}</time>
       </div>
     </div>
