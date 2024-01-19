@@ -21,12 +21,17 @@ export default function Page({ params }: PageProps) {
 
   const [open, setOpen] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [displayName, setDisplayName] = useState(currentUser.displayName);
-  const [handle, setUserHandle] = useState(currentUser.handle);
+  const [displayName, setDisplayName] = useState('');
+  const [handle, setUserHandle] = useState('');
 
   useEffect(() => {
     if (!open) router.back();
   }, [router, open]);
+
+  useEffect(() => {
+    setDisplayName(currentUser.displayName);
+    setUserHandle(currentUser.handle);
+  }, [currentUser]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
