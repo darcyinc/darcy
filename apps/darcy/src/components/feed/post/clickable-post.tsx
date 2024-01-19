@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { KeyboardEvent, MouseEvent, PropsWithChildren } from 'react';
 
 interface ClickablePostProps {
-  postId: string;
+  postId?: string;
 }
 
 export default function ClickablePost({ children, postId }: PropsWithChildren<ClickablePostProps>) {
@@ -14,10 +14,13 @@ export default function ClickablePost({ children, postId }: PropsWithChildren<Cl
   const handleClick = (event: KeyboardEvent | MouseEvent) => {
     event.preventDefault();
 
+    // skeleton posts don't have a postId
+    if (!postId) return;
+
     // only trigger if the event target is the post itself or a article element (post content)
     if (event.target !== event.currentTarget && (event.target as HTMLElement).tagName !== 'ARTICLE') return;
-
     if (!isEnterOrClick(event)) return;
+
 
     router.push(`/post/${postId}`);
   };

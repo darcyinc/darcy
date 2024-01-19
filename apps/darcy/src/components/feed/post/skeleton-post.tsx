@@ -3,7 +3,7 @@ import ClickablePost from './clickable-post';
 
 export default function SkeletonPost() {
   return (
-    <ClickablePost postId={''}>
+    <ClickablePost>
       <div className="flex gap-2">
         <span className="h-10 w-10">
           <Skeleton className="h-10 w-10 rounded-full" />
