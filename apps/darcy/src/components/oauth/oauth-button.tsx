@@ -1,5 +1,6 @@
 'use client';
 
+import { DISCORD_AUTH_URL } from '@/utils/api/auth/oauth/discord';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren } from 'react';
@@ -13,16 +14,18 @@ interface OAuth2ButtonProps {
 
 const Services = {
   discord: {
-    link: process.env.NEXT_PUBLIC_DISCORD_AUTH_URL,
+    link: DISCORD_AUTH_URL,
     styles: '!bg-indigo-700 !text-white hover:!bg-indigo-700/80',
     Icon: BsDiscord
   },
   google: {
+    // TODO: replace in the future
     link: process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL,
     styles: '!bg-white !text-black hover:!bg-white/80',
     Icon: FcGoogle
   },
   github: {
+    // TODO: replace in the future
     link: process.env.NEXT_PUBLIC_GITHUB_AUTH_URL,
     styles: '!bg-neutral-600 !text-white hover:!bg-neutral-600/80',
     Icon: BsGithub
