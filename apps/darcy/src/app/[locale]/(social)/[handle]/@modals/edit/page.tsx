@@ -52,7 +52,7 @@ export default function Page({ params }: PageProps) {
     });
   };
 
-  if (!currentUser.token || currentUser.handle !== params.handle) return null;
+  if (!currentUser.token || currentUser.handle !== params.handle) return router.back();
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
