@@ -1,5 +1,6 @@
 import { prisma } from '@/utils/api/prisma';
 import requireAuthorization from '@/utils/api/requireAuthorization';
+import { User } from '@prisma/client';
 import { NextRequest } from 'next/server';
 
 interface RecentPostOptions {
@@ -69,9 +70,9 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
     );
   }
 
-  if (params.handle === '@me') {
-    const authData = await requireAuthorization();
+  const authData = await requireAuthorization();
 
+  if (params.handle === '@me') {
     if (!authData.authorized) return authData.response;
 
     const user = await prisma.user.findFirst({
@@ -158,6 +159,15 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
     );
   }
 
+  let userWhoRequested: User | null = null;
+  if (authData.authorized) {
+    userWhoRequested = await prisma.user.findFirst({
+      where: {
+        auth: { email: authData.email }
+      }
+    });
+  }
+
   return new Response(
     JSON.stringify(
       user.posts.map((post) => ({
@@ -165,7 +175,7 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
         authorId: undefined,
         likedIds: undefined,
         likeCount: post.likedIds.length,
-        hasLiked: post.likedIds.includes(user.id)
+        hasLiked: userWhoRequested ? post.likedIds.includes(userWhoRequested.id) : false
       }))
     )
   );
