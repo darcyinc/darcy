@@ -153,7 +153,7 @@ export async function PATCH(request: NextRequest, { params }: GetUserOptions) {
       where: { handle: data.handle }
     });
 
-    if (handleExists) {
+    if (handleExists && data.handle !== user.handle) {
       return new Response(
         JSON.stringify({
           error: 'Handle is being used by another user'
