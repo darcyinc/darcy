@@ -41,16 +41,21 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
 
         <div className="flex flex-col overflow-hidden">
           <header className="flex gap-x-1 truncate">
+            {/* MiniProfile */}
             <HoverCard>
-              <HoverCardTrigger className="flex gap-x-1">
-                <Link className="truncate font-bold hover:underline" href={`/${handle}`}>
-                  {username}
-                </Link>
+              {/* User basic info */}
+              <HoverCardTrigger asChild>
+                <div className="flex gap-x-1">
+                  <Link className="truncate font-bold hover:underline" href={`/${handle}`}>
+                    {username}
+                  </Link>
 
-                <Link className="hidden truncate text-muted-foreground hover:underline sm:inline" href={`/${handle}`}>
-                  @{handle}
-                </Link>
+                  <Link className="hidden truncate text-muted-foreground hover:underline sm:inline" href={`/${handle}`}>
+                    @{handle}
+                  </Link>
+                </div>
               </HoverCardTrigger>
+
               <HoverCardContent className="bg-background w-fit">
                 <MiniProfile username={username} handle={handle} avatar={avatar} />
               </HoverCardContent>
