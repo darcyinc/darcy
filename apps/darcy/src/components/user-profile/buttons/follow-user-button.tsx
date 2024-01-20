@@ -1,26 +1,35 @@
 'use client';
 
-import LoadingSpinner from '@/components/loading-spinner';
+import { apiClient } from '@/api/client';
+import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { useState } from 'react';
 
-export default function UserFollowButton({ handle }: { handle: string }) {
-  // TODO: Implement follow functionality
-  const [fakeLoading, setFakeLoading] = useState(false);
+interface UserFollowButtonProps {
+  handle: string;
+  isFollowing?: boolean;
+  updateUserData?: (e: Partial<GetUserResponse>) => void;
+}
+
+export default function UserFollowButton({ handle, isFollowing, updateUserData }: UserFollowButtonProps) {
   const currentUser = useCurrentUser();
 
   if (!currentUser.token || currentUser.handle === handle) return null;
 
   const handleFollow = () => {
-    setFakeLoading(true);
-    setTimeout(() => setFakeLoading(false), 1000);
+    updateUserData?.({ isFollowing: !isFollowing });
+
+    apiClient[isFollowing ? 'delete' : 'post'](`/users/${handle}/follow`).then((response) => {
+      // TODO: add toasts
+      if (response.status !== 200) {
+        return updateUserData?.({ isFollowing });
+      }
+    });
   };
 
   return (
-    <Button variant="secondary" className="rounded-full font-bold gap-2" size="md" onClick={handleFollow}>
-      {fakeLoading && <LoadingSpinner />}
-      Seguir
+    <Button variant={isFollowing ? 'outline' : 'secondary'} className="rounded-full font-bold gap-2" size="md" onClick={handleFollow}>
+      {isFollowing ? 'Seguindo' : 'Seguir'}
     </Button>
   );
 }

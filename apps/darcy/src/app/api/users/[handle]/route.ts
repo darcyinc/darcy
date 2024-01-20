@@ -26,12 +26,13 @@ export interface GetUserResponse {
   postCount: number;
   followersCount: number;
   followingCount: number;
+  isFollowing: boolean;
 }
 
 export async function GET(_request: NextRequest, { params }: GetUserOptions) {
-  if (params.handle === '@me') {
-    const authData = await requireAuthorization();
+  const authData = await requireAuthorization();
 
+  if (params.handle === '@me') {
     if (!authData.authorized) return authData.response;
 
     const user = await prisma.user.findFirst({
@@ -77,16 +78,32 @@ export async function GET(_request: NextRequest, { params }: GetUserOptions) {
     );
   }
 
-  const followersCount = await prisma.user.count({
-    where: {
-      followingIds: {
-        has: user.id
+  const [currentUser, followersCount] = await Promise.all([
+    authData.authorized
+      ? prisma.user.findFirst({
+          where: { auth: { email: authData.email } }
+        })
+      : null,
+    prisma.user.count({
+      where: {
+        followingIds: {
+          has: user.id
+        }
       }
-    }
-  });
+    })
+  ]);
+
+  console.log(currentUser, user);
 
   return new Response(
-    JSON.stringify({ ...user, followersCount, followingCount: user.followingIds.length, followingIds: undefined, id: undefined })
+    JSON.stringify({
+      ...user,
+      followersCount,
+      followingCount: user.followingIds.length,
+      isFollowing: currentUser?.followingIds.includes(user.id ?? '') ?? false,
+      followingIds: undefined,
+      id: undefined
+    })
   );
 }
 

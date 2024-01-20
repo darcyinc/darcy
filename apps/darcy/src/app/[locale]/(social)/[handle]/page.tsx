@@ -1,5 +1,6 @@
 'use client';
 
+import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { FeedHeader } from '@/components/feed';
 import { UserPostFetcher } from '@/components/feed/feed-fetcher';
 import UserProfile from '@/components/user-profile';
@@ -7,6 +8,7 @@ import useUser from '@/hooks/api/useUser';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 interface HomeProps {
   params: {
@@ -17,15 +19,28 @@ interface HomeProps {
 export default function Home({ params }: HomeProps) {
   const router = useRouter();
   const handle = decodeURIComponent(params.handle);
+  const [userData, setUserData] = useState({} as GetUserResponse);
 
   if (handle.startsWith('@')) {
     router.replace(`/${handle.replace('@', '')}`);
     return null;
   }
 
-  const { data: userData, error, loading } = useUser(handle);
+  const { data, error } = useUser(handle);
 
-  if (loading || error) {
+  useEffect(() => {
+    setUserData(data);
+  }, [data]);
+
+  const updateUserData = (e: Partial<GetUserResponse>) => {
+    setUserData((prev) => ({
+      ...prev,
+      ...e
+    }));
+  };
+
+  // if userData is empty, means we are loading initial data
+  if (!userData?.handle || error) {
     return (
       <>
         <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
@@ -47,12 +62,12 @@ export default function Home({ params }: HomeProps) {
         </Link>
 
         <div>
-          <h1 className="text-lg font-bold">{userData.displayName}</h1>
-          <p className="text-sm text-muted-foreground">{userData.postCount} posts</p>
+          <h1 className="text-lg font-bold">{data.displayName}</h1>
+          <p className="text-sm text-muted-foreground">{data.postCount} posts</p>
         </div>
       </FeedHeader>
 
-      <UserProfile {...userData} bannerUrl="https://picsum.photos/800/200" />
+      <UserProfile {...userData} updateUserData={updateUserData} bannerUrl="https://picsum.photos/800/200" />
 
       <UserPostFetcher userData={userData} handle={handle} />
     </>

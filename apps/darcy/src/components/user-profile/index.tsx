@@ -17,8 +17,10 @@ export default function UserProfile({
   location,
   verified,
   followersCount,
-  followingCount
-}: Omit<GetUserResponse, 'updatedAt'>) {
+  followingCount,
+  isFollowing,
+  updateUserData
+}: Omit<GetUserResponse, 'updatedAt'> & { updateUserData: (data: Partial<GetUserResponse>) => void }) {
   return (
     <div className="border-b border-b-border pb-4">
       {/* User avatar & banner */}
@@ -27,7 +29,7 @@ export default function UserProfile({
 
         {/* TODO: Edit profile button, unfollow */}
         <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">
-          <UserFollowButton handle={handle} />
+          <UserFollowButton handle={handle} isFollowing={isFollowing} updateUserData={updateUserData} />
           <UserEditButton handle={handle} />
         </div>
       </section>
