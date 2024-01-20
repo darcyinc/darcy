@@ -93,8 +93,6 @@ export async function GET(_request: NextRequest, { params }: GetUserOptions) {
     })
   ]);
 
-  console.log(currentUser, user);
-
   return new Response(
     JSON.stringify({
       ...user,
