@@ -4,7 +4,11 @@ import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import Link from 'next/link';
 
-export default function UserEditButton({ handle }: { handle: string }) {
+interface UserEditButtonProps {
+  handle: string;
+}
+
+export default function UserEditButton({ handle }: UserEditButtonProps) {
   const currentUser = useCurrentUser();
   if (currentUser.handle !== handle) return null;
 

@@ -5,6 +5,7 @@ import { FeedHeader } from '@/components/feed';
 import { UserPostFetcher } from '@/components/feed/feed-fetcher';
 import UserProfile from '@/components/user-profile';
 import useUser from '@/hooks/api/useUser';
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -19,6 +20,7 @@ interface HomeProps {
 export default function Home({ params }: HomeProps) {
   const router = useRouter();
   const handle = decodeURIComponent(params.handle);
+  const currentUser = useCurrentUser();
   const [userData, setUserData] = useState({} as GetUserResponse);
 
   if (handle.startsWith('@')) {
@@ -31,6 +33,17 @@ export default function Home({ params }: HomeProps) {
   useEffect(() => {
     setUserData(data);
   }, [data]);
+
+  useEffect(() => {
+    if (currentUser.handle === handle) {
+      const { bio, displayName, handle } = currentUser;
+      updateUserData({
+        bio,
+        displayName,
+        handle
+      });
+    }
+  }, [currentUser, handle]);
 
   const updateUserData = (e: Partial<GetUserResponse>) => {
     setUserData((prev) => ({
