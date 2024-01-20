@@ -110,7 +110,7 @@ export async function DELETE(_request: NextRequest, { params }: FollowUserOption
         error: "You can't unfollow yourself"
       }),
       {
-        status: 404
+        status: 400
       }
     );
   }
@@ -121,7 +121,7 @@ export async function DELETE(_request: NextRequest, { params }: FollowUserOption
         error: "You don't follow this user"
       }),
       {
-        status: 404
+        status: 400
       }
     );
   }
