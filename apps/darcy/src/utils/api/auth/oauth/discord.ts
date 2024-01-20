@@ -1,5 +1,5 @@
 import { URLSearchParams } from 'node:url';
-import { DISCORD_CALLBACK_URL} from './data';
+import { DISCORD_CALLBACK_URL } from './data';
 
 const generateAuthParams = (code: string) =>
   new URLSearchParams({
