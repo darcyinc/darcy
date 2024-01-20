@@ -15,7 +15,10 @@ export const metadata: Metadata = {
     default: 'Página Inicial / Darcy'
   },
   keywords: ['darcy', 'social network', 'darcy social network'],
-  description: DESCRIPTION
+  description: DESCRIPTION,
+  verification: {
+    google: '2xJbRdcKuFm-bPMz7eIVWdHgC7ixwnpeBPlc1nqUTQE'
+  }
 };
 
 interface LayoutProps {
