@@ -10,7 +10,11 @@ import Providers from './providers';
 const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '600', '700'] });
 
 export const metadata: Metadata = {
-  title: 'Darcy',
+  title: {
+    template: '%s / Darcy',
+    default: 'Página Inicial / Darcy'
+  },
+  keywords: ['darcy', 'social network', 'darcy social network'],
   description: DESCRIPTION
 };
 

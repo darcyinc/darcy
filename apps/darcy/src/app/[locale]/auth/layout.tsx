@@ -1,6 +1,15 @@
 import AuthSideImage from '@/assets/images/auth-side-image.jpg';
+import { DESCRIPTION } from '@/utils/constants';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { PropsWithChildren } from 'react';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Authentication',
+    description: DESCRIPTION
+  };
+}
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
