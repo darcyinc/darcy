@@ -44,7 +44,7 @@ export async function POST(_request: NextRequest, { params }: FollowUserOptions)
         error: "You can't follow yourself."
       }),
       {
-        status: 404
+        status: 400
       }
     );
   }
@@ -52,10 +52,10 @@ export async function POST(_request: NextRequest, { params }: FollowUserOptions)
   if (user.followingIds.includes(userToFollow.id)) {
     return new Response(
       JSON.stringify({
-        error: 'You already follows this user'
+        error: 'You already follow this user'
       }),
       {
-        status: 404
+        status: 400
       }
     );
   }
