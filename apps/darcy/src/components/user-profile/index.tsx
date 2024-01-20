@@ -5,6 +5,8 @@ import UserFollowStats from './follow-stats';
 import UserProfileInformation from './profile-information';
 import UserAvatarBanner from './user-avatar-banner';
 
+type UserProfileProps = Omit<GetUserResponse, 'updatedAt'> & { updateUserData: (data: Partial<GetUserResponse>) => void };
+
 export default function UserProfile({
   displayName,
   avatarUrl,
@@ -20,7 +22,7 @@ export default function UserProfile({
   followingCount,
   isFollowing,
   updateUserData
-}: Omit<GetUserResponse, 'updatedAt'> & { updateUserData: (data: Partial<GetUserResponse>) => void }) {
+}: UserProfileProps) {
   return (
     <div className="border-b border-b-border pb-4">
       {/* User avatar & banner */}
@@ -29,7 +31,7 @@ export default function UserProfile({
 
         {/* TODO: Edit profile button, unfollow */}
         <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">
-          <UserFollowButton handle={handle} isFollowing={isFollowing} updateUserData={updateUserData} />
+          <UserFollowButton {...{ handle, isFollowing, updateUserData }} />
           <UserEditButton handle={handle} />
         </div>
       </section>
@@ -45,7 +47,7 @@ export default function UserProfile({
 
         <p>{bio}</p>
 
-        <UserProfileInformation job={job} createdAt={createdAt} location={location} website={website} />
+        <UserProfileInformation {...{ job, createdAt, location, website }} />
 
         {/* Following & followers */}
         <UserFollowStats followers={followersCount} following={followingCount} />
