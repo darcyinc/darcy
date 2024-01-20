@@ -16,7 +16,7 @@ export default function AsideNavbar() {
     <div className="sticky top-0 hidden h-screen w-fit max-w-[275px] flex-col items-center gap-2 py-2 sm:flex xl:items-start xl:pr-4">
       {/* Logo */}
       <Button variant="ghost" className="rounded-full p-2" size="icon" asChild>
-        <Link href="/">
+        <Link href="/" scroll={false}>
           <AlignLeft size={60} />
         </Link>
       </Button>
