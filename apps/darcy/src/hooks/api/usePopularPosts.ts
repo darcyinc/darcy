@@ -33,5 +33,5 @@ export default function usePopularPosts(options?: UsePopularPostsOptions) {
       .finally(() => setLoading(false));
   };
 
-  return { data, error, loading, refetch: fetchData };
+  return { data, setData, error, loading, refetch: fetchData };
 }

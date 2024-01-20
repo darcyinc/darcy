@@ -27,5 +27,5 @@ export default function useUser(handle: string) {
       .finally(() => setLoading(false));
   };
 
-  return { data, error, loading, refetch: fetchData };
+  return { data, setData, error, loading, refetch: fetchData };
 }

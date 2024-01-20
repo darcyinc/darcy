@@ -32,5 +32,5 @@ export default function useUserPosts(handle: string, options?: UseUserPostsOptio
       .finally(() => setLoading(false));
   };
 
-  return { data, error, loading, refetch: fetchData };
+  return { data, setData, error, loading, refetch: fetchData };
 }
