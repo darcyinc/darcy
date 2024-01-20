@@ -9,7 +9,7 @@ import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 interface HomeProps {
   params: {
@@ -21,18 +21,13 @@ export default function Home({ params }: HomeProps) {
   const router = useRouter();
   const handle = decodeURIComponent(params.handle);
   const currentUser = useCurrentUser();
-  const [userData, setUserData] = useState({} as GetUserResponse);
 
   if (handle.startsWith('@')) {
     router.replace(`/${handle.replace('@', '')}`);
     return null;
   }
 
-  const { data, error } = useUser(handle);
-
-  useEffect(() => {
-    setUserData(data);
-  }, [data]);
+  const { data, setData, loading, error } = useUser(handle);
 
   useEffect(() => {
     if (currentUser.handle === handle) {
@@ -46,14 +41,13 @@ export default function Home({ params }: HomeProps) {
   }, [currentUser, handle]);
 
   const updateUserData = (e: Partial<GetUserResponse>) => {
-    setUserData((prev) => ({
+    setData((prev) => ({
       ...prev,
       ...e
     }));
   };
 
-  // if userData is empty, means we are loading initial data
-  if (!userData?.handle || error) {
+  if (loading || error) {
     return (
       <>
         <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
@@ -80,9 +74,9 @@ export default function Home({ params }: HomeProps) {
         </div>
       </FeedHeader>
 
-      <UserProfile {...userData} updateUserData={updateUserData} bannerUrl="https://picsum.photos/800/200" />
+      <UserProfile {...data} updateUserData={updateUserData} bannerUrl="https://picsum.photos/800/200" />
 
-      <UserPostFetcher userData={userData} handle={handle} />
+      <UserPostFetcher userData={data} />
     </>
   );
 }

@@ -12,16 +12,15 @@ import FeedPost from '../post';
 
 interface UserPostFetcherProps {
   userData: GetUserResponse;
-  handle: string;
 }
 
-export default function UserPostFetcher({ userData, handle }: UserPostFetcherProps) {
+export default function UserPostFetcher({ userData }: UserPostFetcherProps) {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [posts, setPosts] = useState<GetUserPostsResponse[]>([]);
 
   const currentUser = useCurrentUser();
-  const { data, error, loading } = useUserPosts(handle, { page });
+  const { data, error, loading } = useUserPosts(userData.handle, { page });
 
   useEffect(() => {
     if (error || loading) return;
