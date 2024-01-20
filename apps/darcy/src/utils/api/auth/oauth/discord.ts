@@ -1,10 +1,10 @@
 import { URLSearchParams } from 'node:url';
-import { DISCORD_CALLBACK_URL, DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET } from './data';
+import { DISCORD_CALLBACK_URL} from './data';
 
 const generateAuthParams = (code: string) =>
   new URLSearchParams({
-    client_id: DISCORD_CLIENT_ID,
-    client_secret: DISCORD_CLIENT_SECRET,
+    client_id: process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID ?? '',
+    client_secret: process.env.DISCORD_CLIENT_SECRET ?? '',
     redirect_uri: DISCORD_CALLBACK_URL,
     grant_type: 'authorization_code',
     code
