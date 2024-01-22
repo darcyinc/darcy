@@ -27,7 +27,7 @@ export default function UserProfile({
     <div className="border-b border-b-border pb-4">
       {/* User avatar & banner */}
       <section className="relative">
-        <UserAvatarBanner avatarUrl={avatarUrl} bannerUrl={bannerUrl} />
+        <UserAvatarBanner {...{ avatarUrl, bannerUrl }} />
 
         {/* TODO: Edit profile button, unfollow */}
         <div className="absolute -bottom-14 right-2.5 flex items-end justify-center sm:-bottom-14">

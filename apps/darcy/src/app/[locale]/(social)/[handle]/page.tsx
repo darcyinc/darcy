@@ -1,15 +1,8 @@
-'use client';
-
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { FeedHeader } from '@/components/feed';
-import { UserPostFetcher } from '@/components/feed/feed-fetcher';
-import UserProfile from '@/components/user-profile';
-import useUser from '@/hooks/api/useUser';
-import { useCurrentUser } from '@/hooks/useCurrentUser';
+import UserProfilePage from '@/features/pages/user-profile';
+import { prisma } from '@/utils/api/prisma';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
 
 interface HomeProps {
   params: {
@@ -17,48 +10,20 @@ interface HomeProps {
   };
 }
 
-export default function Home({ params }: HomeProps) {
-  const router = useRouter();
+export default async function Home({ params }: HomeProps) {
   const handle = decodeURIComponent(params.handle);
-  const currentUser = useCurrentUser();
 
   if (handle.startsWith('@')) {
-    router.replace(`/${handle.replace('@', '')}`);
+    // router.replace(`/${handle.replace('@', '')}`);
     return null;
   }
 
-  const { data, setData, loading, error } = useUser(handle);
+  const user = await prisma.user.findFirst({
+    where: { handle }
+  });
 
-  useEffect(() => {
-    if (currentUser.handle === handle) {
-      const { bio, displayName, handle } = currentUser;
-      updateUserData({
-        bio,
-        displayName,
-        handle
-      });
-    }
-  }, [currentUser, handle]);
-
-  const updateUserData = (e: Partial<GetUserResponse>) => {
-    setData((prev) => ({
-      ...prev,
-      ...e
-    }));
-  };
-
-  if (loading || error) {
-    return (
-      <>
-        <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
-          <Link className="rounded-full hover:bg-accent p-2" href="/">
-            <ArrowLeft size={20} />
-          </Link>
-        </FeedHeader>
-
-        {error && <p className="text-center mt-2 text-xl">User not found.</p>}
-      </>
-    );
+  if (!user) {
+    return <h1>not</h1>;
   }
 
   return (
@@ -69,14 +34,13 @@ export default function Home({ params }: HomeProps) {
         </Link>
 
         <div>
-          <h1 className="text-lg font-bold">{data.displayName}</h1>
-          <p className="text-sm text-muted-foreground">{data.postCount} posts</p>
+          <h1 className="text-lg font-bold">{user.displayName}</h1>
+          <p className="text-sm text-muted-foreground">{user.postCount} posts</p>
         </div>
       </FeedHeader>
 
-      <UserProfile {...data} updateUserData={updateUserData} bannerUrl="https://picsum.photos/800/200" />
-
-      <UserPostFetcher userData={data} />
+      {/* @ts-ignore */}
+      <UserProfilePage data={{ ...user, isFollowing: true, followersCount: 0, followingCount: 0 }} />
     </>
   );
 }
