@@ -84,8 +84,8 @@ importers:
         specifier: 14.1.1-canary.7
         version: 14.1.1-canary.7(react-dom@18.2.0)(react@18.2.0)
       next-intl:
-        specifier: 3.5.0
-        version: 3.5.0(next@14.1.1-canary.7)(react@18.2.0)
+        specifier: 3.5.1
+        version: 3.5.1(next@14.1.1-canary.7)(react@18.2.0)
       next-themes:
         specifier: 0.2.1
         version: 0.2.1(next@14.1.1-canary.7)(react-dom@18.2.0)(react@18.2.0)
@@ -1788,8 +1788,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl@3.5.0(next@14.1.1-canary.7)(react@18.2.0):
-    resolution: {integrity: sha512-IVcFY9eCiSHvpblxbJWeObsywa5Pxua0nyHrsFvXQjxexNvWg4UME5UEvwtsZpye5l/6FNR4j7BITYfkwV+5Bw==}
+  /next-intl@3.5.1(next@14.1.1-canary.7)(react@18.2.0):
+    resolution: {integrity: sha512-ITKKJvSgeEUVnX/QGvNakXV9NjBe804n1mEPR4K7hKqcJgDa+gGelsXnAAM+lSjCU6MATsh0SyEgKzAkH4JTvQ==}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -1798,7 +1798,7 @@ packages:
       negotiator: 0.6.3
       next: 14.1.1-canary.7(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      use-intl: 3.5.0(react@18.2.0)
+      use-intl: 3.5.1(react@18.2.0)
     dev: false
 
   /next-themes@0.2.1(next@14.1.1-canary.7)(react-dom@18.2.0)(react@18.2.0):
@@ -2491,8 +2491,8 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /use-intl@3.5.0(react@18.2.0):
-    resolution: {integrity: sha512-TJUDsZ7Igjpz+ru44CshJgeKCr9c5XHI5af0t8FDmkxL7SImHGgtC0gFgtMP3u3Y0I8vaXP1nfD/eqWl7L2KuA==}
+  /use-intl@3.5.1(react@18.2.0):
+    resolution: {integrity: sha512-tsRGOjrRaKO1y97zErwcTq5CWCdWMvIXiPl/TwifGY7+h4O62RUq86TeijhOWk0oVwiZqtlP/wr88tv4QCpl5A==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
