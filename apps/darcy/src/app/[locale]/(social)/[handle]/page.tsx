@@ -1,6 +1,8 @@
+import { apiClient } from '@/api/client';
+import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
+import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { FeedHeader } from '@/components/feed';
 import UserProfilePage from '@/features/pages/user-profile';
-import { prisma } from '@/utils/api/prisma';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
@@ -18,13 +20,17 @@ export default async function Home({ params }: HomeProps) {
     return null;
   }
 
-  const user = await prisma.user.findFirst({
-    where: { handle }
-  });
+  const user = await apiClient.get<GetUserResponse>(`/users/${handle}`);
 
-  if (!user) {
-    return <h1>not</h1>;
+  if (user.status !== 200) {
+    return <h1>not found</h1>;
   }
+
+  if (user.data.private) {
+    return <h1>private profile</h1>;
+  }
+
+  const posts = await apiClient.get<GetUserPostsResponse>(`/users/${handle}/posts`);
 
   return (
     <>
@@ -34,13 +40,13 @@ export default async function Home({ params }: HomeProps) {
         </Link>
 
         <div>
-          <h1 className="text-lg font-bold">{user.displayName}</h1>
-          <p className="text-sm text-muted-foreground">{user.postCount} posts</p>
+          <h1 className="text-lg font-bold">{user.data.displayName}</h1>
+          <p className="text-sm text-muted-foreground">{user.data.postCount} posts</p>
         </div>
       </FeedHeader>
 
       {/* @ts-ignore */}
-      <UserProfilePage data={{ ...user, isFollowing: true, followersCount: 0, followingCount: 0 }} />
+      <UserProfilePage data={{ ...user.data }} initialPosts={posts.data} />
     </>
   );
 }

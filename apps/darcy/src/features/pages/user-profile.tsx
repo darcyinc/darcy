@@ -1,5 +1,6 @@
 'use client';
 
+import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { UserPostFetcher } from '@/components/feed/feed-fetcher';
 import UserProfile from '@/components/user-profile';
@@ -8,9 +9,10 @@ import { useEffect, useState } from 'react';
 
 interface UserProfilePageProps {
   data: GetUserResponse;
+  initialPosts: GetUserPostsResponse[];
 }
 
-export default function UserProfilePage({ data }: UserProfilePageProps) {
+export default function UserProfilePage({ data, initialPosts }: UserProfilePageProps) {
   const currentUser = useCurrentUser();
   const [userData, setUserData] = useState(data);
 
@@ -36,7 +38,8 @@ export default function UserProfilePage({ data }: UserProfilePageProps) {
     <>
       <UserProfile {...userData} updateUserData={updateUserData} bannerUrl="https://picsum.photos/800/200" />
 
-      <UserPostFetcher userData={data} />
+      {/* TODO: handle private profiles */}
+      {!currentUser.token && data.private ? <p>Private profile.</p> : <UserPostFetcher userData={data} initialPosts={initialPosts} />}
     </>
   );
 }

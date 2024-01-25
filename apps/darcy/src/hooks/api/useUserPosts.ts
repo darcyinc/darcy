@@ -13,7 +13,8 @@ export default function useUserPosts(handle: string, options?: UseUserPostsOptio
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<GetUserPostsResponse[]>([]);
 
-  useEffect(() => fetchData(), []);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: refetch data on page change
+  useEffect(() => fetchData(), [options?.page]);
 
   const fetchData = () => {
     if (!loading) setLoading(true);

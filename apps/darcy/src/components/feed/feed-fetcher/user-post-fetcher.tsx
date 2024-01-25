@@ -12,21 +12,28 @@ import FeedPost from '../post';
 
 interface UserPostFetcherProps {
   userData: GetUserResponse;
+  initialPosts: GetUserPostsResponse[];
 }
 
-export default function UserPostFetcher({ userData }: UserPostFetcherProps) {
-  const [page, setPage] = useState(1);
+export default function UserPostFetcher({ userData, initialPosts }: UserPostFetcherProps) {
+  // we start getting posts from page 2 because initialPosts returns the posts of page 1
+  const [page, setPage] = useState(2);
   const [hasMore, setHasMore] = useState(true);
-  const [posts, setPosts] = useState<GetUserPostsResponse[]>([]);
+  const [posts, setPosts] = useState<GetUserPostsResponse[]>(initialPosts);
 
   const currentUser = useCurrentUser();
   const { data, error, loading } = useUserPosts(userData.handle, { page });
 
   useEffect(() => {
-    if (error || loading) return;
-    if (data.length === 0) return setHasMore(false);
+    if (!hasMore || error || loading) return;
+
+    if (data.length === 0) {
+      setHasMore(false);
+      return;
+    }
+
     setPosts((prev) => [...prev, ...data]);
-  }, [data, error, loading]);
+  }, [data, error, hasMore, loading]);
 
   const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
     setPosts((prev) => {
@@ -38,11 +45,12 @@ export default function UserPostFetcher({ userData }: UserPostFetcherProps) {
   };
 
   const handleLoadMore = () => {
-    if (error || !hasMore) return;
+    if (!data.length || error || !hasMore) return;
     setPage((prev) => prev + 1);
   };
 
   const onComposerPublish = (data: GetPostResponse) => {
+    // optimistic update
     setPosts((prev) => [data, ...prev]);
   };
 
