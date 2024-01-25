@@ -15,8 +15,8 @@ importers:
         specifier: 20.11.6
         version: 20.11.6
       husky:
-        specifier: 9.0.1
-        version: 9.0.1
+        specifier: 9.0.5
+        version: 9.0.5
       is-ci:
         specifier: 3.0.1
         version: 3.0.1
@@ -1554,8 +1554,8 @@ packages:
     resolution: {integrity: sha512-qdSAmqLF6209RFj4VVItywPMbm3vWylknmB3nvNiUIs72xAimcM8nVYxYr7ncvZq5qzk9MKIZR8ijqD/1QuYjQ==}
     engines: {node: '>= 0.4.0'}
 
-  /husky@9.0.1:
-    resolution: {integrity: sha512-rXCT8yF2v3awSG03AG6IgICDhJ+m8o3jL1ROwsT4nQZ6urEyKSj0IWFDIh5YC2zgZeAxWksNMbN6rYY4BE1Zrw==}
+  /husky@9.0.5:
+    resolution: {integrity: sha512-/EX48XLor4FczjgdJjwK4qMETrJxJqF4rkgo+NUeK8b2F4TV6s5QxAuG2JZfxm4b9WnrgBGS7bA/JK+H5CKg+A==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
