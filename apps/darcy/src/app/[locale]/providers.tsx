@@ -17,7 +17,7 @@ export default async function Providers({ children }: PropsWithChildren) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Toaster />
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <ThemeProvider attribute="class" disableTransitionOnChange>
         {children}
       </ThemeProvider>
     </NextIntlClientProvider>
