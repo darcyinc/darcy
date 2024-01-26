@@ -1,12 +1,6 @@
 # dependencies
 node_modules
 
-# next.js
-.next/
-
-# production
-dist/
-
 # misc
 .DS_Store
 *.pem
@@ -19,7 +13,6 @@ dist/
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 # vscode
 .vscode/*

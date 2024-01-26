@@ -16,6 +16,7 @@ export interface GetUserResponse {
   bio: string;
   avatarUrl: string;
   bannerUrl: string | null;
+  private: boolean;
   verified: $Enums.VerifiedType;
   createdAt: string;
   updatedAt: string;
