@@ -1,6 +1,5 @@
 'use client';
 
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import useUserPosts from '@/hooks/api/useUserPosts';
