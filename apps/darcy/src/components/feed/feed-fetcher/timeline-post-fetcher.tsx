@@ -1,15 +1,14 @@
 'use client';
 
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import usePopularPostsReactQuery from '@/hooks/api/usePopularPosts';
 import { useQueryClient } from '@tanstack/react-query';
 import { Fragment } from 'react';
+import { toast } from 'sonner';
 import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
 import SkeletonPost from '../post/skeleton-post';
-import { toast } from 'sonner';
 
 export default function TimelinePostFetcher() {
   // TODO: don't use usePopularPosts for authenticated users
@@ -47,24 +46,12 @@ export default function TimelinePostFetcher() {
     }));
   };
 
-  const onComposerPublish = (newPost: GetPostResponse) => {
-    if (!data) return;
-
-    const newData = structuredClone(data.pages);
-    newData[0] = [newPost, ...newData[0]];
-
-    queryClient.setQueryData(['popularPosts'], (data: { pageParams: number }) => ({
-      pages: newData,
-      pageParams: data.pageParams
-    }));
-  };
-
   return (
     <>
-      <FeedPostComposer onPublish={onComposerPublish} />
+      <FeedPostComposer queryKeys={['popularPosts']} />
 
       {data?.pages?.map((pagePosts, i) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+        // biome-ignore lint/suspicious/noArrayIndexKey: pages will always be in order
         <Fragment key={i}>
           {pagePosts.map((post) => (
             <FeedPost
