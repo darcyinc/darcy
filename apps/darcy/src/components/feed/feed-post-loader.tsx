@@ -23,5 +23,5 @@ export default function FeedPostLoader({ onVisible }: FeedPostLoaderProps) {
     return () => observer.disconnect();
   }, []);
 
-  return <p className="my-2 text-center" ref={ref} />;
+  return <p className="my-2 text-center h-1" ref={ref} />;
 }

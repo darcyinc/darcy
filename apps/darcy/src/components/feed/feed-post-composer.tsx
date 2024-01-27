@@ -32,12 +32,13 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
   };
 
   const handlePublish = async () => {
-    setLoading(true);
+    const publishStatusToast = toast.info('Criando publicação');
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setLoading(true);
 
     apiClient.post('/post', { content }).then((response) => {
       setLoading(false);
+      toast.dismiss(publishStatusToast);
 
       if (response.status === 201) {
         setContent('');
