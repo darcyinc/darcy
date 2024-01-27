@@ -157,7 +157,7 @@ export async function PATCH(request: NextRequest, { params }: GetUserOptions) {
 
   if (data.handle) {
     const handleExists = await prisma.user.findFirst({
-      where: { handle: data.handle }
+      where: { handle: { mode: 'insensitive', equals: data.handle } }
     });
 
     if (handleExists && data.handle !== user.handle) {
