@@ -49,14 +49,11 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
     setPage((prev) => prev + 1);
   };
 
-  const onComposerPublish = (data: GetPostResponse) => {
-    // optimistic update
-    setPosts((prev) => [data, ...prev]);
-  };
-
   return (
     <>
-      {currentUser.handle === userData.handle && <FeedPostComposer onPublish={onComposerPublish} showProfilePicture={false} />}
+      {currentUser.handle === userData.handle && (
+        <FeedPostComposer queryKeys={['userPosts', currentUser.handle]} showProfilePicture={false} />
+      )}
 
       {posts.map((post) => (
         <FeedPost
