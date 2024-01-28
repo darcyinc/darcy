@@ -3,14 +3,8 @@ import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { useQuery } from '@tanstack/react-query';
 
 export default function usePost(postId: string) {
-  const fetchPost = async () => {
-    const request = await apiClient.get(`/post/${postId}`);
-
-    if (request.data.error || request.data.errorCode) {
-      throw new Error(request.data.errorCode);
-    }
-
-    return request.data as GetPostResponse;
+  const fetchPost = () => {
+    return apiClient.get(`/post/${postId}`).then((res) => res.data as GetPostResponse);
   };
 
   const query = useQuery({

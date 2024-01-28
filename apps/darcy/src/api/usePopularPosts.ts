@@ -11,14 +11,8 @@ interface UsePopularPostsOptions {
 export default function usePopularPosts(options?: UsePopularPostsOptions) {
   const limit = options?.limit ?? 20;
 
-  const fetchPosts = async (page = 1) => {
-    const request = await apiClient.get(`/popular-posts?page=${page}&limit=${limit}`);
-
-    if (request.data.error || request.data.errorCode) {
-      throw new Error(request.data.errorCode);
-    }
-
-    return request.data as GetPopularPostsResponse;
+  const fetchPosts = (page = 1) => {
+    return apiClient.get(`/popular-posts?page=${page}&limit=${limit}`).then((res) => res.data as GetPopularPostsResponse);
   };
 
   const query = useInfiniteQuery({

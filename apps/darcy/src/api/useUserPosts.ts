@@ -14,14 +14,8 @@ export default function useUserPosts(handle: string, options?: UseUserPostsOptio
   const queryClient = useQueryClient();
   const limit = options?.limit ?? 20;
 
-  const fetchPosts = async (page = 1) => {
-    const request = await apiClient.get(`/users/${handle}/posts?page=${page}&limit=${limit}`);
-
-    if (request.data.error || request.data.errorCode) {
-      throw new Error(request.data.errorCode);
-    }
-
-    return request.data as GetUserPostsResponse[];
+  const fetchPosts = (page = 1) => {
+    return apiClient.get(`/users/${handle}/posts?page=${page}&limit=${limit}`).then((res) => res.data as GetUserPostsResponse[]);
   };
 
   const query = useInfiniteQuery({

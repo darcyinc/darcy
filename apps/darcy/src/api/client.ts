@@ -4,8 +4,7 @@ export const apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     'Content-Type': 'application/json'
-  },
-  validateStatus: () => true
+  }
 });
 
 apiClient.interceptors.request.use((config) => {
