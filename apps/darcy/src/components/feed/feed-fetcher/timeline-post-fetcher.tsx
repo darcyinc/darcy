@@ -1,34 +1,23 @@
 'use client';
 
-import { GetPopularPostsResponse } from '@/app/api/popular-posts/route';
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
+import usePopularPosts from '@/api/usePopularPosts';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
-import usePopularPosts from '@/hooks/api/usePopularPosts';
-import { useEffect, useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
+import { Fragment } from 'react';
+import { toast } from 'sonner';
 import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
 import SkeletonPost from '../post/skeleton-post';
 
 export default function TimelinePostFetcher() {
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const [posts, setPosts] = useState<GetPopularPostsResponse>([]);
-
   // TODO: don't use usePopularPosts for authenticated users
-  const { data, loading } = usePopularPosts({ page });
+  const queryClient = useQueryClient();
+  const { data, error, isError, isLoading, fetchNextPage } = usePopularPosts();
 
-  useEffect(() => {
-    if (loading) return;
-    if (data.length === 0) return setHasMore(false);
+  if (isLoading || isError) {
+    if (isError) toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });
 
-    setPosts((prev) => {
-      if (prev.length === 0) return data;
-      return [...prev, ...data];
-    });
-  }, [data, loading]);
-
-  if (page === 1 && loading) {
     return (
       <>
         <FeedPostComposer />
@@ -41,45 +30,51 @@ export default function TimelinePostFetcher() {
   }
 
   const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
-    setPosts((prev) => {
-      const index = prev.findIndex((post) => post.id === postId);
-      const post = prev[index];
+    if (!data) return;
 
-      return [...prev.slice(0, index), { ...post, ...newData }, ...prev.slice(index + 1)];
+    const newDataPages = data.pages.map((page) => {
+      const index = page.findIndex((post) => post.id === postId);
+      const post = page[index];
+      if (!post) return page;
+
+      return [...page.slice(0, index), { ...post, ...newData }, ...page.slice(index + 1)];
     });
-  };
 
-  const handleLoadMore = () => {
-    if (loading || !hasMore) return;
-    setPage((prev) => prev + 1);
+    queryClient.setQueryData(['popularPosts'], (data: { pageParams: number }) => ({
+      pages: newDataPages,
+      pageParams: data.pageParams
+    }));
   };
-
-  const onComposerPublish = (data: GetPostResponse) => setPosts((prev) => [data, ...prev]);
 
   return (
     <>
-      <FeedPostComposer onPublish={onComposerPublish} />
+      <FeedPostComposer queryKeys={['popularPosts']} />
 
-      {posts.map((post) => (
-        <FeedPost
-          hasLiked={post.hasLiked}
-          hasReposted={false}
-          avatar={post.author.avatarUrl}
-          comments={post.commentCount}
-          content={post.content}
-          createdAt={post.createdAt}
-          handle={post.author.handle}
-          likes={post.likeCount}
-          postId={post.id}
-          username={post.author.displayName}
-          reposts={0}
-          views={0}
-          key={post.id}
-          updatePostData={updatePostData}
-        />
+      {data?.pages?.map((pagePosts, i) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: pages will always be in order
+        <Fragment key={i}>
+          {pagePosts.map((post) => (
+            <FeedPost
+              hasLiked={post.hasLiked}
+              hasReposted={false}
+              avatar={post.author.avatarUrl}
+              comments={post.commentCount}
+              content={post.content}
+              createdAt={post.createdAt}
+              handle={post.author.handle}
+              likes={post.likeCount}
+              postId={post.id}
+              username={post.author.displayName}
+              reposts={0}
+              views={0}
+              key={post.id}
+              updatePostData={updatePostData}
+            />
+          ))}
+        </Fragment>
       ))}
 
-      <FeedPostLoader onVisible={handleLoadMore} />
+      <FeedPostLoader onVisible={fetchNextPage} />
     </>
   );
 }

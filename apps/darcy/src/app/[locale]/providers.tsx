@@ -1,25 +1,21 @@
-import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/sonner';
-import { NextIntlClientProvider, useLocale } from 'next-intl';
+import IntlProvider from '@/features/providers/intl';
+import ReactQueryProvider from '@/features/providers/react-query';
+import NextThemeProvider from '@/features/providers/themes';
+import ToasterProvider from '@/features/providers/toaster';
+import ValidAuthProvider from '@/features/providers/valid-auth';
 import { PropsWithChildren } from 'react';
 
-// This provider allows the `useTranslation` hook in Client Components.
-export default async function Providers({ children }: PropsWithChildren) {
-  const locale = useLocale();
-
-  let messages = {} as Record<string, string>;
-  messages = (
-    (await import(`../../locales/${locale}.json`)) as {
-      default: Record<string, string>;
-    }
-  ).default;
-
+export default function Providers({ children }: PropsWithChildren) {
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <Toaster />
-      <ThemeProvider attribute="class" disableTransitionOnChange>
-        {children}
-      </ThemeProvider>
-    </NextIntlClientProvider>
+    <IntlProvider>
+      <ReactQueryProvider>
+        <ValidAuthProvider>
+          <NextThemeProvider>
+            <ToasterProvider />
+            {children}
+          </NextThemeProvider>
+        </ValidAuthProvider>
+      </ReactQueryProvider>
+    </IntlProvider>
   );
 }

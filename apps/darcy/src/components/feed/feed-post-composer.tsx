@@ -2,7 +2,9 @@
 
 import { apiClient } from '@/api/client';
 import { GetPostResponse } from '@/app/api/post/[postId]/route';
+import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -13,12 +15,13 @@ import { Textarea } from '../ui/textarea';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
-  onPublish?: (data: GetPostResponse) => void;
+  queryKeys?: unknown[];
 }
 
-export default function FeedPostComposer({ showProfilePicture = true, onPublish }: FeedPostComposerProps) {
+export default function FeedPostComposer({ showProfilePicture = true, queryKeys }: FeedPostComposerProps) {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
+  const queryClient = useQueryClient();
 
   const currentUser = useCurrentUser();
   const t = useTranslations('Feed.PostComposer');
@@ -31,18 +34,34 @@ export default function FeedPostComposer({ showProfilePicture = true, onPublish 
     event.target.style.height = `${event.target.scrollHeight}px`;
   };
 
-  const handlePublish = async () => {
-    setLoading(true);
+  const updateQueryData = (newPost: GetPostResponse) => {
+    if (!queryKeys) return;
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const data = queryClient.getQueryData<{ pages: GetUserPostsResponse[][] }>(queryKeys);
+    if (!data) return;
+
+    const newData = structuredClone(data.pages);
+    newData[0] = [newPost, ...newData[0]];
+
+    queryClient.setQueryData(queryKeys, (data: { pageParams: number }) => ({
+      pages: newData,
+      pageParams: data.pageParams
+    }));
+  };
+
+  const handlePublish = async () => {
+    const publishStatusToast = toast.info('Criando publicação');
+
+    setLoading(true);
 
     apiClient.post('/post', { content }).then((response) => {
       setLoading(false);
+      toast.dismiss(publishStatusToast);
 
       if (response.status === 201) {
         setContent('');
         toast('Post created successfully!');
-        onPublish?.(response.data);
+        updateQueryData(response.data);
         return;
       }
 

@@ -28,7 +28,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
 
   useEffect(() => {
     if (error) {
-      toast.error('Não foi possível enviar o e-mail.', {
+      toast.error('Não foi possível finalizar a autenticação.', {
         description: t(error)
       });
     }

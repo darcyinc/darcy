@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
 export const metadata: Metadata = {
-  title: 'Sign in | Darcy'
+  title: 'Sign in'
 };
 
 export default function Home({ searchParams }: { searchParams: { error: string } }) {
