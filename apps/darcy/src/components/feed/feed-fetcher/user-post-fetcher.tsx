@@ -4,10 +4,13 @@ import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import useUserPosts from '@/hooks/api/useUserPosts';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { useEffect, useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
+import { Fragment } from 'react';
+import { toast } from 'sonner';
 import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
+import SkeletonPost from '../post/skeleton-post';
 
 interface UserPostFetcherProps {
   userData: GetUserResponse;
@@ -16,64 +19,92 @@ interface UserPostFetcherProps {
 
 export default function UserPostFetcher({ userData, initialPosts }: UserPostFetcherProps) {
   // we start getting posts from page 2 because initialPosts returns the posts of page 1
-  const [page, setPage] = useState(2);
-  const [hasMore, setHasMore] = useState(true);
-  const [posts, setPosts] = useState<GetUserPostsResponse[]>(initialPosts);
-
+  const queryClient = useQueryClient();
   const currentUser = useCurrentUser();
-  const { data, error, loading } = useUserPosts(userData.handle, { page });
+  const { data, error, isError, isLoading, fetchNextPage } = useUserPosts(userData.handle, { initialData: initialPosts });
 
-  useEffect(() => {
-    if (!hasMore || error || loading) return;
+  if (isError) {
+    toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });
 
-    if (data.length === 0) {
-      setHasMore(false);
-      return;
-    }
-
-    setPosts((prev) => [...prev, ...data]);
-  }, [data, error, hasMore, loading]);
+    return (
+      <>
+        <FeedPostComposer />
+        <SkeletonPost />
+        <SkeletonPost />
+        <SkeletonPost />
+        <SkeletonPost />
+      </>
+    );
+  }
 
   const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
-    setPosts((prev) => {
-      const index = prev.findIndex((post) => post.id === postId);
-      const post = prev[index];
+    if (!data) return;
 
-      return [...prev.slice(0, index), { ...post, ...newData }, ...prev.slice(index + 1)];
+    const newDataPages = data.pages.map((page) => {
+      const index = page.findIndex((post) => post.id === postId);
+      const post = page[index];
+      if (!post) return page;
+
+      return [...page.slice(0, index), { ...post, ...newData }, ...page.slice(index + 1)];
     });
-  };
 
-  const handleLoadMore = () => {
-    if (!data.length || error || !hasMore) return;
-    setPage((prev) => prev + 1);
+    queryClient.setQueryData(['users', userData.handle, 'posts'], (data: { pageParams: number }) => ({
+      pages: newDataPages,
+      pageParams: data.pageParams
+    }));
   };
 
   return (
     <>
       {currentUser.handle === userData.handle && (
-        <FeedPostComposer queryKeys={['userPosts', currentUser.handle]} showProfilePicture={false} />
+        <FeedPostComposer queryKeys={['user', currentUser.handle, 'posts']} showProfilePicture={false} />
       )}
 
-      {posts.map((post) => (
-        <FeedPost
-          hasLiked={post.hasLiked}
-          hasReposted={false}
-          avatar={userData.avatarUrl}
-          comments={post.commentCount}
-          content={post.content}
-          createdAt={post.createdAt}
-          handle={userData.handle}
-          likes={post.likeCount}
-          postId={post.id}
-          username={userData.displayName}
-          reposts={0}
-          views={0}
-          key={post.id}
-          updatePostData={updatePostData}
-        />
-      ))}
+      {data?.pages
+        ? data.pages.map((pagePosts, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+            <Fragment key={i}>
+              {pagePosts.map((post) => (
+                <FeedPost
+                  hasLiked={post.hasLiked}
+                  hasReposted={false}
+                  avatar={userData.avatarUrl}
+                  comments={post.commentCount}
+                  content={post.content}
+                  createdAt={post.createdAt}
+                  handle={userData.handle}
+                  likes={post.likeCount}
+                  postId={post.id}
+                  username={userData.displayName}
+                  reposts={0}
+                  views={0}
+                  key={post.id}
+                  updatePostData={updatePostData}
+                />
+              ))}
+            </Fragment>
+          ))
+        : // Useful for SEO and better UX on JavaScript disabled browsers.
+          initialPosts.map((post) => (
+            <FeedPost
+              hasLiked={post.hasLiked}
+              hasReposted={false}
+              avatar={userData.avatarUrl}
+              comments={post.commentCount}
+              content={post.content}
+              createdAt={post.createdAt}
+              handle={userData.handle}
+              likes={post.likeCount}
+              postId={post.id}
+              username={userData.displayName}
+              reposts={0}
+              views={0}
+              key={post.id}
+              updatePostData={updatePostData}
+            />
+          ))}
 
-      <FeedPostLoader onVisible={handleLoadMore} />
+      <FeedPostLoader onVisible={fetchNextPage} />
     </>
   );
 }

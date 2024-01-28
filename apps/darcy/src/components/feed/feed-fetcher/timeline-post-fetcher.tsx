@@ -1,7 +1,7 @@
 'use client';
 
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
-import usePopularPostsReactQuery from '@/hooks/api/usePopularPosts';
+import usePopularPosts from '@/hooks/api/usePopularPosts';
 import { useQueryClient } from '@tanstack/react-query';
 import { Fragment } from 'react';
 import { toast } from 'sonner';
@@ -13,7 +13,7 @@ import SkeletonPost from '../post/skeleton-post';
 export default function TimelinePostFetcher() {
   // TODO: don't use usePopularPosts for authenticated users
   const queryClient = useQueryClient();
-  const { data, error, isError, isLoading, fetchNextPage } = usePopularPostsReactQuery();
+  const { data, error, isError, isLoading, fetchNextPage } = usePopularPosts();
 
   if (isLoading || isError) {
     if (isError) toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });

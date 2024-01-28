@@ -1,31 +1,22 @@
 import { apiClient } from '@/api/client';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
-import { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 export default function useUser(handle: string) {
-  const [error, setError] = useState<Error>();
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({} as GetUserResponse);
+  const fetchUser = async () => {
+    const request = await apiClient.get(`/users/${handle}`);
 
-  useEffect(() => fetchData(), []);
+    if (request.data.error || request.data.errorCode) {
+      throw new Error(request.data.errorCode);
+    }
 
-  const fetchData = () => {
-    if (!loading) setLoading(true);
-    setError(undefined);
-
-    apiClient
-      .get(`/users/${handle}`)
-      .then((response) => {
-        if (response.status >= 400) setError(response.data.error);
-        else setData(response.data);
-      })
-      .catch((error) => {
-        if (error instanceof AxiosError) setError(error.response?.data.error);
-        else setError(error.message);
-      })
-      .finally(() => setLoading(false));
+    return request.data as GetUserResponse;
   };
 
-  return { data, setData, error, loading, refetch: fetchData };
+  const query = useQuery({
+    queryKey: ['users', handle],
+    queryFn: fetchUser
+  });
+
+  return query;
 }

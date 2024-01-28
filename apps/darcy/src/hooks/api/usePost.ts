@@ -1,31 +1,22 @@
 import { apiClient } from '@/api/client';
 import { GetPostResponse } from '@/app/api/post/[postId]/route';
-import { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 export default function usePost(postId: string) {
-  const [error, setError] = useState<Error>();
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({} as GetPostResponse);
+  const fetchPost = async () => {
+    const request = await apiClient.get(`/post/${postId}`);
 
-  useEffect(() => fetchData(), []);
+    if (request.data.error || request.data.errorCode) {
+      throw new Error(request.data.errorCode);
+    }
 
-  const fetchData = () => {
-    if (!loading) setLoading(true);
-    setError(undefined);
-
-    apiClient
-      .get(`/post/${postId}`)
-      .then((response) => {
-        if (response.status >= 400) setError(response.data.error);
-        else setData(response.data);
-      })
-      .catch((error) => {
-        if (error instanceof AxiosError) setError(error.response?.data.error);
-        else setError(error.message);
-      })
-      .finally(() => setLoading(false));
+    return request.data as GetPostResponse;
   };
 
-  return { data, setData, error, loading, refetch: fetchData };
+  const query = useQuery({
+    queryKey: ['posts', postId],
+    queryFn: fetchPost
+  });
+
+  return query;
 }

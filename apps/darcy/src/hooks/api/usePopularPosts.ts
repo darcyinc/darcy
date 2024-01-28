@@ -3,13 +3,12 @@ import { GetPopularPostsResponse } from '@/app/api/popular-posts/route';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 interface UsePopularPostsOptions {
-  page?: number;
   limit?: number;
   initialData?: GetPopularPostsResponse;
 }
 
 // TODO: implement initial data
-export default function usePopularPostsReactQuery(options?: UsePopularPostsOptions) {
+export default function usePopularPosts(options?: UsePopularPostsOptions) {
   const limit = options?.limit ?? 20;
 
   const fetchPosts = async (page = 1) => {
