@@ -1,6 +1,7 @@
 'use client';
 
 import { apiClient } from '@/api/client';
+import useCreateAuth from '@/api/useAuth';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { AUTH_SERVICES_CALLBACK } from '@/utils/constants';
 import { useTranslations } from 'next-intl';
@@ -25,34 +26,49 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
   const t = useTranslations('Auth.AuthCallback');
   const currentUser = useCurrentUser();
   const router = useRouter();
+  const mutation = useCreateAuth();
 
   const { service } = params;
   const { code, state } = searchParams;
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    const auth = async () => {
-      const oauth2State = sessionStorage.getItem(`oauth2-state:${service}`);
-      if (!AUTH_SERVICES_CALLBACK.includes(service) || !code || !state) return router.replace('/auth');
-      if (state !== oauth2State) return router.replace('/auth');
+    mutation.mutate({ service, code });
+  }, []);
 
-      const reqAuth = await apiClient.post(`/auth/${service}/callback`, { code });
-      if (reqAuth.status !== 200) {
-        currentUser.setData({ token: null });
-        return router.replace(`/auth?error=${reqAuth.data.error}`);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    const auth = async () => {
+      // If the mutation did not run yet, do a few checks
+      if (mutation.isIdle) {
+        const oauth2State = sessionStorage.getItem(`oauth2-state:${service}`);
+        if (!AUTH_SERVICES_CALLBACK.includes(service) || !code || !state) return router.replace('/auth');
+        if (state !== oauth2State) router.replace('/auth');
       }
 
-      sessionStorage.removeItem(`oauth2-state:${service}`);
-      localStorage.setItem('token', reqAuth.data.token);
+      if (mutation.isError) {
+        currentUser.setData({ token: null });
+        router.replace(`/auth?error=${mutation.error.message}`);
+      }
 
-      const reqUser = await apiClient.get('/users/@me');
-      currentUser.setData({ ...reqUser.data, token: reqAuth.data.token });
+      if (mutation.isSuccess) {
+        sessionStorage.removeItem(`oauth2-state:${service}`);
+        localStorage.setItem('token', mutation.data.token);
 
-      router.push('/');
+        const reqUser = await apiClient.get('/users/@me');
+        currentUser.setData({ ...reqUser.data, token: mutation.data.token });
+
+        router.push('/');
+      }
     };
 
     auth();
-  }, []);
+  }, [mutation.isSuccess, mutation.isError, mutation.isIdle]);
 
-  return <span className="m-auto text-xl">{t('authenticating')}</span>;
+  return (
+    <span className="m-auto text-xl">
+      {(mutation.isSuccess || mutation.isPending) && t('authenticating')}
+      {mutation.isError && t('authenticatingError')}
+    </span>
+  );
 }
