@@ -1,8 +1,8 @@
 'use client';
 
+import useUserPosts from '@/api/useUserPosts';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
-import useUserPosts from '@/hooks/api/useUserPosts';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useQueryClient } from '@tanstack/react-query';
 import { Fragment } from 'react';
@@ -21,7 +21,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
   // we start getting posts from page 2 because initialPosts returns the posts of page 1
   const queryClient = useQueryClient();
   const currentUser = useCurrentUser();
-  const { data, error, isError, isLoading, fetchNextPage } = useUserPosts(userData.handle, { initialData: initialPosts });
+  const { data, error, isError, fetchNextPage } = useUserPosts(userData.handle, { initialData: initialPosts });
 
   if (isError) {
     toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });
