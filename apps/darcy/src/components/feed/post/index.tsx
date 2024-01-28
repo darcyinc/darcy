@@ -7,6 +7,8 @@ import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import ClickablePost from './clickable-post';
 import FeedPostActions from './post-actions';
+import UserBadge from '@/components/user-profile/badge';
+import { $Enums } from '@prisma/client';
 
 interface FeedPostProps {
   content: string;
@@ -21,10 +23,11 @@ interface FeedPostProps {
   postId: string;
   hasLiked: boolean;
   hasReposted: boolean;
+  verified: $Enums.VerifiedType;
   updatePostData?: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
 }
 
-export default function FeedPost({ content, avatar, username, handle, createdAt, ...props }: FeedPostProps) {
+export default function FeedPost({ content, avatar, username, handle, createdAt, verified, ...props }: FeedPostProps) {
   const locale = useLocale();
   const relativeTime = useRelativeTime({ locale, time: createdAt });
 
@@ -61,7 +64,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
               </HoverCardContent>
             </HoverCard>
 
-            {/* {verified !== 'NONE' && <UserBadge badge={verified} />} */}
+            {verified !== 'NONE' && <UserBadge badge={verified} />}
 
             <p className="flex flex-1 gap-1 overflow-hidden text-muted-foreground">
               <span className="select-none">·</span>

@@ -1,5 +1,6 @@
 import { prisma } from '@/utils/api/prisma';
 import requireAuthorization from '@/utils/api/requireAuthorization';
+import { $Enums } from '@prisma/client';
 import { NextRequest } from 'next/server';
 
 interface GetPostOptions {
@@ -21,6 +22,7 @@ export interface GetPostResponse {
     displayName: string;
     handle: string;
     avatarUrl: string;
+    verified: $Enums.VerifiedType;
   };
 }
 

@@ -56,7 +56,8 @@ export async function GET(request: NextRequest) {
         select: {
           displayName: true,
           handle: true,
-          avatarUrl: true
+          avatarUrl: true,
+          verified: true
         }
       }
     },

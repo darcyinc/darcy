@@ -78,6 +78,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
                   username={userData.displayName}
                   reposts={0}
                   views={0}
+                  verified={userData.verified}
                   key={post.id}
                   updatePostData={updatePostData}
                 />
@@ -99,6 +100,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
               username={userData.displayName}
               reposts={0}
               views={0}
+              verified={userData.verified}
               key={post.id}
               updatePostData={updatePostData}
             />

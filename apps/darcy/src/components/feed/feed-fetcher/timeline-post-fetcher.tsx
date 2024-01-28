@@ -67,6 +67,7 @@ export default function TimelinePostFetcher() {
               username={post.author.displayName}
               reposts={0}
               views={0}
+              verified={post.author.verified}
               key={post.id}
               updatePostData={updatePostData}
             />
