@@ -1,7 +1,7 @@
 'use client';
 
-import { apiClient } from '@/api/client';
 import useCreateAuth from '@/api/useAuth';
+import useUser from '@/api/useUser';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { AUTH_SERVICES_CALLBACK } from '@/utils/constants';
 import { useTranslations } from 'next-intl';
@@ -27,6 +27,7 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
   const currentUser = useCurrentUser();
   const router = useRouter();
   const mutation = useCreateAuth();
+  const user = useUser('@me');
 
   const { service } = params;
   const { code, state } = searchParams;
@@ -55,9 +56,9 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
         sessionStorage.removeItem(`oauth2-state:${service}`);
         localStorage.setItem('token', mutation.data.token);
 
-        const reqUser = await apiClient.get('/users/@me');
-        currentUser.setData({ ...reqUser.data, token: mutation.data.token });
+        const { data } = await user.refetch();
 
+        currentUser.setData({ ...data, token: mutation.data.token });
         router.push('/');
       }
     };
