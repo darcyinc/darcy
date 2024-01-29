@@ -1,6 +1,6 @@
 'use client';
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import FollowingModal from '@/features/modals/following';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -13,12 +13,6 @@ export default function Page() {
   }, [router, open]);
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Seguindo</DialogTitle>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+    <FollowingModal open={open} onOpenChange={setOpen} />
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import UserAvatarModal from '@/features/modals/user-avatar';
 import { useState } from 'react';
 
 interface UserAvatarBannerProps {
@@ -13,19 +13,7 @@ export default function UserAvatarBanner({ avatarUrl, bannerUrl }: UserAvatarBan
 
   return (
     <>
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="border-none bg-transparent justify-center">
-          <img
-            alt="User profile avatar"
-            className="rounded-full"
-            decoding="async"
-            height={320}
-            loading="lazy"
-            src={avatarUrl}
-            width={320}
-          />
-        </DialogContent>
-      </Dialog>
+      <UserAvatarModal open={open} onOpenChange={setOpen} avatarUrl={avatarUrl} />
 
       <img alt="Banner" className="h-52 object-cover" draggable={false} src={bannerUrl ?? ''} />
 
