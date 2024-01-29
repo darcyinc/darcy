@@ -20,7 +20,7 @@ export default function TimelinePostFetcher() {
 
     return (
       <>
-        <FeedPostComposer />
+        <FeedPostComposer hideOnMobile />
         <SkeletonPost />
         <SkeletonPost />
         <SkeletonPost />
@@ -48,7 +48,7 @@ export default function TimelinePostFetcher() {
 
   return (
     <>
-      <FeedPostComposer queryKeys={['popularPosts']} />
+      <FeedPostComposer queryKeys={['popularPosts']} hideOnMobile />
 
       {data?.pages?.map((pagePosts, i) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: pages will always be in order

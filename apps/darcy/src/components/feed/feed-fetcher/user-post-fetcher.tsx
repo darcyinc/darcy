@@ -28,7 +28,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
 
     return (
       <>
-        <FeedPostComposer />
+        <FeedPostComposer hideOnMobile />
         <SkeletonPost />
         <SkeletonPost />
         <SkeletonPost />
@@ -57,7 +57,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
   return (
     <>
       {currentUser.handle === userData.handle && (
-        <FeedPostComposer queryKeys={['user', currentUser.handle, 'posts']} showProfilePicture={false} />
+        <FeedPostComposer queryKeys={['user', currentUser.handle, 'posts']} showProfilePicture={false} hideOnMobile />
       )}
 
       {data?.pages

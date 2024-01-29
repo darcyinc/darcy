@@ -12,13 +12,16 @@ import LoadingSpinner from '../loading-spinner';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
+import { cn } from '@/lib/utils';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;
   queryKeys?: unknown[];
+  hideBorder?: boolean;
+  hideOnMobile?: boolean;
 }
 
-export default function FeedPostComposer({ showProfilePicture = true, queryKeys }: FeedPostComposerProps) {
+export default function FeedPostComposer({ showProfilePicture = true, hideBorder, hideOnMobile, queryKeys }: FeedPostComposerProps) {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(false);
   const queryClient = useQueryClient();
@@ -49,7 +52,7 @@ export default function FeedPostComposer({ showProfilePicture = true, queryKeys 
     }));
   };
 
-  const handlePublish = async () => {
+  const handlePublish = () => {
     const publishStatusToast = toast.info('Criando publicação');
 
     setLoading(true);
@@ -71,7 +74,7 @@ export default function FeedPostComposer({ showProfilePicture = true, queryKeys 
 
   return (
     currentUser.token && (
-      <div className="hidden w-full gap-3 border-b border-b-border p-2 py-4 md:flex">
+      <div className={cn('flex w-full gap-3 p-2 py-4', !hideBorder && 'border-b border-b-border', hideOnMobile && 'hidden md:flex')}>
         {showProfilePicture && (
           <div className="h-10 w-10 flex-shrink-0">
             <Avatar>
