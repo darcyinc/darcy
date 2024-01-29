@@ -12,7 +12,5 @@ export default function Page() {
     if (!open) router.back();
   }, [router, open]);
 
-  return (
-    <FollowingModal open={open} onOpenChange={setOpen} />
-  );
+  return <FollowingModal open={open} onOpenChange={setOpen} />;
 }

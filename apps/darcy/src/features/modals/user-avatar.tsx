@@ -10,16 +10,8 @@ export default function UserAvatarModal({ avatarUrl, open, onOpenChange }: UserA
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="border-none bg-transparent justify-center">
-        <img
-          alt="User profile avatar"
-          className="rounded-full"
-          decoding="async"
-          height={320}
-          loading="lazy"
-          src={avatarUrl}
-          width={320}
-        />
+        <img alt="User profile avatar" className="rounded-full" decoding="async" height={320} loading="lazy" src={avatarUrl} width={320} />
       </DialogContent>
     </Dialog>
-  )
+  );
 }
