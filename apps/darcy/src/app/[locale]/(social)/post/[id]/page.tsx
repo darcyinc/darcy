@@ -28,7 +28,7 @@ export default function Home() {
         reposts={0}
         username="Davi Patricio"
         views={100}
-        verified='NONE'
+        verified="NONE"
       />
     </>
   );
