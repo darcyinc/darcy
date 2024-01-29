@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <FeedHeader className="absolute flex items-center gap-4 p-4 backdrop-blur-md">
+      <FeedHeader className="flex items-center gap-4 p-2">
         <Link className="rounded-full p-2 hover:bg-accent" href="/">
           <ArrowLeft size={28} />
         </Link>

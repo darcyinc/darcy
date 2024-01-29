@@ -30,7 +30,7 @@ export default async function Home({ params }: HomeProps) {
   if (user.data.private) {
     return (
       <>
-        <FeedHeader className="flex items-center gap-4 p-2 backdrop-blur-md">
+        <FeedHeader className="flex items-center gap-4 p-2">
           <Link className="rounded-full hover:bg-accent p-2" href="/">
             <ArrowLeft size={20} />
           </Link>
