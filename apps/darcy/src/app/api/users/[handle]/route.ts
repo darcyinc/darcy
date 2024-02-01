@@ -43,7 +43,8 @@ export async function GET(_request: NextRequest, { params }: GetUserOptions) {
     if (!user) {
       return new Response(
         JSON.stringify({
-          error: 'User not found'
+          error: 'user_not_found',
+          message: 'User not found'
         }),
         {
           status: 404
@@ -71,7 +72,8 @@ export async function GET(_request: NextRequest, { params }: GetUserOptions) {
   if (!user) {
     return new Response(
       JSON.stringify({
-        error: 'User not found'
+        error: 'user_not_found',
+        message: 'User not found'
       }),
       {
         status: 404
@@ -111,7 +113,8 @@ export async function PATCH(request: NextRequest, { params }: GetUserOptions) {
   if (params.handle !== '@me') {
     return new Response(
       JSON.stringify({
-        error: 'To update a user, you must use the @me handle'
+        error: 'update_user_with_at_handle',
+        message: 'To update a user, you must use the @me handle'
       }),
       {
         status: 401
@@ -147,7 +150,8 @@ export async function PATCH(request: NextRequest, { params }: GetUserOptions) {
   if (!user) {
     return new Response(
       JSON.stringify({
-        error: 'User not found'
+        error: 'user_not_found',
+        message: 'User not found'
       }),
       {
         status: 404
@@ -160,10 +164,11 @@ export async function PATCH(request: NextRequest, { params }: GetUserOptions) {
       where: { handle: { mode: 'insensitive', equals: data.handle } }
     });
 
-    if (handleExists && data.handle !== user.handle) {
+    if (handleExists && user.id !== handleExists.id && data.handle !== user.handle) {
       return new Response(
         JSON.stringify({
-          error: 'Handle is being used by another user'
+          error: 'handle_already_user',
+          message: 'Handle is being used by another user'
         }),
         {
           status: 400

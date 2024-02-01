@@ -8,12 +8,13 @@ interface CreatePostRequest {
 
 export async function POST(request: NextRequest) {
   const data = (await request.json()) as CreatePostRequest;
-  if (!data.content) return new Response('Missing content', { status: 400 });
+  if (!data.content) return new Response(JSON.stringify({ error: 'missing_post_content', message: 'Missing post content' }), { status: 400 });
 
   const cleanContent = data.content.trim();
 
-  if (cleanContent.trim().length > 256) return new Response('Content too long', { status: 400 });
-  if (cleanContent.trim().length < 1) return new Response('Content too short', { status: 400 });
+  if (cleanContent.trim().length > 256) return new Response(JSON.stringify({ error: 'post_content_long', message: 'Content too long' }), { status: 400 });
+  if (cleanContent.trim().length < 1)
+    return new Response(JSON.stringify({ error: 'post_content_short', message: 'Content too short' }), { status: 400 });
 
   const authData = await requireAuthorization();
   if (!authData.authorized) return authData.response;
@@ -29,7 +30,8 @@ export async function POST(request: NextRequest) {
   if (!user) {
     return new Response(
       JSON.stringify({
-        error: 'User not found'
+        error: 'user_not_found',
+        message: 'User not found'
       }),
       {
         status: 404

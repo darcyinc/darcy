@@ -14,7 +14,8 @@ export async function GET(request: NextRequest) {
   if (Number.isNaN(page) || Number.isNaN(limit)) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid query parameters'
+        error: 'invalid_get_posts_params',
+        message: 'Invalid query parameters. page and limit must be numbers.'
       }),
       {
         status: 400
@@ -25,7 +26,8 @@ export async function GET(request: NextRequest) {
   if (page < 1) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid page number'
+        error: 'invalid_get_posts_page',
+        message: 'Invalid page number. Must be a positive integer.'
       }),
       {
         status: 400
@@ -36,7 +38,8 @@ export async function GET(request: NextRequest) {
   if (limit < 1 || limit > 50) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid limit. Must be between 1 and 50'
+        error: 'invalid_get_posts_limit',
+        message: 'Invalid limit. Must be between 1 and 50'
       }),
       {
         status: 400

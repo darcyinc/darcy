@@ -48,7 +48,7 @@ export async function GET(_request: NextRequest, { params }: GetPostOptions) {
   });
 
   if (!post) {
-    return new Response('Post not found', {
+    return new Response(JSON.stringify({ error: 'post_not_found', message: 'Post not found' }), {
       status: 404
     });
   }
@@ -57,7 +57,7 @@ export async function GET(_request: NextRequest, { params }: GetPostOptions) {
     if (!authData.authorized) return authData.response;
 
     // TODO
-    return new Response('This post is private. You must follow the user to see it.', {
+    return new Response(JSON.stringify({ error: 'get_post_private', message: 'This post is private. You must follow the user to see it.' }), {
       status: 400
     });
   }

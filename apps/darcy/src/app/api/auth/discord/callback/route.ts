@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   const { code } = (await request.json()) as { code?: string };
 
   if (!code) {
-    return new Response(JSON.stringify({ error: 'missing_code' }), {
+    return new Response(JSON.stringify({ error: 'missing_code', message: 'Missing authentication code' }), {
       status: 400
     });
   }
@@ -17,9 +17,12 @@ export async function POST(request: Request) {
     const userData = await getDiscordUserData(token);
 
     if (!userData.email || !userData.verified) {
-      return new Response(JSON.stringify({ error: 'no_email_associated' }), {
-        status: 400
-      });
+      return new Response(
+        JSON.stringify({ error: 'no_email_associated', message: 'No email associated with account in selected provider' }),
+        {
+          status: 400
+        }
+      );
     }
 
     const existingUser = await prisma.userAuth.findFirst({
@@ -52,7 +55,7 @@ export async function POST(request: Request) {
     });
 
     if (!newUser.auth) {
-      return new Response(JSON.stringify({ error: 'unknown_error' }), {
+      return new Response(JSON.stringify({ error: 'unknown_error', message: 'Unknown error' }), {
         status: 500
       });
     }
@@ -63,7 +66,7 @@ export async function POST(request: Request) {
       })
     );
   } catch {
-    return new Response(JSON.stringify({ error: 'unknown_error' }), {
+    return new Response(JSON.stringify({ error: 'unknown_error', message: 'Unknown error' }), {
       status: 500
     });
   }

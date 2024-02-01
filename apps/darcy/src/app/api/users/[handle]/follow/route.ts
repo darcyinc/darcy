@@ -30,7 +30,8 @@ export async function POST(_request: NextRequest, { params }: FollowUserOptions)
   if (!user || !userToFollow) {
     return new Response(
       JSON.stringify({
-        error: 'User not found'
+        error: 'user_not_found',
+        message: 'User not found'
       }),
       {
         status: 404
@@ -41,7 +42,8 @@ export async function POST(_request: NextRequest, { params }: FollowUserOptions)
   if (user.handle === userToFollow.handle) {
     return new Response(
       JSON.stringify({
-        error: "You can't follow yourself."
+        error: 'cant_follow_yourself',
+        message: "You can't follow yourself."
       }),
       {
         status: 400
@@ -52,7 +54,8 @@ export async function POST(_request: NextRequest, { params }: FollowUserOptions)
   if (user.followingIds.includes(userToFollow.id)) {
     return new Response(
       JSON.stringify({
-        error: 'You already follow this user'
+        error: 'already_following_user',
+        message: "You already follows this user"
       }),
       {
         status: 400
@@ -96,7 +99,8 @@ export async function DELETE(_request: NextRequest, { params }: FollowUserOption
   if (!user || !userToUnfollow) {
     return new Response(
       JSON.stringify({
-        error: 'User not found'
+        error: 'user_not_found',
+        message: 'User not found'
       }),
       {
         status: 404
@@ -107,7 +111,8 @@ export async function DELETE(_request: NextRequest, { params }: FollowUserOption
   if (user.handle === userToUnfollow.handle) {
     return new Response(
       JSON.stringify({
-        error: "You can't unfollow yourself"
+        error: 'cant_unfollow_yourself',
+        message: "You can't unfollow yourself."
       }),
       {
         status: 400
@@ -118,7 +123,8 @@ export async function DELETE(_request: NextRequest, { params }: FollowUserOption
   if (!user.followingIds.includes(userToUnfollow.id)) {
     return new Response(
       JSON.stringify({
-        error: "You don't follow this user"
+        error: 'not_following_user',
+        message: 'You are not following this user'
       }),
       {
         status: 400

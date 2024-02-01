@@ -27,13 +27,13 @@ export async function POST(_request: NextRequest, { params }: LikePostOptions) {
   });
 
   if (!post) {
-    return new Response('Post not found', {
+    return new Response(JSON.stringify({ error: 'post_not_found', message: 'Post not found' }), {
       status: 404
     });
   }
 
   if (post.likedIds.includes(user.id)) {
-    return new Response('Already liked', {
+    return new Response(JSON.stringify({ error: 'already_liked_post', message: 'You already have liked this post' }), {
       status: 400
     });
   }
@@ -73,13 +73,13 @@ export async function DELETE(_request: NextRequest, { params }: LikePostOptions)
   });
 
   if (!post) {
-    return new Response('Post not found', {
+    return new Response(JSON.stringify({ error: 'post_not_found', message: 'Post not found' }), {
       status: 404
     });
   }
 
   if (!post.likedIds.includes(user.id)) {
-    return new Response('Not liked', {
+    return new Response(JSON.stringify({ error: 'not_liked_post', message: 'You have not liked this post' }), {
       status: 400
     });
   }

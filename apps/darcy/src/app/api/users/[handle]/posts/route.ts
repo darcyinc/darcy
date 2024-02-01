@@ -29,7 +29,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   if (postType !== 'posts' && postType !== 'replies') {
     return new Response(
       JSON.stringify({
-        error: 'Invalid post type'
+        error: 'invalid_post_type',
+        message: 'Invalid post type. Must be one of "posts" or "replies"'
       }),
       {
         status: 400
@@ -40,7 +41,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   if (Number.isNaN(page) || Number.isNaN(limit)) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid query parameters'
+        error: 'invalid_query_parameters_type',
+        message: 'Invalid type of query parameters type'
       }),
       {
         status: 400
@@ -51,7 +53,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   if (page < 1) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid page number'
+        error: 'invalid_page_number',
+        message: 'Invalid page number'
       }),
       {
         status: 400
@@ -62,7 +65,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   if (limit < 1 || limit > 50) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid limit. Must be between 1 and 50'
+        error: 'invalid_page_limit',
+        message: 'Invalid page limit. Limit must be between 1 and 50'
       }),
       {
         status: 400
@@ -98,7 +102,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
     if (!user) {
       return new Response(
         JSON.stringify({
-          error: 'User not found'
+          error: 'user_not_found',
+          message: 'User not found'
         }),
         {
           status: 404
@@ -140,7 +145,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   if (!user) {
     return new Response(
       JSON.stringify({
-        error: 'User not found'
+        error: 'user_not_found',
+        message: 'User not found'
       }),
       {
         status: 404
@@ -151,7 +157,8 @@ export async function GET(request: NextRequest, { params }: RecentPostOptions) {
   if (user.private) {
     return new Response(
       JSON.stringify({
-        error: 'User account is private'
+        error: 'user_is_private',
+        message: 'User account is private'
       }),
       {
         status: 403
