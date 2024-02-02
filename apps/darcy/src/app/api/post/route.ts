@@ -8,11 +8,13 @@ interface CreatePostRequest {
 
 export async function POST(request: NextRequest) {
   const data = (await request.json()) as CreatePostRequest;
-  if (!data.content) return new Response(JSON.stringify({ error: 'missing_post_content', message: 'Missing post content' }), { status: 400 });
+  if (!data.content)
+    return new Response(JSON.stringify({ error: 'missing_post_content', message: 'Missing post content' }), { status: 400 });
 
   const cleanContent = data.content.trim();
 
-  if (cleanContent.trim().length > 256) return new Response(JSON.stringify({ error: 'post_content_long', message: 'Content too long' }), { status: 400 });
+  if (cleanContent.trim().length > 256)
+    return new Response(JSON.stringify({ error: 'post_content_long', message: 'Content too long' }), { status: 400 });
   if (cleanContent.trim().length < 1)
     return new Response(JSON.stringify({ error: 'post_content_short', message: 'Content too short' }), { status: 400 });
 

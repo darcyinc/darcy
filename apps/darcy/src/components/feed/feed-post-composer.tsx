@@ -4,6 +4,7 @@ import { apiClient } from '@/api/client';
 import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { cn } from '@/lib/utils';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
@@ -12,7 +13,6 @@ import LoadingSpinner from '../loading-spinner';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
-import { cn } from '@/lib/utils';
 
 interface FeedPostComposerProps {
   showProfilePicture?: boolean;

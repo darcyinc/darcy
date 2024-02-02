@@ -1,14 +1,14 @@
 'use client';
 
+import CreatePostModal from '@/features/modals/create-post';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { AlignLeft, Pencil } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 import { DesktopNavbarLinks } from './navbar-links';
 import { DesktopNavbarProfile } from './navbar-profile';
-import { useState } from 'react';
-import CreatePostModal from '@/features/modals/create-post';
 
 export default function AsideNavbar() {
   const currentUser = useCurrentUser();

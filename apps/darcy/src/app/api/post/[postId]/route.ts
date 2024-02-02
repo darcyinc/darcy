@@ -57,9 +57,12 @@ export async function GET(_request: NextRequest, { params }: GetPostOptions) {
     if (!authData.authorized) return authData.response;
 
     // TODO
-    return new Response(JSON.stringify({ error: 'get_post_private', message: 'This post is private. You must follow the user to see it.' }), {
-      status: 400
-    });
+    return new Response(
+      JSON.stringify({ error: 'get_post_private', message: 'This post is private. You must follow the user to see it.' }),
+      {
+        status: 400
+      }
+    );
   }
 
   if (authData.authorized) {

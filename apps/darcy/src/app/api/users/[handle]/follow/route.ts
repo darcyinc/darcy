@@ -55,7 +55,7 @@ export async function POST(_request: NextRequest, { params }: FollowUserOptions)
     return new Response(
       JSON.stringify({
         error: 'already_following_user',
-        message: "You already follows this user"
+        message: 'You already follows this user'
       }),
       {
         status: 400
