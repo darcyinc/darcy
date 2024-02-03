@@ -4,7 +4,21 @@
       "goBack": "Voltar",
       "authenticating": "Autenticando..."
     },
+    "AuthProviders": {
+      "providersSuggestion": "ou entre com",
+      "joinWith": "Entrar com {provider}",
+      "Email": {
+        "send": "Enviar e-mail de verificação",
+        "invalidEmail": "E-mail inválido",
+        "Toasts": {
+          "sent": "E-mail de autenticação enviado com sucesso."
+        }
+      }
+    },
     "AuthErrors": {
+      "Toasts": {
+        "errorSending": "Não foi possível finalizar a autenticação."
+      },
       "error_while_auth": "Erro ao autenticar:",
       "invalid_email": "E-mail inválido",
       "no_email_associated": "A conta no serviço escolhido não possui um e-mail associado.",

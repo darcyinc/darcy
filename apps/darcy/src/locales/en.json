@@ -4,7 +4,21 @@
       "goBack": "Go back",
       "authenticating": "Authenticating..."
     },
+    "AuthProviders": {
+      "providersSuggestion": "or sign in with",
+      "joinWith": "Sign in with {provider}",
+      "Email": {
+        "send": "Send email verification",
+        "invalidEmail": "Invalid e-mail",
+        "Toasts": {
+          "sent": "E-mail verification sent successfully."
+        }
+      }
+    },
     "AuthErrors": {
+      "Toasts": {
+        "errorSending": "Could not finish authentication."
+      },
       "error_while_auth": "Error while authenticating:",
       "invalid_email": "Invalid e-mail",
       "no_email_associated": "The account on the chosen service does not have an associated e-mail.",

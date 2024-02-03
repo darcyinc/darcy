@@ -11,25 +11,25 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-const formSchema = z.object({
-  email: z.string().email({
-    message: 'Invalid e-mail address.'
-  })
-});
-
 interface EmailAuthFormProps {
   onSubmit?: () => void;
   error?: string;
 }
 
 export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
-  const t = useTranslations('Auth.AuthErrors');
+  const t = useTranslations('Auth');
   const [loading, setLoading] = useState(false);
+
+  const formSchema = z.object({
+    email: z.string().email({
+      message: t('AuthProviders.Email.invalidEmail')
+    })
+  });
 
   useEffect(() => {
     if (error) {
-      toast.error('Não foi possível finalizar a autenticação.', {
-        description: t(error)
+      toast.error('AuthErrors.Toasts.errorSending', {
+        description: t(`AuthErrors.${error}`)
       });
     }
   }, [error, t]);
@@ -47,7 +47,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
     setLoading(false);
     onSubmit?.();
 
-    toast.success('E-mail de autenticação enviado com sucesso.');
+    toast.success(t('AuthProviders.Email.Toasts.sent'));
   };
 
   return (
@@ -60,7 +60,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
             <FormItem>
               <FormLabel className="font-bold">E-mail</FormLabel>
               <FormControl>
-                <Input placeholder={'me@example.com'} {...field} />
+                <Input placeholder="me@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -68,7 +68,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
         />
         <Button type="submit" className="font-bold gap-2 text-lg w-full rounded-full">
           {loading && <LoadingSpinner />}
-          Enviar link de autenticação
+          {t('AuthProviders.Email.send')}
         </Button>
       </form>
     </Form>
