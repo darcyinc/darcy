@@ -20,7 +20,7 @@ export default function usePostLike(postId: string) {
   };
 
   const mutation = useMutation({
-    mutationFn: postLike,
+    mutationFn: postLike
   });
 
   return mutation;
