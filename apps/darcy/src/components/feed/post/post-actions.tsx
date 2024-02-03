@@ -1,14 +1,12 @@
 'use client';
 
-import { apiClient } from '@/api/client';
+import usePostLike from '@/api/usePostLike';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { cn } from '@/lib/utils';
-import { AxiosError } from 'axios';
 import { BarChart2, Heart, MessageCircle, Repeat2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import { toast } from 'sonner';
 
 interface FeedPostActionsProps {
@@ -34,34 +32,24 @@ export default function PostActions({
 }: FeedPostActionsProps) {
   const router = useRouter();
   const currentUser = useCurrentUser();
-  const [error, setError] = useState('');
+  const likeMutation = usePostLike(postId);
   const t = useTranslations('Feed.Post.PostErrors');
 
   const handleComment = () => router.push(`/post/${postId}`);
 
   const handleLike = async () => {
-    updatePostData?.(postId, { hasLiked: !hasLiked, likeCount: likes + (hasLiked ? -1 : 1) });
-
     const undoOptimisticUpdate = () => updatePostData?.(postId, { hasLiked, likeCount: likes });
 
-    if (hasLiked)
-      apiClient.delete(`/post/${postId}/like`).catch((e) => {
-        if (e instanceof AxiosError) setError(e.response?.data.error);
-        undoOptimisticUpdate();
-      });
-    else
-      apiClient.post(`/post/${postId}/like`).catch((e) => {
-        if (e instanceof AxiosError) setError(e.response?.data.error);
-        undoOptimisticUpdate();
-      });
+    updatePostData?.(postId, { hasLiked: !hasLiked, likeCount: likes + (hasLiked ? -1 : 1) });
+    likeMutation.mutate({ like: !hasLiked }, { onError: undoOptimisticUpdate });
   };
 
   const handleRepost = () => {
     console.log('Reposting post', postId);
   };
 
-  if (error) {
-    toast.error(t(error));
+  if (likeMutation.error) {
+    toast.error(t(likeMutation.error.message));
   }
 
   return (

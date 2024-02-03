@@ -33,7 +33,7 @@
       "PostErrors": {
         "post_not_found": "Post not found",
         "already_liked_post": "You already have liked this post",
-        "not_liked_post": "You have not liked this post"
+        "not_liked_post": "You have not liked this post yet"
       }
     },
     "PostComposer": {
