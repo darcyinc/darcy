@@ -1,6 +1,6 @@
 'use client';
 
-import { apiClient } from '@/api/client';
+import useCreatePost from '@/api/mutations/useCreatePost';
 import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
@@ -22,10 +22,9 @@ interface FeedPostComposerProps {
 }
 
 export default function FeedPostComposer({ showProfilePicture = true, hideBorder, hideOnMobile, queryKeys }: FeedPostComposerProps) {
+  const mutation = useCreatePost();
   const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(false);
   const queryClient = useQueryClient();
-
   const currentUser = useCurrentUser();
   const t = useTranslations('Feed.PostComposer');
 
@@ -55,21 +54,18 @@ export default function FeedPostComposer({ showProfilePicture = true, hideBorder
   const handlePublish = () => {
     const publishStatusToast = toast.info('Criando publicação');
 
-    setLoading(true);
-
-    apiClient.post('/post', { content }).then((response) => {
-      setLoading(false);
-      toast.dismiss(publishStatusToast);
-
-      if (response.status === 201) {
-        setContent('');
-        toast('Post created successfully!');
-        updateQueryData(response.data);
-        return;
+    mutation.mutate(
+      { content },
+      {
+        onSettled: () => toast.dismiss(publishStatusToast),
+        onError: () => toast.error('Could not create post.'),
+        onSuccess: (data) => {
+          setContent('');
+          updateQueryData(data);
+          toast('Post created successfully!');
+        }
       }
-
-      toast.error('Could not create post.');
-    });
+    );
   };
 
   return (
@@ -100,7 +96,7 @@ export default function FeedPostComposer({ showProfilePicture = true, hideBorder
             onClick={handlePublish}
             disabled={content.length === 0}
           >
-            {loading && <LoadingSpinner />}
+            {mutation.isPending && <LoadingSpinner />}
             {t('publish')}
           </Button>
         </div>
