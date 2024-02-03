@@ -4,8 +4,12 @@ import { apiClient } from '@/api/client';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { cn } from '@/lib/utils';
+import { AxiosError } from 'axios';
 import { BarChart2, Heart, MessageCircle, Repeat2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 interface FeedPostActionsProps {
   comments: number;
@@ -30,6 +34,8 @@ export default function PostActions({
 }: FeedPostActionsProps) {
   const router = useRouter();
   const currentUser = useCurrentUser();
+  const [error, setError] = useState('');
+  const t = useTranslations('Feed.Post.PostErrors')
 
   const handleComment = () => router.push(`/post/${postId}`);
 
@@ -41,22 +47,26 @@ export default function PostActions({
     if (hasLiked)
       apiClient
         .delete(`/post/${postId}/like`)
-        .then((res) => {
-          if (res.status !== 200) undoOptimisticUpdate();
-        })
-        .catch(undoOptimisticUpdate);
+        .catch((e) => {
+          if (e instanceof AxiosError) setError(e.response?.data.error);
+          undoOptimisticUpdate();
+        });
     else
       apiClient
         .post(`/post/${postId}/like`)
-        .then((res) => {
-          if (res.status !== 200) undoOptimisticUpdate();
-        })
-        .catch(undoOptimisticUpdate);
+        .catch((e) => {
+          if (e instanceof AxiosError) setError(e.response?.data.error);
+          undoOptimisticUpdate();
+        });
   };
 
   const handleRepost = () => {
     console.log('Reposting post', postId);
   };
+
+  if (error) {
+    toast.error(t(error));
+  }
 
   return (
     <footer className="mt-2 flex justify-evenly text-sm text-gray-500">

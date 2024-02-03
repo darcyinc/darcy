@@ -29,6 +29,13 @@
       "foryou": "Para você",
       "following": "Seguindo"
     },
+    "Post": {
+      "PostErrors": {
+        "post_not_found": "Publicação não encontrada",
+        "already_liked_post": "Você já curtiu esta publicação",
+        "not_liked_post": "Você não curtiu esta publicação"
+      }
+    },
     "PostComposer": {
       "publish": "Publicar"
     }
