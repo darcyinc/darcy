@@ -10,7 +10,7 @@ interface CreateAuthData {
 export default function useCreateAuth() {
   const authCallback = async ({ service, code }: CreateAuthData) => {
     try {
-      const request = await apiClient.post(`/auth/${service}/callback`, { code }).then((res) => res.data);
+      const request = await apiClient.post(`/auth/${service}/callback`, { code });
       return request.data as { token: string };
     } catch (err) {
       if (err instanceof AxiosError) {
