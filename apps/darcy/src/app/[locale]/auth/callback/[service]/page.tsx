@@ -1,7 +1,7 @@
 'use client';
 
-import useCreateAuth from '@/api/useAuth';
-import useUser from '@/api/useUser';
+import useCreateAuth from '@/api/mutations/useAuth';
+import useUser from '@/api/queries/useUser';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { AUTH_SERVICES_CALLBACK } from '@/utils/constants';
 import { useTranslations } from 'next-intl';

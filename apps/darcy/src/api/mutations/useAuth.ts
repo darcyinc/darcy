@@ -1,12 +1,17 @@
 import { useMutation } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { apiClient } from './client';
+import { apiClient } from '../client';
 
-export default function usePostLike(postId: string) {
-  const postLike = async ({ like }: { like: boolean }) => {
+interface CreateAuthData {
+  service: string;
+  code: string;
+}
+
+export default function useCreateAuth() {
+  const authCallback = async ({ service, code }: CreateAuthData) => {
     try {
-      const request = await apiClient[like ? 'post' : 'delete'](`/post/${postId}/like`);
-      return request.data;
+      const request = await apiClient.post(`/auth/${service}/callback`, { code });
+      return request.data as { token: string };
     } catch (err) {
       if (err instanceof AxiosError) {
         if (err.response) {
@@ -20,7 +25,7 @@ export default function usePostLike(postId: string) {
   };
 
   const mutation = useMutation({
-    mutationFn: postLike
+    mutationFn: authCallback
   });
 
   return mutation;

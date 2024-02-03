@@ -1,6 +1,6 @@
 'use client';
 
-import useUser from '@/api/useUser';
+import useUser from '@/api/queries/useUser';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { usePathname, useRouter } from 'next/navigation';
 import { PropsWithChildren, useEffect } from 'react';

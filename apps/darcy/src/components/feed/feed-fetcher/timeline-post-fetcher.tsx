@@ -1,6 +1,6 @@
 'use client';
 
-import usePopularPosts from '@/api/usePopularPosts';
+import usePopularPosts from '@/api/queries/usePopularPosts';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useQueryClient } from '@tanstack/react-query';
 import { Fragment } from 'react';

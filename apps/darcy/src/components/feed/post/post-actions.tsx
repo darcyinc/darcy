@@ -1,6 +1,6 @@
 'use client';
 
-import usePostLike from '@/api/usePostLike';
+import usePostLike from '@/api/mutations/usePostLike';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { cn } from '@/lib/utils';
