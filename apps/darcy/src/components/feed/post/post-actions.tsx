@@ -35,7 +35,7 @@ export default function PostActions({
   const router = useRouter();
   const currentUser = useCurrentUser();
   const [error, setError] = useState('');
-  const t = useTranslations('Feed.Post.PostErrors')
+  const t = useTranslations('Feed.Post.PostErrors');
 
   const handleComment = () => router.push(`/post/${postId}`);
 
@@ -45,19 +45,15 @@ export default function PostActions({
     const undoOptimisticUpdate = () => updatePostData?.(postId, { hasLiked, likeCount: likes });
 
     if (hasLiked)
-      apiClient
-        .delete(`/post/${postId}/like`)
-        .catch((e) => {
-          if (e instanceof AxiosError) setError(e.response?.data.error);
-          undoOptimisticUpdate();
-        });
+      apiClient.delete(`/post/${postId}/like`).catch((e) => {
+        if (e instanceof AxiosError) setError(e.response?.data.error);
+        undoOptimisticUpdate();
+      });
     else
-      apiClient
-        .post(`/post/${postId}/like`)
-        .catch((e) => {
-          if (e instanceof AxiosError) setError(e.response?.data.error);
-          undoOptimisticUpdate();
-        });
+      apiClient.post(`/post/${postId}/like`).catch((e) => {
+        if (e instanceof AxiosError) setError(e.response?.data.error);
+        undoOptimisticUpdate();
+      });
   };
 
   const handleRepost = () => {
