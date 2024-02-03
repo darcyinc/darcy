@@ -55,7 +55,13 @@
     }
   },
   "Trending": {
-    "searchPlaceholder": "Buscar na Darcy",
+    "Search": {
+      "placeholder": "Buscar na Darcy",
+      "SearchErrors": {
+        "tooSmall": "Pesquisa deve conter ao menos 1 caractere.",
+        "tooLarge": "Pesquisa não deve conter mais que 100 caracteres."
+      }
+    },
     "trending": "O que está acontecendo"
   },
   "Navbar": {

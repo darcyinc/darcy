@@ -55,7 +55,13 @@
     }
   },
   "Trending": {
-    "searchPlaceholder": "Search Darcy",
+    "Search": {
+      "placeholder": "Search Darcy",
+      "SearchErrors": {
+        "tooSmall": "Search must be at least 1 character.",
+        "tooLarge": "Search should not have more than 100 characters."
+      }
+    },
     "trending": "What's happening"
   },
   "Navbar": {
