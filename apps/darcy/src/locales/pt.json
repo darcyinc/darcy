@@ -20,6 +20,16 @@
     "loginTip": "Insira seus dados para se autenticar na Darcy."
   },
   "UserProfile": {
+    "Badges": {
+      "Verified": {
+        "title": "Verificado"
+      }
+    },
+    "Buttons": {
+      "editProfile": "Editar perfil",
+      "following": "Seguindo",
+      "follow": "Seguir"
+    },
     "FollowStats": {
       "followers": "Seguidores",
       "following": "Seguindo"
@@ -41,7 +51,10 @@
       }
     },
     "PostComposer": {
-      "publish": "Publicar"
+      "publish": "Publicar",
+      "publishing": "Publicando...",
+      "published": "Publicação criada com sucesso",
+      "errorPublishing": "Erro ao criar publicação"
     }
   },
   "Trending": {
@@ -53,6 +66,9 @@
       }
     },
     "trending": "O que está acontecendo"
+  },
+  "PostFetcher": {
+    "errorFetching": "Não foi possível carregar as publicações"
   },
   "Modals": {
     "EditUser": {

@@ -11,6 +11,7 @@ import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
 import SkeletonPost from '../post/skeleton-post';
+import { useTranslations } from 'next-intl';
 
 interface UserPostFetcherProps {
   userData: GetUserResponse;
@@ -21,10 +22,11 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
   // we start getting posts from page 2 because initialPosts returns the posts of page 1
   const queryClient = useQueryClient();
   const currentUser = useCurrentUser();
+  const t = useTranslations('PostFetcher');
   const { data, error, isError, fetchNextPage } = useUserPosts(userData.handle, { initialData: initialPosts });
 
   if (isError) {
-    toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });
+    toast.error(t('errorFetching'), { description: error.message, duration: 5000 });
 
     return (
       <>

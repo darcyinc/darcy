@@ -9,14 +9,16 @@ import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
 import SkeletonPost from '../post/skeleton-post';
+import { useTranslations } from 'next-intl';
 
 export default function TimelinePostFetcher() {
   // TODO: don't use usePopularPosts for authenticated users
   const queryClient = useQueryClient();
+  const t = useTranslations('PostFetcher');
   const { data, error, isError, isLoading, fetchNextPage } = usePopularPosts();
 
   if (isLoading || isError) {
-    if (isError) toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });
+    if (isError) toast.error(t('errorFetching'), { description: error.message, duration: 5000 });
 
     return (
       <>

@@ -20,6 +20,16 @@
     "loginTip": "Enter your credentials to authenticate on Darcy."
   },
   "UserProfile": {
+    "Badges": {
+      "Verified": {
+        "title": "Verified"
+      }
+    },
+    "Buttons": {
+      "editProfile": "Edit profile",
+      "following": "Following",
+      "follow": "Follow"
+    },
     "FollowStats": {
       "followers": "Followers",
       "following": "Following"
@@ -41,7 +51,10 @@
       }
     },
     "PostComposer": {
-      "publish": "Publish"
+      "publish": "Publish",
+      "publishing": "Publishing...",
+      "published": "Post created successfully",
+      "errorPublishing": "Error while creating post"
     }
   },
   "Trending": {
@@ -53,6 +66,9 @@
       }
     },
     "trending": "What's happening"
+  },
+  "PostFetcher": {
+    "errorFetching": "Could not fetch posts"
   },
   "Modals": {
     "EditUser": {

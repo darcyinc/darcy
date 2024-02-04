@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 interface UserEditButtonProps {
@@ -10,12 +11,14 @@ interface UserEditButtonProps {
 
 export default function UserEditButton({ handle }: UserEditButtonProps) {
   const currentUser = useCurrentUser();
+  const t = useTranslations('UserProfile.Buttons');
+
   if (currentUser.handle !== handle) return null;
 
   return (
     <Button variant="secondary" className="rounded-full font-bold" size="md" asChild>
       <Link href={`/${currentUser.handle}/edit`} scroll={false}>
-        Editar perfil
+        {t('editProfile')}
       </Link>
     </Button>
   );
