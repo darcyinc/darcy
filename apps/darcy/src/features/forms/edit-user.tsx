@@ -8,31 +8,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
-
-const formSchema = z.object({
-  displayName: z
-    .string()
-    .min(1, {
-      message: 'Username must be at least 1 characters.'
-    })
-    .max(32, { message: 'Username should not have more than 32 characters.' })
-    .optional(),
-  handle: z
-    .string()
-    .regex(/^[a-zA-Z0-9_]*$/, {
-      message: 'Your handle must only contain letters, numbers and _.'
-    })
-    .min(2, {
-      message: 'Handle must be at least 2 characters.'
-    })
-    .max(16, { message: 'Handle should not have more than 16 characters.' })
-    .optional(),
-  bio: z.string().max(120, { message: 'Biography should not have more than 120 characters.' }).optional()
-});
 
 interface EditUserFormProps {
   onSubmit?: () => void;
@@ -41,6 +21,31 @@ interface EditUserFormProps {
 export default function EditUserForm({ onSubmit }: EditUserFormProps) {
   const [loading, setLoading] = useState(false);
   const currentUser = useCurrentUser();
+  const t = useTranslations('Forms.EditUser');
+
+  const formSchema = z.object({
+    displayName: z
+      .string()
+      .min(1, {
+        message: t('displayNameTooSmall')
+      })
+      .max(32, { message: t('displayNameTooLarge') })
+      .optional(),
+    handle: z
+      .string()
+      .regex(/^[a-zA-Z0-9_]*$/, {
+        message: t('invalidHandle')
+      })
+      .min(2, {
+        message: t('handleTooSmall')
+      })
+      .max(16, { message: t('handleTooLarge') })
+      .optional(),
+    bio: z
+      .string()
+      .max(120, { message: t('biographyTooLarge') })
+      .optional()
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
@@ -60,14 +65,14 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
         onSubmit?.();
 
         if (res.status !== 200) {
-          toast('Ocorreu um erro ao editar o perfil', {
+          toast(t('errorSubmitting'), {
             description: res.data.error
           });
           return;
         }
 
         currentUser.setData(res.data);
-        toast('Perfil editado com sucesso!');
+        toast(t('submitted'));
       });
   };
 
@@ -79,11 +84,11 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
           name="displayName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="font-bold">Username</FormLabel>
+              <FormLabel className="font-bold">{t('displayName')}</FormLabel>
               <FormControl>
                 <Input placeholder={currentUser.displayName} {...field} />
               </FormControl>
-              <FormDescription>This is your public display name.</FormDescription>
+              <FormDescription>{t('displayNameDescription')}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -93,11 +98,11 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
           name="handle"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="font-bold">Handle</FormLabel>
+              <FormLabel className="font-bold">{t('handle')}</FormLabel>
               <FormControl>
                 <Input placeholder={currentUser.handle} {...field} />
               </FormControl>
-              <FormDescription>This is your public handle. Users can find you quickly with your @handle.</FormDescription>
+              <FormDescription>{t('handleDescription')}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -107,18 +112,18 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
           name="bio"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="font-bold">Biography</FormLabel>
+              <FormLabel className="font-bold">{t('biography')}</FormLabel>
               <FormControl>
                 <Textarea placeholder={currentUser.bio} {...field} />
               </FormControl>
-              <FormDescription>Tell more about you.</FormDescription>
+              <FormDescription>{t('biographyDescription')}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" variant="secondary" className="font-bold gap-2">
           {loading && <LoadingSpinner />}
-          Submit
+          {t('submit')}
         </Button>
       </form>
     </Form>

@@ -3,6 +3,7 @@
 import usePopularPosts from '@/api/queries/usePopularPosts';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useQueryClient } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
 import { toast } from 'sonner';
 import FeedPostComposer from '../feed-post-composer';
@@ -13,10 +14,11 @@ import SkeletonPost from '../post/skeleton-post';
 export default function TimelinePostFetcher() {
   // TODO: don't use usePopularPosts for authenticated users
   const queryClient = useQueryClient();
+  const t = useTranslations('PostFetcher');
   const { data, error, isError, isLoading, fetchNextPage } = usePopularPosts();
 
   if (isLoading || isError) {
-    if (isError) toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });
+    if (isError) toast.error(t('errorFetching'), { description: error.message, duration: 5000 });
 
     return (
       <>

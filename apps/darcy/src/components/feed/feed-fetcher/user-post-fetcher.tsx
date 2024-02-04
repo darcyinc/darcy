@@ -5,6 +5,7 @@ import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useQueryClient } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
 import { toast } from 'sonner';
 import FeedPostComposer from '../feed-post-composer';
@@ -21,10 +22,11 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
   // we start getting posts from page 2 because initialPosts returns the posts of page 1
   const queryClient = useQueryClient();
   const currentUser = useCurrentUser();
+  const t = useTranslations('PostFetcher');
   const { data, error, isError, fetchNextPage } = useUserPosts(userData.handle, { initialData: initialPosts });
 
   if (isError) {
-    toast.error('Não foi possível carregar as publicações', { description: error.message, duration: 5000 });
+    toast.error(t('errorFetching'), { description: error.message, duration: 5000 });
 
     return (
       <>

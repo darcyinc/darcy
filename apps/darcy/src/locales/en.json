@@ -4,6 +4,10 @@
       "goBack": "Go back",
       "authenticating": "Authenticating..."
     },
+    "AuthProviders": {
+      "providersSuggestion": "or sign in with",
+      "joinWith": "Sign in with {provider}"
+    },
     "AuthErrors": {
       "error_while_auth": "Error while authenticating:",
       "invalid_email": "Invalid e-mail",
@@ -16,6 +20,16 @@
     "loginTip": "Enter your credentials to authenticate on Darcy."
   },
   "UserProfile": {
+    "Badges": {
+      "Verified": {
+        "title": "Verified"
+      }
+    },
+    "Buttons": {
+      "editProfile": "Edit profile",
+      "following": "Following",
+      "follow": "Follow"
+    },
     "FollowStats": {
       "followers": "Followers",
       "following": "Following"
@@ -37,12 +51,68 @@
       }
     },
     "PostComposer": {
-      "publish": "Publish"
+      "publish": "Publish",
+      "publishing": "Publishing...",
+      "published": "Post created successfully",
+      "errorPublishing": "Error while creating post"
     }
   },
   "Trending": {
-    "searchPlaceholder": "Search Darcy",
+    "Search": {
+      "placeholder": "Search Darcy",
+      "SearchErrors": {
+        "tooSmall": "Search must be at least 1 character.",
+        "tooLarge": "Search should not have more than 100 characters."
+      }
+    },
     "trending": "What's happening"
+  },
+  "PostFetcher": {
+    "errorFetching": "Could not fetch posts"
+  },
+  "Modals": {
+    "EditUser": {
+      "title": "Edit profile"
+    },
+    "CreatePost": {
+      "title": "Create a post"
+    },
+    "Following": {
+      "title": "Following"
+    },
+    "Followers": {
+      "title": "Followers"
+    }
+  },
+  "Forms": {
+    "EmailAuth": {
+      "emailSent": "E-mail sent successfully.",
+      "send": "Send e-mail verification",
+      "Errors": {
+        "invalidEmail": "Invalid e-mail",
+        "errorSending": "Could not finish authentication."
+      }
+    },
+    "EditUser": {
+      "title": "Edit profile",
+      "displayName": "Name",
+      "displayNameDescription": "This is your name.",
+      "handle": "Username",
+      "handleDescription": "This is your public username. Users can find you quickly with your @username.",
+      "biography": "Biography",
+      "biographyDescription": "Tell us a little about yourself.",
+      "submit": "Save",
+      "submitted": "Your profile has been updated.",
+      "errorSubmitting": "Could not update your profile.",
+      "Errors": {
+        "displayNameTooSmall": "Username must be at least 1 characters.",
+        "displayNameTooLarge": "Username should not have more than 32 characters.",
+        "invalidHandle": "Your handle must only contain letters, numbers and _.",
+        "handleTooSmall": "Handle must be at least 2 characters.",
+        "handleTooLarge": "Handle should not have more than 16 characters.",
+        "biographyTooLarge": "Biography should not have more than 120 characters."
+      }
+    }
   },
   "Navbar": {
     "home": "Home",

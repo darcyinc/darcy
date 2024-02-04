@@ -52,17 +52,17 @@ export default function FeedPostComposer({ showProfilePicture = true, hideBorder
   };
 
   const handlePublish = () => {
-    const publishStatusToast = toast.info('Criando publicação');
+    const publishStatusToast = toast.info(t('publishing'));
 
     mutation.mutate(
       { content },
       {
         onSettled: () => toast.dismiss(publishStatusToast),
-        onError: () => toast.error('Could not create post.'),
+        onError: () => toast.error(t('errorPublishing')),
         onSuccess: (data) => {
           setContent('');
           updateQueryData(data);
-          toast('Post created successfully!');
+          toast(t('published'));
         }
       }
     );

@@ -11,28 +11,29 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
-const formSchema = z.object({
-  email: z.string().email({
-    message: 'Invalid e-mail address.'
-  })
-});
-
 interface EmailAuthFormProps {
   onSubmit?: () => void;
   error?: string;
 }
 
 export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
-  const t = useTranslations('Auth.AuthErrors');
+  const t = useTranslations('Auth');
+  const tForms = useTranslations('Forms.EmailAuth');
   const [loading, setLoading] = useState(false);
+
+  const formSchema = z.object({
+    email: z.string().email({
+      message: tForms('Errors.invalidEmail')
+    })
+  });
 
   useEffect(() => {
     if (error) {
-      toast.error('Não foi possível finalizar a autenticação.', {
-        description: t(error)
+      toast.error(tForms('Errors.errorSending'), {
+        description: t(`AuthErrors.${error}`)
       });
     }
-  }, [error, t]);
+  }, [error, t, tForms]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
@@ -47,7 +48,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
     setLoading(false);
     onSubmit?.();
 
-    toast.success('E-mail de autenticação enviado com sucesso.');
+    toast.success(tForms('emailSent'));
   };
 
   return (
@@ -60,7 +61,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
             <FormItem>
               <FormLabel className="font-bold">E-mail</FormLabel>
               <FormControl>
-                <Input placeholder={'me@example.com'} {...field} />
+                <Input placeholder="me@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -68,7 +69,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
         />
         <Button type="submit" className="font-bold gap-2 text-lg w-full rounded-full">
           {loading && <LoadingSpinner />}
-          Enviar link de autenticação
+          {tForms('send')}
         </Button>
       </form>
     </Form>

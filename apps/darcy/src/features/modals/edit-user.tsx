@@ -1,14 +1,16 @@
-import { FeedPostComposer } from '@/components/feed';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useTranslations } from 'next-intl';
+import EditUserForm from '../forms/edit-user';
 
-interface CreatePostModalProps {
+interface FollowersModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-export default function CreatePostModal({ open, onOpenChange }: CreatePostModalProps) {
-  const t = useTranslations('Modals.CreatePost');
+export default function EditUserModal({ open, onOpenChange }: FollowersModalProps) {
+  const t = useTranslations('Modals.EditUser');
+
+  const handleSubmit = () => onOpenChange(false);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -17,7 +19,7 @@ export default function CreatePostModal({ open, onOpenChange }: CreatePostModalP
           <DialogTitle>{t('title')}</DialogTitle>
         </DialogHeader>
 
-        <FeedPostComposer hideBorder />
+        <EditUserForm onSubmit={handleSubmit} />
       </DialogContent>
     </Dialog>
   );

@@ -10,16 +10,16 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-const formSchema = z.object({
-  searchText: z
-    .string()
-    .min(1, { message: 'Search must be at least 1 character.' })
-    .max(100, { message: 'Search should not have more than 100 characters.' })
-});
-
 export default function PostSearchForm() {
   const router = useRouter();
-  const t = useTranslations('Trending');
+  const t = useTranslations('Trending.Search');
+
+  const formSchema = z.object({
+    searchText: z
+      .string()
+      .min(1, { message: t('SearchErrors.tooSmall') })
+      .max(100, { message: t('SearchErrors.tooLarge') })
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
@@ -41,7 +41,7 @@ export default function PostSearchForm() {
                 <div className="flex px-4 bg-card focus-within:bg-transparent items-center rounded-full border border-input focus-within:ring-2 focus-within:ring-ring h-12">
                   <Search className="flex-shrink-0 text-xl text-muted-foreground" />
                   <Input
-                    placeholder={t('searchPlaceholder')}
+                    placeholder={t('placeholder')}
                     {...field}
                     className="border-transparent bg-transparent focus-visible:ring-transparent focus-visible:ring-offset-0"
                   />

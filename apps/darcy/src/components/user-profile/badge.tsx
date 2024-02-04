@@ -2,12 +2,15 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 import { cn } from '@/lib/utils';
 import { $Enums } from '@prisma/client';
 import { BadgeCheck } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface UserBadgeProps {
   badge: $Enums.VerifiedType;
 }
 
 export default function UserBadge({ badge }: UserBadgeProps) {
+  const t = useTranslations('UserProfile.Badges.Verified');
+
   return (
     <TooltipProvider>
       <Tooltip>
@@ -23,7 +26,7 @@ export default function UserBadge({ badge }: UserBadgeProps) {
           />
         </TooltipTrigger>
         <TooltipContent className="bg-background">
-          <p>Verified</p>
+          <p>{t('title')}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

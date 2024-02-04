@@ -4,6 +4,10 @@
       "goBack": "Voltar",
       "authenticating": "Autenticando..."
     },
+    "AuthProviders": {
+      "providersSuggestion": "ou entre com",
+      "joinWith": "Entrar com {provider}"
+    },
     "AuthErrors": {
       "error_while_auth": "Erro ao autenticar:",
       "invalid_email": "E-mail inválido",
@@ -16,6 +20,16 @@
     "loginTip": "Insira seus dados para se autenticar na Darcy."
   },
   "UserProfile": {
+    "Badges": {
+      "Verified": {
+        "title": "Verificado"
+      }
+    },
+    "Buttons": {
+      "editProfile": "Editar perfil",
+      "following": "Seguindo",
+      "follow": "Seguir"
+    },
     "FollowStats": {
       "followers": "Seguidores",
       "following": "Seguindo"
@@ -37,12 +51,67 @@
       }
     },
     "PostComposer": {
-      "publish": "Publicar"
+      "publish": "Publicar",
+      "publishing": "Publicando...",
+      "published": "Publicação criada com sucesso",
+      "errorPublishing": "Erro ao criar publicação"
     }
   },
   "Trending": {
-    "searchPlaceholder": "Buscar na Darcy",
+    "Search": {
+      "placeholder": "Buscar na Darcy",
+      "SearchErrors": {
+        "tooSmall": "Pesquisa deve conter ao menos 1 caractere.",
+        "tooLarge": "Pesquisa não deve conter mais que 100 caracteres."
+      }
+    },
     "trending": "O que está acontecendo"
+  },
+  "PostFetcher": {
+    "errorFetching": "Não foi possível carregar as publicações"
+  },
+  "Modals": {
+    "EditUser": {
+      "title": "Editar perfil"
+    },
+    "CreatePost": {
+      "title": "Criar publicação"
+    },
+    "Following": {
+      "title": "Seguindo"
+    },
+    "Followers": {
+      "title": "Seguidores"
+    }
+  },
+  "Forms": {
+    "EmailAuth": {
+      "emailSent": "E-mail enviado com sucesso.",
+      "send": "Enviar e-maiil de verificação",
+      "Errors": {
+        "invalidEmail": "E-mail inválido",
+        "errorSending": "Não foi possível finalizar a autenticação."
+      }
+    },
+    "EditUser": {
+      "displayName": "Nome",
+      "displayNameDescription": "Este é o seu nome.",
+      "handle": "Nome de usuário",
+      "handleDescription": "Este é o seu nome de usuário. Usuários podem te encontrar rapidamente com o seu @usuario.",
+      "biography": "Biografia",
+      "biographyDescription": "Conte-nos um pouco sobre voce.",
+      "submit": "Salvar",
+      "submitted": "Seu perfil foi atualizado.",
+      "errorSubmitting": "Não foi possível atualizar seu perfil.",
+      "Errors": {
+        "displayNameTooSmall": "Nome deve conter pelo menos 1 caractere.",
+        "displayNameTooLarge": "Nome deve conter no maximo 32 caracteres.",
+        "invalidHandle": "Seu nome de usuário deve conter apenas letras, números e _.",
+        "handleTooSmall": "Nome de usuário deve conter pelo menos 2 caracteres.",
+        "handleTooLarge": "Nome de usuário deve conter no maximo 16 caracteres.",
+        "biographyTooLarge": "Biografia deve conter no maximo 120 caracteres."
+      }
+    }
   },
   "Navbar": {
     "home": "Página inicial",
