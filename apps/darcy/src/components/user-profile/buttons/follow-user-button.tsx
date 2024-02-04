@@ -1,6 +1,6 @@
 'use client';
 
-import { apiClient } from '@/api/client';
+import useFollowUser from '@/api/mutations/useFollowUser';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
@@ -14,6 +14,7 @@ interface UserFollowButtonProps {
 
 export default function UserFollowButton({ handle, isFollowing, updateUserData }: UserFollowButtonProps) {
   const currentUser = useCurrentUser();
+  const mutation = useFollowUser(handle);
   const t = useTranslations('UserProfile.Buttons');
 
   if (!currentUser.token || currentUser.handle === handle) return null;
@@ -21,12 +22,12 @@ export default function UserFollowButton({ handle, isFollowing, updateUserData }
   const handleFollow = () => {
     updateUserData?.({ isFollowing: !isFollowing });
 
-    apiClient[isFollowing ? 'delete' : 'post'](`/users/${handle}/follow`).then((response) => {
-      // TODO: add toasts
-      if (response.status !== 200) {
-        return updateUserData?.({ isFollowing });
+    mutation.mutate(
+      { follow: !isFollowing },
+      {
+        onError: () => updateUserData?.({ isFollowing })
       }
-    });
+    );
   };
 
   return (

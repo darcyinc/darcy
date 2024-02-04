@@ -101,7 +101,7 @@ export async function GET(_request: NextRequest, { params }: GetUserOptions) {
       ...user,
       followersCount,
       followingCount: user.followingIds.length,
-      isFollowing: currentUser?.followingIds.includes(user.id ?? '') ?? false,
+      isFollowing: currentUser?.followingIds.includes(user.id) ?? false,
       followingIds: undefined,
       id: undefined
     })

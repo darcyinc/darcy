@@ -41,7 +41,7 @@ export default async function Home({ params }: HomeProps) {
           </div>
         </FeedHeader>
 
-        <UserProfilePage data={{ ...user.data }} initialPosts={[]} />
+        <UserProfilePage initialData={{ ...user.data }} initialPosts={[]} />
 
         <div className="text-center my-4">
           <h1 className="font-bold">This user has a private profile.</h1>
@@ -67,7 +67,7 @@ export default async function Home({ params }: HomeProps) {
       </FeedHeader>
 
       {/* @ts-ignore */}
-      <UserProfilePage data={{ ...user.data }} initialPosts={posts.data} />
+      <UserProfilePage initialData={{ ...user.data }} initialPosts={posts.data} />
     </>
   );
 }
