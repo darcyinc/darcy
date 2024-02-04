@@ -1,6 +1,6 @@
 'use client';
 
-import { apiClient } from '@/api/client';
+import useEditUser from '@/api/mutations/useEditUser';
 import LoadingSpinner from '@/components/loading-spinner';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -9,7 +9,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -19,9 +18,9 @@ interface EditUserFormProps {
 }
 
 export default function EditUserForm({ onSubmit }: EditUserFormProps) {
-  const [loading, setLoading] = useState(false);
   const currentUser = useCurrentUser();
   const t = useTranslations('Forms.EditUser');
+  const mutation = useEditUser();
 
   const formSchema = z.object({
     displayName: z
@@ -52,28 +51,19 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
   });
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-    setLoading(true);
-
-    apiClient
-      .patch('/users/@me', {
-        displayName: values.displayName,
-        handle: values.handle,
-        bio: values.bio
-      })
-      .then((res) => {
-        setLoading(false);
-        onSubmit?.();
-
-        if (res.status !== 200) {
-          toast(t('errorSubmitting'), {
-            description: res.data.error
-          });
-          return;
+    mutation.mutate(
+      { ...values },
+      {
+        onSuccess: (data) => {
+          onSubmit?.();
+          currentUser.setData(data);
+          toast(t('submitted'));
+        },
+        onError: () => {
+          toast.error(t('errorSubmitting'));
         }
-
-        currentUser.setData(res.data);
-        toast(t('submitted'));
-      });
+      }
+    );
   };
 
   return (
@@ -122,7 +112,7 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
           )}
         />
         <Button type="submit" variant="secondary" className="font-bold gap-2">
-          {loading && <LoadingSpinner />}
+          {mutation.isPending && <LoadingSpinner />}
           {t('submit')}
         </Button>
       </form>
