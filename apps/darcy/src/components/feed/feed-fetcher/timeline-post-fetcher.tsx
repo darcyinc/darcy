@@ -3,13 +3,13 @@
 import usePopularPosts from '@/api/queries/usePopularPosts';
 import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useQueryClient } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
 import { toast } from 'sonner';
 import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
 import SkeletonPost from '../post/skeleton-post';
-import { useTranslations } from 'next-intl';
 
 export default function TimelinePostFetcher() {
   // TODO: don't use usePopularPosts for authenticated users

@@ -5,13 +5,13 @@ import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { useQueryClient } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
 import { toast } from 'sonner';
 import FeedPostComposer from '../feed-post-composer';
 import FeedPostLoader from '../feed-post-loader';
 import FeedPost from '../post';
 import SkeletonPost from '../post/skeleton-post';
-import { useTranslations } from 'next-intl';
 
 interface UserPostFetcherProps {
   userData: GetUserResponse;
