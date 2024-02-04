@@ -3,6 +3,7 @@ import requireAuthorization from '@/utils/api/requireAuthorization';
 import { patchUserSchema } from '@/utils/api/schemas/user';
 import { $Enums } from '@prisma/client';
 import { NextRequest } from 'next/server';
+import { safeParseAsync } from 'valibot';
 
 interface GetUserOptions {
   params: {
@@ -128,11 +129,11 @@ export async function PATCH(request: NextRequest, { params }: GetUserOptions) {
     bio?: string;
   };
 
-  const parsedData = await patchUserSchema.safeParseAsync(data);
+  const parsedData = await safeParseAsync(patchUserSchema, data);
   if (!parsedData.success) {
     return new Response(
       JSON.stringify({
-        error: parsedData.error.errors[0].message
+        error: parsedData.issues[0].message
       }),
       {
         status: 400
