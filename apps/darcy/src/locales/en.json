@@ -64,6 +64,27 @@
     },
     "trending": "What's happening"
   },
+  "Modals": {
+    "EditUser": {
+      "displayName": "Name",
+      "displayNameDescription": "This is your name.",
+      "handle": "Username",
+      "handleDescription": "This is your public username. Users can find you quickly with your @username.",
+      "biography": "Biography",
+      "biographyDescription": "Tell us a little about yourself.",
+      "submit": "Save",
+      "submitted": "Your profile has been updated.",
+      "errorSubmitting": "Could not update your profile.",
+      "Errors": {
+        "displayNameTooSmall": "Username must be at least 1 characters.",
+        "displayNameTooLarge": "Username should not have more than 32 characters.",
+        "invalidHandle": "Your handle must only contain letters, numbers and _.",
+        "handleTooSmall": "Handle must be at least 2 characters.",
+        "handleTooLarge": "Handle should not have more than 16 characters.",
+        "biographyTooLarge": "Biography should not have more than 120 characters."
+      }
+    }
+  },
   "Navbar": {
     "home": "Home",
     "explore": "Explore",

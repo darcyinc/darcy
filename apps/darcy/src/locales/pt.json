@@ -64,6 +64,27 @@
     },
     "trending": "O que está acontecendo"
   },
+  "Modals": {
+    "EditUser": {
+      "displayName": "Nome",
+      "displayNameDescription": "Este é o seu nome.",
+      "handle": "Nome de usuário",
+      "handleDescription": "Este é o seu nome de usuário. Usuários podem te encontrar rapidamente com o seu @usuario.",
+      "biography": "Biografia",
+      "biographyDescription": "Conte-nos um pouco sobre voce.",
+      "submit": "Salvar",
+      "submitted": "Seu perfil foi atualizado.",
+      "errorSubmitting": "Não foi possível atualizar seu perfil.",
+      "Errors": {
+        "displayNameTooSmall": "Nome deve conter pelo menos 1 caractere.",
+        "displayNameTooLarge": "Nome deve conter no maximo 32 caracteres.",
+        "invalidHandle": "Seu nome de usuário deve conter apenas letras, números e _.",
+        "handleTooSmall": "Nome de usuário deve conter pelo menos 2 caracteres.",
+        "handleTooLarge": "Nome de usuário deve conter no maximo 16 caracteres.",
+        "biographyTooLarge": "Biografia deve conter no maximo 120 caracteres."
+      }
+    }
+  },
   "Navbar": {
     "home": "Página inicial",
     "explore": "Explorar",

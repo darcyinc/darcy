@@ -10,8 +10,8 @@ interface UserFollowStatsProps {
 }
 
 export default function UserFollowStats({ following, followers }: UserFollowStatsProps) {
-  const t = useTranslations('UserProfile.FollowStats');
   const pathname = usePathname();
+  const t = useTranslations('UserProfile.FollowStats');
 
   return (
     <div className="flex gap-2 text-sm">
