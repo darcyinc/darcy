@@ -21,7 +21,7 @@ interface EditUserFormProps {
 export default function EditUserForm({ onSubmit }: EditUserFormProps) {
   const [loading, setLoading] = useState(false);
   const currentUser = useCurrentUser();
-  const t = useTranslations('Modals.EditUser');
+  const t = useTranslations('Forms.EditUser');
 
   const formSchema = z.object({
     displayName: z

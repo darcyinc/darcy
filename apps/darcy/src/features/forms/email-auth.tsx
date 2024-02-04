@@ -18,21 +18,22 @@ interface EmailAuthFormProps {
 
 export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
   const t = useTranslations('Auth');
+  const tForms = useTranslations('Forms.EmailAuth')
   const [loading, setLoading] = useState(false);
 
   const formSchema = z.object({
     email: z.string().email({
-      message: t('AuthProviders.Email.invalidEmail')
+      message: tForms('Errors.invalidEmail')
     })
   });
 
   useEffect(() => {
     if (error) {
-      toast.error('AuthErrors.Toasts.errorSending', {
+      toast.error(tForms('Errors.errorSending'), {
         description: t(`AuthErrors.${error}`)
       });
     }
-  }, [error, t]);
+  }, [error, t, tForms]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema)
@@ -47,7 +48,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
     setLoading(false);
     onSubmit?.();
 
-    toast.success(t('AuthProviders.Email.Toasts.sent'));
+    toast.success(tForms('emailSent'));
   };
 
   return (
@@ -68,7 +69,7 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
         />
         <Button type="submit" className="font-bold gap-2 text-lg w-full rounded-full">
           {loading && <LoadingSpinner />}
-          {t('AuthProviders.Email.send')}
+          {tForms('send')}
         </Button>
       </form>
     </Form>

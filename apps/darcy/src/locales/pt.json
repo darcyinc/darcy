@@ -6,19 +6,9 @@
     },
     "AuthProviders": {
       "providersSuggestion": "ou entre com",
-      "joinWith": "Entrar com {provider}",
-      "Email": {
-        "send": "Enviar e-mail de verificação",
-        "invalidEmail": "E-mail inválido",
-        "Toasts": {
-          "sent": "E-mail de autenticação enviado com sucesso."
-        }
-      }
+      "joinWith": "Entrar com {provider}"
     },
     "AuthErrors": {
-      "Toasts": {
-        "errorSending": "Não foi possível finalizar a autenticação."
-      },
       "error_while_auth": "Erro ao autenticar:",
       "invalid_email": "E-mail inválido",
       "no_email_associated": "A conta no serviço escolhido não possui um e-mail associado.",
@@ -66,7 +56,28 @@
   },
   "Modals": {
     "EditUser": {
-      "title": "Editar perfil",
+      "title": "Editar perfil"
+    },
+    "CreatePost": {
+      "title": "Criar publicação"
+    },
+    "Following": {
+      "title": "Seguindo"
+    },
+    "Followers": {
+      "title": "Seguidores"
+    }
+  },
+  "Forms": {
+    "EmailAuth": {
+      "emailSent": "E-mail enviado com sucesso.",
+      "send": "Enviar e-maiil de verificação",
+      "Errors": {
+        "invalidEmail": "E-mail inválido",
+        "errorSending": "Não foi possível finalizar a autenticação."
+      }
+    },
+    "EditUser": {
       "displayName": "Nome",
       "displayNameDescription": "Este é o seu nome.",
       "handle": "Nome de usuário",

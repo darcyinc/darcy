@@ -6,19 +6,9 @@
     },
     "AuthProviders": {
       "providersSuggestion": "or sign in with",
-      "joinWith": "Sign in with {provider}",
-      "Email": {
-        "send": "Send email verification",
-        "invalidEmail": "Invalid e-mail",
-        "Toasts": {
-          "sent": "E-mail verification sent successfully."
-        }
-      }
+      "joinWith": "Sign in with {provider}"
     },
     "AuthErrors": {
-      "Toasts": {
-        "errorSending": "Could not finish authentication."
-      },
       "error_while_auth": "Error while authenticating:",
       "invalid_email": "Invalid e-mail",
       "no_email_associated": "The account on the chosen service does not have an associated e-mail.",
@@ -65,6 +55,28 @@
     "trending": "What's happening"
   },
   "Modals": {
+    "EditUser": {
+      "title": "Edit profile"
+    },
+    "CreatePost": {
+      "title": "Create a post"
+    },
+    "Following": {
+      "title": "Following"
+    },
+    "Followers": {
+      "title": "Followers"
+    }
+  },
+  "Forms": {
+    "EmailAuth": {
+      "emailSent": "E-mail sent successfully.",
+      "send": "Send e-mail verification",
+      "Errors": {
+        "invalidEmail": "Invalid e-mail",
+        "errorSending": "Could not finish authentication."
+      }
+    },
     "EditUser": {
       "title": "Edit profile",
       "displayName": "Name",
