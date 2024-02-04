@@ -30,7 +30,7 @@ export default function UserProfilePage({ initialData, initialPosts }: UserProfi
   }, [currentUser, initialData.handle]);
 
   useEffect(() => {
-    console.log(user.data)
+    console.log(user.data);
     if (user.data) setUserData(user.data);
   }, [user.data]);
 
