@@ -18,7 +18,7 @@ interface EmailAuthFormProps {
 
 export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
   const t = useTranslations('Auth');
-  const tForms = useTranslations('Forms.EmailAuth')
+  const tForms = useTranslations('Forms.EmailAuth');
   const [loading, setLoading] = useState(false);
 
   const formSchema = z.object({
