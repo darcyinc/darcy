@@ -3,29 +3,26 @@
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { valibotResolver } from '@hookform/resolvers/valibot';
 import { Search, XCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import v, { maxLength, minLength, object, string } from 'valibot';
 
 export default function PostSearchForm() {
   const router = useRouter();
   const t = useTranslations('Trending.Search');
 
-  const formSchema = z.object({
-    searchText: z
-      .string()
-      .min(1, { message: t('SearchErrors.tooSmall') })
-      .max(100, { message: t('SearchErrors.tooLarge') })
+  const formSchema = object({
+    searchText: string([minLength(1, t('SearchErrors.tooSmall')), maxLength(100, t('SearchErrors.tooLarge'))])
   });
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema)
+  const form = useForm<v.Input<typeof formSchema>>({
+    resolver: valibotResolver(formSchema)
   });
 
-  const handleSubmit = (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = (values: v.Input<typeof formSchema>) => {
     router.push(`/search?q=${encodeURIComponent(values.searchText.trim())}`, { scroll: false });
   };
 

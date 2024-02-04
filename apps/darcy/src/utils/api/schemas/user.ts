@@ -1,7 +1,7 @@
-import { z } from 'zod';
+import { maxLength, minLength, object, optional, string } from 'valibot';
 
-export const patchUserSchema = z.object({
-  displayName: z.string().min(1).max(32).optional(),
-  handle: z.string().min(1).max(16).optional(),
-  bio: z.string().max(120).optional()
+export const patchUserSchema = object({
+  displayName: optional(string([minLength(1), maxLength(32)])),
+  handle: optional(string([minLength(2), maxLength(16)])),
+  bio: optional(string([maxLength(120)]))
 });

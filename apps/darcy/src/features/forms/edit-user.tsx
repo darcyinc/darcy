@@ -7,11 +7,11 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { valibotResolver } from '@hookform/resolvers/valibot';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { z } from 'zod';
+import v, { regex, optional, object, string, maxLength, minLength } from 'valibot';
 
 interface EditUserFormProps {
   onSubmit?: () => void;
@@ -22,35 +22,19 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
   const t = useTranslations('Forms.EditUser');
   const mutation = useEditUser();
 
-  const formSchema = z.object({
-    displayName: z
-      .string()
-      .min(1, {
-        message: t('displayNameTooSmall')
-      })
-      .max(32, { message: t('displayNameTooLarge') })
-      .optional(),
-    handle: z
-      .string()
-      .regex(/^[a-zA-Z0-9_]*$/, {
-        message: t('invalidHandle')
-      })
-      .min(2, {
-        message: t('handleTooSmall')
-      })
-      .max(16, { message: t('handleTooLarge') })
-      .optional(),
-    bio: z
-      .string()
-      .max(120, { message: t('biographyTooLarge') })
-      .optional()
+  const formSchema = object({
+    displayName: optional(string([minLength(1, t('displayNameTooSmall')), maxLength(32, t('displayNameTooLarge'))])),
+    handle: optional(
+      string([minLength(2, t('handleTooSmall')), maxLength(16, t('handleTooLarge')), regex(/^[a-zA-Z0-9_]*$/, t('invalidHandle'))])
+    ),
+    bio: optional(string([maxLength(120, t('biographyTooLarge'))]))
   });
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema)
+  const form = useForm<v.Input<typeof formSchema>>({
+    resolver: valibotResolver(formSchema)
   });
 
-  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (values: v.Input<typeof formSchema>) => {
     mutation.mutate(
       { ...values },
       {

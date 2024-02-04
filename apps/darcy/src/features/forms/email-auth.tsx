@@ -4,12 +4,12 @@ import LoadingSpinner from '@/components/loading-spinner';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { valibotResolver } from '@hookform/resolvers/valibot';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { z } from 'zod';
+import v, { email, object, string } from 'valibot';
 
 interface EmailAuthFormProps {
   onSubmit?: () => void;
@@ -21,10 +21,8 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
   const tForms = useTranslations('Forms.EmailAuth');
   const [loading, setLoading] = useState(false);
 
-  const formSchema = z.object({
-    email: z.string().email({
-      message: tForms('Errors.invalidEmail')
-    })
+  const formSchema = object({
+    email: string([email(tForms('Errors.invalidEmail'))])
   });
 
   useEffect(() => {
@@ -35,11 +33,11 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
     }
   }, [error, t, tForms]);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema)
+  const form = useForm<v.Input<typeof formSchema>>({
+    resolver: valibotResolver(formSchema)
   });
 
-  const handleSubmit = async (_values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (_values: v.Input<typeof formSchema>) => {
     setLoading(true);
 
     // TODO: send e-mail code
