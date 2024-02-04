@@ -23,6 +23,21 @@ To kickstart your Darcy website experience, follow these simple steps:
 
 4. **Explore the API:** Open your web browser and go to http://localhost:3000 to access the website.
 
+## Technologies
+
+- [React](https://react.dev/) - The JavaScript library for building user interfaces
+- [react-query](https://tanstack.com/query/v3/) - Powerful asynchronous state management for React
+- [React Hook Form](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation.
+- [Next.js](https://nextjs.org/) - The React Framework for the Web
+- [Zustand](https://github.com/pmndrs/zustand) - Bear necessities for state management in React
+- [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework for fast UI development
+- [next-intl](https://next-intl-docs.vercel.app/) - Internationalization for Next.js
+- [shadcn/ui](https://ui.shadcn.com/) - A collection of UI components
+- [Axios](https://github.com/axios/axios) - HTTP client
+- [Prisma](https://www.prisma.io/) - Next-generation Node.js and TypeScript ORM
+- [Valibot](https://valibot.dev/) - Fast and lightweight data validation
+- [Lucide](https://lucide.dev/) - A collection of SVG icons
+
 ## NPM Scripts
 
 The monorepo comes with the following npm scripts:
