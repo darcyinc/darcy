@@ -66,6 +66,7 @@
   },
   "Modals": {
     "EditUser": {
+      "title": "Editar perfil",
       "displayName": "Nome",
       "displayNameDescription": "Este é o seu nome.",
       "handle": "Nome de usuário",
