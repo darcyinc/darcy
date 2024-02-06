@@ -1,2 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-export const prisma = new PrismaClient();
+
+// biome-ignore lint/style/useConst: <explanation>
+export let prisma: PrismaClient;
+// @ts-expect-error
+prisma = prisma ?? new PrismaClient();

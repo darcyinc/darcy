@@ -6,11 +6,12 @@ import Link from 'next/link';
 interface FollowersModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  handle: string;
 }
 
-export default function FollowersModal({ open, onOpenChange }: FollowersModalProps) {
+export default function FollowersModal({ open, onOpenChange, handle }: FollowersModalProps) {
   const t = useTranslations('Modals.Followers');
-  const { data } = useUserFollowers('Tris');
+  const { data } = useUserFollowers(handle);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -19,11 +20,11 @@ export default function FollowersModal({ open, onOpenChange }: FollowersModalPro
           <DialogTitle>{t('title')}</DialogTitle>
         </DialogHeader>
 
-        <div>
+        <div className="max-h-80 overflow-y-scroll">
           {data?.pages?.map((page) =>
             page.map((user) => (
-              <Link key={user.handle} href={`/${user.handle}`} className="hover:bg-secondary">
-                <div className="flex items-center gap-2 py-2">
+              <Link key={user.handle} href={`/${user.handle}`}>
+                <div className="flex items-center gap-2 py-2 rounded-lg px-2 hover:bg-accent">
                   <img
                     alt="User profile avatar"
                     className="rounded-full"
