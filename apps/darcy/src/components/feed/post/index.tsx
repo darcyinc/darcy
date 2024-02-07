@@ -9,6 +9,7 @@ import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import ClickablePost from './clickable-post';
 import FeedPostActions from './post-actions';
+import FeedPostGallery from './post-gallery';
 
 interface FeedPostProps {
   content: string;
@@ -24,10 +25,11 @@ interface FeedPostProps {
   hasLiked: boolean;
   hasReposted: boolean;
   verified: $Enums.VerifiedType;
+  mediaUrls: string[];
   updatePostData?: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
 }
 
-export default function FeedPost({ content, avatar, username, handle, createdAt, verified, ...props }: FeedPostProps) {
+export default function FeedPost({ content, avatar, username, handle, createdAt, verified, mediaUrls, ...props }: FeedPostProps) {
   const locale = useLocale();
   const relativeTime = useRelativeTime({ locale, time: createdAt });
 
@@ -42,7 +44,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
           </Avatar>
         </Link>
 
-        <div className="flex flex-col overflow-hidden">
+        <div className="flex flex-col overflow-hidden w-full">
           <header className="flex gap-x-1 truncate">
             {/* MiniProfile */}
             <HoverCard>
@@ -75,6 +77,11 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
           </header>
 
           <article className="break-words">{content}</article>
+
+
+          <FeedPostGallery
+            images={mediaUrls}
+          />
         </div>
       </div>
 

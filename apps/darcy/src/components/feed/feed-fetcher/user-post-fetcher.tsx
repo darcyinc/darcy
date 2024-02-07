@@ -81,6 +81,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
                   reposts={0}
                   views={0}
                   verified={userData.verified}
+                  mediaUrls={post.mediaUrls}
                   key={post.id}
                   updatePostData={updatePostData}
                 />
@@ -103,6 +104,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
               reposts={0}
               views={0}
               verified={userData.verified}
+              mediaUrls={post.mediaUrls}
               key={post.id}
               updatePostData={updatePostData}
             />

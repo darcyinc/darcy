@@ -18,6 +18,7 @@ export interface GetPostResponse {
   commentCount: number;
   likeCount: number;
   hasLiked: boolean;
+  mediaUrls: string[];
   author: {
     displayName: string;
     handle: string;

@@ -70,6 +70,7 @@ export default function TimelinePostFetcher() {
               reposts={0}
               views={0}
               verified={post.author.verified}
+              mediaUrls={post.mediaUrls}
               key={post.id}
               updatePostData={updatePostData}
             />

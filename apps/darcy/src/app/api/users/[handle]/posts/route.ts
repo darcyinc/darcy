@@ -18,6 +18,7 @@ export interface GetUserPostsResponse {
   commentCount: number;
   likeCount: number;
   hasLiked: boolean;
+  mediaUrls: string[];
 }
 
 export async function GET(request: NextRequest, { params }: RecentPostOptions) {
