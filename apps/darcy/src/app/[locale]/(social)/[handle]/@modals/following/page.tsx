@@ -4,7 +4,13 @@ import FollowingModal from '@/features/modals/following';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function Page() {
+interface PageProps {
+  params: {
+    handle: string;
+  };
+}
+
+export default function Page({ params }: PageProps) {
   const [open, setOpen] = useState(true);
   const router = useRouter();
 
@@ -12,5 +18,5 @@ export default function Page() {
     if (!open) router.back();
   }, [router, open]);
 
-  return <FollowingModal open={open} onOpenChange={setOpen} />;
+  return <FollowingModal handle={params.handle} open={open} onOpenChange={setOpen} />;
 }
