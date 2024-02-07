@@ -1,19 +1,23 @@
 import { apiClient } from '@/api/client';
 import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { useQuery } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import { KyResponse } from 'ky';
 
 export default function useUser(handle: string) {
   const fetchUser = async () => {
     try {
-      const request = await apiClient.get(`/users/${handle}`);
-      return request.data as GetUserResponse;
+      const request = await apiClient.get(`users/${handle}`);
+      const data = (await request.json()) as GetUserResponse;
+      return data;
     } catch (err) {
-      if (err instanceof AxiosError) {
-        if (err.response) {
-          // throw the error code
-          throw new Error(err.response.data.error);
-        }
+      const error = err as {
+        name: string;
+        response: KyResponse;
+      };
+      if (error.name === 'HTTPError') {
+        // throw the error code
+        const errorJson = (await error.response.json()) as { error: string };
+        throw new Error(errorJson.error);
       }
 
       throw new Error('unknown_error');

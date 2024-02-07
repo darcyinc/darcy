@@ -21,13 +21,16 @@ export default async function Home({ params }: HomeProps) {
     redirect(`/${handle.replace('@', '')}`);
   }
 
-  const user = await apiClient.get<GetUserResponse>(`/users/${handle}`);
+  const user = await apiClient.get(`users/${handle}`, {
+    throwHttpErrors: false
+  });
+  const data = (await user.json()) as GetUserResponse;
 
   if (user.status !== 200) {
     notFound();
   }
 
-  if (user.data.private) {
+  if (data.private) {
     return (
       <>
         <FeedHeader className="flex items-center gap-4 p-2">
@@ -36,12 +39,12 @@ export default async function Home({ params }: HomeProps) {
           </Link>
 
           <div>
-            <h1 className="text-lg font-bold">{user.data.displayName}</h1>
-            <p className="text-sm text-muted-foreground">{user.data.postCount} posts</p>
+            <h1 className="text-lg font-bold">{data.displayName}</h1>
+            <p className="text-sm text-muted-foreground">{data.postCount} posts</p>
           </div>
         </FeedHeader>
 
-        <UserProfilePage initialData={{ ...user.data }} initialPosts={[]} />
+        <UserProfilePage initialData={{ ...data }} initialPosts={[]} />
 
         <div className="text-center my-4">
           <h1 className="font-bold">This user has a private profile.</h1>
@@ -51,7 +54,8 @@ export default async function Home({ params }: HomeProps) {
     );
   }
 
-  const posts = await apiClient.get<GetUserPostsResponse>(`/users/${handle}/posts`);
+  const posts = await apiClient.get(`users/${handle}/posts`);
+  const postsData = (await posts.json()) as GetUserPostsResponse;
 
   return (
     <>
@@ -61,13 +65,13 @@ export default async function Home({ params }: HomeProps) {
         </Link>
 
         <div>
-          <h1 className="text-lg font-bold">{user.data.displayName}</h1>
-          <p className="text-sm text-muted-foreground">{user.data.postCount} posts</p>
+          <h1 className="text-lg font-bold">{data.displayName}</h1>
+          <p className="text-sm text-muted-foreground">{data.postCount} posts</p>
         </div>
       </FeedHeader>
 
       {/* @ts-ignore */}
-      <UserProfilePage initialData={{ ...user.data }} initialPosts={posts.data} />
+      <UserProfilePage initialData={{ ...data }} initialPosts={postsData} />
     </>
   );
 }

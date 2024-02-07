@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import { KyResponse } from 'ky';
 import { apiClient } from '../client';
 
 interface CreateAuthData {
@@ -10,14 +10,18 @@ interface CreateAuthData {
 export default function useCreateAuth() {
   const authCallback = async ({ service, code }: CreateAuthData) => {
     try {
-      const request = await apiClient.post(`/auth/${service}/callback`, { code });
-      return request.data as { token: string };
+      const request = await apiClient.post(`auth/${service}/callback`, { json: { code } });
+      const data = (await request.json()) as { token: string };
+      return data;
     } catch (err) {
-      if (err instanceof AxiosError) {
-        if (err.response) {
-          // throw the error code
-          throw new Error(err.response.data.error);
-        }
+      const error = err as {
+        name: string;
+        response: KyResponse;
+      };
+      if (error.name === 'HTTPError') {
+        // throw the error code
+        const errorJson = (await error.response.json()) as { error: string };
+        throw new Error(errorJson.error);
       }
 
       throw new Error('unknown_error');

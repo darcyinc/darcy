@@ -33,7 +33,6 @@ To kickstart your Darcy website experience, follow these simple steps:
 - [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework for fast UI development
 - [next-intl](https://next-intl-docs.vercel.app/) - Internationalization for Next.js
 - [shadcn/ui](https://ui.shadcn.com/) - A collection of UI components
-- [Axios](https://github.com/axios/axios) - HTTP client
 - [Prisma](https://www.prisma.io/) - Next-generation Node.js and TypeScript ORM
 - [Valibot](https://valibot.dev/) - Fast and lightweight data validation
 - [Lucide](https://lucide.dev/) - A collection of SVG icons

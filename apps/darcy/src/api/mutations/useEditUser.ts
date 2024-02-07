@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import { KyResponse } from 'ky';
 import { apiClient } from '../client';
 
 interface EditUserOptions {
@@ -11,14 +11,18 @@ interface EditUserOptions {
 export default function useEditUser() {
   const editUser = async ({ displayName, handle, bio }: EditUserOptions) => {
     try {
-      const request = await apiClient.patch('/users/@me', { displayName, handle, bio });
-      return request.data;
+      const request = await apiClient.patch('users/@me', { json: { displayName, handle, bio } });
+      const data = (await request.json()) as { token: string };
+      return data;
     } catch (err) {
-      if (err instanceof AxiosError) {
-        if (err.response) {
-          // throw the error code
-          throw new Error(err.response.data.error);
-        }
+      const error = err as {
+        name: string;
+        response: KyResponse;
+      };
+      if (error.name === 'HTTPError') {
+        // throw the error code
+        const errorJson = (await error.response.json()) as { error: string };
+        throw new Error(errorJson.error);
       }
 
       throw new Error('unknown_error');

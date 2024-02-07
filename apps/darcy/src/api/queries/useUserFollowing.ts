@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
 import { GetUserFollowingResponse } from '@/app/api/users/[handle]/following/route';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import { KyResponse } from 'ky';
 
 interface UseUserFollowingOptions {
   limit?: number;
@@ -13,14 +13,18 @@ export default function useUserFollowing(handle: string, options?: UseUserFollow
 
   const fetchFollowing = async (page = 1) => {
     try {
-      const request = await apiClient.get(`/users/${handle}/following?page=${page}&limit=${limit}`);
-      return request.data as GetUserFollowingResponse;
+      const request = await apiClient.get(`users/${handle}/following?page=${page}&limit=${limit}`);
+      const data = (await request.json()) as GetUserFollowingResponse;
+      return data;
     } catch (err) {
-      if (err instanceof AxiosError) {
-        if (err.response) {
-          // throw the error code
-          throw new Error(err.response.data.error);
-        }
+      const error = err as {
+        name: string;
+        response: KyResponse;
+      };
+      if (error.name === 'HTTPError') {
+        // throw the error code
+        const errorJson = (await error.response.json()) as { error: string };
+        throw new Error(errorJson.error);
       }
 
       throw new Error('unknown_error');

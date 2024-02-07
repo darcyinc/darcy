@@ -1,19 +1,23 @@
 import { apiClient } from '@/api/client';
 import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { useQuery } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import { KyResponse } from 'ky';
 
 export default function usePost(postId: string) {
   const fetchPost = async () => {
     try {
-      const request = await apiClient.get(`/post/${postId}`);
-      return request.data as GetPostResponse;
+      const request = await apiClient.get(`post/${postId}`);
+      const data = (await request.json()) as GetPostResponse;
+      return data;
     } catch (err) {
-      if (err instanceof AxiosError) {
-        if (err.response) {
-          // throw the error code
-          throw new Error(err.response.data.error);
-        }
+      const error = err as {
+        name: string;
+        response: KyResponse;
+      };
+      if (error.name === 'HTTPError') {
+        // throw the error code
+        const errorJson = (await error.response.json()) as { error: string };
+        throw new Error(errorJson.error);
       }
 
       throw new Error('unknown_error');
