@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
+import { GetUserResponse } from '@/app/api/users/[handle]/route';
 
 interface EditUserOptions {
   displayName?: string;
@@ -12,7 +13,7 @@ export default function useEditUser() {
   const editUser = async ({ displayName, handle, bio }: EditUserOptions) => {
     try {
       const request = await apiClient.patch('users/@me', { json: { displayName, handle, bio } });
-      const data = (await request.json()) as { token: string };
+      const data = (await request.json()) as GetUserResponse;
       return data;
     } catch (err) {
       const error = err as {

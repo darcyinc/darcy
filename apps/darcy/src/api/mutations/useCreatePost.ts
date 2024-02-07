@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
+import { GetPostResponse } from '@/app/api/post/[postId]/route';
 
 interface CreatePostData {
   content: string;
@@ -10,7 +11,7 @@ export default function useCreatePost() {
   const createPost = async ({ content }: CreatePostData) => {
     try {
       const request = await apiClient.post('post', { json: { content } });
-      const data = await request.json();
+      const data = (await request.json()) as GetPostResponse;
       return data;
     } catch (err) {
       const error = err as {
