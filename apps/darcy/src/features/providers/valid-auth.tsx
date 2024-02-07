@@ -2,11 +2,10 @@
 
 import useUser from '@/api/queries/useUser';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { PropsWithChildren, useEffect } from 'react';
 
 export default function ValidAuthProvider({ children }: PropsWithChildren) {
-  const router = useRouter();
   const pathname = usePathname();
   const currentUser = useCurrentUser();
   const { data, error } = useUser('@me');
@@ -17,10 +16,6 @@ export default function ValidAuthProvider({ children }: PropsWithChildren) {
     // If it is invalid, redirect to /auth
     if (!pathname.includes('/auth')) {
       if (data) currentUser.setData({ ...data });
-      if (error) {
-        currentUser.reset();
-        router.push('/auth');
-      }
     }
   }, [data, error]);
 
