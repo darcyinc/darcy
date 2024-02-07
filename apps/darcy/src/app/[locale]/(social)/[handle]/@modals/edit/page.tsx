@@ -20,7 +20,7 @@ export default function Page({ params }: PageProps) {
     if (!open) router.back();
   }, [router, open]);
 
-  if (!currentUser.token || currentUser.handle !== params.handle) return router.back();
+  if (!currentUser.handle || currentUser.handle !== params.handle) return router.back();
 
   return <EditUserModal open={open} onOpenChange={setOpen} />;
 }

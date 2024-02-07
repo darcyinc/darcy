@@ -9,7 +9,7 @@ export default function DesktopNavbarProfile() {
   const currentUser = useCurrentUser();
 
   return (
-    currentUser.token && (
+    currentUser.handle && (
       <div className="mt-auto p-1">
         <Link className="hidden sm:block" href={`/${currentUser.handle}`}>
           <Button variant="ghost" className="rounded-full p-2 py-7 xl:p-4 xl:py-8">

@@ -27,7 +27,7 @@ export default function FeedFilter() {
               <span className={cn('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'foryou' && 'bg-primary')} />
             </p>
           </TabsTrigger>
-          <TabsTrigger value="following" className="w-2/4 flex flex-col h-full hover:!bg-accent p-0 pt-2" disabled={!currentUser.token}>
+          <TabsTrigger value="following" className="w-2/4 flex flex-col h-full hover:!bg-accent p-0 pt-2" disabled={!currentUser.handle}>
             <p className={cn('text-base', feedSort.sortMode === 'following' && 'font-bold')}>
               {t('following')}
               <span className={cn('block h-1 w-full mt-2 rounded-xl', feedSort.sortMode === 'following' && 'bg-primary')} />

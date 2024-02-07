@@ -2,6 +2,7 @@ import generateHandleFromEmail from '@/utils/api/auth/generateHandleFromEmail';
 import { getDiscordToken, getDiscordUserData } from '@/utils/api/auth/oauth/discord';
 import { prisma } from '@/utils/api/prisma';
 import { createToken } from '@/utils/api/tokenJwt';
+import { cookies } from 'next/headers';
 
 export async function POST(request: Request) {
   const { code } = (await request.json()) as { code?: string };
@@ -32,11 +33,12 @@ export async function POST(request: Request) {
     });
 
     if (existingUser) {
-      return new Response(
-        JSON.stringify({
-          token: await createToken(existingUser.email, existingUser.updatedAt.getTime())
-        })
-      );
+      cookies().set({
+        name: 'darcy_token',
+        value: await createToken(existingUser.email, existingUser.updatedAt.getTime())
+      });
+
+      return new Response();
     }
 
     const newUser = await prisma.user.create({
@@ -60,11 +62,13 @@ export async function POST(request: Request) {
       });
     }
 
-    return new Response(
-      JSON.stringify({
-        token: await createToken(newUser.auth.email, newUser.auth.updatedAt.getTime())
-      })
-    );
+    cookies().set({
+      name: 'darcy_token',
+      value: await createToken(newUser.auth.email, newUser.auth.updatedAt.getTime()),
+      httpOnly: true
+    });
+
+    return new Response();
   } catch {
     return new Response(JSON.stringify({ error: 'unknown_error', message: 'Unknown error' }), {
       status: 500

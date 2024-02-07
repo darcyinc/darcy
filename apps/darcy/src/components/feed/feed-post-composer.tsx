@@ -69,7 +69,7 @@ export default function FeedPostComposer({ showProfilePicture = true, hideBorder
   };
 
   return (
-    currentUser.token && (
+    currentUser.handle && (
       <div className={cn('flex w-full gap-3 p-2 py-4', !hideBorder && 'border-b border-b-border', hideOnMobile && 'hidden md:flex')}>
         {showProfilePicture && (
           <div className="h-10 w-10 flex-shrink-0">

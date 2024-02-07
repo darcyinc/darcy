@@ -1,4 +1,4 @@
-import { headers } from 'next/headers';
+import { cookies } from 'next/headers';
 import { verifyToken } from './tokenJwt';
 
 type UnauthorizedResponse = {
@@ -14,43 +14,38 @@ type AuthorizedResponse = {
 type AuthorizationResponse = AuthorizedResponse | UnauthorizedResponse;
 
 export default async function requireAuthorization(): Promise<AuthorizationResponse> {
-  const rawToken = headers().get('Authorization');
+  const token = cookies().get('darcy_token');
 
-  if (!rawToken) {
+  if (!token || !token.value) {
     return {
       authorized: false,
-      response: new Response('Missing Authentication Header', {
+      response: new Response('Missing Authentication Cookie', {
         status: 401
       })
     };
   }
 
-  const [type, token] = rawToken.split(' ');
-
-  if (type !== 'Bearer') {
-    return {
-      authorized: false,
-      response: new Response('Invalid Authentication Header', {
-        status: 401
-      })
-    };
-  }
   try {
-    const decodedToken = await verifyToken(token);
+    const decodedToken = await verifyToken(token.value);
 
-    if (!decodedToken.email || !decodedToken.updatedAt)
+    if (!decodedToken.email || !decodedToken.updatedAt) {
+      cookies().delete('darcy_token');
+
       return {
         authorized: false,
         response: new Response('Invalid Token', {
           status: 401
         })
       };
+    }
 
     return {
       authorized: true,
       email: decodedToken.email
     };
   } catch (e) {
+    cookies().delete('darcy_token');
+
     return {
       authorized: false,
       response: new Response('Invalid Token', {

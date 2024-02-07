@@ -30,7 +30,7 @@ export default function AsideNavbar() {
       <nav className="flex flex-col gap-1 items-center xl:items-start">
         <DesktopNavbarLinks />
 
-        {currentUser.token && (
+        {currentUser.handle && (
           <div className="xl:w-full mt-2 xl:mt-5">
             <Button className="rounded-full w-fit xl:w-full p-3 py-6" size="icon" onClick={() => setCreatePostModalOpen(true)}>
               <Pencil size={24} className="xl:hidden" />

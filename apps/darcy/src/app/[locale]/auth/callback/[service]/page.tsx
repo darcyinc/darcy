@@ -48,17 +48,16 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
       }
 
       if (mutation.isError) {
-        currentUser.setData({ token: null });
+        currentUser.reset();
         router.replace(`/auth?error=${mutation.error.message}`);
       }
 
       if (mutation.isSuccess) {
         sessionStorage.removeItem(`oauth2-state:${service}`);
-        localStorage.setItem('token', mutation.data.token);
 
         const { data } = await user.refetch();
 
-        currentUser.setData({ ...data, token: mutation.data.token });
+        currentUser.setData({ ...data });
         router.push('/');
       }
     };

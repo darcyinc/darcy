@@ -73,7 +73,7 @@ export default function PostActions({
         )}
         type="button"
         onClick={handleRepost}
-        disabled={!currentUser.token}
+        disabled={!currentUser.handle}
         aria-label="Repost post"
       >
         <div className="rounded-full p-1.5 group-enabled:hover:bg-repost/20">
@@ -89,7 +89,7 @@ export default function PostActions({
         )}
         type="button"
         onClick={handleLike}
-        disabled={!currentUser.token}
+        disabled={!currentUser.handle}
         aria-label="Like post"
       >
         <div className="rounded-full p-1.5 group-enabled:hover:bg-like/20">

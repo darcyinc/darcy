@@ -17,7 +17,7 @@ export default function UserFollowButton({ handle, isFollowing, updateUserData }
   const mutation = useFollowUser(handle);
   const t = useTranslations('UserProfile.Buttons');
 
-  if (!currentUser.token || currentUser.handle === handle) return null;
+  if (!currentUser.handle || currentUser.handle === handle) return null;
 
   const handleFollow = () => {
     updateUserData?.({ isFollowing: !isFollowing });

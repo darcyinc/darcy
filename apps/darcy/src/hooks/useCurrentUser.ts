@@ -2,8 +2,8 @@ import { User } from '@prisma/client';
 import { create } from 'zustand';
 
 type CurrentUserState = Pick<User, 'avatarUrl' | 'displayName' | 'handle' | 'bio'> & {
-  token: string | null;
   setData: (data: Partial<CurrentUserState>) => void;
+  reset: () => void;
 };
 
 export const useCurrentUser = create<CurrentUserState>((set) => ({
@@ -11,6 +11,6 @@ export const useCurrentUser = create<CurrentUserState>((set) => ({
   displayName: '',
   handle: '',
   avatarUrl: '',
-  token: '',
-  setData: (data) => set(data)
+  setData: (data) => set(data),
+  reset: () => set({ bio: '', displayName: '', handle: '', avatarUrl: '' })
 }));

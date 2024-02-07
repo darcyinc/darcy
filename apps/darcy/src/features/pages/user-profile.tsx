@@ -45,7 +45,7 @@ export default function UserProfilePage({ initialData, initialPosts }: UserProfi
       <UserProfile {...userData} updateUserData={updateUserData} bannerUrl="https://picsum.photos/800/200" />
 
       {/* TODO: handle private profiles */}
-      {!currentUser.token && initialData.private ? (
+      {!currentUser.handle && initialData.private ? (
         <p>Private profile.</p>
       ) : (
         <UserPostFetcher userData={userData} initialPosts={initialPosts} />

@@ -10,7 +10,7 @@ export default function MobileNavbarProfile() {
 
   return (
     <div className="flex items-center justify-between sm:hidden w-full py-2 px-4">
-      {currentUser.token && (
+      {currentUser.handle && (
         <Avatar>
           <AvatarImage src={currentUser.avatarUrl} alt="Your profile picture" />
           {/* TODO */}
