@@ -1,7 +1,7 @@
+import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
 
 interface CreatePostData {
   content: string;

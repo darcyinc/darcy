@@ -1,7 +1,7 @@
+import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
 
 interface EditUserOptions {
   displayName?: string;
