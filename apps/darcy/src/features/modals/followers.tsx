@@ -1,4 +1,5 @@
 import useUserFollowers from '@/api/queries/useUserFollowers';
+import { FeedPostLoader } from '@/components/feed';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -11,7 +12,7 @@ interface FollowersModalProps {
 
 export default function FollowersModal({ open, onOpenChange, handle }: FollowersModalProps) {
   const t = useTranslations('Modals.Followers');
-  const { data } = useUserFollowers(handle);
+  const { data, fetchNextPage } = useUserFollowers(handle);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -45,6 +46,8 @@ export default function FollowersModal({ open, onOpenChange, handle }: Followers
               </Link>
             ))
           )}
+
+          <FeedPostLoader onVisible={fetchNextPage} />
         </div>
       </DialogContent>
     </Dialog>

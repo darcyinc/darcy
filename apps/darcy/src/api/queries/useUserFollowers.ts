@@ -13,7 +13,7 @@ export default function useUserFollowers(handle: string, options?: UseUserFollow
 
   const fetchFollowers = async (page = 1) => {
     try {
-      const request = await apiClient.get(`/users/${handle}/followers?page=${page}&limit=${limit}`);
+      const request = await apiClient.get(`/users/${handle}/followers?page=${page}&limit=1`);
       return request.data as GetUserFollowersResponse;
     } catch (err) {
       if (err instanceof AxiosError) {
