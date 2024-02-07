@@ -78,10 +78,7 @@ export default function FeedPost({ content, avatar, username, handle, createdAt,
 
           <article className="break-words">{content}</article>
 
-
-          <FeedPostGallery
-            images={mediaUrls}
-          />
+          <FeedPostGallery images={mediaUrls} />
         </div>
       </div>
 
