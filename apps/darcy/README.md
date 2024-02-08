@@ -26,7 +26,7 @@ To kickstart your Darcy website experience, follow these simple steps:
 ## Technologies
 
 - [React](https://react.dev/) - The JavaScript library for building user interfaces
-- [react-query](https://tanstack.com/query/v3/) - Powerful asynchronous state management for React
+- [TanStack Query](https://tanstack.com/query/v3/) - Powerful asynchronous state management for React
 - [React Hook Form](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation.
 - [Next.js](https://nextjs.org/) - The React Framework for the Web
 - [Zustand](https://github.com/pmndrs/zustand) - Bear necessities for state management in React
@@ -36,6 +36,8 @@ To kickstart your Darcy website experience, follow these simple steps:
 - [Prisma](https://www.prisma.io/) - Next-generation Node.js and TypeScript ORM
 - [Valibot](https://valibot.dev/) - Fast and lightweight data validation
 - [Lucide](https://lucide.dev/) - A collection of SVG icons
+- [Sentry](https://sentry.io/) - Application performance monitoring & error tracking
+- [Vercel Analytics](https://vercel.com/analytics)
 
 ## NPM Scripts
 
