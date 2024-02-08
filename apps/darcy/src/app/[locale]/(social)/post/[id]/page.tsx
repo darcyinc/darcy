@@ -29,6 +29,7 @@ export default function Home() {
         username="Davi Patricio"
         views={100}
         verified="NONE"
+        mediaUrls={[]}
       />
     </>
   );
