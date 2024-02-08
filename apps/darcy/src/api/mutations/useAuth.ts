@@ -10,9 +10,7 @@ interface CreateAuthData {
 export default function useCreateAuth() {
   const authCallback = async ({ service, code }: CreateAuthData) => {
     try {
-      const request = await apiClient.post(`auth/${service}/callback`, { json: { code } });
-      const data = (await request.json()) as { token: string };
-      return data;
+      await apiClient.post(`auth/${service}/callback`, { json: { code } });
     } catch (err) {
       const error = err as {
         name: string;

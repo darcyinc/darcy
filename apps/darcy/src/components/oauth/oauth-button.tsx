@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { DISCORD_AUTH_URL } from '@/utils/api/auth/oauth/data';
+import { DISCORD_AUTH_URL, GITHUB_AUTH_URL } from '@/utils/api/auth/oauth/data';
 import { useRouter } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
@@ -20,13 +20,12 @@ const Services = {
   },
   google: {
     // TODO: replace in the future
-    link: process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL,
+    link: '',
     styles: '!bg-white !text-black hover:!bg-white/80',
     Icon: FcGoogle
   },
   github: {
-    // TODO: replace in the future
-    link: process.env.NEXT_PUBLIC_GITHUB_AUTH_URL,
+    link: GITHUB_AUTH_URL,
     styles: '!bg-neutral-600 !text-white hover:!bg-neutral-600/80',
     Icon: BsGithub
   }
