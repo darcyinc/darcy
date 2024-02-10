@@ -5,7 +5,6 @@ import { DESCRIPTION } from '@/utils/constants';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { PropsWithChildren } from 'react';
-import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '600', '700'] });
 
@@ -30,9 +29,7 @@ interface LayoutProps {
 export default function RootLayout({ children, params }: PropsWithChildren<LayoutProps>) {
   return (
     <html lang={params.locale} suppressHydrationWarning>
-      <body className={cn(inter.className, 'overflow-y-scroll')}>
-        <Providers>{children}</Providers>
-      </body>
+      <body className={cn(inter.className, 'overflow-y-scroll antialiased scroll-smooth')}>{children}</body>
     </html>
   );
 }

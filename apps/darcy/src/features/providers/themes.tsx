@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeProvider } from 'next-themes';
 import { PropsWithChildren } from 'react';
 
 export default function NextThemeProvider({ children }: PropsWithChildren) {
