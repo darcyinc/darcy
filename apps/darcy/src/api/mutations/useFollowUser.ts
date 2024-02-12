@@ -6,8 +6,13 @@ export default function useFollowUser(handle: string) {
   const followUser = async ({ follow }: { follow: boolean }) => {
     try {
       const request = await apiClient[follow ? 'post' : 'delete'](`users/${handle}/follow`);
-      const data = await request.json();
-      return data;
+
+      if (request.status !== 200) {
+        const data = await request.json();
+        return data;
+      }
+
+      return;
     } catch (err) {
       const error = err as {
         name: string;
