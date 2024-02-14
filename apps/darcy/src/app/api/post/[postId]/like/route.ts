@@ -50,7 +50,7 @@ export async function POST(_request: NextRequest, { params }: LikePostOptions) {
   });
 
   return new Response('', {
-    status: 200
+    status: 204
   });
 }
 
@@ -96,6 +96,6 @@ export async function DELETE(_request: NextRequest, { params }: LikePostOptions)
   });
 
   return new Response('', {
-    status: 200
+    status: 204
   });
 }

@@ -73,7 +73,7 @@ export async function POST(_request: NextRequest, { params }: FollowUserOptions)
   });
 
   return new Response('', {
-    status: 200
+    status: 204
   });
 }
 
@@ -142,6 +142,6 @@ export async function DELETE(_request: NextRequest, { params }: FollowUserOption
   });
 
   return new Response('', {
-    status: 200
+    status: 204
   });
 }

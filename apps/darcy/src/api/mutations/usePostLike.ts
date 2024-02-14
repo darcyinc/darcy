@@ -6,8 +6,13 @@ export default function usePostLike(postId: string) {
   const postLike = async ({ like }: { like: boolean }) => {
     try {
       const request = await apiClient[like ? 'post' : 'delete'](`post/${postId}/like`);
-      const data = (await request.json()) as { token: string };
-      return data;
+
+      if (request.status !== 204) {
+        const data = await request.json();
+        return data;
+      }
+
+      return {};
     } catch (err) {
       const error = err as {
         name: string;

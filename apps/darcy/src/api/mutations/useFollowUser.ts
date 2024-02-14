@@ -7,7 +7,7 @@ export default function useFollowUser(handle: string) {
     try {
       const request = await apiClient[follow ? 'post' : 'delete'](`users/${handle}/follow`);
 
-      if (request.status !== 200) {
+      if (request.status !== 204) {
         const data = await request.json();
         return data;
       }
