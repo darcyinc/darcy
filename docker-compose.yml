@@ -1,0 +1,15 @@
+services:
+  frontend01: &frontend01
+    image: davipatricio/darcy-frontend
+    hostname: frontend01
+    build:
+      context: .
+      dockerfile: ./apps/darcy/Dockerfile
+    ports:
+      - '3000:3000'
+
+  frontend02:
+    <<: *frontend01
+    hostname: frontend02
+    ports:
+      - '3001:3000'

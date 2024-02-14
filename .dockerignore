@@ -1,6 +1,4 @@
-node_modules
-.turbo
-.husky
-.vercel
 docs
-.next
+**/node_modules
+**/.turbo
+**/.next
