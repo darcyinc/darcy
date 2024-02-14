@@ -4,8 +4,6 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-WORKDIR /app
-
 # Dependencies
 COPY tsconfig.json /app
 COPY apps/darcy/package.json /app/apps/darcy/package.json
@@ -20,5 +18,5 @@ RUN pnpm prisma generate
 RUN pnpm build
 
 # Production
-EXPOSE 4000
+EXPOSE 3000
 CMD ["pnpm", "start"]
