@@ -2,6 +2,9 @@ services:
   web01: &web01
     image: davipatricio/darcy-frontend
     hostname: web01
+    depends_on:
+      db:
+        condition: service_healthy
     build:
       context: .
       dockerfile: ./apps/darcy/Dockerfile
@@ -13,3 +16,26 @@ services:
     hostname: web02
     ports:
       - '3001:3000'
+
+  db:
+    image: postgres:16-alpine
+    hostname: db
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=darcy
+      - POSTGRES_PASSWORD=darcy
+      - POSTGRES_DB=darcy
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready",
+          "-d",
+          "darcy",
+          "-U",
+          "darcy"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
