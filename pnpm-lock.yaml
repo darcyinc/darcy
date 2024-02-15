@@ -12,8 +12,8 @@ importers:
         specifier: 1.5.3
         version: 1.5.3
       '@types/node':
-        specifier: 20.11.18
-        version: 20.11.18
+        specifier: 20.11.19
+        version: 20.11.19
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -145,8 +145,8 @@ importers:
         specifier: 9.0.5
         version: 9.0.5
       '@types/node':
-        specifier: 20.11.18
-        version: 20.11.18
+        specifier: 20.11.19
+        version: 20.11.19
       '@types/react':
         specifier: 18.2.55
         version: 18.2.55
@@ -1433,11 +1433,11 @@ packages:
   /@types/jsonwebtoken@9.0.5:
     resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
     dependencies:
-      '@types/node': 20.11.18
+      '@types/node': 20.11.19
     dev: true
 
-  /@types/node@20.11.18:
-    resolution: {integrity: sha512-ABT5VWnnYneSBcNWYSCuR05M826RoMyMSGiFivXGx6ZUIsXb9vn4643IEwkg2zbEOSgAiSogtapN2fgc4mAPlw==}
+  /@types/node@20.11.19:
+    resolution: {integrity: sha512-7xMnVEcZFu0DikYjWOlRq7NTPETrm7teqUT2WkQjrTIkEgUyyGdWsj/Zg8bEJt5TNklzbPD1X3fqfsHw3SpapQ==}
     dependencies:
       undici-types: 5.26.5
     dev: true
