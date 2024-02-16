@@ -15,7 +15,7 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install
 # Build
 COPY /apps/darcy .
 RUN pnpm prisma generate
-RUN --mount=type=cache,id=next-build,target=.next pnpm build
+RUN pnpm build
 
 # Production
 ENV NODE_ENV=production
