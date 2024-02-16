@@ -49,6 +49,10 @@ The monorepo comes with the following npm scripts:
 - `lint`: Ensures codebase formatting adheres to the Biome standards.
 - `format`: Automatically formats and rectifies codebase issues using Biome.
 
+## How to migrate the database
+
+To migrate the database, you must start the PostgreSQL container with `docker-compose up -d db` and then run `pnpm prisma migrate deploy`.
+
 ## License
 
 Darcy and the Darcy website are distributed under the MIT License. For detailed licensing information, please consult the [LICENSE](LICENSE) file.
