@@ -34,7 +34,7 @@
     "jsonwebtoken": "9.0.2",
     "ky": "1.2.0",
     "lucide-react": "0.331.0",
-    "next": "14.1.1-canary.56",
+    "next": "14.1.1-canary.57",
     "next-intl": "3.7.0",
     "next-themes": "0.2.1",
     "react": "18.2.0",
