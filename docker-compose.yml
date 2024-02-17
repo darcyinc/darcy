@@ -1,5 +1,6 @@
 services:
   web01: &web01
+    container_name: darcy-frontend-web01
     image: davipatricio/darcy-frontend
     hostname: web01
     depends_on:
@@ -10,12 +11,14 @@ services:
 
   web02:
     <<: *web01
+    container_name: darcy-frontend-web02
     hostname: web02
     ports:
       - '3001'
 
   proxy:
     image: nginx:latest
+    container_name: darcy-nginx
     volumes:
       - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
@@ -26,6 +29,7 @@ services:
 
   db:
     image: postgres:16-alpine
+    container_name: darcy-postgres
     hostname: db
     ports:
       - '5432:5432'
@@ -34,7 +38,7 @@ services:
       POSTGRES_PASSWORD: "darcy"
       POSTGRES_DB: "darcy"
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - darcy-postgres-data:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -d darcy -U darcy" ]
       interval: 5s
@@ -46,5 +50,5 @@ networks:
     name: darcy
 
 volumes:
-  postgres-data:
+  darcy-postgres-data:
     name: "darcy-postgres-data"
