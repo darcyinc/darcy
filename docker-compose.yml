@@ -5,9 +5,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    build:
-      context: .
-      dockerfile: ./apps/darcy/Dockerfile
     ports:
       - '3000'
 
