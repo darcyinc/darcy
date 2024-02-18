@@ -5,12 +5,13 @@ import { apiClient } from '../client';
 
 interface CreatePostData {
   content: string;
+  parentId?: string;
 }
 
 export default function useCreatePost() {
-  const createPost = async ({ content }: CreatePostData) => {
+  const createPost = async ({ parentId, content }: CreatePostData) => {
     try {
-      const request = await apiClient.post('post', { json: { content } });
+      const request = await apiClient.post('post', { json: { content, parentId } });
       const data = (await request.json()) as GetPostResponse;
       return data;
     } catch (err) {

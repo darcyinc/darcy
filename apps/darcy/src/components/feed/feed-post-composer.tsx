@@ -19,9 +19,16 @@ interface FeedPostComposerProps {
   queryKeys?: unknown[];
   hideBorder?: boolean;
   hideOnMobile?: boolean;
+  parentPostId?: string;
 }
 
-export default function FeedPostComposer({ showProfilePicture = true, hideBorder, hideOnMobile, queryKeys }: FeedPostComposerProps) {
+export default function FeedPostComposer({
+  showProfilePicture = true,
+  hideBorder,
+  hideOnMobile,
+  parentPostId,
+  queryKeys
+}: FeedPostComposerProps) {
   const mutation = useCreatePost();
   const [content, setContent] = useState('');
   const queryClient = useQueryClient();
@@ -55,7 +62,7 @@ export default function FeedPostComposer({ showProfilePicture = true, hideBorder
     const publishStatusToast = toast.info(t('publishing'));
 
     mutation.mutate(
-      { content },
+      { content, parentId: parentPostId },
       {
         onSettled: () => toast.dismiss(publishStatusToast),
         onError: () => toast.error(t('errorPublishing')),

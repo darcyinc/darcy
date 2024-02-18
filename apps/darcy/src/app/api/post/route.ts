@@ -1,9 +1,11 @@
 import { prisma } from '@/utils/api/prisma';
 import requireAuthorization from '@/utils/api/requireAuthorization';
+import { Post } from '@prisma/client';
 import { NextRequest } from 'next/server';
 
 interface CreatePostRequest {
   content: string;
+  parentId?: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -41,10 +43,32 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let existingPost: Post | null = null;
+
+  if (data.parentId) {
+    existingPost = await prisma.post.findUnique({
+      where: {
+        id: data.parentId
+      }
+    });
+
+    if (!existingPost)
+      return new Response(
+        JSON.stringify({
+          error: 'post_not_found',
+          message: 'Post not found'
+        }),
+        {
+          status: 404
+        }
+      );
+  }
+
   const post = await prisma.post.create({
     data: {
       content: cleanContent,
-      authorId: user.id
+      authorId: user.id,
+      parentId: existingPost?.id
     },
     include: {
       author: {

@@ -24,11 +24,12 @@ export default async function Home({ params }: HomeProps) {
   const user = await apiClient.get(`users/${handle}`, {
     throwHttpErrors: false
   });
-  const data = (await user.json()) as GetUserResponse;
 
   if (user.status !== 200) {
     notFound();
   }
+
+  const data = (await user.json()) as GetUserResponse;
 
   if (data.private) {
     return (
