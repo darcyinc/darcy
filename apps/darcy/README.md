@@ -23,22 +23,6 @@ To kickstart your Darcy website experience, follow these simple steps:
 
 4. **Explore the API:** Open your web browser and go to http://localhost:3000 to access the website.
 
-## Technologies
-
-- [React](https://react.dev/) - The JavaScript library for building user interfaces
-- [TanStack Query](https://tanstack.com/query/v3/) - Powerful asynchronous state management for React
-- [React Hook Form](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation.
-- [Next.js](https://nextjs.org/) - The React Framework for the Web
-- [Zustand](https://github.com/pmndrs/zustand) - Bear necessities for state management in React
-- [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework for fast UI development
-- [next-intl](https://next-intl-docs.vercel.app/) - Internationalization for Next.js
-- [shadcn/ui](https://ui.shadcn.com/) - A collection of UI components
-- [Prisma](https://www.prisma.io/) - Next-generation Node.js and TypeScript ORM
-- [Valibot](https://valibot.dev/) - Fast and lightweight data validation
-- [Lucide](https://lucide.dev/) - A collection of SVG icons
-- [Sentry](https://sentry.io/) - Application performance monitoring & error tracking
-- [Vercel Analytics](https://vercel.com/analytics)
-
 ## NPM Scripts
 
 The monorepo comes with the following npm scripts:
@@ -51,7 +35,24 @@ The monorepo comes with the following npm scripts:
 
 ## How to migrate the database
 
-To migrate the database, you must start the PostgreSQL container with `docker-compose up -d db` and then run `pnpm prisma migrate deploy`.
+To migrate the database, you must start the PostgreSQL container with `docker-compose up db` and then run `pnpm prisma migrate deploy`.
+
+## Technologies
+
+- [React](https://react.dev/)
+- [Next.js](https://nextjs.org/)
+- [TanStack Query](https://tanstack.com/query/v3/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [TailwindCSS](https://tailwindcss.com/)
+- [next-intl](https://next-intl-docs.vercel.app/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Prisma](https://www.prisma.io/)
+- [Valibot](https://valibot.dev/)
+- [Lucide](https://lucide.dev/)
+- [Sentry](https://sentry.io/)
+- [Vercel Analytics](https://vercel.com/analytics)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## License
 

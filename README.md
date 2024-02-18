@@ -2,7 +2,7 @@
 
 Welcome to Darcy, an elegant and engaging social network that empowers you to connect with friends, express your thoughts, and discover endless possibilities.
 
-This repository serves as a monorepo encompassing all the essential components required to run Darcy, including the frontend, API, API wrapper, and more.
+This repository serves as a monorepo encompassing all the essential components required to run Darcy, including the frontend, API and more.
 
 ## Table of Contents
 
@@ -35,6 +35,18 @@ The monorepo comes with the following npm scripts:
 - `start`: Launches the production version of Darcy (you must run build first).
 - `lint`: Ensures codebase formatting adheres to the Biome standards.
 - `format`: Automatically formats and rectifies codebase issues using Biome.
+
+## Technologies
+
+- [pnpm](https://pnpm.io)
+- [Biome](https://biomejs.dev)
+- [nginx](https://nginx.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Turborepo](https://turbo.build/)
+
+See the list of technologies used in the frontend [here](apps/darcy/README.md#technologies).
 
 ## License
 
