@@ -1,4 +1,3 @@
-import isCI from 'is-ci';
 import { sign, verify } from 'jsonwebtoken';
 
 interface TokenPayload {
@@ -7,10 +6,6 @@ interface TokenPayload {
 }
 
 const { JWT_SECRET } = process.env as Record<string, string>;
-
-if (!isCI && !JWT_SECRET) {
-  throw new Error('Missing JWT_SECRET env var. Set it and restart the server');
-}
 
 export const createToken = async (email: string, updatedAt: number) => {
   return new Promise<string>((resolve, reject) => {
