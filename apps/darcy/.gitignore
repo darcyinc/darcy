@@ -7,8 +7,8 @@ prisma/migrations
 .next/
 
 # local env files
+.env
 .env.development
-.env.production
 
 # typescript
 next-env.d.ts
