@@ -6,17 +6,18 @@ RUN corepack enable
 
 # Dependencies
 COPY tsconfig.json /app/tsconfig.json
-COPY /apps/darcy/package.json /app/apps/darcy/package.json
+COPY apps/darcy/package.json /app/apps/darcy/package.json
 
 WORKDIR /app/apps/darcy
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install
 
 # Build
-COPY /apps/darcy .
+COPY apps/darcy/ .
 RUN pnpm prisma generate
 
 ENV NODE_ENV=production
+VOLUME ["/app/.next/cache"]
 RUN pnpm build
 
 # Production
