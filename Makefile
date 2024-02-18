@@ -1,9 +1,8 @@
 USERNAME := davipatricio
 
+.PHONY: docker-build-all
 
-.PHONY: build-docker
-
-docker-build-all: build-darcy-frontend
+docker-build-all: docker-build-frontend
 
 docker-build-frontend:
 	docker build . -t ${USERNAME}/darcy-frontend -f apps/darcy/Dockerfile &
