@@ -36,7 +36,9 @@ services:
       - '80:80'
 
   db:
-    image: postgres:16-alpine
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.postgres
     container_name: darcy-postgres
     restart: unless-stopped
     hostname: db

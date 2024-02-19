@@ -33,10 +33,6 @@ The monorepo comes with the following npm scripts:
 - `lint`: Ensures codebase formatting adheres to the Biome standards.
 - `format`: Automatically formats and rectifies codebase issues using Biome.
 
-## How to migrate the database
-
-To migrate the database, you must start the PostgreSQL container with `docker-compose up db` and then run `pnpm prisma migrate deploy`.
-
 ## Technologies
 
 - [React](https://react.dev/)

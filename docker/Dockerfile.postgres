@@ -1,0 +1,3 @@
+FROM postgres:16-alpine
+
+COPY apps/darcy/prisma/migrations/*/*.sql /docker-entrypoint-initdb.d
