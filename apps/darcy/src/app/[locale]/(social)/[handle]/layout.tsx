@@ -9,7 +9,7 @@ interface LayoutProps {
   };
 }
 
-export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>): Promise<Metadata> {
+export async function generateMetadata({ params }: PropsWithChildren<LayoutProps>): Promise<Metadata> {
   const user = await prisma.user.findFirst({
     where: {
       handle: params.handle
