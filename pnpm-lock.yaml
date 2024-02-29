@@ -93,8 +93,8 @@ importers:
         specifier: 9.0.2
         version: 9.0.2
       ky:
-        specifier: 1.2.1
-        version: 1.2.1
+        specifier: 1.2.2
+        version: 1.2.2
       lucide-react:
         specifier: 0.343.0
         version: 0.343.0(react@18.2.0)
@@ -2219,8 +2219,8 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /ky@1.2.1:
-    resolution: {integrity: sha512-7L6uTdeFQdmCmHCQ3I/K/bbU1OphhHkHgJcD8AJFiG70FOppdrnAnbZDcL1pxtW5mgieX/nQISEoDKxnJ5Ib2w==}
+  /ky@1.2.2:
+    resolution: {integrity: sha512-gYA2QOI3uIaImJPJjaBbLCdvKHzwxsuB03s7PjrXmoO6tcn6k53rwYoSRgqrmVsEV6wFFegOXDVjABxFZ0aRSg==}
     engines: {node: '>=18'}
     dev: false
 
