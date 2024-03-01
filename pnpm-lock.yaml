@@ -127,7 +127,7 @@ importers:
         version: 2.2.1
       tailwindcss-animate:
         specifier: 1.0.7
-        version: 1.0.7(tailwindcss@0.0.0-insiders.4429ab8)
+        version: 1.0.7(tailwindcss@3.4.1)
       valibot:
         specifier: 0.29.0
         version: 0.29.0
@@ -166,8 +166,8 @@ importers:
         specifier: ^0.33.0
         version: 0.33.2
       tailwindcss:
-        specifier: 0.0.0-insiders.4429ab8
-        version: 0.0.0-insiders.4429ab8
+        specifier: 3.4.1
+        version: 3.4.1
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -2859,16 +2859,16 @@ packages:
       '@babel/runtime': 7.23.8
     dev: false
 
-  /tailwindcss-animate@1.0.7(tailwindcss@0.0.0-insiders.4429ab8):
+  /tailwindcss-animate@1.0.7(tailwindcss@3.4.1):
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
-      tailwindcss: 0.0.0-insiders.4429ab8
+      tailwindcss: 3.4.1
     dev: false
 
-  /tailwindcss@0.0.0-insiders.4429ab8:
-    resolution: {integrity: sha512-MXeSb9hjZVhEmQdU4MWTmJeoTjY8tM1T+XGAR9p5g3F86BQcfks9JLAWZWBJEh18j2+gNi6Ynmtr1Lb4HFubQA==}
+  /tailwindcss@3.4.1:
+    resolution: {integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
