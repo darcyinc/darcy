@@ -1,6 +1,9 @@
 {
   "name": "@darcy/darcy-frontend",
   "version": "0.0.0",
+  "description": "The Darcy Social Network.",
+  "author": "Davi Patricio <davipatricio@protonmail.com>",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +12,10 @@
     "lint": "biome check src",
     "format": "biome check --apply src",
     "postinstall": "prisma generate"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
   },
   "dependencies": {
     "@hookform/resolvers": "3.3.4",
@@ -60,5 +67,6 @@
     "sharp": "^0.33.0",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
-  }
+  },
+  "packageManager": "pnpm@8.15.4"
 }
