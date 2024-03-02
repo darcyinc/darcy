@@ -30,6 +30,23 @@
     "noEmit": true,
     "removeComments": true,
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+
+    // Next
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["*.ts", "src/**/*.ts", "src/**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

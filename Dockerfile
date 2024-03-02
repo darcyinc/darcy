@@ -5,19 +5,17 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
 # Dependencies
-COPY tsconfig.json /app/tsconfig.json
-COPY apps/darcy/package.json /app/apps/darcy/package.json
-
-WORKDIR /app/apps/darcy
+WORKDIR /app
+COPY tsconfig.json package.json pnpm-lock.yaml ./
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install
 
 # Build
-COPY apps/darcy/ .
+COPY . .
 RUN pnpm prisma generate
 
 ENV NODE_ENV=production
-VOLUME ["/app/.next/cache"]
+VOLUME ["/.next/cache"]
 RUN pnpm build
 
 # Production
