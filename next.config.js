@@ -1,7 +1,7 @@
-const { withSentryConfig } = require("@sentry/nextjs");
-const withNextIntl = require("next-intl/plugin")("./src/utils/i18n.ts");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true"
+const { withSentryConfig } = require('@sentry/nextjs');
+const withNextIntl = require('next-intl/plugin')('./src/utils/i18n.ts');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
 });
 
 // Injected content via Sentry wizard below
@@ -18,8 +18,8 @@ module.exports = withSentryConfig(
 
     // Suppresses source map uploading logs during build
     silent: true,
-    org: "darcy-c9",
-    project: "darcy-frontned"
+    org: 'darcy-c9',
+    project: 'darcy-frontned'
   },
   {
     // For all available options, see:
@@ -32,7 +32,7 @@ module.exports = withSentryConfig(
     transpileClientSDK: true,
 
     // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
-    tunnelRoute: "/monitoring",
+    tunnelRoute: '/monitoring',
 
     // Hides source maps from generated client bundles
     hideSourceMaps: true,
