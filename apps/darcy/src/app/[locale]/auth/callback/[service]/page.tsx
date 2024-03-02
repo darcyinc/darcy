@@ -53,7 +53,7 @@ export default function CallbackPage({ params, searchParams }: CallbackPageProps
       }
 
       if (mutation.isSuccess) {
-        localStorage.setItem('darcy-token', mutation.data.token)
+        localStorage.setItem('darcy-token', mutation.data.token);
         sessionStorage.removeItem(`oauth2-state:${service}`);
 
         const { data } = await user.refetch();
