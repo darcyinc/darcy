@@ -9,12 +9,10 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "target": "ESNext",
-
     // Strict Type-Checking Options
     "strict": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
-
     // Additional Type-Checking Options
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -22,7 +20,6 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-
     // Miscellaneous Options
     "alwaysStrict": true,
     "declaration": false,
@@ -31,9 +28,12 @@
     "removeComments": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-
     // Next
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "resolveJsonModule": true,
     "jsx": "preserve",
     "incremental": true,
@@ -43,8 +43,18 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

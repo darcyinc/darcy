@@ -9,8 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check src",
-    "format": "biome check --apply src",
+    "lint": "biome check .",
+    "format": "biome check --apply .",
     "postinstall": "prisma generate"
   },
   "engines": {
