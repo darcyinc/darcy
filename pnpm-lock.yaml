@@ -4,297 +4,150 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  '@hookform/resolvers':
+    specifier: 3.3.4
+    version: 3.3.4(react-hook-form@7.51.0)
+  '@next/bundle-analyzer':
+    specifier: 14.1.1
+    version: 14.1.1
+  '@prisma/client':
+    specifier: 5.10.2
+    version: 5.10.2(prisma@5.10.2)
+  '@radix-ui/react-avatar':
+    specifier: 1.0.4
+    version: 1.0.4(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-dialog':
+    specifier: 1.0.5
+    version: 1.0.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-hover-card':
+    specifier: 1.0.7
+    version: 1.0.7(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-label':
+    specifier: 2.0.2
+    version: 2.0.2(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-slot':
+    specifier: 1.0.2
+    version: 1.0.2(@types/react@18.2.61)(react@18.2.0)
+  '@radix-ui/react-tabs':
+    specifier: 1.0.4
+    version: 1.0.4(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-toast':
+    specifier: 1.1.5
+    version: 1.1.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-tooltip':
+    specifier: 1.0.7
+    version: 1.0.7(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
+  '@sentry/nextjs':
+    specifier: 7.104.0
+    version: 7.104.0(next@14.1.1)(react@18.2.0)
+  '@tanstack/react-query':
+    specifier: 5.24.8
+    version: 5.24.8(react@18.2.0)
+  '@tanstack/react-query-devtools':
+    specifier: 5.24.8
+    version: 5.24.8(@tanstack/react-query@5.24.8)(react@18.2.0)
+  '@vercel/analytics':
+    specifier: 1.2.2
+    version: 1.2.2(next@14.1.1)(react@18.2.0)
+  '@vercel/speed-insights':
+    specifier: 1.0.10
+    version: 1.0.10(next@14.1.1)(react@18.2.0)
+  class-variance-authority:
+    specifier: 0.7.0
+    version: 0.7.0
+  clsx:
+    specifier: ^2.1.0
+    version: 2.1.0
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
+  is-ci:
+    specifier: 3.0.1
+    version: 3.0.1
+  jsonwebtoken:
+    specifier: 9.0.2
+    version: 9.0.2
+  ky:
+    specifier: 1.2.2
+    version: 1.2.2
+  lucide-react:
+    specifier: 0.344.0
+    version: 0.344.0(react@18.2.0)
+  next:
+    specifier: 14.1.1
+    version: 14.1.1(react-dom@18.2.0)(react@18.2.0)
+  next-intl:
+    specifier: 3.9.1
+    version: 3.9.1(next@14.1.1)(react@18.2.0)
+  next-themes:
+    specifier: 0.2.1
+    version: 0.2.1(next@14.1.1)(react-dom@18.2.0)(react@18.2.0)
+  react:
+    specifier: 18.2.0
+    version: 18.2.0
+  react-dom:
+    specifier: 18.2.0
+    version: 18.2.0(react@18.2.0)
+  react-hook-form:
+    specifier: 7.51.0
+    version: 7.51.0(react@18.2.0)
+  react-icons:
+    specifier: 5.0.1
+    version: 5.0.1(react@18.2.0)
+  sonner:
+    specifier: 1.4.3
+    version: 1.4.3(react-dom@18.2.0)(react@18.2.0)
+  tailwind-merge:
+    specifier: 2.2.1
+    version: 2.2.1
+  tailwindcss-animate:
+    specifier: 1.0.7
+    version: 1.0.7(tailwindcss@3.4.1)
+  valibot:
+    specifier: 0.29.0
+    version: 0.29.0
+  zustand:
+    specifier: 4.5.1
+    version: 4.5.1(@types/react@18.2.61)(react@18.2.0)
 
-  .:
-    dependencies:
-      '@hookform/resolvers':
-        specifier: 3.3.4
-        version: 3.3.4(react-hook-form@7.51.0)
-      '@next/bundle-analyzer':
-        specifier: 14.1.1
-        version: 14.1.1
-      '@prisma/client':
-        specifier: 5.10.2
-        version: 5.10.2(prisma@5.10.2)
-      '@radix-ui/react-avatar':
-        specifier: 1.0.4
-        version: 1.0.4(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-dialog':
-        specifier: 1.0.5
-        version: 1.0.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-hover-card':
-        specifier: 1.0.7
-        version: 1.0.7(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-label':
-        specifier: 2.0.2
-        version: 2.0.2(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-slot':
-        specifier: 1.0.2
-        version: 1.0.2(@types/react@18.2.61)(react@18.2.0)
-      '@radix-ui/react-tabs':
-        specifier: 1.0.4
-        version: 1.0.4(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-toast':
-        specifier: 1.1.5
-        version: 1.1.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-tooltip':
-        specifier: 1.0.7
-        version: 1.0.7(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@sentry/nextjs':
-        specifier: 7.104.0
-        version: 7.104.0(next@14.1.1)(react@18.2.0)
-      '@tanstack/react-query':
-        specifier: 5.24.1
-        version: 5.24.1(react@18.2.0)
-      '@tanstack/react-query-devtools':
-        specifier: 5.24.1
-        version: 5.24.1(@tanstack/react-query@5.24.1)(react@18.2.0)
-      '@vercel/analytics':
-        specifier: 1.2.2
-        version: 1.2.2(next@14.1.1)(react@18.2.0)
-      '@vercel/speed-insights':
-        specifier: 1.0.10
-        version: 1.0.10(next@14.1.1)(react@18.2.0)
-      class-variance-authority:
-        specifier: 0.7.0
-        version: 0.7.0
-      clsx:
-        specifier: ^2.1.0
-        version: 2.1.0
-      dayjs:
-        specifier: ^1.11.10
-        version: 1.11.10
-      is-ci:
-        specifier: 3.0.1
-        version: 3.0.1
-      jsonwebtoken:
-        specifier: 9.0.2
-        version: 9.0.2
-      ky:
-        specifier: 1.2.2
-        version: 1.2.2
-      lucide-react:
-        specifier: 0.344.0
-        version: 0.344.0(react@18.2.0)
-      next:
-        specifier: 14.1.1
-        version: 14.1.1(react-dom@18.2.0)(react@18.2.0)
-      next-intl:
-        specifier: 3.9.1
-        version: 3.9.1(next@14.1.1)(react@18.2.0)
-      next-themes:
-        specifier: 0.2.1
-        version: 0.2.1(next@14.1.1)(react-dom@18.2.0)(react@18.2.0)
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-hook-form:
-        specifier: 7.51.0
-        version: 7.51.0(react@18.2.0)
-      react-icons:
-        specifier: 5.0.1
-        version: 5.0.1(react@18.2.0)
-      sonner:
-        specifier: 1.4.3
-        version: 1.4.3(react-dom@18.2.0)(react@18.2.0)
-      tailwind-merge:
-        specifier: 2.2.1
-        version: 2.2.1
-      tailwindcss-animate:
-        specifier: 1.0.7
-        version: 1.0.7(tailwindcss@3.4.1)
-      valibot:
-        specifier: 0.29.0
-        version: 0.29.0
-      zustand:
-        specifier: 4.5.1
-        version: 4.5.1(@types/react@18.2.61)(react@18.2.0)
-    devDependencies:
-      '@biomejs/biome':
-        specifier: 1.5.3
-        version: 1.5.3
-      '@types/is-ci':
-        specifier: 3.0.4
-        version: 3.0.4
-      '@types/jsonwebtoken':
-        specifier: 9.0.6
-        version: 9.0.6
-      '@types/node':
-        specifier: 20.11.24
-        version: 20.11.24
-      '@types/react':
-        specifier: 18.2.61
-        version: 18.2.61
-      '@types/react-dom':
-        specifier: 18.2.19
-        version: 18.2.19
-      autoprefixer:
-        specifier: 10.4.18
-        version: 10.4.18(postcss@8.4.35)
-      postcss:
-        specifier: 8.4.35
-        version: 8.4.35
-      prisma:
-        specifier: 5.10.2
-        version: 5.10.2
-      sharp:
-        specifier: ^0.33.2
-        version: 0.33.2
-      tailwindcss:
-        specifier: 3.4.1
-        version: 3.4.1
-      typescript:
-        specifier: 5.3.3
-        version: 5.3.3
-
-  apps/darcy:
-    dependencies:
-      '@hookform/resolvers':
-        specifier: 3.3.4
-        version: 3.3.4(react-hook-form@7.51.0)
-      '@next/bundle-analyzer':
-        specifier: 14.1.1
-        version: 14.1.1
-      '@prisma/client':
-        specifier: 5.10.2
-        version: 5.10.2(prisma@5.10.2)
-      '@radix-ui/react-avatar':
-        specifier: 1.0.4
-        version: 1.0.4(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-dialog':
-        specifier: 1.0.5
-        version: 1.0.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-hover-card':
-        specifier: 1.0.7
-        version: 1.0.7(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-label':
-        specifier: 2.0.2
-        version: 2.0.2(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-slot':
-        specifier: 1.0.2
-        version: 1.0.2(@types/react@18.2.61)(react@18.2.0)
-      '@radix-ui/react-tabs':
-        specifier: 1.0.4
-        version: 1.0.4(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-toast':
-        specifier: 1.1.5
-        version: 1.1.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-tooltip':
-        specifier: 1.0.7
-        version: 1.0.7(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
-      '@sentry/nextjs':
-        specifier: 7.104.0
-        version: 7.104.0(next@14.1.1)(react@18.2.0)
-      '@tanstack/react-query':
-        specifier: 5.24.7
-        version: 5.24.7(react@18.2.0)
-      '@tanstack/react-query-devtools':
-        specifier: 5.24.7
-        version: 5.24.7(@tanstack/react-query@5.24.7)(react@18.2.0)
-      '@vercel/analytics':
-        specifier: 1.2.2
-        version: 1.2.2(next@14.1.1)(react@18.2.0)
-      '@vercel/speed-insights':
-        specifier: 1.0.10
-        version: 1.0.10(next@14.1.1)(react@18.2.0)
-      class-variance-authority:
-        specifier: 0.7.0
-        version: 0.7.0
-      clsx:
-        specifier: ^2.0.0
-        version: 2.1.0
-      dayjs:
-        specifier: ^1.11.9
-        version: 1.11.10
-      is-ci:
-        specifier: 3.0.1
-        version: 3.0.1
-      jsonwebtoken:
-        specifier: 9.0.2
-        version: 9.0.2
-      ky:
-        specifier: 1.2.2
-        version: 1.2.2
-      lucide-react:
-        specifier: 0.344.0
-        version: 0.344.0(react@18.2.0)
-      next:
-        specifier: 14.1.1
-        version: 14.1.1(react-dom@18.2.0)(react@18.2.0)
-      next-intl:
-        specifier: 3.9.1
-        version: 3.9.1(next@14.1.1)(react@18.2.0)
-      next-themes:
-        specifier: 0.2.1
-        version: 0.2.1(next@14.1.1)(react-dom@18.2.0)(react@18.2.0)
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-hook-form:
-        specifier: 7.51.0
-        version: 7.51.0(react@18.2.0)
-      react-icons:
-        specifier: 5.0.1
-        version: 5.0.1(react@18.2.0)
-      sonner:
-        specifier: 1.4.3
-        version: 1.4.3(react-dom@18.2.0)(react@18.2.0)
-      tailwind-merge:
-        specifier: 2.2.1
-        version: 2.2.1
-      tailwindcss-animate:
-        specifier: 1.0.7
-        version: 1.0.7(tailwindcss@3.4.1)
-      valibot:
-        specifier: 0.29.0
-        version: 0.29.0
-      zustand:
-        specifier: 4.5.2
-        version: 4.5.2(@types/react@18.2.61)(react@18.2.0)
-    devDependencies:
-      '@biomejs/biome':
-        specifier: 1.5.3
-        version: 1.5.3
-      '@types/is-ci':
-        specifier: 3.0.4
-        version: 3.0.4
-      '@types/jsonwebtoken':
-        specifier: 9.0.6
-        version: 9.0.6
-      '@types/node':
-        specifier: 20.11.24
-        version: 20.11.24
-      '@types/react':
-        specifier: 18.2.61
-        version: 18.2.61
-      '@types/react-dom':
-        specifier: 18.2.19
-        version: 18.2.19
-      autoprefixer:
-        specifier: 10.4.18
-        version: 10.4.18(postcss@8.4.35)
-      postcss:
-        specifier: 8.4.35
-        version: 8.4.35
-      prisma:
-        specifier: 5.10.2
-        version: 5.10.2
-      sharp:
-        specifier: ^0.33.0
-        version: 0.33.2
-      tailwindcss:
-        specifier: 3.4.1
-        version: 3.4.1
-      typescript:
-        specifier: 5.3.3
-        version: 5.3.3
+devDependencies:
+  '@biomejs/biome':
+    specifier: 1.5.3
+    version: 1.5.3
+  '@types/is-ci':
+    specifier: 3.0.4
+    version: 3.0.4
+  '@types/jsonwebtoken':
+    specifier: 9.0.6
+    version: 9.0.6
+  '@types/node':
+    specifier: 20.11.24
+    version: 20.11.24
+  '@types/react':
+    specifier: 18.2.61
+    version: 18.2.61
+  '@types/react-dom':
+    specifier: 18.2.19
+    version: 18.2.19
+  autoprefixer:
+    specifier: 10.4.18
+    version: 10.4.18(postcss@8.4.35)
+  postcss:
+    specifier: 8.4.35
+    version: 8.4.35
+  prisma:
+    specifier: 5.10.2
+    version: 5.10.2
+  sharp:
+    specifier: ^0.33.2
+    version: 0.33.2
+  tailwindcss:
+    specifier: 3.4.1
+    version: 3.4.1
+  typescript:
+    specifier: 5.3.3
+    version: 5.3.3
 
 packages:
 
@@ -1721,55 +1574,31 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@tanstack/query-core@5.24.1:
-    resolution: {integrity: sha512-DZ6Nx9p7BhjkG50ayJ+MKPgff+lMeol7QYXkvuU5jr2ryW/4ok5eanaS9W5eooA4xN0A/GPHdLGOZGzArgf5Cg==}
-    dev: false
-
-  /@tanstack/query-core@5.24.7:
-    resolution: {integrity: sha512-24d9o44FktHTgTOu3XdQWXMu24SJodmzGWXfvd9gT57ijarjOsN2cUyg/RqyCzuDTfD59+1QdCfPB4QvRRsCjw==}
+  /@tanstack/query-core@5.24.8:
+    resolution: {integrity: sha512-yH7KnfXMf10p1U5GffTQzFi2Miiw6WJZImGYGdV7eqa5ZbKO8qVx9lOA9SfhIaJXomrMp1Yz5w/CBhVM3yWeTA==}
     dev: false
 
   /@tanstack/query-devtools@5.24.0:
     resolution: {integrity: sha512-pThim455t69zrZaQKa7IRkEIK8UBTS+gHVAdNfhO72Xh4rWpMc63ovRje5/n6iw63+d6QiJzVadsJVdPoodSeQ==}
     dev: false
 
-  /@tanstack/react-query-devtools@5.24.1(@tanstack/react-query@5.24.1)(react@18.2.0):
-    resolution: {integrity: sha512-qa4SEugN+EF8JJXcpsM9Lu05HfUv5cvHvLuB0uw/81eJZyNHFdtHFBi5RLCgpBrOyVMDfH8UQ3VBMqXzFKV68A==}
+  /@tanstack/react-query-devtools@5.24.8(@tanstack/react-query@5.24.8)(react@18.2.0):
+    resolution: {integrity: sha512-OfNbyOF07/3PXH1fdLs/2BxjpXv2hFI777iym2L0lVGQbyVSJAUbGXYaCvgjZIdan/vfiXf3sjCVkO8mD9hf0Q==}
     peerDependencies:
-      '@tanstack/react-query': ^5.24.1
+      '@tanstack/react-query': ^5.24.8
       react: ^18.0.0
     dependencies:
       '@tanstack/query-devtools': 5.24.0
-      '@tanstack/react-query': 5.24.1(react@18.2.0)
+      '@tanstack/react-query': 5.24.8(react@18.2.0)
       react: 18.2.0
     dev: false
 
-  /@tanstack/react-query-devtools@5.24.7(@tanstack/react-query@5.24.7)(react@18.2.0):
-    resolution: {integrity: sha512-aNh9bGtHSNedpcc/WVxporY0ZLqO4fx7PLOFmhtP5PcHbvtuQlG6q8s2By8Juk/BqXJWGz9FhDHrRjepcQjqQQ==}
-    peerDependencies:
-      '@tanstack/react-query': ^5.24.7
-      react: ^18.0.0
-    dependencies:
-      '@tanstack/query-devtools': 5.24.0
-      '@tanstack/react-query': 5.24.7(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@tanstack/react-query@5.24.1(react@18.2.0):
-    resolution: {integrity: sha512-4+09JEdO4d6+Gc8Y/g2M/MuxDK5IY0QV8+2wL2304wPKJgJ54cBbULd3nciJ5uvh/as8rrxx6s0mtIwpRuGd1g==}
+  /@tanstack/react-query@5.24.8(react@18.2.0):
+    resolution: {integrity: sha512-jB3JS9SzDmBySk9VVOTPt/0ixWEb3K3dy9IExlVl/1NouY3N7HzAqG/1d4m6E9eFfKJoLvA/hBksaLu0lw627A==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
-      '@tanstack/query-core': 5.24.1
-      react: 18.2.0
-    dev: false
-
-  /@tanstack/react-query@5.24.7(react@18.2.0):
-    resolution: {integrity: sha512-+yO1UuXeh47/mnegBZcgwqRrxcXiOYkUSMdk69FsNKtPzH7PFFRXLdkyWk/cu6eEc0Zc8g9Skgu26oqEYWTxpQ==}
-    peerDependencies:
-      react: ^18.0.0
-    dependencies:
-      '@tanstack/query-core': 5.24.7
+      '@tanstack/query-core': 5.24.8
       react: 18.2.0
     dev: false
 
@@ -3353,26 +3182,6 @@ packages:
 
   /zustand@4.5.1(@types/react@18.2.61)(react@18.2.0):
     resolution: {integrity: sha512-XlauQmH64xXSC1qGYNv00ODaQ3B+tNPoy22jv2diYiP4eoDKr9LA+Bh5Bc3gplTrFdb6JVI+N4kc1DZ/tbtfPg==}
-    engines: {node: '>=12.7.0'}
-    peerDependencies:
-      '@types/react': '>=16.8'
-      immer: '>=9.0.6'
-      react: '>=16.8'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      immer:
-        optional: true
-      react:
-        optional: true
-    dependencies:
-      '@types/react': 18.2.61
-      react: 18.2.0
-      use-sync-external-store: 1.2.0(react@18.2.0)
-    dev: false
-
-  /zustand@4.5.2(@types/react@18.2.61)(react@18.2.0):
-    resolution: {integrity: sha512-2cN1tPkDVkwCy5ickKrI7vijSjPksFRfqS6237NzT0vqSsztTNnQdHw9mmN7uBdk3gceVXU0a+21jFzFzAc9+g==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@types/react': '>=16.8'
