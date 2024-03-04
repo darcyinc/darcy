@@ -14,8 +14,18 @@ node_modules
 # vscode
 .vscode/*
 
-# turborepo
-.turbo
+# next.js
+.next/
+
+# local env files
+.env
+.env.development
+
+# typescript
+next-env.d.ts
+
+# Sentry Config File
+.sentryclirc
 
 # debug
 npm-debug.log*

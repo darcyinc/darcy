@@ -1,56 +1,58 @@
 # Darcy Social Network
 
-Welcome to Darcy, an elegant and engaging social network that empowers you to connect with friends, express your thoughts, and discover endless possibilities.
+Welcome to Darcy, a beautiful and engaging social network that allows you to connect with friends, share your thoughts, and explore a world of possibilities.
 
-This repository serves as a monorepo encompassing all the essential components required to run Darcy, including the frontend, API and more.
+This is the folder for the website of Darcy. The website is built using Next.js, next-i18n, zustand and TailwindCSS.
 
 ## Table of Contents
 
 - [Introduction](#darcy-social-network)
 - [Getting Started](#getting-started)
-- [Setting Up the API](#setting-up-the-api)
 - [NPM Scripts](#npm-scripts)
 - [License](#license)
 
 ## Getting Started
 
-To embark on your Darcy journey, follow these simple steps:
+To kickstart your Darcy website experience, follow these simple steps:
 
-1. Clone this repository to your local machine: `git clone https://github.com/davipatricio/darcy.git`
-2. Navigate to the project directory: `cd darcy`
-3. Install the dependencies using pnpm: `pnpm install`
-4. Launch the development front-end and API in dev mode: `pnpm dev`
-5. Access the website by opening http://localhost:3000 in your web browser. The API will be running on http://localhost:3000/api.
+1. **Install Dependencies:** Begin by installing the required dependencies using pnpm: `pnpm install`.
 
-## Setting Up the Project
+2. **Configure Environment:** Rename `.env.example` to `.env` and populate it with the necessary environment variables.
 
-For detailed instructions on configuring and setting up the API, please refer to the [API README](apps/darcy/README.md).
+3. **Build and Start:** Initialize the website with this command: `pnpm build && pnpm start` or `pnpm dev` for development mode.
+
+4. **Explore the API:** Open your web browser and go to http://localhost:3000 to access the website.
 
 ## NPM Scripts
 
 The monorepo comes with the following npm scripts:
 
-- `build`: Compiles all the packages in the monorepo.
+- `build`: Builds the website.
 - `dev`: Initiates the development server with hot-reloading enabled.
-- `start`: Launches the production version of Darcy (you must run build first).
+- `start`: Launches the production version of the website.
 - `lint`: Ensures codebase formatting adheres to the Biome standards.
 - `format`: Automatically formats and rectifies codebase issues using Biome.
 
 ## Technologies
 
-- [pnpm](https://pnpm.io)
-- [Biome](https://biomejs.dev)
-- [nginx](https://nginx.org/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
-- [Turborepo](https://turbo.build/)
-
-See the list of technologies used in the frontend [here](apps/darcy/README.md#technologies).
+- [React](https://react.dev/)
+- [Next.js](https://nextjs.org/)
+- [TanStack Query](https://tanstack.com/query/v3/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [TailwindCSS](https://tailwindcss.com/)
+- [next-intl](https://next-intl-docs.vercel.app/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Prisma](https://www.prisma.io/)
+- [Valibot](https://valibot.dev/)
+- [Lucide](https://lucide.dev/)
+- [Sentry](https://sentry.io/)
+- [Vercel Analytics](https://vercel.com/analytics)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## License
 
-Darcy is distributed under the MIT License. For complete details, please consult the [LICENSE](LICENSE) file.
+Darcy and the Darcy website are distributed under the MIT License. For detailed licensing information, please consult the [LICENSE](LICENSE) file.
 
 ---
 
