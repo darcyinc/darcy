@@ -1,16 +1,16 @@
 'use client';
 
 import useUser from '@/api/queries/useUser';
-import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { UserPostFetcher } from '@/components/feed/feed-fetcher';
 import UserProfile from '@/components/user-profile';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { GetUserPostsResponse } from '@/types/api/post';
+import { GetUserResponse } from '@/types/api/user';
 import { useEffect, useState } from 'react';
 
 interface UserProfilePageProps {
   initialData: GetUserResponse;
-  initialPosts: GetUserPostsResponse[];
+  initialPosts: GetUserPostsResponse;
 }
 
 export default function UserProfilePage({ initialData, initialPosts }: UserProfilePageProps) {

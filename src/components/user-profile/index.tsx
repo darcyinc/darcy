@@ -1,4 +1,4 @@
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
+import { GetUserResponse } from '@/types/api/user';
 import UserBadge from './badge';
 import { UserEditButton, UserFollowButton } from './buttons';
 import UserFollowStats from './follow-stats';
@@ -14,8 +14,8 @@ export default function UserProfile({
   bio,
   createdAt,
   handle,
-  job,
-  website,
+  jobTitle,
+  websiteUrl,
   location,
   verified,
   followersCount,
@@ -47,7 +47,7 @@ export default function UserProfile({
 
         <p>{bio}</p>
 
-        <UserProfileInformation {...{ job, createdAt, location, website }} />
+        <UserProfileInformation {...{ jobTitle, createdAt, location, websiteUrl }} />
 
         {/* Following & followers */}
         <UserFollowStats followers={followersCount} following={followingCount} />

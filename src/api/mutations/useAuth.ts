@@ -1,16 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-
-interface CreateAuthData {
-  service: string;
-  code: string;
-}
+import { CreateAuthPayload, CreateAuthResponse } from '@/types/api/auth';
 
 export default function useCreateAuth() {
-  const authCallback = async ({ service, code }: CreateAuthData) => {
+  const authCallback = async ({ service, code }: CreateAuthPayload & { service: string }) => {
     try {
-      await apiClient.post(`auth/${service}/callback`, { json: { code } });
+      const request = await apiClient.post(`auth/${service}/callback`, { json: { code } });
+      const data = (await request.json()) as CreateAuthResponse;
+      return data;
     } catch (err) {
       const error = err as {
         name: string;

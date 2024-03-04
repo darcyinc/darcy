@@ -1,9 +1,9 @@
 'use client';
 
 import usePostLike from '@/api/mutations/usePostLike';
-import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { cn } from '@/lib/utils';
+import { GetUserPostResponse } from '@/types/api/post';
 import { BarChart2, Heart, MessageCircle, Repeat2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -17,7 +17,7 @@ interface FeedPostActionsProps {
   postId: string;
   hasLiked: boolean;
   hasReposted: boolean;
-  updatePostData?: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
+  updatePostData?: (postId: string, newData: Partial<GetUserPostResponse>) => void;
 }
 
 export default function PostActions({

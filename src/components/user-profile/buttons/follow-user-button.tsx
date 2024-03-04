@@ -1,9 +1,9 @@
 'use client';
 
 import useFollowUser from '@/api/mutations/useFollowUser';
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { GetUserResponse } from '@/types/api/user';
 import { useTranslations } from 'next-intl';
 
 interface UserFollowButtonProps {

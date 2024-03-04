@@ -1,9 +1,9 @@
 'use client';
 
 import useUserPosts from '@/api/queries/useUserPosts';
-import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
+import { GetUserPostResponse, GetUserPostsResponse } from '@/types/api/post';
+import { GetUserResponse } from '@/types/api/user';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
@@ -15,7 +15,7 @@ import SkeletonPost from '../post/skeleton-post';
 
 interface UserPostFetcherProps {
   userData: GetUserResponse;
-  initialPosts: GetUserPostsResponse[];
+  initialPosts: GetUserPostsResponse;
 }
 
 export default function UserPostFetcher({ userData, initialPosts }: UserPostFetcherProps) {
@@ -39,7 +39,7 @@ export default function UserPostFetcher({ userData, initialPosts }: UserPostFetc
     );
   }
 
-  const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
+  const updatePostData = (postId: string, newData: Partial<GetUserPostResponse>) => {
     if (!data) return;
 
     const newDataPages = data.pages.map((page) => {

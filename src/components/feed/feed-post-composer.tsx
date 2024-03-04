@@ -1,10 +1,9 @@
 'use client';
 
 import useCreatePost from '@/api/mutations/useCreatePost';
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
-import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { cn } from '@/lib/utils';
+import { GetUserPostResponse, GetUserPostsResponse } from '@/types/api/post';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
@@ -43,10 +42,10 @@ export default function FeedPostComposer({
     event.target.style.height = `${event.target.scrollHeight}px`;
   };
 
-  const updateQueryData = (newPost: GetPostResponse) => {
+  const updateQueryData = (newPost: GetUserPostResponse) => {
     if (!queryKeys) return;
 
-    const data = queryClient.getQueryData<{ pages: GetUserPostsResponse[][] }>(queryKeys);
+    const data = queryClient.getQueryData<{ pages: GetUserPostsResponse[] }>(queryKeys);
     if (!data) return;
 
     const newData = structuredClone(data.pages);

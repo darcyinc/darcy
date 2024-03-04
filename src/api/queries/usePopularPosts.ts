@@ -1,5 +1,5 @@
 import { apiClient } from '@/api/client';
-import { GetPopularPostsResponse } from '@/app/api/popular-posts/route';
+import { GetPopularPostsResponse } from '@/types/api/post';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 

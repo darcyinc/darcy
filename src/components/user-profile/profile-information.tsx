@@ -4,12 +4,12 @@ import Link from 'next/link';
 
 interface UserProfileInformationProps {
   location?: string | null;
-  website?: string | null;
-  job?: string | null;
+  websiteUrl?: string | null;
+  jobTitle?: string | null;
   createdAt: string;
 }
 
-export default function UserProfileInformation({ location, job, website, createdAt }: UserProfileInformationProps) {
+export default function UserProfileInformation({ location, jobTitle, websiteUrl, createdAt }: UserProfileInformationProps) {
   const t = useTranslations('UserProfile.Information');
   const locale = useLocale();
 
@@ -20,10 +20,10 @@ export default function UserProfileInformation({ location, job, website, created
 
   return (
     <div className="flex flex-wrap gap-x-1.5 gap-y-0.5 text-[15px] text-muted-foreground">
-      {job && (
+      {jobTitle && (
         <div className="flex items-center gap-1">
           <Briefcase size={16} />
-          <p className="break-all">{job}</p>
+          <p className="break-all">{jobTitle}</p>
         </div>
       )}
 
@@ -34,11 +34,11 @@ export default function UserProfileInformation({ location, job, website, created
         </div>
       )}
 
-      {website && (
+      {websiteUrl && (
         <div className="flex items-center gap-1">
           <LinkIcon size={16} />
-          <Link className="hover:underline" href={website}>
-            <p className="max-w-[280px] truncate break-all">{website}</p>
+          <Link className="hover:underline" href={websiteUrl}>
+            <p className="max-w-[280px] truncate break-all">{websiteUrl}</p>
           </Link>
         </div>
       )}

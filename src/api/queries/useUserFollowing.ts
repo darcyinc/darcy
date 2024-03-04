@@ -1,5 +1,5 @@
 import { apiClient } from '@/api/client';
-import { GetUserFollowingResponse } from '@/app/api/users/[handle]/following/route';
+import { GetUserFollowingResponse } from '@/types/api/user';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 

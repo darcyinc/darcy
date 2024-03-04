@@ -1,15 +1,10 @@
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-
-interface CreatePostData {
-  content: string;
-  parentId?: string;
-}
+import { CreatePostPayload, GetPostResponse } from '@/types/api/post';
 
 export default function useCreatePost() {
-  const createPost = async ({ parentId, content }: CreatePostData) => {
+  const createPost = async ({ parentId, content }: CreatePostPayload) => {
     try {
       const request = await apiClient.post('post', { json: { content, parentId } });
       const data = (await request.json()) as GetPostResponse;

@@ -1,5 +1,5 @@
 import { apiClient } from '@/api/client';
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
+import { GetPostResponse } from '@/types/api/post';
 import { useQuery } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 

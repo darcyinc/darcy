@@ -1,6 +1,6 @@
 import { apiClient } from '@/api/client';
-import { GetPostResponse } from '@/app/api/post/[postId]/route';
 import { FeedHeader, FeedPost, FeedPostComposer } from '@/components/feed';
+import { GetPostResponse } from '@/types/api/post';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';

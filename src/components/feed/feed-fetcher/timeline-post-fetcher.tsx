@@ -1,7 +1,7 @@
 'use client';
 
 import usePopularPosts from '@/api/queries/usePopularPosts';
-import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
+import { GetUserPostResponse } from '@/types/api/post';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
@@ -31,7 +31,7 @@ export default function TimelinePostFetcher() {
     );
   }
 
-  const updatePostData = (postId: string, newData: Partial<GetUserPostsResponse>) => {
+  const updatePostData = (postId: string, newData: Partial<GetUserPostResponse>) => {
     if (!data) return;
 
     const newDataPages = data.pages.map((page) => {

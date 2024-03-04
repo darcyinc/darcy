@@ -1,16 +1,10 @@
-import { GetUserResponse } from '@/app/api/users/[handle]/route';
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-
-interface EditUserOptions {
-  displayName?: string;
-  handle?: string;
-  bio?: string;
-}
+import { EditUserPayload, GetUserResponse } from '@/types/api/user';
 
 export default function useEditUser() {
-  const editUser = async ({ displayName, handle, bio }: EditUserOptions) => {
+  const editUser = async ({ displayName, handle, bio }: EditUserPayload) => {
     try {
       const request = await apiClient.patch('users/@me', { json: { displayName, handle, bio } });
       const data = (await request.json()) as GetUserResponse;

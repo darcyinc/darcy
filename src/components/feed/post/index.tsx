@@ -1,9 +1,9 @@
-import { GetUserPostsResponse } from '@/app/api/users/[handle]/posts/route';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import UserBadge from '@/components/user-profile/badge';
 import MiniProfile from '@/components/user-profile/mini-profile';
 import useRelativeTime from '@/hooks/useRelativeTime';
+import { GetUserPostResponse } from '@/types/api/post';
 import { $Enums } from '@prisma/client';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
@@ -26,7 +26,7 @@ interface FeedPostProps {
   hasReposted: boolean;
   verified: $Enums.VerifiedType;
   mediaUrls: string[];
-  updatePostData?: (postId: string, newData: Partial<GetUserPostsResponse>) => void;
+  updatePostData?: (postId: string, newData: Partial<GetUserPostResponse>) => void;
 }
 
 export default function FeedPost({ content, avatar, username, handle, createdAt, verified, mediaUrls, ...props }: FeedPostProps) {
