@@ -1,7 +1,7 @@
+import { CreatePostPayload, GetPostResponse } from '@/types/api/post';
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-import { CreatePostPayload, GetPostResponse } from '@/types/api/post';
 
 export default function useCreatePost() {
   const createPost = async ({ parentId, content }: CreatePostPayload) => {

@@ -1,7 +1,7 @@
+import { EditUserPayload, GetUserResponse } from '@/types/api/user';
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-import { EditUserPayload, GetUserResponse } from '@/types/api/user';
 
 export default function useEditUser() {
   const editUser = async ({ displayName, handle, bio }: EditUserPayload) => {

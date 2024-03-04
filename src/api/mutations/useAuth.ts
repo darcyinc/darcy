@@ -1,7 +1,7 @@
+import { CreateAuthPayload, CreateAuthResponse } from '@/types/api/auth';
 import { useMutation } from '@tanstack/react-query';
 import { KyResponse } from 'ky';
 import { apiClient } from '../client';
-import { CreateAuthPayload, CreateAuthResponse } from '@/types/api/auth';
 
 export default function useCreateAuth() {
   const authCallback = async ({ service, code }: CreateAuthPayload & { service: string }) => {
