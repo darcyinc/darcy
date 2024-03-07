@@ -51,7 +51,7 @@
     "sonner": "1.4.3",
     "tailwind-merge": "2.2.1",
     "tailwindcss-animate": "1.0.7",
-    "valibot": "0.29.0",
+    "valibot": "0.30.0",
     "zustand": "4.5.1"
   },
   "devDependencies": {
