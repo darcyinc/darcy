@@ -1,7 +1,7 @@
 'use client';
 
 import usePopularPosts from '@/api/queries/usePopularPosts';
-import { GetUserPostResponse } from '@/types/api/post';
+import type { GetUserPostResponse } from '@/types/api/post';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';

@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 import { DISCORD_AUTH_URL, GITHUB_AUTH_URL } from '@/utils/api/auth/oauth/data';
 import { useRouter } from 'next/navigation';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { Button } from '../ui/button';

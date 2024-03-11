@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
-import { GetUserResponse } from '@/types/api/user';
+import type { GetUserResponse } from '@/types/api/user';
 import { useQuery } from '@tanstack/react-query';
-import { KyResponse } from 'ky';
+import type { KyResponse } from 'ky';
 
 export default function useUser(handle: string) {
   const fetchUser = async () => {

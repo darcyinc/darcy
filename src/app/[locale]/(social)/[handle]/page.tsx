@@ -1,8 +1,8 @@
 import { apiClient } from '@/api/client';
 import { FeedHeader } from '@/components/feed';
 import UserProfilePage from '@/features/pages/user-profile';
-import { GetUserPostsResponse } from '@/types/api/post';
-import { GetUserResponse } from '@/types/api/user';
+import type { GetUserPostsResponse } from '@/types/api/post';
+import type { GetUserResponse } from '@/types/api/user';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';

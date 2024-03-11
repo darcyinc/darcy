@@ -3,7 +3,7 @@
 import usePostLike from '@/api/mutations/usePostLike';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { cn } from '@/lib/utils';
-import { GetUserPostResponse } from '@/types/api/post';
+import type { GetUserPostResponse } from '@/types/api/post';
 import { BarChart2, Heart, MessageCircle, Repeat2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';

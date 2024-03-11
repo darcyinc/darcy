@@ -3,7 +3,7 @@
 import useFollowUser from '@/api/mutations/useFollowUser';
 import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { GetUserResponse } from '@/types/api/user';
+import type { GetUserResponse } from '@/types/api/user';
 import { useTranslations } from 'next-intl';
 
 interface UserFollowButtonProps {

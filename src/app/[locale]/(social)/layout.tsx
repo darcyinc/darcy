@@ -1,7 +1,7 @@
 import Feed from '@/components/feed';
 import AsideNavbar from '@/components/navbar/aside-navbar';
 import Trending from '@/components/trending';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (

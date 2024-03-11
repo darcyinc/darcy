@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from 'react';
+import { type RefObject, useEffect, useState } from 'react';
 
 export default function useHideOnScroll(elementRef: RefObject<HTMLElement>, direction: 'up' | 'down') {
   const [lastScroll, setLastScroll] = useState(0);

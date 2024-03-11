@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Bell, Home, LucideIcon, Mail, Search } from 'lucide-react';
+import { Bell, Home, type LucideIcon, Mail, Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 

@@ -9,7 +9,8 @@ import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import v, { email, object, string } from 'valibot';
+import type v from 'valibot';
+import { email, object, string } from 'valibot';
 
 interface EmailAuthFormProps {
   onSubmit?: () => void;

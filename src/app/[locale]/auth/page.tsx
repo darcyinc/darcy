@@ -1,5 +1,5 @@
 import OAuthProviders from '@/components/oauth/oauth-providers';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 
 export const metadata: Metadata = {

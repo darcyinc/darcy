@@ -2,7 +2,7 @@
 
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
+import { type FeedSortState, useFeedSort } from '@/hooks/useFeedSort';
 import { cn } from '@/lib/utils';
 import { Settings } from 'lucide-react';
 import { useTranslations } from 'next-intl';

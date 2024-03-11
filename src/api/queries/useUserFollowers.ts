@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
-import { GetUserFollowersResponse } from '@/types/api/user';
+import type { GetUserFollowersResponse } from '@/types/api/user';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { KyResponse } from 'ky';
+import type { KyResponse } from 'ky';
 
 interface UseUserFollowersOptions {
   limit?: number;

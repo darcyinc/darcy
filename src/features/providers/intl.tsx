@@ -1,5 +1,5 @@
 import { NextIntlClientProvider, useLocale } from 'next-intl';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 export default async function IntlProvider({ children }: PropsWithChildren) {
   const locale = useLocale();

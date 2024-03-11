@@ -8,7 +8,8 @@ import { Search, XCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import v, { maxLength, minLength, object, string } from 'valibot';
+import type v from 'valibot';
+import { maxLength, minLength, object, string } from 'valibot';
 
 export default function PostSearchForm() {
   const router = useRouter();

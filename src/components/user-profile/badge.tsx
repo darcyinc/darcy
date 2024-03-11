@@ -1,6 +1,6 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
-import { $Enums } from '@prisma/client';
+import type { $Enums } from '@prisma/client';
 import { BadgeCheck } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 

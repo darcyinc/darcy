@@ -1,4 +1,4 @@
-import { VerificationType } from './user';
+import type { VerificationType } from './user';
 
 export interface CreatePostPayload {
   content: string;

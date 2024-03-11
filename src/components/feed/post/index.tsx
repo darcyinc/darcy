@@ -3,8 +3,8 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/h
 import UserBadge from '@/components/user-profile/badge';
 import MiniProfile from '@/components/user-profile/mini-profile';
 import useRelativeTime from '@/hooks/useRelativeTime';
-import { GetUserPostResponse } from '@/types/api/post';
-import { $Enums } from '@prisma/client';
+import type { GetUserPostResponse } from '@/types/api/post';
+import type { $Enums } from '@prisma/client';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import ClickablePost from './clickable-post';

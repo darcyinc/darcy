@@ -2,7 +2,7 @@
 
 import useHideOnScroll from '@/hooks/useHideOnScroll';
 import { cn } from '@/lib/utils';
-import { ComponentProps, useRef } from 'react';
+import { type ComponentProps, useRef } from 'react';
 
 export default function FeedHeader({ children, ...props }: ComponentProps<'div'>) {
   const header = useRef<HTMLDivElement>(null);

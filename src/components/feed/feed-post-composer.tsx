@@ -3,7 +3,7 @@
 import useCreatePost from '@/api/mutations/useCreatePost';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { cn } from '@/lib/utils';
-import { GetUserPostResponse, GetUserPostsResponse } from '@/types/api/post';
+import type { GetUserPostResponse, GetUserPostsResponse } from '@/types/api/post';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';

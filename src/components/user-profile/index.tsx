@@ -1,4 +1,4 @@
-import { GetUserResponse } from '@/types/api/user';
+import type { GetUserResponse } from '@/types/api/user';
 import UserBadge from './badge';
 import { UserEditButton, UserFollowButton } from './buttons';
 import UserFollowStats from './follow-stats';

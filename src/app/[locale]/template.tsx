@@ -4,7 +4,7 @@ import ReactQueryProvider from '@/features/providers/react-query';
 import NextThemeProvider from '@/features/providers/themes';
 import ToasterProvider from '@/features/providers/toaster';
 import ValidAuthProvider from '@/features/providers/valid-auth';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 export default function Providers({ children }: PropsWithChildren) {
   return (

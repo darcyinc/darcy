@@ -1,8 +1,8 @@
 import AuthSideImage from '@/assets/images/auth-side-image.jpg';
 import { DESCRIPTION } from '@/utils/constants';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Image from 'next/image';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

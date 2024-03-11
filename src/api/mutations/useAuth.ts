@@ -1,6 +1,6 @@
-import { CreateAuthPayload, CreateAuthResponse } from '@/types/api/auth';
+import type { CreateAuthPayload, CreateAuthResponse } from '@/types/api/auth';
 import { useMutation } from '@tanstack/react-query';
-import { KyResponse } from 'ky';
+import type { KyResponse } from 'ky';
 import { apiClient } from '../client';
 
 export default function useCreateAuth() {

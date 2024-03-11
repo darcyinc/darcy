@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
-import { GetPopularPostsResponse } from '@/types/api/post';
+import type { GetPopularPostsResponse } from '@/types/api/post';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { KyResponse } from 'ky';
+import type { KyResponse } from 'ky';
 
 interface UsePopularPostsOptions {
   limit?: number;

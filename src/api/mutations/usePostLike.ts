@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { KyResponse } from 'ky';
+import type { KyResponse } from 'ky';
 import { apiClient } from '../client';
 
 export default function usePostLike(postId: string) {

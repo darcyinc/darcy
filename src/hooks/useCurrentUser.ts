@@ -1,4 +1,4 @@
-import { User } from '@prisma/client';
+import type { User } from '@prisma/client';
 import { create } from 'zustand';
 
 type CurrentUserState = Pick<User, 'avatarUrl' | 'displayName' | 'handle' | 'bio'> & {

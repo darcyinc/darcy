@@ -2,7 +2,7 @@
 
 import isEnterOrClick from '@/utils/isEnterOrClick';
 import { useRouter } from 'next/navigation';
-import { KeyboardEvent, MouseEvent, PropsWithChildren } from 'react';
+import type { KeyboardEvent, MouseEvent, PropsWithChildren } from 'react';
 
 interface ClickablePostProps {
   postId?: string;

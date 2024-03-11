@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { DESCRIPTION } from '@/utils/constants';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '600', '700'] });
 

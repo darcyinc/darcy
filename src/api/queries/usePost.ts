@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
-import { GetPostResponse } from '@/types/api/post';
+import type { GetPostResponse } from '@/types/api/post';
 import { useQuery } from '@tanstack/react-query';
-import { KyResponse } from 'ky';
+import type { KyResponse } from 'ky';
 
 export default function usePost(postId: string) {
   const fetchPost = async () => {

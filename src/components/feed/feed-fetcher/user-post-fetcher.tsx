@@ -2,8 +2,8 @@
 
 import useUserPosts from '@/api/queries/useUserPosts';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { GetUserPostResponse, GetUserPostsResponse } from '@/types/api/post';
-import { GetUserResponse } from '@/types/api/user';
+import type { GetUserPostResponse, GetUserPostsResponse } from '@/types/api/post';
+import type { GetUserResponse } from '@/types/api/user';
 import { useQueryClient } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';

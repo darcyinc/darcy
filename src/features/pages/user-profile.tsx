@@ -4,8 +4,8 @@ import useUser from '@/api/queries/useUser';
 import { UserPostFetcher } from '@/components/feed/feed-fetcher';
 import UserProfile from '@/components/user-profile';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
-import { GetUserPostsResponse } from '@/types/api/post';
-import { GetUserResponse } from '@/types/api/user';
+import type { GetUserPostsResponse } from '@/types/api/post';
+import type { GetUserResponse } from '@/types/api/user';
 import { useEffect, useState } from 'react';
 
 interface UserProfilePageProps {

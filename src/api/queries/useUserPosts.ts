@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
-import { GetUserPostsResponse } from '@/types/api/post';
+import type { GetUserPostsResponse } from '@/types/api/post';
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query';
-import { KyResponse } from 'ky';
+import type { KyResponse } from 'ky';
 import { useEffect } from 'react';
 
 interface UseUserPostsOptions {
