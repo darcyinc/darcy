@@ -89,7 +89,7 @@ export default function FeedPostComposer({
 
         <div className="flex w-full flex-col gap-2">
           <Textarea
-            className="max-h-32 border-transparent focus-visible:border-input rounded-xl text-base"
+            className="max-h-32 border-none focus-visible:border-input rounded-xl text-base"
             placeholder="O que está acontecendo?"
             value={content}
             onChange={handleChange}

@@ -1,70 +1,74 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: 255 255 255;
-  --foreground: 0 0 0;
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
 
-  --card: 247 249 249;
-  --card-foreground: 0 0 0;
+  --color-card: #f7f9f9;
+  --color-card-foreground: #000000;
 
-  --popover: 255 255 255;
-  --popover-foreground: 0 0 0;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #000000;
 
-  --primary: 29 155 240;
-  --primary-foreground: 255 255 255;
+  --color-primary: #1d9bf0;
+  --color-primary-foreground: #ffffff;
 
-  --secondary: 0 0 0;
-  --secondary-foreground: 255 255 255;
+  --color-secondary: #000000;
+  --color-secondary-foreground: #ffffff;
 
-  --muted: 169 169 169;
-  --muted-foreground: 83 100 113;
+  --color-muted: #a9a9a9;
+  --color-muted-foreground: #536471;
 
-  --accent: 15, 20, 25, 0.1;
-  --accent-foreground: 0 0 0;
+  --color-accent: rgba(15, 20, 25, 0.1);
+  --color-accent-foreground: #000000;
 
-  --destructive: 239 68 68;
-  --destructive-foreground: 248 250 252;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #f8fafc;
 
-  --border: 239 243 244;
-  --input: 239 243 244;
-  --ring: 2 8 23;
+  --color-border: #eff3f4;
+  --color-input: #eff3f4;
+  --color-ring: #020817;
 
   --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 
-  --like: 249 24 128;
-  --repost: 0 186 124;
+  --color-like: #f91880;
+  --color-repost: #00ba7c;
+
 }
 
 .dark {
-  --background: 0 0 0;
-  --foreground: 255 255 255;
+  @theme {
+    --color-background: #000000;
+    --color-foreground: #ffffff;
 
-  --card: 22 24 28;
-  --card-foreground: 255 255 255;
+    --color-card: #16181c;
+    --color-card-foreground: #ffffff;
 
-  --popover: 2 8 23;
-  --popover-foreground: 248 250 252;
+    --color-popover: #020817;
+    --color-popover-foreground: #f8fafc;
 
-  --primary: 29 155 240;
-  --primary-foreground: 255 255 255;
+    --color-primary: #1d9bf0;
+    --color-primary-foreground: #ffffff;
 
-  --secondary: 255 255 255;
-  --secondary-foreground: 0 0 0;
+    --color-secondary: #ffffff;
+    --color-secondary-foreground: #000000;
 
-  --muted: 30 41 59;
-  --muted-foreground: 113 118 123;
+    --color-muted: #1e293b;
+    --color-muted-foreground: #71767b;
 
-  --accent: 231, 233, 234, 0.1;
-  --accent-foreground: 255 255 255;
+    --color-accent: rgba(231, 233, 234, 0.1);
+    --color-accent-foreground: #ffffff;
 
-  --destructive: 220 38 38;
-  --destructive-foreground: 248 250 252;
+    --color-destructive: #dc2626;
+    --color-destructive-foreground: #f8fafc;
 
-  --border: 47 51 54;
-  --input: 47 51 54;
-  --ring: 203 213 225;
+    --color-border: #2f3336;
+    --color-input: #2f3336;
+    --color-ring: #cbd5e1;
+  }
 }
 
 * {
@@ -73,6 +77,10 @@
 
 body {
   @apply bg-background text-foreground;
+}
+
+button {
+  @apply cursor-pointer;
 }
 
 html {

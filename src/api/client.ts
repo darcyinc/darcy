@@ -6,7 +6,7 @@ export const apiClient = ky.extend({
   hooks: {
     beforeRequest: [
       (request) => {
-        const token = localStorage?.getItem('darcy-token') ?? '';
+        const token = typeof localStorage !== 'undefined' ? localStorage.getItem('darcy-token') : '';
         request.headers.set('Authorization', `Bearer ${token}`);
       }
     ]

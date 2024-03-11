@@ -40,7 +40,7 @@ export default function PostSearchForm() {
                   <Input
                     placeholder={t('placeholder')}
                     {...field}
-                    className="border-transparent bg-transparent focus-visible:ring-transparent focus-visible:ring-offset-0"
+                    className="border-none bg-transparent focus-visible:ring-transparent focus-visible:ring-offset-0"
                   />
 
                   {field.value && (
