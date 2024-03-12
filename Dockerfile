@@ -12,7 +12,6 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install
 
 # Build
 COPY . .
-RUN pnpm prisma generate
 
 ENV NODE_ENV=production
 VOLUME ["/.next/cache"]

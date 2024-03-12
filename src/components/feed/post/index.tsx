@@ -4,7 +4,7 @@ import UserBadge from '@/components/user-profile/badge';
 import MiniProfile from '@/components/user-profile/mini-profile';
 import useRelativeTime from '@/hooks/useRelativeTime';
 import type { GetUserPostResponse } from '@/types/api/post';
-import type { $Enums } from '@prisma/client';
+import type { VerificationType } from '@/types/api/user';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import ClickablePost from './clickable-post';
@@ -24,7 +24,7 @@ interface FeedPostProps {
   postId: string;
   hasLiked: boolean;
   hasReposted: boolean;
-  verified: $Enums.VerifiedType;
+  verified: VerificationType;
   mediaUrls: string[];
   updatePostData?: (postId: string, newData: Partial<GetUserPostResponse>) => void;
 }

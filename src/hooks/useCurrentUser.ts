@@ -1,7 +1,7 @@
-import type { User } from '@prisma/client';
+import type { GetUserResponse } from '@/types/api/user';
 import { create } from 'zustand';
 
-type CurrentUserState = Pick<User, 'avatarUrl' | 'displayName' | 'handle' | 'bio'> & {
+type CurrentUserState = Pick<GetUserResponse, 'avatarUrl' | 'displayName' | 'handle' | 'bio'> & {
   setData: (data: Partial<CurrentUserState>) => void;
   reset: () => void;
 };

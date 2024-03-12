@@ -43,7 +43,6 @@ The monorepo comes with the following npm scripts:
 - [TailwindCSS](https://tailwindcss.com/)
 - [next-intl](https://next-intl-docs.vercel.app/)
 - [shadcn/ui](https://ui.shadcn.com/)
-- [Prisma](https://www.prisma.io/)
 - [Valibot](https://valibot.dev/)
 - [Lucide](https://lucide.dev/)
 - [Sentry](https://sentry.io/)

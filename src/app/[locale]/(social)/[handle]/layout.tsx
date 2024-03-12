@@ -1,4 +1,5 @@
-import { prisma } from '@/utils/api/prisma';
+import { apiClient } from '@/api/client';
+import type { GetUserResponse } from '@/types/api/user';
 import type { Metadata } from 'next';
 import type React from 'react';
 import type { PropsWithChildren } from 'react';
@@ -11,13 +12,10 @@ interface LayoutProps {
 }
 
 export async function generateMetadata({ params }: PropsWithChildren<LayoutProps>): Promise<Metadata> {
-  const user = await prisma.user.findFirst({
-    where: {
-      handle: params.handle
-    }
-  });
+  const request = await apiClient.get(`users/${params.handle}`);
+  const data = (await request.json()) as GetUserResponse;
 
-  if (!user)
+  if (request.status !== 200)
     return {
       title: 'Not found',
       robots: {
@@ -26,9 +24,9 @@ export async function generateMetadata({ params }: PropsWithChildren<LayoutProps
     };
 
   return {
-    title: `${user.displayName} (@${params.handle})`,
-    description: `See ${params.handle} posts on Darcy. ${user.bio}`,
-    keywords: [params.handle, user.displayName, 'darcy', 'social network', 'darcy social network'],
+    title: `${data.displayName} (@${params.handle})`,
+    description: `See ${params.handle} posts on Darcy. ${data.bio}`,
+    keywords: [params.handle, data.displayName, 'darcy', 'social network', 'darcy social network'],
     robots: {
       index: true
     }

@@ -1,11 +1,11 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
-import type { $Enums } from '@prisma/client';
+import type { VerificationType } from '@/types/api/user';
 import { BadgeCheck } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 interface UserBadgeProps {
-  badge: $Enums.VerifiedType;
+  badge: VerificationType;
 }
 
 export default function UserBadge({ badge }: UserBadgeProps) {
