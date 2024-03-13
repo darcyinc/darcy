@@ -100,7 +100,7 @@ dependencies:
     version: 2.2.1
   tailwindcss-animate:
     specifier: 1.0.7
-    version: 1.0.7(tailwindcss@4.0.0-alpha.8)
+    version: 1.0.7(tailwindcss@4.0.0-alpha.9)
   valibot:
     specifier: 0.30.0
     version: 0.30.0
@@ -140,8 +140,8 @@ devDependencies:
     specifier: ^0.33.2
     version: 0.33.2
   tailwindcss:
-    specifier: 4.0.0-alpha.8
-    version: 4.0.0-alpha.8
+    specifier: 4.0.0-alpha.9
+    version: 4.0.0-alpha.9
   typescript:
     specifier: 5.4.2
     version: 5.4.2
@@ -1879,6 +1879,7 @@ packages:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
     engines: {node: '>=0.10'}
     hasBin: true
+    dev: true
 
   /detect-libc@2.0.2:
     resolution: {integrity: sha512-UX6sGumvvqSaXgdKGUsgZWqcUyIXZ/vZTrlRT/iobiKhGL0zL4d3osHj3uqllWJK+i+sixDS/3COVEOFbupFyw==}
@@ -2108,6 +2109,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-darwin-x64@1.24.0:
@@ -2116,6 +2118,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-freebsd-x64@1.24.0:
@@ -2124,6 +2127,7 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-linux-arm-gnueabihf@1.24.0:
@@ -2132,6 +2136,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-linux-arm64-gnu@1.24.0:
@@ -2140,6 +2145,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-linux-arm64-musl@1.24.0:
@@ -2148,6 +2154,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-linux-x64-gnu@1.24.0:
@@ -2156,6 +2163,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-linux-x64-musl@1.24.0:
@@ -2164,6 +2172,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss-win32-x64-msvc@1.24.0:
@@ -2172,6 +2181,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /lightningcss@1.24.0:
@@ -2189,6 +2199,7 @@ packages:
       lightningcss-linux-x64-gnu: 1.24.0
       lightningcss-linux-x64-musl: 1.24.0
       lightningcss-win32-x64-msvc: 1.24.0
+    dev: true
 
   /localforage@1.10.0:
     resolution: {integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==}
@@ -2690,18 +2701,22 @@ packages:
       '@babel/runtime': 7.24.0
     dev: false
 
-  /tailwindcss-animate@1.0.7(tailwindcss@4.0.0-alpha.8):
+  /tailwindcss-animate@1.0.7(tailwindcss@4.0.0-alpha.9):
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
-      tailwindcss: 4.0.0-alpha.8
+      tailwindcss: 4.0.0-alpha.9
     dev: false
 
   /tailwindcss@4.0.0-alpha.8:
     resolution: {integrity: sha512-s7RsnLUep6SQnmYgCVCTj9D/P2tiubPZi/Ae1m58dG4Y3NWgXWo+C0L/95Qf8VNNsD76Qv8Srb4LojyTzqbE7A==}
     dependencies:
       lightningcss: 1.24.0
+    dev: true
+
+  /tailwindcss@4.0.0-alpha.9:
+    resolution: {integrity: sha512-y0fM8FgMWyc/gbzd3Ag3TmNtXSwIC9gLIe7J1g8/KzkApL0UFPYt/T/Z29CbvTYVlPEf/QOSNsGM63qeip9jzw==}
 
   /totalist@3.0.1:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
