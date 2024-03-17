@@ -71,26 +71,12 @@
   }
 }
 
-* {
-  @apply border-border;
-}
-
-body {
-  @apply bg-background text-foreground;
-}
-
 button {
   @apply cursor-pointer;
 }
 
 html {
   text-rendering: optimizeLegibility;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
 }
 
 /* enable animations if user don't prefer reduced motion */
