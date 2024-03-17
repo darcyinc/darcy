@@ -4,7 +4,6 @@
   "description": "The Darcy Social Network.",
   "author": "Davi Patricio <davipatricio@protonmail.com>",
   "license": "MIT",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
