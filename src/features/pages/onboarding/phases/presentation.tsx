@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
-import type { OnboardingPhaseProps } from '..';
 import { ArrowRight } from 'lucide-react';
+import type { OnboardingPhaseProps } from '..';
 
 export default function OnboardingPresentationPhase({ setPhase }: OnboardingPhaseProps) {
   const nextPhase = () => {
