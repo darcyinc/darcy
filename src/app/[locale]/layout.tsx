@@ -29,7 +29,14 @@ interface LayoutProps {
 export default function RootLayout({ children, params }: PropsWithChildren<LayoutProps>) {
   return (
     <html lang={params.locale} suppressHydrationWarning>
-      <body className={cn(inter.className, 'overflow-y-scroll antialiased scroll-smooth')}>{children}</body>
+      <body
+        className={cn(
+          inter.className,
+          'overflow-y-scroll antialiased scroll-smooth flex justify-center bg-background text-foreground min-h-screen'
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
