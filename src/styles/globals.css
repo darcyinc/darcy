@@ -78,6 +78,10 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+* {
+  @apply border-border;
+}
+
 /* enable animations if user don't prefer reduced motion */
 @media (prefers-reduced-motion: no-preference) {
   html {
