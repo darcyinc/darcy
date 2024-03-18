@@ -38,7 +38,7 @@
     "is-ci": "3.0.1",
     "jsonwebtoken": "9.0.2",
     "ky": "1.2.2",
-    "lucide-react": "0.358.0",
+    "lucide-react": "0.359.0",
     "million": "3.0.6",
     "next": "14.2.0-canary.29",
     "next-intl": "3.9.5",
