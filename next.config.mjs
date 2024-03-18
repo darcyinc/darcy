@@ -1,15 +1,16 @@
-const { withSentryConfig } = require('@sentry/nextjs');
-const withNextIntl = require('next-intl/plugin')('./src/utils/i18n.ts');
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true'
-});
+import withBundleAnalyzer from '@next/bundle-analyzer';
+import { withSentryConfig } from '@sentry/nextjs';
+import { next as withMillion } from 'million/compiler';
+import nextIntl from 'next-intl/plugin';
 
-// Injected content via Sentry wizard below
+const withNextIntl = nextIntl('./src/utils/i18n.ts');
 
-module.exports = withSentryConfig(
+export default withSentryConfig(
   withNextIntl(
     withBundleAnalyzer({
-      reactStrictMode: false
+      enabled: process.env.ANALYZE === 'true',
+      reactStrictMode: false,
+      ...withMillion({}, { auto: true, rsc: true })
     })
   ),
   {
