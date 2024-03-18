@@ -20,7 +20,7 @@ interface FeedPostActionsProps {
   updatePostData?: (postId: string, newData: Partial<GetUserPostResponse>) => void;
 }
 
-export default function PostActions({
+export default function FeedPostActions({
   comments,
   reposts,
   likes,

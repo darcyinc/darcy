@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "biome check .",
@@ -39,6 +39,7 @@
     "jsonwebtoken": "9.0.2",
     "ky": "1.2.2",
     "lucide-react": "0.358.0",
+    "million": "3.0.6",
     "next": "14.2.0-canary.28",
     "next-intl": "3.9.5",
     "next-themes": "0.3.0",
