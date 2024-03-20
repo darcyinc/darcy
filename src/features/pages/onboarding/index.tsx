@@ -18,7 +18,7 @@ export interface OnboardingPhaseProps {
   data: OnboardingUserData;
 }
 
-export type OnboardingPhase = 'presentation' | 'profile';
+export type OnboardingPhase = 'presentation' | 'profile' | 'finished';
 
 export default function OnboardingPage() {
   const [phase, setPhase] = useState<OnboardingPhase>('presentation');
