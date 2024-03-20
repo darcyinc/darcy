@@ -36,8 +36,8 @@ export default function OnboardingUserProfilePhase({ data, setData, setPhase }: 
       ...data,
       avatarBase64: values.avatarBase64 ?? '',
       displayName: values.displayName ?? '',
-      bio: values.bio ?? '',
-    })
+      bio: values.bio ?? ''
+    });
 
     setPhase('finished');
   };
