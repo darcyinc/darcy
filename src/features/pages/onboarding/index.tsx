@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
+import OnboardingFinishedPhase from './phases/finished';
 
 const OnboardingPresentationPhase = dynamic(() => import('./phases/presentation'), { ssr: false });
 const OnboardingUserProfilePhase = dynamic(() => import('./phases/user-profile'), { ssr: false });
@@ -26,6 +27,7 @@ export default function OnboardingPage() {
 
   return (
     <>
+      {phase === 'finished' && <OnboardingFinishedPhase />}
       {phase === 'presentation' && <OnboardingPresentationPhase {...{ data, setPhase, setData }} />}
       {phase === 'profile' && <OnboardingUserProfilePhase {...{ data, setPhase, setData }} />}
     </>
