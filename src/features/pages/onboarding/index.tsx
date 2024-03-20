@@ -10,7 +10,6 @@ export interface OnboardingUserData {
   avatarBase64: string;
   bio: string;
   displayName: string;
-  handle: string;
 }
 
 export interface OnboardingPhaseProps {
