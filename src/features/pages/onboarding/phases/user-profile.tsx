@@ -31,12 +31,15 @@ export default function OnboardingUserProfilePhase({ data, setData, setPhase }: 
     resolver: valibotResolver(formSchema)
   });
 
-  // const _nextPhase = () => {
-  //   setPhase('profile-v2');
-  // };
+  const handleSubmit = async (values: v.Input<typeof formSchema>) => {
+    setData({
+      ...data,
+      avatarBase64: values.avatarBase64 ?? '',
+      displayName: values.displayName ?? '',
+      bio: values.bio ?? '',
+    })
 
-  const handleSubmit = async (_values: v.Input<typeof formSchema>) => {
-    return;
+    setPhase('finished');
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
