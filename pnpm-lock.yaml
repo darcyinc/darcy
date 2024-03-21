@@ -136,6 +136,9 @@ devDependencies:
   autoprefixer:
     specifier: 10.4.19
     version: 10.4.19(postcss@8.4.38)
+  husky:
+    specifier: 9.0.11
+    version: 9.0.11
   postcss:
     specifier: 8.4.38
     version: 8.4.38
@@ -2321,6 +2324,12 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
+
+  /husky@9.0.11:
+    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==}
+    engines: {node: '>=18'}
+    hasBin: true
+    dev: true
 
   /immediate@3.0.6:
     resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
