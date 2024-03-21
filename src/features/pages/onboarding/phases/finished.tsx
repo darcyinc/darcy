@@ -1,10 +1,10 @@
 import useEditUser from '@/api/mutations/useEditUser';
+import LoadingSpinner from '@/components/loading-spinner';
 import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Check } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import type { OnboardingPhaseProps } from '..';
-import LoadingSpinner from '@/components/loading-spinner';
 
 export default function OnboardingFinishedPhase({ data }: OnboardingPhaseProps) {
   const router = useRouter();
