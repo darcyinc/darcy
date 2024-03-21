@@ -1,28 +1,46 @@
+import useEditUser from '@/api/mutations/useEditUser';
 import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Check } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import type { OnboardingPhaseProps } from '..';
+import LoadingSpinner from '@/components/loading-spinner';
 
-export default function OnboardingFinishedPhase() {
+export default function OnboardingFinishedPhase({ data }: OnboardingPhaseProps) {
   const router = useRouter();
+  const mutation = useEditUser();
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      router.replace('/');
-    }, 2000);
+    mutation.mutate({ ...data, completedOnboarding: true });
+  }, [mutation, data]);
 
-    return () => clearTimeout(timeout);
-  }, [router]);
+  useEffect(() => {
+    if (mutation.isSuccess) {
+      setTimeout(() => {
+        router.replace('/');
+      }, 2000);
+    }
+  }, [mutation.isSuccess, router]);
 
   return (
     <AlertDialog open>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>
-            <Check /> Cadastro concluído com sucesso!
+            {mutation.isSuccess ? (
+              <div>
+                <Check /> Cadastro concluído com sucesso!
+              </div>
+            ) : (
+              <div>
+                <LoadingSpinner /> Finalizando cadastro
+              </div>
+            )}
           </AlertDialogTitle>
           <AlertDialogDescription>
-            A partir de agora, você já pode utilizar sua conta. Redirecionando em 2 segundos...
+            {mutation.isSuccess
+              ? 'A partir de agora, você já pode utilizar sua conta. Redirecionando...'
+              : 'Aguarde enquanto finalizamos seu cadastro. Este processo é rápido e não deve demorar muito.'}
           </AlertDialogDescription>
         </AlertDialogHeader>
       </AlertDialogContent>

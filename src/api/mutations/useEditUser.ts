@@ -4,9 +4,9 @@ import type { KyResponse } from 'ky';
 import { apiClient } from '../client';
 
 export default function useEditUser() {
-  const editUser = async ({ displayName, handle, bio }: EditUserPayload) => {
+  const editUser = async (json: EditUserPayload) => {
     try {
-      const request = await apiClient.patch('users/@me', { json: { displayName, handle, bio } });
+      const request = await apiClient.patch('users/@me', { json });
       const data = (await request.json()) as GetUserResponse;
       return data;
     } catch (err) {
