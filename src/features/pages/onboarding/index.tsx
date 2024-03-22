@@ -27,8 +27,8 @@ export default function OnboardingPage() {
 
   return (
     <>
-      {phase === 'finished' && <OnboardingFinishedPhase />}
-      {phase === 'presentation' && <OnboardingPresentationPhase {...{ data, setPhase, setData }} />}
+      {phase === 'finished' && <OnboardingFinishedPhase {...{ data }} />}
+      {phase === 'presentation' && <OnboardingPresentationPhase {...{ setPhase }} />}
       {phase === 'profile' && <OnboardingUserProfilePhase {...{ data, setPhase, setData }} />}
     </>
   );

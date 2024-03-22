@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import type { OnboardingPhaseProps } from '..';
 
-export default function OnboardingFinishedPhase({ data }: OnboardingPhaseProps) {
+export default function OnboardingFinishedPhase({ data }: Pick<OnboardingPhaseProps, 'data'>) {
   const router = useRouter();
   const mutation = useEditUser();
 

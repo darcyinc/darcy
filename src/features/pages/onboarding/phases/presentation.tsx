@@ -10,7 +10,7 @@ import {
 import { ArrowRight } from 'lucide-react';
 import type { OnboardingPhaseProps } from '..';
 
-export default function OnboardingPresentationPhase({ setPhase }: OnboardingPhaseProps) {
+export default function OnboardingPresentationPhase({ setPhase }: Pick<OnboardingPhaseProps, 'setPhase'>) {
   const nextPhase = () => {
     setPhase('profile');
   };
