@@ -15,16 +15,16 @@ import { valibotResolver } from '@hookform/resolvers/valibot';
 import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import type v from 'valibot';
-import { maxLength, minLength, object, optional, string } from 'valibot';
+import { fallback, maxLength, minLength, object, string } from 'valibot';
 import type { OnboardingPhaseProps } from '..';
 
 const AllowedImageTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
 
 export default function OnboardingUserProfilePhase({ data, setData, setPhase }: OnboardingPhaseProps) {
   const formSchema = object({
-    avatarBase64: optional(string()),
-    displayName: optional(string([minLength(1, 'Nome muito curto.'), maxLength(32, 'Nome muito largo.')])),
-    bio: optional(string([maxLength(120, 'Biografia muito longa.')]))
+    avatarBase64: fallback(string(), data.avatarBase64),
+    bio: fallback(string([maxLength(120, 'Biografia muito longa.')]), data.bio),
+    displayName: fallback(string([minLength(1, 'Nome muito curto.'), maxLength(32, 'Nome muito largo.')]), data.displayName)
   });
 
   const form = useForm<v.Input<typeof formSchema>>({
@@ -77,7 +77,7 @@ export default function OnboardingUserProfilePhase({ data, setData, setPhase }: 
                 <FormItem>
                   <FormLabel className="font-bold">Nome</FormLabel>
                   <FormControl>
-                    <Input placeholder={'John Doe'} {...field} />
+                    <Input placeholder={data.displayName} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -90,7 +90,7 @@ export default function OnboardingUserProfilePhase({ data, setData, setPhase }: 
                 <FormItem>
                   <FormLabel className="font-bold">Biografia</FormLabel>
                   <FormControl>
-                    <Textarea placeholder={''} {...field} />
+                    <Textarea placeholder={data.bio} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

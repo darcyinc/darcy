@@ -10,6 +10,7 @@ export default function OnboardingFinishedPhase({ data }: Pick<OnboardingPhasePr
   const router = useRouter();
   const mutation = useEditUser();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     mutation.mutate(
       { ...data, completedOnboarding: true },
@@ -21,7 +22,7 @@ export default function OnboardingFinishedPhase({ data }: Pick<OnboardingPhasePr
         }
       }
     );
-  }, [mutation, router, data]);
+  }, [data]);
 
   return (
     <AlertDialog open>

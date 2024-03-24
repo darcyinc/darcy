@@ -1,8 +1,9 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import OnboardingFinishedPhase from './phases/finished';
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 const OnboardingPresentationPhase = dynamic(() => import('./phases/presentation'), { ssr: false });
 const OnboardingUserProfilePhase = dynamic(() => import('./phases/user-profile'), { ssr: false });
@@ -22,14 +23,23 @@ export interface OnboardingPhaseProps {
 export type OnboardingPhase = 'presentation' | 'profile' | 'finished';
 
 export default function OnboardingPage() {
+  const user = useCurrentUser();
   const [phase, setPhase] = useState<OnboardingPhase>('presentation');
-  const [data, setData] = useState<OnboardingUserData>({} as OnboardingUserData);
+  const [data, setData] = useState({} as OnboardingUserData);
+
+  useEffect(() => {
+    setData({
+      avatarBase64: '',
+      bio: user.bio,
+      displayName: user.displayName
+    });
+  }, [user]);
 
   return (
     <>
-      {phase === 'finished' && <OnboardingFinishedPhase {...{ data }} />}
       {phase === 'presentation' && <OnboardingPresentationPhase {...{ setPhase }} />}
       {phase === 'profile' && <OnboardingUserProfilePhase {...{ data, setPhase, setData }} />}
+      {phase === 'finished' && <OnboardingFinishedPhase {...{ data }} />}
     </>
   );
 }
