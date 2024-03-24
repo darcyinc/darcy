@@ -11,16 +11,17 @@ export default function OnboardingFinishedPhase({ data }: Pick<OnboardingPhasePr
   const mutation = useEditUser();
 
   useEffect(() => {
-    mutation.mutate({ ...data, completedOnboarding: true });
-  }, [mutation, data]);
-
-  useEffect(() => {
-    if (mutation.isSuccess) {
-      setTimeout(() => {
-        router.replace('/');
-      }, 2000);
-    }
-  }, [mutation.isSuccess, router]);
+    mutation.mutate(
+      { ...data, completedOnboarding: true },
+      {
+        onSuccess: () => {
+          setTimeout(() => {
+            router.replace('/');
+          }, 2000);
+        }
+      }
+    );
+  }, [mutation, router, data]);
 
   return (
     <AlertDialog open>

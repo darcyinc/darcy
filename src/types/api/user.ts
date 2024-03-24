@@ -18,6 +18,7 @@ export interface GetUserResponse {
   followersCount: number;
   followingCount: number;
   isFollowing: boolean;
+  // Only available on @me
   completedOnboarding?: boolean;
 }
 
