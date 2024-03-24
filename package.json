@@ -6,9 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "PORT=3001 next dev --turbo",
+    "start": "PORT=3001 next start",
     "build": "next build",
-    "start": "next start",
     "lint": "biome check .",
     "format": "biome check --apply .",
     "prepare": "husky"
