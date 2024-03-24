@@ -1,9 +1,9 @@
 'use client';
 
+import { useCurrentUser } from '@/hooks/useCurrentUser';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import OnboardingFinishedPhase from './phases/finished';
-import { useCurrentUser } from '@/hooks/useCurrentUser';
 
 const OnboardingPresentationPhase = dynamic(() => import('./phases/presentation'), { ssr: false });
 const OnboardingUserProfilePhase = dynamic(() => import('./phases/user-profile'), { ssr: false });
