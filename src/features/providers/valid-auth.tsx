@@ -3,7 +3,7 @@
 import useUser from '@/api/queries/useUser';
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { type PropsWithChildren, useEffect } from 'react';
 
 export default function ValidAuthProvider({ children }: PropsWithChildren) {
