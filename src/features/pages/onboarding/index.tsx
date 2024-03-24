@@ -4,6 +4,7 @@ import { useCurrentUser } from '@/hooks/useCurrentUser';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import OnboardingFinishedPhase from './phases/finished';
+import { useRouter } from 'next/navigation';
 
 const OnboardingPresentationPhase = dynamic(() => import('./phases/presentation'), { ssr: false });
 const OnboardingUserProfilePhase = dynamic(() => import('./phases/user-profile'), { ssr: false });
@@ -23,6 +24,7 @@ export interface OnboardingPhaseProps {
 export type OnboardingPhase = 'presentation' | 'profile' | 'finished';
 
 export default function OnboardingPage() {
+  const router = useRouter();
   const user = useCurrentUser();
   const [phase, setPhase] = useState<OnboardingPhase>('presentation');
   const [data, setData] = useState({} as OnboardingUserData);
@@ -34,6 +36,11 @@ export default function OnboardingPage() {
       displayName: user.displayName
     });
   }, [user]);
+
+  if (user.completedOnboarding) {
+    router.replace('/');
+    return;
+  }
 
   return (
     <>
