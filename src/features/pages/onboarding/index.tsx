@@ -2,9 +2,9 @@
 
 import { useCurrentUser } from '@/hooks/useCurrentUser';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import OnboardingFinishedPhase from './phases/finished';
-import { useRouter } from 'next/navigation';
 
 const OnboardingPresentationPhase = dynamic(() => import('./phases/presentation'), { ssr: false });
 const OnboardingUserProfilePhase = dynamic(() => import('./phases/user-profile'), { ssr: false });
