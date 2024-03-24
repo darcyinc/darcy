@@ -36,7 +36,6 @@
 
   --color-like: #f91880;
   --color-repost: #00ba7c;
-
 }
 
 .dark {
@@ -77,6 +76,10 @@ button {
 
 html {
   text-rendering: optimizeLegibility;
+}
+
+* {
+  @apply border-border;
 }
 
 /* enable animations if user don't prefer reduced motion */

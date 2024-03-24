@@ -18,6 +18,8 @@ export interface GetUserResponse {
   followersCount: number;
   followingCount: number;
   isFollowing: boolean;
+  // Only available on @me
+  completedOnboarding?: boolean;
 }
 
 export type GetUserFollowersResponse = {
@@ -33,4 +35,5 @@ export interface EditUserPayload {
   displayName?: string;
   handle?: string;
   bio?: string;
+  completedOnboarding?: boolean;
 }
