@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.3",
-    "@tailwindcss/postcss": "4.0.0-alpha.10",
+    "@tailwindcss/postcss": "4.0.0-alpha.11",
     "@types/jsonwebtoken": "9.0.6",
     "@types/node": "20.11.30",
     "@types/react": "18.2.73",
