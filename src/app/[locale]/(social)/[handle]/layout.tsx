@@ -12,25 +12,26 @@ interface LayoutProps {
 }
 
 export async function generateMetadata({ params }: PropsWithChildren<LayoutProps>): Promise<Metadata> {
-  const request = await apiClient.get(`users/${params.handle}`);
-  const data = (await request.json()) as GetUserResponse;
+  try {
+    const request = await apiClient.get(`users/${params.handle}`);
+    const data = (await request.json()) as GetUserResponse;
 
-  if (request.status !== 200)
+    return {
+      title: `${data.displayName} (@${params.handle})`,
+      description: `See ${params.handle} posts on Darcy. ${data.bio}`,
+      keywords: [params.handle, data.displayName, 'darcy', 'social network', 'darcy social network'],
+      robots: {
+        index: true
+      }
+    };
+  } catch {
     return {
       title: 'Not found',
       robots: {
         index: false
       }
     };
-
-  return {
-    title: `${data.displayName} (@${params.handle})`,
-    description: `See ${params.handle} posts on Darcy. ${data.bio}`,
-    keywords: [params.handle, data.displayName, 'darcy', 'social network', 'darcy social network'],
-    robots: {
-      index: true
-    }
-  };
+  }
 }
 
 export default function RootLayout({ children, modals }: PropsWithChildren<LayoutProps>) {
