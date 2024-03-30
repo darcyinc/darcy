@@ -1,5 +1,6 @@
 import { apiClient } from '@/api/client';
 import { FeedHeader, FeedPost, FeedPostComposer } from '@/components/feed';
+import CommentPostFetcher from '@/components/feed/feed-fetcher/comment-post-fetcher';
 import type { GetPostResponse } from '@/types/api/post';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -52,7 +53,9 @@ export default async function Post({ params }: PostProps) {
         createdAt={data.createdAt}
       />
 
-      <FeedPostComposer queryKeys={['post', params.id, 'comments']} parentPostId={data.id} />
+      <FeedPostComposer queryKeys={['post', params.id, 'comments']} parentPostId={params.id} />
+
+      <CommentPostFetcher postId={params.id} />
     </>
   );
 }

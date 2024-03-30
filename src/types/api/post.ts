@@ -25,6 +25,7 @@ export interface GetPostResponse {
 }
 
 export type GetPopularPostsResponse = GetPostResponse[];
+export type GetPostCommentsResponse = GetPostResponse[];
 
 export type GetUserPostResponse = Pick<
   GetPostResponse,
