@@ -103,7 +103,7 @@ dependencies:
     version: 2.2.2
   tailwindcss-animate:
     specifier: 1.0.7
-    version: 1.0.7(tailwindcss@4.0.0-alpha.12)
+    version: 1.0.7(tailwindcss@4.0.0-alpha.13)
   valibot:
     specifier: 0.30.0
     version: 0.30.0
@@ -143,8 +143,8 @@ devDependencies:
     specifier: ^0.33.2
     version: 0.33.3
   tailwindcss:
-    specifier: 4.0.0-alpha.12
-    version: 4.0.0-alpha.12
+    specifier: 4.0.0-alpha.13
+    version: 4.0.0-alpha.13
   typescript:
     specifier: 5.4.3
     version: 5.4.3
@@ -3126,20 +3126,16 @@ packages:
       '@babel/runtime': 7.24.4
     dev: false
 
-  /tailwindcss-animate@1.0.7(tailwindcss@4.0.0-alpha.12):
+  /tailwindcss-animate@1.0.7(tailwindcss@4.0.0-alpha.13):
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
     dependencies:
-      tailwindcss: 4.0.0-alpha.12
+      tailwindcss: 4.0.0-alpha.13
     dev: false
-
-  /tailwindcss@4.0.0-alpha.12:
-    resolution: {integrity: sha512-ogYUtw4cs5z20eKU8S0YxlYeWgnZObl9BmOED0IAvKuECxPaEt9Expdghi7Hsvy+0ibHkeH/6dyZqzQBO/E4Bg==}
 
   /tailwindcss@4.0.0-alpha.13:
     resolution: {integrity: sha512-YbLm8I10/bsGr7zrUNxn4Soj9Lc71anTWu/ulgry64rbBU4m0vov539+caeifAiKhsef2NUCW1twaqH3NfJd2Q==}
-    dev: true
 
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
