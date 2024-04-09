@@ -58,7 +58,7 @@
     "@biomejs/biome": "1.6.4",
     "@tailwindcss/postcss": "4.0.0-alpha.14",
     "@types/jsonwebtoken": "9.0.6",
-    "@types/node": "20.12.6",
+    "@types/node": "20.12.7",
     "@types/react": "18.2.75",
     "@types/react-dom": "18.2.24",
     "autoprefixer": "10.4.19",
