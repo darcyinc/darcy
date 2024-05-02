@@ -11,6 +11,7 @@ export default function FeedPostGallery({ images }: PostGalleryProps) {
     <div className="grid grid-cols-2 grid-rows-2 gap-1 w-full my-2 place-items-center rounded-lg overflow-hidden border border-border">
       {images.map((image, index) => (
         <div
+          key={image}
           className={cn(
             'h-full',
             images.length === 1 && 'col-span-2 row-span-2 max-w-full max-h-full',
