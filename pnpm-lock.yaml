@@ -106,7 +106,7 @@ importers:
         version: 2.3.0
       tailwindcss-animate:
         specifier: 1.0.7
-        version: 1.0.7(tailwindcss@4.0.0-alpha.14)
+        version: 1.0.7(tailwindcss@4.0.0-alpha.15)
       valibot:
         specifier: 0.30.0
         version: 0.30.0
@@ -145,8 +145,8 @@ importers:
         specifier: ^0.33.2
         version: 0.33.3
       tailwindcss:
-        specifier: 4.0.0-alpha.14
-        version: 4.0.0-alpha.14
+        specifier: 4.0.0-alpha.15
+        version: 4.0.0-alpha.15
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -1831,6 +1831,9 @@ packages:
 
   tailwindcss@4.0.0-alpha.14:
     resolution: {integrity: sha512-7qAhQPrsWyaaDk0IjOEhTEdgDWsN0MjB3kk38DxK5vXqPJ7C57FYlARA6vrE36WL0K/mYdAA54vWJbWbDfoVcQ==}
+
+  tailwindcss@4.0.0-alpha.15:
+    resolution: {integrity: sha512-hlL3dKkgKTNz6dXe4OWJMngI9DdcJncGXvhhjdPkMc/Pqc81NCYaV/8Z11DZ4Djy5RSFfLf41HI6+DGeKtvJ2g==}
 
   to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
@@ -3587,11 +3590,13 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.4
 
-  tailwindcss-animate@1.0.7(tailwindcss@4.0.0-alpha.14):
+  tailwindcss-animate@1.0.7(tailwindcss@4.0.0-alpha.15):
     dependencies:
-      tailwindcss: 4.0.0-alpha.14
+      tailwindcss: 4.0.0-alpha.15
 
   tailwindcss@4.0.0-alpha.14: {}
+
+  tailwindcss@4.0.0-alpha.15: {}
 
   to-fast-properties@2.0.0: {}
 
