@@ -39,7 +39,7 @@
     "dayjs": "^1.11.10",
     "jsonwebtoken": "9.0.2",
     "ky": "1.2.4",
-    "lucide-react": "0.378.0",
+    "lucide-react": "0.379.0",
     "million": "3.0.6",
     "next": "14.2.3",
     "next-intl": "3.14.0",
