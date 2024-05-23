@@ -51,8 +51,8 @@ importers:
         specifier: 5.37.1
         version: 5.37.1(@tanstack/react-query@5.37.1(react@18.3.1))(react@18.3.1)
       '@vercel/analytics':
-        specifier: 1.2.2
-        version: 1.2.2(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        specifier: 1.3.0
+        version: 1.3.0(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@vercel/speed-insights':
         specifier: 1.0.10
         version: 1.0.10(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -1147,8 +1147,8 @@ packages:
   '@types/react@18.3.2':
     resolution: {integrity: sha512-Btgg89dAnqD4vV7R3hlwOxgqobUQKgx3MmrQRi0yYbs/P0ym8XozIAlkqVilPqHQwXs4e9Tf63rrCgl58BcO4w==}
 
-  '@vercel/analytics@1.2.2':
-    resolution: {integrity: sha512-X0rctVWkQV1e5Y300ehVNqpOfSOufo7ieA5PIdna8yX/U7Vjz0GFsGf4qvAhxV02uQ2CVt7GYcrFfddXXK2Y4A==}
+  '@vercel/analytics@1.3.0':
+    resolution: {integrity: sha512-iAeQhNwL2kGUVbx6Z43uT+PG19Bn7IUOGWB9Z4jmWAyL/Jn6v+KHmZj0fSFCcxN1YXU9xkjKpuD/6YlJmzN06A==}
     peerDependencies:
       next: '>= 13'
       react: ^18 || ^19
@@ -3218,7 +3218,7 @@ snapshots:
       '@types/prop-types': 15.7.12
       csstype: 3.1.3
 
-  '@vercel/analytics@1.2.2(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@vercel/analytics@1.3.0(next@14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       server-only: 0.0.1
     optionalDependencies:
