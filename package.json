@@ -40,7 +40,7 @@
     "jsonwebtoken": "9.0.2",
     "ky": "1.2.4",
     "lucide-react": "0.379.0",
-    "million": "3.1.5",
+    "million": "3.1.6",
     "next": "14.2.3",
     "next-intl": "3.14.1",
     "next-themes": "0.3.0",
