@@ -75,8 +75,8 @@ importers:
         specifier: 0.379.0
         version: 0.379.0(react@18.3.1)
       million:
-        specifier: 3.1.6
-        version: 3.1.6(rollup@2.78.0)
+        specifier: 3.1.7
+        version: 3.1.7(rollup@2.78.0)
       next:
         specifier: 14.2.3
         version: 14.2.3(@babel/core@7.24.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -493,8 +493,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@million/install@0.0.7':
-    resolution: {integrity: sha512-knhZwT8mi6jWfdPPzVuk9HfNWyhfOJsUmLmR1A7pQYxERiya8YKXdm3XZZXQF9An/5n1CjeLeyXPwk7Pc0utRQ==}
+  '@million/install@0.0.8':
+    resolution: {integrity: sha512-eISzjTfghxSgasyPUyLVEJaRbJz3vMi1EFvFbtGa9R/NyRfBStwb9ESYsprsb4J5xYjrTbjrAmR34QE/11sigw==}
     hasBin: true
 
   '@next/bundle-analyzer@14.2.3':
@@ -1627,8 +1627,8 @@ packages:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
 
-  million@3.1.6:
-    resolution: {integrity: sha512-GbI6S88EEwJKJ8wsFyqAG/Fuy9lrWjWJGDENONfGcGe1Pv0Cunk1oRliPY65ZpJ2AovViZEBjsAWIBXY6dA9sg==}
+  million@3.1.7:
+    resolution: {integrity: sha512-Ez2UiZ4+7iYNcq58kMEAYbU6puFaqbrLswzupvYbhFE/hcrwujpeuQxT14XQzAzGYt0eNpd/iczLbgJ+6LP3EA==}
     hasBin: true
 
   mime-db@1.52.0:
@@ -2451,7 +2451,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@million/install@0.0.7':
+  '@million/install@0.0.8':
     dependencies:
       '@antfu/ni': 0.21.12
       '@axiomhq/js': 1.0.0-rc.3
@@ -3544,11 +3544,11 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  million@3.1.6(rollup@2.78.0):
+  million@3.1.7(rollup@2.78.0):
     dependencies:
       '@babel/core': 7.24.5
       '@babel/types': 7.24.5
-      '@million/install': 0.0.7
+      '@million/install': 0.0.8
       '@rollup/pluginutils': 5.1.0(rollup@2.78.0)
       kleur: 4.1.5
       undici: 6.12.0
