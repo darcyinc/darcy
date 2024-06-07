@@ -24,7 +24,14 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
 
   const formSchema = v.object({
     displayName: v.optional(v.pipe(v.string(), v.minLength(1, t('displayNameTooSmall')), v.maxLength(32, t('displayNameTooLarge')))),
-    handle: v.optional(v.pipe(v.string(), v.minLength(2, t('handleTooSmall')), v.maxLength(16, t('handleTooLarge')), v.regex(/^[a-zA-Z0-9_]*$/, t('invalidHandle')))),
+    handle: v.optional(
+      v.pipe(
+        v.string(),
+        v.minLength(2, t('handleTooSmall')),
+        v.maxLength(16, t('handleTooLarge')),
+        v.regex(/^[a-zA-Z0-9_]*$/, t('invalidHandle'))
+      )
+    ),
     bio: v.optional(v.pipe(v.string(), v.maxLength(120, t('biographyTooLarge'))))
   });
 
