@@ -8,22 +8,21 @@ import { Search, XCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import type v from 'valibot';
-import { maxLength, minLength, object, string } from 'valibot';
+import v from 'valibot';
 
 export default function PostSearchForm() {
   const router = useRouter();
   const t = useTranslations('Trending.Search');
 
-  const formSchema = object({
-    searchText: string([minLength(1, t('SearchErrors.tooSmall')), maxLength(100, t('SearchErrors.tooLarge'))])
+  const formSchema = v.object({
+    searchText: v.pipe(v.string(), v.minLength(1, t('SearchErrors.tooSmall')), v.maxLength(100, t('SearchErrors.tooLarge')))
   });
 
-  const form = useForm<v.Input<typeof formSchema>>({
+  const form = useForm<v.InferInput<typeof formSchema>>({
     resolver: valibotResolver(formSchema)
   });
 
-  const handleSubmit = (values: v.Input<typeof formSchema>) => {
+  const handleSubmit = (values: v.InferInput<typeof formSchema>) => {
     router.push(`/search?q=${encodeURIComponent(values.searchText.trim())}`, { scroll: false });
   };
 

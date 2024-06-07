@@ -1,7 +1,7 @@
-import { maxLength, minLength, object, optional, string } from 'valibot';
+import v from 'valibot';
 
-export const patchUserSchema = object({
-  displayName: optional(string([minLength(1), maxLength(32)])),
-  handle: optional(string([minLength(2), maxLength(16)])),
-  bio: optional(string([maxLength(120)]))
+export const patchUserSchema = v.object({
+  bio: v.optional(v.pipe(v.string(), v.maxLength(120))),
+  displayName: v.optional(v.pipe(v.string(), v.minLength(1), v.maxLength(32))),
+  handle: v.optional(v.pipe(v.string(), v.minLength(2), v.maxLength(16)))
 });
