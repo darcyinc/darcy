@@ -8,7 +8,7 @@ export default withSentryConfig(
   {
     reactStrictMode: false,
     experimental: {
-      reactCompiler: true,
+      reactCompiler: true
     },
     ...withNextIntl(
       withBundleAnalyzer({
