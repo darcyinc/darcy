@@ -7,6 +7,9 @@ const withNextIntl = nextIntl('./src/utils/i18n.ts');
 export default withSentryConfig(
   {
     reactStrictMode: false,
+    experimental: {
+      reactCompiler: true,
+    },
     ...withNextIntl(
       withBundleAnalyzer({
         enabled: process.env.ANALYZE === 'true'
