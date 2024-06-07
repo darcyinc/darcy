@@ -9,8 +9,7 @@ import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import type v from 'valibot';
-import { email, object, string } from 'valibot';
+import v from 'valibot';
 
 interface EmailAuthFormProps {
   onSubmit?: () => void;
@@ -22,8 +21,8 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
   const tForms = useTranslations('Forms.EmailAuth');
   const [loading, setLoading] = useState(false);
 
-  const formSchema = object({
-    email: string([email(tForms('Errors.invalidEmail'))])
+  const formSchema = v.object({
+    email: v.pipe(v.string(), v.email(tForms('Errors.invalidEmail')))
   });
 
   useEffect(() => {
@@ -34,11 +33,11 @@ export default function EmailAuthForm({ onSubmit, error }: EmailAuthFormProps) {
     }
   }, [error, t, tForms]);
 
-  const form = useForm<v.Input<typeof formSchema>>({
+  const form = useForm<v.InferInput<typeof formSchema>>({
     resolver: valibotResolver(formSchema)
   });
 
-  const handleSubmit = async (_values: v.Input<typeof formSchema>) => {
+  const handleSubmit = async (_values: v.InferInput<typeof formSchema>) => {
     setLoading(true);
 
     // TODO: send e-mail code

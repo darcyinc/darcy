@@ -14,24 +14,23 @@ import { Textarea } from '@/components/ui/textarea';
 import { valibotResolver } from '@hookform/resolvers/valibot';
 import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import type v from 'valibot';
-import { fallback, maxLength, minLength, object, string } from 'valibot';
+import v from 'valibot';
 import type { OnboardingPhaseProps } from '..';
 
 const AllowedImageTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
 
 export default function OnboardingUserProfilePhase({ data, setData, setPhase }: OnboardingPhaseProps) {
-  const formSchema = object({
-    avatarBase64: fallback(string(), data.avatarBase64),
-    bio: fallback(string([maxLength(120, 'Biografia muito longa.')]), data.bio),
-    displayName: fallback(string([minLength(1, 'Nome muito curto.'), maxLength(32, 'Nome muito largo.')]), data.displayName)
+  const formSchema = v.object({
+    avatarBase64: v.fallback(v.string(), data.avatarBase64),
+    bio: v.fallback(v.pipe(v.string(), v.maxLength(120, 'Biografia muito longa.')), data.bio),
+    displayName: v.fallback(v.pipe(v.string(), v.minLength(1, 'Nome muito curto.'), v.maxLength(32, 'Nome muito longo.')), data.displayName)
   });
 
-  const form = useForm<v.Input<typeof formSchema>>({
+  const form = useForm<v.InferInput<typeof formSchema>>({
     resolver: valibotResolver(formSchema)
   });
 
-  const handleSubmit = async (values: v.Input<typeof formSchema>) => {
+  const handleSubmit = async (values: v.InferInput<typeof formSchema>) => {
     setData({
       ...data,
       avatarBase64: values.avatarBase64 ?? '',

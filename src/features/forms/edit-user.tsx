@@ -11,8 +11,7 @@ import { valibotResolver } from '@hookform/resolvers/valibot';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import type v from 'valibot';
-import { maxLength, minLength, object, optional, regex, string } from 'valibot';
+import v from 'valibot';
 
 interface EditUserFormProps {
   onSubmit?: () => void;
@@ -23,19 +22,17 @@ export default function EditUserForm({ onSubmit }: EditUserFormProps) {
   const t = useTranslations('Forms.EditUser');
   const mutation = useEditUser();
 
-  const formSchema = object({
-    displayName: optional(string([minLength(1, t('displayNameTooSmall')), maxLength(32, t('displayNameTooLarge'))])),
-    handle: optional(
-      string([minLength(2, t('handleTooSmall')), maxLength(16, t('handleTooLarge')), regex(/^[a-zA-Z0-9_]*$/, t('invalidHandle'))])
-    ),
-    bio: optional(string([maxLength(120, t('biographyTooLarge'))]))
+  const formSchema = v.object({
+    displayName: v.optional(v.pipe(v.string(), v.minLength(1, t('displayNameTooSmall')), v.maxLength(32, t('displayNameTooLarge')))),
+    handle: v.optional(v.pipe(v.string(), v.minLength(2, t('handleTooSmall')), v.maxLength(16, t('handleTooLarge')), v.regex(/^[a-zA-Z0-9_]*$/, t('invalidHandle')))),
+    bio: v.optional(v.pipe(v.string(), v.maxLength(120, t('biographyTooLarge'))))
   });
 
-  const form = useForm<v.Input<typeof formSchema>>({
+  const form = useForm<v.InferInput<typeof formSchema>>({
     resolver: valibotResolver(formSchema)
   });
 
-  const handleSubmit = async (values: v.Input<typeof formSchema>) => {
+  const handleSubmit = async (values: v.InferInput<typeof formSchema>) => {
     mutation.mutate(
       { ...values },
       {
