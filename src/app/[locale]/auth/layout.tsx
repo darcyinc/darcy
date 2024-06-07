@@ -1,4 +1,4 @@
-import AuthSideImage from '@/assets/images/auth-side-image.png';
+import AuthSideImage from '@/assets/images/auth-side-image.jpg';
 import { DESCRIPTION } from '@/utils/constants';
 import type { Metadata } from 'next';
 import Image from 'next/image';
