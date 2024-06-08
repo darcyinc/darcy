@@ -63,7 +63,7 @@
     "postcss": "8.4.38",
     "sharp": "^0.33.2",
     "tailwindcss": "4.0.0-alpha.16",
-    "typescript": "5.5.0-beta"
+    "typescript": "5.5.0-dev.20240603"
   },
   "packageManager": "pnpm@9.2.0"
 }

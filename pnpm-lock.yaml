@@ -139,8 +139,8 @@ importers:
         specifier: 4.0.0-alpha.16
         version: 4.0.0-alpha.16
       typescript:
-        specifier: 5.5.0-beta
-        version: 5.5.0-beta
+        specifier: 5.5.0-dev.20240603
+        version: 5.5.0-dev.20240603
 
 packages:
 
@@ -2358,9 +2358,6 @@ packages:
   tailwind-merge@2.3.0:
     resolution: {integrity: sha512-vkYrLpIP+lgR0tQCG6AP7zZXCTLc1Lnv/CCRT3BqJ9CZ3ui2++GPaGb1x/ILsINIMSYqqvrpqjUFsMNLlW99EA==}
 
-  tailwindcss@4.0.0-alpha.15:
-    resolution: {integrity: sha512-hlL3dKkgKTNz6dXe4OWJMngI9DdcJncGXvhhjdPkMc/Pqc81NCYaV/8Z11DZ4Djy5RSFfLf41HI6+DGeKtvJ2g==}
-
   tailwindcss@4.0.0-alpha.16:
     resolution: {integrity: sha512-h6UIkQEpOJZy0N8tXeWgIhsEYPfUyqST9Oidr46+1W78p8S9hjJDfnW08/bKW17NA9/ro8sZvFHT98LtwwxtSQ==}
 
@@ -2415,8 +2412,8 @@ packages:
     resolution: {integrity: sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==}
     engines: {node: '>=8'}
 
-  typescript@5.5.0-beta:
-    resolution: {integrity: sha512-FRg3e/aQg3olEG3ff8YjHOERsO4IM0m4qGrsE4UMvILaq4TdDZ6gQX4+2Rq9SjTpfSe/ebwiHcsjm/7FfWWQ6Q==}
+  typescript@5.5.0-dev.20240603:
+    resolution: {integrity: sha512-gdm3Sh1A+Pjj9ZlfBEJY3o2rs3tvpcSbu3vYqcCijMe09BePQBtZlsuShuPn+zCnP+qBLxdKjFiw5v1tkna3tA==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -4840,8 +4837,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.4
 
-  tailwindcss@4.0.0-alpha.15: {}
-
   tailwindcss@4.0.0-alpha.16: {}
 
   tapable@2.2.1: {}
@@ -4878,7 +4873,7 @@ snapshots:
 
   type-fest@0.7.1: {}
 
-  typescript@5.5.0-beta: {}
+  typescript@5.5.0-dev.20240603: {}
 
   undici-types@5.26.5: {}
 
