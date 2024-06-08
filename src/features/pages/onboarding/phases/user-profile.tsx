@@ -14,7 +14,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { valibotResolver } from '@hookform/resolvers/valibot';
 import { ArrowRight } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-import v from 'valibot';
+import * as v from 'valibot';
 import type { OnboardingPhaseProps } from '..';
 
 const AllowedImageTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];

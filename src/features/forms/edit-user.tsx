@@ -11,7 +11,7 @@ import { valibotResolver } from '@hookform/resolvers/valibot';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import v from 'valibot';
+import * as v from 'valibot';
 
 interface EditUserFormProps {
   onSubmit?: () => void;

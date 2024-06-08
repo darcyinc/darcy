@@ -1,4 +1,4 @@
-import v from 'valibot';
+import * as v from 'valibot';
 
 export const patchUserSchema = v.object({
   bio: v.optional(v.pipe(v.string(), v.maxLength(120))),
