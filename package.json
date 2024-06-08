@@ -10,7 +10,7 @@
     "start": "PORT=3001 next start",
     "build": "next build",
     "lint": "biome check .",
-    "format": "biome check --apply .",
+    "format": "biome check --write .",
     "prepare": "husky"
   },
   "engines": {
