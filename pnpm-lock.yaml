@@ -45,11 +45,11 @@ importers:
         specifier: 8.9.1
         version: 8.9.1(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.52.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.0(@opentelemetry/api@1.9.0))(@opentelemetry/semantic-conventions@1.25.0)(next@15.0.0-canary.16(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@0.0.0-experimental-938cd9a-20240601)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(webpack@5.91.0)
       '@tanstack/react-query':
-        specifier: 5.40.1
-        version: 5.40.1(react@19.0.0-rc-f994737d14-20240522)
+        specifier: 5.44.0
+        version: 5.44.0(react@19.0.0-rc-f994737d14-20240522)
       '@tanstack/react-query-devtools':
-        specifier: 5.40.1
-        version: 5.40.1(@tanstack/react-query@5.40.1(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
+        specifier: 5.44.0
+        version: 5.44.0(@tanstack/react-query@5.44.0(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
       '@vercel/analytics':
         specifier: 1.3.1
         version: 1.3.1(next@15.0.0-canary.16(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@0.0.0-experimental-938cd9a-20240601)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
@@ -1271,20 +1271,20 @@ packages:
   '@tailwindcss/postcss@4.0.0-alpha.16':
     resolution: {integrity: sha512-bKrTLR9ns02pusPsBaJ687hjmzeIazBEqoyudRPpYRgLpXtwRNhs1XwA0+sOghfVn+sJlY63Fj+QAvqTQO1nZA==}
 
-  '@tanstack/query-core@5.40.0':
-    resolution: {integrity: sha512-eD8K8jsOIq0Z5u/QbvOmfvKKE/XC39jA7yv4hgpl/1SRiU+J8QCIwgM/mEHuunQsL87dcvnHqSVLmf9pD4CiaA==}
+  '@tanstack/query-core@5.44.0':
+    resolution: {integrity: sha512-Fa1J7iEEyJnjXG1N4+Fz4OXNH/INve3XSn0Htms3X4wgRsXHxMDwqBE2XtDCts7swkwSIs4izEtaFqWVFr/eLQ==}
 
   '@tanstack/query-devtools@5.37.1':
     resolution: {integrity: sha512-XcG4IIHIv0YQKrexTqo2zogQWR1Sz672tX2KsfE9kzB+9zhx44vRKH5si4WDILE1PIWQpStFs/NnrDQrBAUQpg==}
 
-  '@tanstack/react-query-devtools@5.40.1':
-    resolution: {integrity: sha512-/AN2UsbuL+28/KSlBkVHq/4chHTEp4l2UWTKWixXbn4pprLQrZGmQTAKN4tYxZDuNwNZY5+Zp67pDfXj+F/UBA==}
+  '@tanstack/react-query-devtools@5.44.0':
+    resolution: {integrity: sha512-dDch88aF36DBLVvrNvpI0dq19lp9pgWVzsEkYzqKcFb260glfhB/EiAT2mvURVM5lqtVQdMMktCsw7AB+Z6Htw==}
     peerDependencies:
-      '@tanstack/react-query': ^5.40.1
+      '@tanstack/react-query': ^5.44.0
       react: ^18 || ^19
 
-  '@tanstack/react-query@5.40.1':
-    resolution: {integrity: sha512-gOcmu+gpFd2taHrrgMM9RemLYYEDYfsCqszxCC0xtx+csDa4R8t7Hr7SfWXQP13S2sF+mOxySo/+FNXJFYBqcA==}
+  '@tanstack/react-query@5.44.0':
+    resolution: {integrity: sha512-zmaD6cw8P2cBOfRHhqRmwvDsAi56gqbiwG2CDR6oQOCXSDOvRagvpP6RUStn+RrfcVUrNjKsxBmrgG6Za8p5zg==}
     peerDependencies:
       react: ^18.0.0
 
@@ -3816,19 +3816,19 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  '@tanstack/query-core@5.40.0': {}
+  '@tanstack/query-core@5.44.0': {}
 
   '@tanstack/query-devtools@5.37.1': {}
 
-  '@tanstack/react-query-devtools@5.40.1(@tanstack/react-query@5.40.1(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)':
+  '@tanstack/react-query-devtools@5.44.0(@tanstack/react-query@5.44.0(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)':
     dependencies:
       '@tanstack/query-devtools': 5.37.1
-      '@tanstack/react-query': 5.40.1(react@19.0.0-rc-f994737d14-20240522)
+      '@tanstack/react-query': 5.44.0(react@19.0.0-rc-f994737d14-20240522)
       react: 19.0.0-rc-f994737d14-20240522
 
-  '@tanstack/react-query@5.40.1(react@19.0.0-rc-f994737d14-20240522)':
+  '@tanstack/react-query@5.44.0(react@19.0.0-rc-f994737d14-20240522)':
     dependencies:
-      '@tanstack/query-core': 5.40.0
+      '@tanstack/query-core': 5.44.0
       react: 19.0.0-rc-f994737d14-20240522
 
   '@types/accepts@1.3.7':
