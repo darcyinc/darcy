@@ -44,7 +44,7 @@
     "next-themes": "0.3.0",
     "react": "19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
-    "react-hook-form": "7.51.5",
+    "react-hook-form": "7.52.0",
     "react-icons": "5.2.1",
     "sonner": "1.5.0",
     "tailwind-merge": "2.3.0",
