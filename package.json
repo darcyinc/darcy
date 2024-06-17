@@ -65,5 +65,5 @@
     "tailwindcss": "4.0.0-alpha.16",
     "typescript": "5.5.0-dev.20240603"
   },
-  "packageManager": "pnpm@9.3.0"
+  "packageManager": "pnpm@9.4.0"
 }
