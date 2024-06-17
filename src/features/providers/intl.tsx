@@ -1,19 +1,9 @@
-import { NextIntlClientProvider, useLocale } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import type { PropsWithChildren } from 'react';
 
 export default async function IntlProvider({ children }: PropsWithChildren) {
-  const locale = useLocale();
+  const messages = await getMessages();
 
-  let messages = {} as Record<string, string>;
-  messages = (
-    (await import(`../../locales/${locale}.json`)) as {
-      default: Record<string, string>;
-    }
-  ).default;
-
-  return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
-    </NextIntlClientProvider>
-  );
+  return <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>;
 }
