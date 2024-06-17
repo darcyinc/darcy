@@ -87,7 +87,7 @@
   "Forms": {
     "EmailAuth": {
       "emailSent": "E-mail enviado com sucesso.",
-      "send": "Enviar e-maiil de verificação",
+      "send": "Enviar e-mail de verificação",
       "Errors": {
         "invalidEmail": "E-mail inválido",
         "errorSending": "Não foi possível finalizar a autenticação."
