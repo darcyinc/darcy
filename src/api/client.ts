@@ -13,6 +13,6 @@ export const apiClient = ky.extend({
     ]
   },
   headers: {
-    Accept: 'application/json',
+    Accept: 'application/json'
   }
 });
