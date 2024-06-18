@@ -2,6 +2,7 @@ import { apiClient } from '@/api/client';
 import { FeedHeader } from '@/components/feed';
 import UserProfilePage from '@/features/pages/user-profile';
 import type { GetUserPostsResponse } from '@/types/api/post';
+import type { ApiResponse } from '@/types/api/responses';
 import type { GetUserResponse } from '@/types/api/user';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -17,19 +18,12 @@ interface HomeProps {
 export default async function Home({ params }: HomeProps) {
   const handle = decodeURIComponent(params.handle);
 
-  if (handle.startsWith('@')) {
-    redirect(`/${handle.replace('@', '')}`);
-  }
+  if (handle.startsWith('@')) redirect(`/${handle.replace('@', '')}`);
 
-  const user = await apiClient.get(`users/${handle}`, {
-    throwHttpErrors: false
-  });
+  const user = await apiClient.get(`users/${handle}`);
+  const { data, error } = (await user.json()) as ApiResponse<GetUserResponse>;
 
-  if (user.status !== 200) {
-    notFound();
-  }
-
-  const data = (await user.json()) as GetUserResponse;
+  if (!data || error || user.status !== 200) notFound();
 
   if (data.private) {
     return (
@@ -56,7 +50,9 @@ export default async function Home({ params }: HomeProps) {
   }
 
   const posts = await apiClient.get(`users/${handle}/posts`);
-  const postsData = (await posts.json()) as GetUserPostsResponse;
+  const { data: postsData, error: postsError } = (await user.json()) as ApiResponse<GetUserPostsResponse>;
+
+  if (!postsData || postsError || posts.status !== 200) notFound();
 
   return (
     <>

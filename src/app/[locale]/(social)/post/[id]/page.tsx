@@ -2,6 +2,7 @@ import { apiClient } from '@/api/client';
 import { FeedHeader, FeedPost, FeedPostComposer } from '@/components/feed';
 import CommentPostFetcher from '@/components/feed/feed-fetcher/comment-post-fetcher';
 import type { GetPostResponse } from '@/types/api/post';
+import type { ApiResponse } from '@/types/api/responses';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -13,15 +14,10 @@ interface PostProps {
 }
 
 export default async function Post({ params }: PostProps) {
-  const post = await apiClient.get(`post/${params.id}`, {
-    throwHttpErrors: false
-  });
+  const post = await apiClient.get(`post/${params.id}`);
+  const { data, error } = (await post.json()) as ApiResponse<GetPostResponse>;
 
-  if (post.status !== 200) {
-    notFound();
-  }
-
-  const data = (await post.json()) as GetPostResponse;
+  if (!data || error || post.status !== 200) notFound();
 
   return (
     <>

@@ -18,5 +18,5 @@ VOLUME ["/.next/cache"]
 RUN pnpm build
 
 # Production
-EXPOSE 3000
+EXPOSE 3001
 CMD ["pnpm", "start"]
