@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
 import type { GetUserPostsResponse } from '@/types/api/post';
+import type { ApiResponse } from '@/types/api/responses';
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query';
-import type { KyResponse } from 'ky';
 import { useEffect } from 'react';
 
 interface UseUserPostsOptions {
@@ -16,23 +16,19 @@ export default function useUserPosts(handle: string, options?: UseUserPostsOptio
   const limit = options?.limit ?? 20;
 
   const fetchPosts = async (page = 1) => {
-    try {
-      const request = await apiClient.get(`users/${handle}/posts?page=${page}&limit=${limit}`);
-      const data = (await request.json()) as GetUserPostsResponse;
-      return data;
-    } catch (err) {
-      const error = err as {
-        name: string;
-        response: KyResponse;
-      };
-      if (error.name === 'HTTPError') {
-        // throw the error code
-        const errorJson = (await error.response.json()) as { error: string };
-        throw new Error(errorJson.error);
+    const request = await apiClient.get(`users/${handle}/posts`, {
+      searchParams: {
+        page,
+        limit
       }
+    });
+    const data = (await request.json()) as ApiResponse<GetUserPostsResponse>;
 
-      throw new Error('unknown_error');
+    if ('error' in data || !data.success) {
+      throw new Error(data.error?.id ?? 'unknown_error');
     }
+
+    return data.data;
   };
 
   const query = useInfiniteQuery({

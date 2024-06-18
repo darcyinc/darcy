@@ -1,27 +1,18 @@
 import { apiClient } from '@/api/client';
 import type { GetPostResponse } from '@/types/api/post';
+import type { ApiResponse } from '@/types/api/responses';
 import { useQuery } from '@tanstack/react-query';
-import type { KyResponse } from 'ky';
 
 export default function usePost(postId: string) {
   const fetchPost = async () => {
-    try {
-      const request = await apiClient.get(`post/${postId}`);
-      const data = (await request.json()) as GetPostResponse;
-      return data;
-    } catch (err) {
-      const error = err as {
-        name: string;
-        response: KyResponse;
-      };
-      if (error.name === 'HTTPError') {
-        // throw the error code
-        const errorJson = (await error.response.json()) as { error: string };
-        throw new Error(errorJson.error);
-      }
+    const request = await apiClient.get(`post/${postId}`);
+    const data = (await request.json()) as ApiResponse<GetPostResponse>;
 
-      throw new Error('unknown_error');
+    if ('error' in data || !data.success) {
+      throw new Error(data.error?.id ?? 'unknown_error');
     }
+
+    return data.data;
   };
 
   const query = useQuery({

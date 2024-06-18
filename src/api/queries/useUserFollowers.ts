@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
+import type { ApiResponse } from '@/types/api/responses';
 import type { GetUserFollowersResponse } from '@/types/api/user';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import type { KyResponse } from 'ky';
 
 interface UseUserFollowersOptions {
   limit?: number;
@@ -12,23 +12,19 @@ export default function useUserFollowers(handle: string, options?: UseUserFollow
   const limit = options?.limit ?? 20;
 
   const fetchFollowers = async (page = 1) => {
-    try {
-      const request = await apiClient.get(`users/${handle}/followers?page=${page}&limit=${limit}`);
-      const data = (await request.json()) as GetUserFollowersResponse;
-      return data;
-    } catch (err) {
-      const error = err as {
-        name: string;
-        response: KyResponse;
-      };
-      if (error.name === 'HTTPError') {
-        // throw the error code
-        const errorJson = (await error.response.json()) as { error: string };
-        throw new Error(errorJson.error);
+    const request = await apiClient.get(`users/${handle}/followers`, {
+      searchParams: {
+        page,
+        limit
       }
+    });
+    const data = (await request.json()) as ApiResponse<GetUserFollowersResponse>;
 
-      throw new Error('unknown_error');
+    if ('error' in data || !data.success) {
+      throw new Error(data.error?.id ?? 'unknown_error');
     }
+
+    return data.data;
   };
 
   const query = useInfiniteQuery({

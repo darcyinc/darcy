@@ -1,27 +1,18 @@
 import { apiClient } from '@/api/client';
+import type { ApiResponse } from '@/types/api/responses';
 import type { GetUserResponse } from '@/types/api/user';
 import { useQuery } from '@tanstack/react-query';
-import type { KyResponse } from 'ky';
 
 export default function useUser(handle: string) {
   const fetchUser = async () => {
-    try {
-      const request = await apiClient.get(`users/${handle}`);
-      const data = (await request.json()) as GetUserResponse;
-      return data;
-    } catch (err) {
-      const error = err as {
-        name: string;
-        response: KyResponse;
-      };
-      if (error.name === 'HTTPError') {
-        // throw the error code
-        const errorJson = (await error.response.json()) as { error: string };
-        throw new Error(errorJson.error);
-      }
+    const request = await apiClient.get(`users/${handle}`);
+    const data = (await request.json()) as ApiResponse<GetUserResponse>;
 
-      throw new Error('unknown_error');
+    if ('error' in data || !data.success) {
+      throw new Error(data.error?.id ?? 'unknown_error');
     }
+
+    return data.data;
   };
 
   const query = useQuery({

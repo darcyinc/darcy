@@ -1,30 +1,17 @@
+import type { ApiResponse } from '@/types/api/responses';
 import { useMutation } from '@tanstack/react-query';
-import type { KyResponse } from 'ky';
 import { apiClient } from '../client';
 
 export default function useFollowUser(handle: string) {
   const followUser = async ({ follow }: { follow: boolean }) => {
-    try {
-      const request = await apiClient[follow ? 'post' : 'delete'](`users/${handle}/follow`);
+    const request = await apiClient[follow ? 'post' : 'delete'](`users/${handle}/follow`);
 
-      if (request.status !== 204) {
-        const data = await request.json();
-        return data;
+    if (request.status !== 204) {
+      const data = (await request.json()) as ApiResponse<null>;
+
+      if ('error' in data || !data.success) {
+        throw new Error(data.error?.id ?? 'unknown_error');
       }
-
-      return;
-    } catch (err) {
-      const error = err as {
-        name: string;
-        response: KyResponse;
-      };
-      if (error.name === 'HTTPError') {
-        // throw the error code
-        const errorJson = (await error.response.json()) as { error: string };
-        throw new Error(errorJson.error);
-      }
-
-      throw new Error('unknown_error');
     }
   };
 

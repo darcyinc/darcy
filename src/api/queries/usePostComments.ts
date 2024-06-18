@@ -1,7 +1,7 @@
 import { apiClient } from '@/api/client';
 import type { GetPostCommentsResponse, GetUserPostsResponse } from '@/types/api/post';
+import type { ApiResponse } from '@/types/api/responses';
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query';
-import type { KyResponse } from 'ky';
 import { useEffect } from 'react';
 
 interface UsePostCommentsOptions {
@@ -14,29 +14,25 @@ export default function usePostComments(postId: string, options?: UsePostComment
   const queryClient = useQueryClient();
   const limit = options?.limit ?? 20;
 
-  const fetchPosts = async (page = 1) => {
-    try {
-      const request = await apiClient.get(`post/${postId}/comments?page=${page}&limit=${limit}`);
-      const data = (await request.json()) as GetPostCommentsResponse;
-      return data;
-    } catch (err) {
-      const error = err as {
-        name: string;
-        response: KyResponse;
-      };
-      if (error.name === 'HTTPError') {
-        // throw the error code
-        const errorJson = (await error.response.json()) as { error: string };
-        throw new Error(errorJson.error);
+  const fetchPostComments = async (page = 1) => {
+    const request = await apiClient.get(`post/${postId}/comments`, {
+      searchParams: {
+        page,
+        limit
       }
+    });
+    const data = (await request.json()) as ApiResponse<GetPostCommentsResponse>;
 
-      throw new Error('unknown_error');
+    if ('error' in data || !data.success) {
+      throw new Error(data.error?.id ?? 'unknown_error');
     }
+
+    return data.data;
   };
 
   const query = useInfiniteQuery({
     queryKey: ['post', postId, 'comments'],
-    queryFn: ({ pageParam }) => fetchPosts(pageParam),
+    queryFn: ({ pageParam }) => fetchPostComments(pageParam),
     initialPageParam: 1,
     getNextPageParam: (lastPage, _allPages, lastPageParam) => {
       if (lastPage.length === 0) {

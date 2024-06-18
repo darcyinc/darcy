@@ -10,7 +10,7 @@
     "start": "PORT=3001 next start",
     "build": "next build",
     "lint": "biome check .",
-    "format": "pnpm run lint --write",
+    "format": "pnpm run lint --write --unsafe",
     "prepare": "husky"
   },
   "engines": {
