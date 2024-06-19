@@ -48,7 +48,7 @@
     "react-icons": "5.2.1",
     "sonner": "1.5.0",
     "tailwind-merge": "2.3.0",
-    "valibot": "0.33.1",
+    "valibot": "0.33.2",
     "zustand": "4.5.2"
   },
   "devDependencies": {
