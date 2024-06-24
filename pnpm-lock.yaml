@@ -99,8 +99,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0
       valibot:
-        specifier: 0.33.3
-        version: 0.33.3
+        specifier: 0.34.0
+        version: 0.34.0
       zustand:
         specifier: 4.5.2
         version: 4.5.2(@types/react@18.3.3)(react@19.0.0-rc-107a2f8c3e-20240617)
@@ -2545,8 +2545,8 @@ packages:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
 
-  valibot@0.33.3:
-    resolution: {integrity: sha512-/fuY1DlX8uiQ7aphlzrrI2DbG0YJk84JMgvz2qKpUIdXRNsS53varfo4voPjSrjUr5BSV2K0miSEJUOlA5fQFg==}
+  valibot@0.34.0:
+    resolution: {integrity: sha512-TELvxO0hEB1/6XjTS5Jfi4dS0oyawA5flxs4/sK/tSUXnlLMiKTMYE6Atuu0a7kvtP3eqPv3yZ80msfM+qMDHA==}
 
   watchpack@2.4.1:
     resolution: {integrity: sha512-8wrBCMtVhqcXP2Sup1ctSkga6uc2Bx0IIvKyT7yTFier5AXHooSI+QyQQAtTb7+E0IUCCKyTFmXqdqgum2XWGg==}
@@ -5062,7 +5062,7 @@ snapshots:
 
   uuid@9.0.1: {}
 
-  valibot@0.33.3: {}
+  valibot@0.34.0: {}
 
   watchpack@2.4.1:
     dependencies:
