@@ -66,8 +66,8 @@ importers:
         specifier: ^1.11.10
         version: 1.11.11
       ky:
-        specifier: 1.3.0
-        version: 1.3.0
+        specifier: 1.4.0
+        version: 1.4.0
       lucide-react:
         specifier: 0.397.0
         version: 0.397.0(react@19.0.0-rc-107a2f8c3e-20240617)
@@ -1928,8 +1928,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  ky@1.3.0:
-    resolution: {integrity: sha512-QUViPXlgP6NKA57IAPff/aZSmRA6qs9wKxlEpayBorwRZG+x2LG7jD4kXh8lnH3q/gkUr64NyZ7kwErUEZJmlw==}
+  ky@1.4.0:
+    resolution: {integrity: sha512-tPhhoGUiEiU/WXR4rt8klIoLdnTtyu+9jVKHd/wauEjYud32jyn63mzKWQweaQrHWxBQtYoVtdcEnYX1LosnFQ==}
     engines: {node: '>=18'}
 
   lightningcss-darwin-arm64@1.25.1:
@@ -4521,7 +4521,7 @@ snapshots:
 
   json5@2.2.3: {}
 
-  ky@1.3.0: {}
+  ky@1.4.0: {}
 
   lightningcss-darwin-arm64@1.25.1:
     optional: true
