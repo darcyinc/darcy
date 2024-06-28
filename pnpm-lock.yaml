@@ -39,8 +39,8 @@ importers:
         specifier: 1.2.1
         version: 1.2.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)
       '@radix-ui/react-tooltip':
-        specifier: 1.1.1
-        version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)
+        specifier: 1.1.2
+        version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)
       '@sentry/nextjs':
         specifier: 8.13.0
         version: 8.13.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.52.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/semantic-conventions@1.25.1)(next@15.0.0-canary.35(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@0.0.0-experimental-938cd9a-20240601)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)(webpack@5.91.0)
@@ -987,8 +987,8 @@ packages:
       '@types/react-dom':
         optional: true
 
-  '@radix-ui/react-tooltip@1.1.1':
-    resolution: {integrity: sha512-LLE8nzNE4MzPMw3O2zlVlkLFid3y9hMUs7uCbSHyKSo+tCN4yMCf+ZCCcfrYgsOC0TiHBPQ1mtpJ2liY3ZT3SQ==}
+  '@radix-ui/react-tooltip@1.1.2':
+    resolution: {integrity: sha512-9XRsLwe6Yb9B/tlnYCPVUd/TFS4J7HuOZW345DCeC6vKIxQGMZdx21RK4VoZauPD5frgkXTYVS5y90L+3YBn4w==}
     peerDependencies:
       '@types/react': '*'
       '@types/react-dom': '*'
@@ -3517,7 +3517,7 @@ snapshots:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
 
-  '@radix-ui/react-tooltip@1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)':
+  '@radix-ui/react-tooltip@1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)':
     dependencies:
       '@radix-ui/primitive': 1.1.0
       '@radix-ui/react-compose-refs': 1.1.0(@types/react@18.3.3)(react@19.0.0-rc-107a2f8c3e-20240617)
