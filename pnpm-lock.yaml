@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: 3.6.0
-        version: 3.6.0(react-hook-form@7.52.0(react@19.0.0-rc-107a2f8c3e-20240617))
+        version: 3.6.0(react-hook-form@7.52.1(react@19.0.0-rc-107a2f8c3e-20240617))
       '@next/bundle-analyzer':
         specifier: 14.2.4
         version: 14.2.4
@@ -87,8 +87,8 @@ importers:
         specifier: 19.0.0-rc-107a2f8c3e-20240617
         version: 19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617)
       react-hook-form:
-        specifier: 7.52.0
-        version: 7.52.0(react@19.0.0-rc-107a2f8c3e-20240617)
+        specifier: 7.52.1
+        version: 7.52.1(react@19.0.0-rc-107a2f8c3e-20240617)
       react-icons:
         specifier: 5.2.1
         version: 5.2.1(react@19.0.0-rc-107a2f8c3e-20240617)
@@ -2243,8 +2243,8 @@ packages:
     peerDependencies:
       react: 19.0.0-rc-107a2f8c3e-20240617
 
-  react-hook-form@7.52.0:
-    resolution: {integrity: sha512-mJX506Xc6mirzLsmXUJyqlAI3Kj9Ph2RhplYhUVffeOQSnubK2uVqBFOBJmvKikvbFV91pxVXmDiR+QMF19x6A==}
+  react-hook-form@7.52.1:
+    resolution: {integrity: sha512-uNKIhaoICJ5KQALYZ4TOaOLElyM+xipord+Ha3crEFhTntdLvWZqVY49Wqd/0GiVCA/f9NjemLeiNPjG7Hpurg==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -2877,9 +2877,9 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@hookform/resolvers@3.6.0(react-hook-form@7.52.0(react@19.0.0-rc-107a2f8c3e-20240617))':
+  '@hookform/resolvers@3.6.0(react-hook-form@7.52.1(react@19.0.0-rc-107a2f8c3e-20240617))':
     dependencies:
-      react-hook-form: 7.52.0(react@19.0.0-rc-107a2f8c3e-20240617)
+      react-hook-form: 7.52.1(react@19.0.0-rc-107a2f8c3e-20240617)
 
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:
@@ -4775,7 +4775,7 @@ snapshots:
       react: 19.0.0-rc-107a2f8c3e-20240617
       scheduler: 0.25.0-rc-107a2f8c3e-20240617
 
-  react-hook-form@7.52.0(react@19.0.0-rc-107a2f8c3e-20240617):
+  react-hook-form@7.52.1(react@19.0.0-rc-107a2f8c3e-20240617):
     dependencies:
       react: 19.0.0-rc-107a2f8c3e-20240617
 
