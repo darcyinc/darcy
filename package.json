@@ -58,7 +58,7 @@
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "autoprefixer": "10.4.19",
-    "babel-plugin-react-compiler": "0.0.0-experimental-938cd9a-20240601",
+    "babel-plugin-react-compiler": "0.0.0",
     "husky": "9.0.11",
     "postcss": "8.4.39",
     "sharp": "^0.33.2",
