@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@hookform/resolvers':
-        specifier: 3.8.0
-        version: 3.8.0(react-hook-form@7.52.1(react@19.0.0-rc-107a2f8c3e-20240617))
+        specifier: 3.9.0
+        version: 3.9.0(react-hook-form@7.52.1(react@19.0.0-rc-107a2f8c3e-20240617))
       '@next/bundle-analyzer':
         specifier: 14.2.4
         version: 14.2.4
@@ -335,8 +335,8 @@ packages:
   '@formatjs/intl-localematcher@0.5.4':
     resolution: {integrity: sha512-zTwEpWOzZ2CiKcB93BLngUX59hQkuZjT2+SAQEscSm52peDW/getsawMcWF1rGRpMCX6D7nSJA3CzJ8gn13N/g==}
 
-  '@hookform/resolvers@3.8.0':
-    resolution: {integrity: sha512-8BY7nM+QhMlGgYOb5Mxa6ZuHRYRvAZJ5LQ7+SxMv1CFGrqvNZajoa1ipEvdnIPllEcQ9R90oBNiRUUi8rj6KPQ==}
+  '@hookform/resolvers@3.9.0':
+    resolution: {integrity: sha512-bU0Gr4EepJ/EQsH/IwEzYLsT/PEj5C0ynLQ4m+GSHS+xKH4TfSelhluTgOaoc4kA5s7eCsQbM4wvZLzELmWzUg==}
     peerDependencies:
       react-hook-form: ^7.0.0
 
@@ -2877,7 +2877,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@hookform/resolvers@3.8.0(react-hook-form@7.52.1(react@19.0.0-rc-107a2f8c3e-20240617))':
+  '@hookform/resolvers@3.9.0(react-hook-form@7.52.1(react@19.0.0-rc-107a2f8c3e-20240617))':
     dependencies:
       react-hook-form: 7.52.1(react@19.0.0-rc-107a2f8c3e-20240617)
 
