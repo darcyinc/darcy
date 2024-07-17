@@ -45,11 +45,11 @@ importers:
         specifier: 8.18.0
         version: 8.18.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.52.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.1(@opentelemetry/api@1.9.0))(next@15.0.0-rc.0(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)(webpack@5.91.0)
       '@tanstack/react-query':
-        specifier: 5.51.4
-        version: 5.51.4(react@19.0.0-rc-107a2f8c3e-20240617)
+        specifier: 5.51.5
+        version: 5.51.5(react@19.0.0-rc-107a2f8c3e-20240617)
       '@tanstack/react-query-devtools':
-        specifier: 5.51.4
-        version: 5.51.4(@tanstack/react-query@5.51.4(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)
+        specifier: 5.51.5
+        version: 5.51.5(@tanstack/react-query@5.51.5(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)
       '@vercel/analytics':
         specifier: 1.3.1
         version: 1.3.1(next@15.0.0-rc.0(@babel/core@7.24.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-107a2f8c3e-20240617(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)
@@ -1273,20 +1273,20 @@ packages:
   '@tailwindcss/postcss@4.0.0-alpha.17':
     resolution: {integrity: sha512-N0DQOSy+5c1/JkKt1yPja5Kb0QqpkYFFEcV5SK+Cnko+ncsDYOesEfIm00qAtb/9S9SWy5PGNHP7s0U21pWGyA==}
 
-  '@tanstack/query-core@5.51.4':
-    resolution: {integrity: sha512-KdXY86vf+1+rUaDkasEgZJx0uTaqJieAFUWECLoic2DNZrH7hqi6WvuTUE+OVRGj+u4PgMwOIv9blb3M5TEkwg==}
+  '@tanstack/query-core@5.51.5':
+    resolution: {integrity: sha512-qovOto6hFet2zA4Pf3cDO+qkOqskO6xP39PlKnr6YKPtjRsePWyZnTaMf59+VnlOLY8gpku1I4WPC4dqBXo4FQ==}
 
   '@tanstack/query-devtools@5.51.1':
     resolution: {integrity: sha512-rehG0WmL3EXER6MAI2uHQia/n0b5c3ZROohpYm7u3G7yg4q+HsfQy6nuAo6uy40NzHUe3FmnfWCZQ0Vb/3lE6g==}
 
-  '@tanstack/react-query-devtools@5.51.4':
-    resolution: {integrity: sha512-D++OQ4+5P4xOZCPUdSn0IhYDSyQb3JJCPSamyFpc33lt3MnKwPIFvZ1XX9vsDbcPY+I/oiE2eD49f7J4qVIkqg==}
+  '@tanstack/react-query-devtools@5.51.5':
+    resolution: {integrity: sha512-Gu2jSgFuCGnD8tGCJpwpkmrQ3F2j13dgxjKRY+yGN7aN5W7Wxo9jEUctlKotGvXDn/iFE/uscTRsE1Au7wBWPQ==}
     peerDependencies:
-      '@tanstack/react-query': ^5.51.4
+      '@tanstack/react-query': ^5.51.5
       react: ^18 || ^19
 
-  '@tanstack/react-query@5.51.4':
-    resolution: {integrity: sha512-GkEZ/AfG+ExLhvTazZ0jTGRmKCGYCZOhVdXjpzjB+jGRfRPCuvQvKNZ3fod4Qa326Nc5E9KOepHXt56aKJTIxA==}
+  '@tanstack/react-query@5.51.5':
+    resolution: {integrity: sha512-jaYYPGF55HT3DSV2NxFHa7zGRUm6LiRENw1rspkzqNiOU93umP5YCdE/l4S61/ZdLnjzwYIM4FU96EQt+imq5Q==}
     peerDependencies:
       react: ^18.0.0
 
@@ -3735,19 +3735,19 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  '@tanstack/query-core@5.51.4': {}
+  '@tanstack/query-core@5.51.5': {}
 
   '@tanstack/query-devtools@5.51.1': {}
 
-  '@tanstack/react-query-devtools@5.51.4(@tanstack/react-query@5.51.4(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)':
+  '@tanstack/react-query-devtools@5.51.5(@tanstack/react-query@5.51.5(react@19.0.0-rc-107a2f8c3e-20240617))(react@19.0.0-rc-107a2f8c3e-20240617)':
     dependencies:
       '@tanstack/query-devtools': 5.51.1
-      '@tanstack/react-query': 5.51.4(react@19.0.0-rc-107a2f8c3e-20240617)
+      '@tanstack/react-query': 5.51.5(react@19.0.0-rc-107a2f8c3e-20240617)
       react: 19.0.0-rc-107a2f8c3e-20240617
 
-  '@tanstack/react-query@5.51.4(react@19.0.0-rc-107a2f8c3e-20240617)':
+  '@tanstack/react-query@5.51.5(react@19.0.0-rc-107a2f8c3e-20240617)':
     dependencies:
-      '@tanstack/query-core': 5.51.4
+      '@tanstack/query-core': 5.51.5
       react: 19.0.0-rc-107a2f8c3e-20240617
 
   '@types/connect@3.4.36':
