@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply mx-auto
+}
+
+.h-screen-no-header {
+  @apply h-[calc(100vh-65px)] lg:h-[calc(100vh-81px)];
+}

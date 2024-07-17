@@ -1,0 +1,47 @@
+{
+  "GenericNotFoundPage": {
+    "friendlyTitle": "Oops...",
+    "description": "We couldn't find the page you were looking for",
+    "backToHome": "Back to home"
+  },
+  "AuthPage": {
+    "Signup": {
+      "Footer": {
+        "ExistingUser": "Already have an account? <link>Sign in</link>."
+      },
+      "friendlyTitle": "Find friends, stay updated, build your community and more",
+      "action": "Sign up"
+    },
+    "Signin": {
+      "Footer": {
+        "NewUser": "Do not have an account yet? <link>Sign up</link>."
+      },
+      "friendlyTitle": "Welcome back!",
+      "action": "Sign in"
+    },
+    "Generic": {
+      "fullName": "Name",
+      "password": "Password",
+      "email": "E-mail address",
+      "recaptcha": "This page is protected by reCAPTCHA and the Google's <privacylink>Privacy Policy</privacylink> and <termslink>Terms of Use</termslink> apply."
+    },
+    "Validations": {
+      "Password": {
+        "min": "Your password must be at least 8 characters",
+        "lowercase": "Your password must contain at least one lowercase letter",
+        "uppercase": "Your password must contain at least one uppercase letter",
+        "number": "Your password must contain at least one number",
+        "special": "Your password must contain at least one special character"
+      },
+      "Email": {
+        "required": "The e-mail field is required",
+        "invalid": "The e-mail field is invalid"
+      },
+      "Name": {
+        "required": "The name field is required",
+        "invalid": "The name field must contain at least 3 characters",
+        "letter": "The name field must contain at least one letter of the alphabet"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+:root {
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  color-scheme: light dark;
+
+  & {
+    body {
+      height: 100%;
+
+      input::placeholder {
+        color: #374151;
+      }
+
+      * {
+        @apply border-zinc-400;
+      }
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+
+  &[data-theme="dark"] {
+    body {
+      * {
+        @apply border-zinc-900;
+      }
+
+      input::placeholder {
+        color: #9ca3af;
+      }
+    }
+  }
+}

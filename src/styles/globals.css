@@ -1,0 +1,26 @@
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* enable animations if user don't prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "GenericNotFoundPage": {
+    "friendlyTitle": "Oops...",
+    "description": "Não encontramos a página que você está procurando",
+    "backToHome": "Voltar para o começo"
+  },
+  "AuthPage": {
+    "Signup": {
+      "Footer": {
+        "ExistingUser": "Já possui uma conta? <link>Faça login</link>."
+      },
+      "friendlyTitle": "Encontre amigos, fique atualizado, construa sua comunidade e mais",
+      "action": "Cadastrar-se"
+    },
+    "Signin": {
+      "Footer": {
+        "NewUser": "Ainda não possui uma conta? <link>Cadastre-se</link>."
+      },
+      "friendlyTitle": "Bem-vindo(a) de volta!",
+      "action": "Entrar"
+    },
+    "Generic": {
+      "fullName": "Nome",
+      "password": "Senha",
+      "email": "Endereço de e-mail",
+      "recaptcha": "Esta página é protegida pelo reCATPCHA e as <privacylink>políticas de privacidade</privacylink> e <termslink>termos de uso</termslink> do Google se aplicam."
+    },
+    "Validations": {
+      "Password": {
+        "min": "Sua senha deve ter pelo menos 8 caracteres",
+        "lowercase": "Sua senha deve conter pelo menos uma letra minúscula",
+        "uppercase": "Sua senha deve conter pelo menos uma letra maiúscula",
+        "number": "Sua senha deve conter pelo menos um número",
+        "special": "Sua senha deve conter pelo menos um caractere especial"
+      },
+      "Email": {
+        "required": "O campo de e-mail é obrigatório",
+        "invalid": "O campo de e-mail é inválido"
+      },
+      "Name": {
+        "required": "O campo de nome é obrigatório",
+        "invalid": "O campo de nome deve conter pelo menos 3 caracteres",
+        "letter": "O campo de nome deve conter ao menos uma letra do alfabeto"
+      }
+    }
+  }
+}
