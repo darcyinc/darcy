@@ -23,7 +23,13 @@
       "fullName": "Nome",
       "password": "Senha",
       "email": "Endereço de e-mail",
-      "recaptcha": "Esta página é protegida pelo reCATPCHA e as <privacylink>políticas de privacidade</privacylink> e <termslink>termos de uso</termslink> do Google se aplicam."
+      "recaptcha": "Esta página é protegida pelo reCATPCHA e as <privacylink>políticas de privacidade</privacylink> e <termslink>termos de uso</termslink> do Google se aplicam.",
+      "Errors": {
+        "unknown": "Ocorreu um erro desconhecido ao tentar efetuar o login. Tente novamente mais tarde.",
+        "incorrect_captcha_or_timeout": "Captcha inválido. Tente novamente.",
+        "email_already_in_use": "O e-mail informado já está em uso",
+        "unknown_user_or_incorrect_password": "Usuário inexistente ou senha inválida"
+      }
     },
     "Validations": {
       "Password": {

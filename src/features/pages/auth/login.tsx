@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { toast } from 'sonner';
 import { type AuthFormFields, type AuthFormFieldsErrors, type AuthFormFieldsValues, validateField } from './_utils';
 
 export default function LoginPageComponent() {
@@ -37,22 +38,30 @@ export default function LoginPageComponent() {
 
     const token = await executeRecaptcha();
 
-    mutation.trigger(
-      { ...(values as Required<AuthFormFieldsValues>), captchaToken: token },
-      {
-        onSuccess: (data) => {
-          localStorage.setItem('_DO_NOT_SHARE_access-token', data.access_token);
-          localStorage.setItem('_DO_NOT_SHARE_refresh-token', data.refresh_token);
+    mutation
+      .trigger({ ...(values as Required<AuthFormFieldsValues>), captchaToken: token })
+      .then((data) => {
+        localStorage.setItem('_DO_NOT_SHARE_access-token', data.access_token);
+        localStorage.setItem('_DO_NOT_SHARE_refresh-token', data.refresh_token);
 
-          user.mutate().then((userData) => {
-            if (!userData) return;
+        user.mutate().then((userData) => {
+          if (!userData) return;
 
-            setCurrentUser({ ...userData, _ready: true });
-            router.replace('/');
-          });
+          setCurrentUser({ ...userData, _ready: true });
+          router.replace('/');
+        });
+      })
+      .catch((error) => {
+        switch (error.message) {
+          case 'unknown_user_or_incorrect_password':
+          case 'incorrect_captcha_or_timeout':
+            toast.error(`Errors.${genericT(error.message)}`);
+            break;
+          default:
+            toast.error('Erro ao tentar realizar login');
+            break;
         }
-      }
-    );
+      });
   };
 
   return (

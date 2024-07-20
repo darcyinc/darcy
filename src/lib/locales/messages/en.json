@@ -23,7 +23,13 @@
       "fullName": "Name",
       "password": "Password",
       "email": "E-mail address",
-      "recaptcha": "This page is protected by reCAPTCHA and the Google's <privacylink>Privacy Policy</privacylink> and <termslink>Terms of Use</termslink> apply."
+      "recaptcha": "This page is protected by reCAPTCHA and the Google's <privacylink>Privacy Policy</privacylink> and <termslink>Terms of Use</termslink> apply.",
+      "Errors": {
+        "unknown": "An unknown error occurred while trying to log in. Please try again later.",
+        "incorrect_captcha_or_timeout": "Incorrect reCAPTCHA response. Please try again.",
+        "email_already_in_use": "E-mail already in use",
+        "unknown_user_or_incorrect_password": "User does not exist or password is incorrect"
+      }
     },
     "Validations": {
       "Password": {

@@ -35,7 +35,7 @@ export default async function Layout({ children }: LayoutProps) {
       <body className="antialiased" style={{ ...inter.style }}>
         <ThemeProvider attribute="data-theme">
           <UserProvider>
-            <Toaster />
+            <Toaster richColors />
             <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
           </UserProvider>
         </ThemeProvider>
