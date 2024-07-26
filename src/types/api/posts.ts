@@ -48,6 +48,9 @@ export interface GetPostResponse extends CreatePostResponse {
   can_reply: boolean;
 }
 
+// the route of this type is only available on the alpha phase.
+export type GetRecentPosts = GetPostResponse[];
+
 interface PostComment extends GetPostResponse {
   comment_visible_to_user: boolean;
 }
