@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "ky": "^1.4.0",
-    "lucide-react": "^0.411.0",
-    "next": "15.0.0-canary.74",
+    "ky": "^1.5.0",
+    "lucide-react": "^0.416.0",
+    "next": "15.0.0-canary.85",
     "next-intl": "^3.17.2",
     "next-themes": "^0.3.0",
     "react": "19.0.0-rc.0",
@@ -30,16 +30,16 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@tailwindcss/typography": "^0.5.13",
-    "@types/node": "^20.14.11",
+    "@types/node": "^20.14.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-modal": "^3.16.3",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.12.10",
-    "husky": "^9.1.1",
-    "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.6",
-    "typescript": "^5.5.3"
+    "husky": "^9.1.3",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4"
   },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
