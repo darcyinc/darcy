@@ -1,6 +1,6 @@
 'use client';
 
-import useSignin from '@/api/mutations/use-login';
+import useLogin from '@/api/mutations/use-login';
 import useUser from '@/api/queries/use-user';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { ArrowRight, Eye, EyeOff, Mail, RectangleEllipsis } from 'lucide-react';
@@ -14,7 +14,7 @@ import { type AuthFormFields, type AuthFormFieldsErrors, type AuthFormFieldsValu
 
 export default function LoginPageComponent() {
   const router = useRouter();
-  const mutation = useSignin();
+  const mutation = useLogin();
   const user = useUser();
   const { setCurrentUser } = useCurrentUser();
   const { executeRecaptcha } = useGoogleReCaptcha();

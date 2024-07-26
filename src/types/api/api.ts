@@ -12,3 +12,8 @@ interface SuccessAPIResponse<T> {
 }
 
 export type ApiResponse<T> = ErrorAPIResponse | SuccessAPIResponse<T>;
+
+export interface ApiPaginatedQuery {
+  limit: number;
+  page: number;
+}

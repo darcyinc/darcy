@@ -1,12 +1,12 @@
 import type { ApiResponse } from '@/types/api/api';
-import type { LoginAccountPayload, LoginAccountResponse } from '@/types/api/auth';
+import type { CreatePostPayload, CreatePostResponse } from '@/types/api/posts';
 import useSWRMutation from 'swr/mutation';
 import { apiClient } from '../client';
 
-export default function useLogin() {
-  const fetcher = async (url: string, { arg }: { arg: LoginAccountPayload }) => {
+export default function useCreatePost() {
+  const fetcher = async (url: string, { arg }: { arg: CreatePostPayload }) => {
     const request = await apiClient.post(url, { json: arg });
-    const data = (await request.json()) as ApiResponse<LoginAccountResponse>;
+    const data = (await request.json()) as ApiResponse<CreatePostResponse>;
 
     if ('error' in data || !data.success) {
       throw new Error(data.error?.id ?? 'unknown_error');
@@ -15,7 +15,7 @@ export default function useLogin() {
     return data.data;
   };
 
-  const mutation = useSWRMutation('auth/signin', fetcher);
+  const mutation = useSWRMutation('posts', fetcher);
 
   return mutation;
 }
