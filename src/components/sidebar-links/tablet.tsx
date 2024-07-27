@@ -13,7 +13,7 @@ export default function MobileSidebarLinks({ activeLink }: SidebarLinksProps) {
   const currentUser = useCurrentUser();
 
   return (
-    <aside className="h-screen flex flex-col items-center py-10 md:pr-4 border-r">
+    <aside className="h-screen flex flex-col items-center p-2 py-10 border-r">
       <nav className="flex flex-col gap-3">
         <Link
           href="#"

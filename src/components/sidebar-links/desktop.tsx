@@ -14,7 +14,7 @@ export default function DesktopSidebarLinks({ activeLink }: SidebarLinksProps) {
 
   return (
     <aside className="h-screen flex flex-col max-w-[281px] w-full p-2 pt-4 border-r">
-      <Link href="/" className="text-white font-semibold mb-10 text-2xl">darcy</Link>
+      <Link href="/" className="font-semibold mb-10 text-2xl">darcy</Link>
 
       <nav className="flex flex-col gap-2">
         <Link

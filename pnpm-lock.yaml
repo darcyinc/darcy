@@ -54,6 +54,9 @@ importers:
       '@types/node':
         specifier: ^20.14.12
         version: 20.14.12
+      '@types/postcss-load-config':
+        specifier: ^3.0.1
+        version: 3.0.1(postcss@8.4.40)
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -383,6 +386,10 @@ packages:
 
   '@types/node@20.14.12':
     resolution: {integrity: sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ==}
+
+  '@types/postcss-load-config@3.0.1':
+    resolution: {integrity: sha512-W/F7myqejNGhK9mkm1u0rZeS4wzRFTwo0ifUv1XKokYN67oRyTucH6R1ttdL95bXD1UJKD/zq5QNlg3vYgfjDg==}
+    deprecated: This is a stub types definition. postcss-load-config provides its own type definitions, so you do not need this installed.
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -1267,6 +1274,13 @@ snapshots:
   '@types/node@20.14.12':
     dependencies:
       undici-types: 5.26.5
+
+  '@types/postcss-load-config@3.0.1(postcss@8.4.40)':
+    dependencies:
+      postcss-load-config: 4.0.2(postcss@8.4.40)
+    transitivePeerDependencies:
+      - postcss
+      - ts-node
 
   '@types/prop-types@15.7.12': {}
 

@@ -1,3 +1,12 @@
+import SidebarLinks from '@/components/sidebar-links';
+import AsideTrending from '@/components/trending/desktop';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <main className="grid grid-cols-1 w-full justify-items-start md:justify-items-center lg:px-2 xl:px-10 md:grid-cols-3">{children}</main>;
+  return (
+    <div className="flex justify-center w-full mx-auto max-w-screen-xl xl:max-w-screen-2xl">
+      <SidebarLinks />
+      {children}
+      <AsideTrending />
+    </div>
+  );
 }
