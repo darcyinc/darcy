@@ -9,11 +9,11 @@ interface SidebarLinksProps {
   activeLink: string;
 }
 
-export default function MobileSidebarLinks({ activeLink }: SidebarLinksProps) {
+export default function TabletSidebarLinks({ activeLink }: SidebarLinksProps) {
   const currentUser = useCurrentUser();
 
   return (
-    <aside className="h-screen flex flex-col items-center p-2 py-10 border-r">
+    <aside className="h-screen flex flex-col items-center p-0 py-10 border-r">
       <nav className="flex flex-col gap-3">
         <Link
           href="#"
@@ -23,7 +23,7 @@ export default function MobileSidebarLinks({ activeLink }: SidebarLinksProps) {
           )}
           data-active={activeLink === 'home'}
         >
-          <House className="size-8" />
+          <House className="size-6" />
         </Link>
         <Link
           href="#"
@@ -33,7 +33,7 @@ export default function MobileSidebarLinks({ activeLink }: SidebarLinksProps) {
           )}
           data-active={activeLink === 'search'}
         >
-          <Search className="size-8" />
+          <Search className="size-6" />
         </Link>
         <Link
           href="#"
@@ -43,7 +43,7 @@ export default function MobileSidebarLinks({ activeLink }: SidebarLinksProps) {
           )}
           data-active={activeLink === 'notifications'}
         >
-          <Bell className="size-8" />
+          <Bell className="size-6" />
         </Link>
         <Link
           href="#"
@@ -53,7 +53,7 @@ export default function MobileSidebarLinks({ activeLink }: SidebarLinksProps) {
           )}
           data-active={activeLink === 'notifications'}
         >
-          <Bookmark className="size-8" />
+          <Bookmark className="size-6" />
         </Link>
         <Link
           href="#"
@@ -63,16 +63,16 @@ export default function MobileSidebarLinks({ activeLink }: SidebarLinksProps) {
           )}
           data-active={activeLink === 'profile'}
         >
-          <User className="size-8" />
+          <User className="size-6" />
         </Link>
       </nav>
 
       {currentUser._ready && currentUser.handle && (
-        <div className="flex items-center gap-2 p-2 cursor-pointer mt-auto rounded-full hover:bg-info/10 active:bg-info/20">
+        <div className="flex items-center gap-2 mx-2 cursor-pointer mt-auto w-8 h-8 rounded-full flex-shrink-0 hover:bg-info/10 active:bg-info/20">
           <img
             src={currentUser.avatar_url ?? 'https://picsum.photos/seed/1/100/100'}
             alt={currentUser.full_name}
-            className="w-10 h-10 rounded-full flex-shrink-0"
+            className="w-full h-full rounded-full flex-shrink-0"
           />
         </div>
       )}

@@ -42,6 +42,7 @@ export interface GetPostResponse extends CreatePostResponse {
     created_at: string;
     updated_at: string;
   };
+  reposted_by: GetPostResponse['author'] | null;
   has_liked: boolean;
   has_reposted: boolean;
   is_following_post_owner: boolean;

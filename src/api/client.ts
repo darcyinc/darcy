@@ -1,7 +1,7 @@
 import ky from 'ky';
 
 export const apiClient = ky.extend({
-  prefixUrl: process.env.NEXT_PUBLIC_API_URL,
+  prefixUrl: process.env.NEXT_PUBLIC_API_URL ?? process.env.API_URL,
   throwHttpErrors: false,
   hooks: {
     beforeRequest: [

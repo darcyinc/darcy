@@ -8,7 +8,7 @@ export default function SidebarLinks() {
         <DesktopSidebarLinks activeLink="" />
       </div>
 
-      <div className="block w-fit lg:hidden">
+      <div className="hidden md:block w-fit lg:hidden">
         <TabletSidebarLinks activeLink="" />
       </div>
     </>
